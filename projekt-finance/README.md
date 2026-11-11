@@ -1,58 +1,114 @@
 # Projekt: Správce osobních financí
 
-> **Rozpracovaný návrh** – zadání se ještě ladí, podrobný plán je zatím v mých poznámkách.
-
-Napíšeš si program, kterému budeš zapisovat příjmy a výdaje a on ti řekne,
+Napíšeš si program, kterému budeš zapisovat příjmy a výdaje. On ti řekne,
 kolik ti zbývá, za co utrácíš nejvíc a jestli držíš rozpočet. Všechno běží
-v terminálu, přesně tak, jak to umíš z lekcí 1–9.
+v terminálu a vystačíš si s tím, co umíš z lekcí 1 až 9.
 
-Projekt je rozdělený na **kroky**. Každý krok má zadání, nápovědu, které věci
-z taháků se hodí, a **testy**, které ti řeknou, že máš hotovo. Začni krokem 1
-a pokračuj svým tempem. Nemusíš stihnout všechno – do kroku 3 by měla dojít
-každá, zbytek je navíc.
+```text
+Správce osobních financí
 
-## Co budeš potřebovat
+1 – výpis transakcí
+2 – zůstatek
+3 – přidat transakci
+4 – odebrat transakci
+5 – přehled měsíce
+6 – rozpočty
+7 – nastavit rozpočet
+8 – graf výdajů
+0 – konec
+Co chceš udělat? 8
+bydleni    ██████████████████████████████   28000 Kč
+jidlo      ████████                          8260 Kč
+doprava    █                                 1100 Kč
+zabava     █                                 1310 Kč
+ostatni    █                                 1290 Kč
+```
 
-- Python a VS Code jako na lekcích.
-- `pytest` na spouštění testů: v terminálu ve VS Code spusť `pip install pytest`
-  (na Windows případně `py -m pip install pytest`).
-- Složku tohoto repozitáře otevřenou ve VS Code (**File → Open Folder**), aby
-  fungoval panel **Testing** (ikona baňky vlevo).
+## Jak to bude probíhat
+
+Projekt je rozdělený na kroky. Začneš malým programem, který umí dvě věci,
+a v každém kroku mu něco přidáš. Nemusíš stihnout všechno. Do kroku 3 by
+měla dojít každá, zbytek je navíc.
+
+| Krok | Co přibude | Co si zopakuješ |
+|---|---|---|
+| [1 – Základ](zadani/krok1_zaklad.md) | výpis transakcí, zůstatek, menu | cykly, podmínky, funkce, čtení ze slovníku |
+| [2 – Přidání a odebrání](zadani/krok2_pridani_a_odebrani.md) | nové transakce, kontrola vstupu | seznamy, řetězce, `while` |
+| [3 – Přehledy](zadani/krok3_prehledy.md) | výdaje podle kategorií, přehled měsíce | slovníky, stavění seznamu |
+| [4 – Rozpočty](zadani/krok4_rozpocty.md) | limity a upozornění na překročení | slovníky, skládání funkcí |
+| [5 – Grafy](zadani/krok5_grafy.md) | sloupcový graf ze znaků | řetězce, `max` |
+| [6 – Uložení do souboru](zadani/krok6_soubory.md) | data přežijí ukončení programu | nové: soubory a JSON |
+| [Bonusy](zadani/bonusy.md) | HTML report, hledání, řazení a další | podle chuti |
+
+Každý krok má stejnou stavbu:
+
+1. **Testy.** Zkopíruješ si je do `test_finance.py`. Budou červené, protože
+   popisují funkce, které ještě nemáš.
+2. **Funkce.** Píšeš je do `finance.py`, dokud testy nezezelenají.
+3. **Menu.** Hotové funkce nabídneš uživatelce v `app.py`.
+
+Zadání říká, co má funkce dělat. Jak to udělá, je na tobě. Hotový kód
+v zadání nenajdeš, najdeš tam odkazy do taháků z lekcí.
 
 ## Soubory
 
 | Soubor | K čemu je |
 |---|---|
-| `finance.py` | **logika** – funkce, které dostanou data a vrátí výsledek; sem píšeš většinu kódu a tohle se testuje |
-| `app.py` | **menu** – `while True`, `input()`, `print()`; jen volá funkce z `finance.py` |
-| `test_finance.py` | testy; ke každému kroku si sem zkopíruješ ty připravené a přidáš vlastní |
-| `data.py` | ukázkové transakce, aby bylo s čím začít a testy měly stejná data |
+| `finance.py` | **logika**: funkce, které dostanou data a vrátí výsledek. Píšeš sem většinu kódu a tyhle funkce se testují. |
+| `app.py` | **menu**: `while True`, `input()` a `print()`. Volá funkce z `finance.py`. Tenhle soubor spouštíš. |
+| `test_finance.py` | testy. V každém kroku si sem zkopíruješ připravené a přidáš vlastní. |
+| `ukazkova_data.py` | ukázkové transakce, kategorie a rozpočty, ať je od začátku s čím pracovat |
+| `finance.json` | stejné transakce uložené v souboru, budeš ho potřebovat až v kroku 6 |
+| `TAHAK.md` | tahák k testům a k souborům |
+
+Proč dva soubory s kódem? Funkce, která se ptá přes `input()` a odpovídá
+přes `print()`, se testovat nedá: test za tebe nic nenapíše na klávesnici
+a nepřečte si obrazovku. Funkci, která dostane data a výsledek vrátí,
+otestuješ na jednom řádku. Proto počítání bydlí ve `finance.py` a povídání
+s uživatelkou v `app.py`.
 
 ## Jak vypadají data
 
-Jedna transakce je slovník, všechny transakce jsou seznam slovníků:
+Jedna transakce je slovník. Všechny transakce jsou seznam slovníků.
 
 ```python
 transakce = [
     {"datum": "2026-11-01", "typ": "prijem", "castka": 32000, "kategorie": "vyplata", "popis": "výplata"},
-    {"datum": "2026-11-02", "typ": "vydaj",  "castka": 15000, "kategorie": "bydleni", "popis": "nájem"},
-    {"datum": "2026-11-03", "typ": "vydaj",  "castka": 250,   "kategorie": "jidlo",   "popis": "oběd"},
+    {"datum": "2026-11-02", "typ": "vydaj", "castka": 14000, "kategorie": "bydleni", "popis": "nájem"},
+    {"datum": "2026-11-04", "typ": "vydaj", "castka": 1630, "kategorie": "jidlo", "popis": "velký nákup"},
 ]
 ```
 
-Částky jsou celé koruny. Datum je text ve tvaru `RRRR-MM-DD` – takhle se dá
-řadit i porovnávat jako obyčejný text.
+- `castka` je v celých korunách a je vždycky kladná. Jestli jde o příjem,
+  nebo výdaj, říká `typ`.
+- `datum` je text ve tvaru `RRRR-MM-DD`. Takhle zapsaná data se dají
+  porovnávat a řadit jako obyčejný text.
+- Typy a kategorie jsou bez háčků a čárek, ať se dobře píšou do `input()`.
 
-## Kroky
+## Než začneš
 
-1. **Základ** – výpis transakcí a zůstatek, menu s volbami 1 / 2 / 0.
-2. **Přidání a odebrání** transakce, kontrola vstupu v cyklu.
-3. **Přehledy** – výdaje podle kategorií, přehled měsíce, největší výdaj.
-4. **Rozpočty** – limit na kategorii, varování při překročení.
-5. **Grafy v terminálu** – sloupce z `█` podle kategorií.
-6. **Uložení do souboru** (JSON) – data přežijí ukončení programu.
+1. V terminálu ve VS Code nainstaluj pytest: `pip install pytest`.
+   Na Windows případně `py -m pip install pytest`.
+2. Ve VS Code měj otevřenou složku celého workshopu (**File → Open Folder**),
+   ne jen jeden soubor.
+3. Otevři panel **Testing** (ikona baňky vlevo) a spusť testy. V
+   `test_finance.py` je jeden a má být zelený. Když je, všechno funguje.
+4. Spusť `app.py`. Má vypsat, kolik transakcí načetl.
+5. Otevři [krok 1](zadani/krok1_zaklad.md).
 
-Bonusy pro rychlé: HTML report do prohlížeče, hledání v popisu, řazení podle
-částky, cíl spoření, opakující se platby, export do CSV, krok zpět…
+## Když se zasekneš
 
-*(Podrobná zadání kroků, nápovědy a testy doplním.)*
+1. Přečti si chybovou hlášku odspodu. Tahák L7.
+2. Podívej se do nápovědy na konci zadání a do taháku, na který odkazuje.
+3. Zeptej se kolegyně ve dvojici nebo u stolu.
+4. Zavolej kouče.
+
+Když ti některý krok nejde dokončit a nechceš na něm strávit zbytek dne,
+řekni kouči. Dostaneš hotové řešení toho kroku a budeš pokračovat dalším.
+Nikdo nemusí zůstat stát.
+
+## Co s tím dál
+
+Na závěrečném workshopu se k podobnému programu můžeš vrátit a přidat mu
+to, co se naučíš v dalších lekcích: transakci jako třídu, načtení výpisu
+z banky ze souboru CSV a ošetření chyb přes výjimky.

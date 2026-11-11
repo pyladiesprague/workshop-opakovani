@@ -11,5 +11,11 @@ Výukové materiály k jednotlivým lekcím najdeš v repozitáři
 Nahoře klikni na zelené tlačítko **Code** → **Download ZIP**. Stažený archiv
 rozbal a složku otevři ve VS Code (**File → Open Folder**).
 
+## Projekty
+
+| Složka | Projekt |
+|---|---|
+| [`projekt-finance/`](projekt-finance/README.md) | Správce osobních financí: příjmy, výdaje, rozpočty a grafy v terminálu |
+
 Obsah sem přidávají koučové. Pokud chceš navrhnout úpravu, vytvoř si fork
 a pošli pull request.
