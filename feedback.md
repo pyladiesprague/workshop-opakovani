@@ -6,3 +6,5 @@
 - reseni branch je jen pro kouce - zakum to nepujde (az pod hodine)
 - na konci workshopu bude prezentace kdo co udelal - rict jim to na zacatku a dat za to achiemevent
 - libi se nam napoveda k taskum jako samostatny soubor ve samostatne slozce - pouzijeme to i u normalnich materialu
+- pridat cisteni terminalu jako bonus tam kde neni
+- soubor s bulletpoints s dalsima napadama k rozsireni bez reseni - napr high scores, obtiznosti, ...
