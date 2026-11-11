@@ -38,7 +38,7 @@ měla dojít každá, zbytek je navíc.
 | [4 – Rozpočty](zadani/krok4_rozpocty.md) | limity a upozornění na překročení | slovníky, skládání funkcí |
 | [5 – Grafy](zadani/krok5_grafy.md) | sloupcový graf ze znaků | řetězce, `max` |
 | [6 – Uložení do souboru](zadani/krok6_soubory.md) | data přežijí ukončení programu | nové: soubory a JSON |
-| [Bonusy](zadani/bonusy.md) | HTML report, hledání, řazení a další | podle chuti |
+| [Bonusy](zadani/bonusy.md) | barvy v terminálu, HTML report, hledání, řazení a další | podle chuti |
 
 Každý krok má stejnou stavbu:
 
