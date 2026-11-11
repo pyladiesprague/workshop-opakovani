@@ -1,6 +1,6 @@
-# Řešení – krok {KROK}: Správce osobních financí – logika
+# Řešení – {TITULEK}: Správce osobních financí – logika
 # Tvoje řešení může vypadat jinak, a to je v pořádku.
-#@ 6
+#@ 6+
 
 import json
 #@ vse
@@ -127,7 +127,7 @@ def sloupec(hodnota, nejvyssi, sirka):
         # I malá částka má být v grafu vidět.
         delka = 1
     return "█" * delka
-#@ 6
+#@ 6+
 
 
 def uloz(transakce, cesta):
@@ -138,3 +138,20 @@ def uloz(transakce, cesta):
 def nacti(cesta):
     with open(cesta, encoding="utf-8") as soubor:
         return json.load(soubor)
+#@ 7
+
+
+# Kódy, kterými se terminálu říká, jakou barvou má psát.
+BARVY = {
+    "cervena": "\033[31m",
+    "zelena": "\033[32m",
+    "zluta": "\033[33m",
+    "tyrkysova": "\033[36m",
+    "tucne": "\033[1m",
+}
+KONEC_BARVY = "\033[0m"
+
+
+def obarvi(text, barva):
+    # Bez kódu pro konec by zůstalo obarvené i všechno, co se vypíše potom.
+    return BARVY[barva] + text + KONEC_BARVY

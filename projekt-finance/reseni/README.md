@@ -27,12 +27,17 @@ předtím někam schovej, ať se k nim můžeš vrátit.
 
 ## Bonusy
 
-Ve složce `bonusy/` jsou řešení prvních tří bonusů. Každý soubor jde
-spustit samostatně. Ostatní bonusy řešení nemají, jsou to otevřené úlohy.
+Ve složce `bonusy/` jsou řešení prvních čtyř bonusů. Ostatní bonusy
+řešení nemají, jsou to otevřené úlohy.
+
+- `bonus1_barvy/` je celý projekt po kroku 6 s barevným výstupem. Hodí se
+  i na ukázku na začátku dne, co se bude stavět.
+- `bonus2_html_report.py`, `bonus3_hledani.py` a `bonus4_razeni.py` jsou
+  samostatné soubory, každý jde spustit zvlášť.
 
 ## Pro kouče
 
-- Složky `krok1/` až `krok6/` se generují z předlohy v `_predloha/`.
+- Složky `krok1/` až `krok6/` a `bonusy/bonus1_barvy/` se generují z předlohy v `_predloha/`.
   Ručně je neupravuj. Uprav `_predloha/finance.py` nebo `_predloha/app.py`
   a spusť `python _predloha/sestav.py`. Jak fungují značky `#@`, je
   popsané na začátku skriptu.

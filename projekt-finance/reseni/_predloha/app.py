@@ -1,4 +1,4 @@
-# Řešení – krok {KROK}: Správce osobních financí – menu
+# Řešení – {TITULEK}: Správce osobních financí – menu
 # Tvoje řešení může vypadat jinak, a to je v pořádku.
 
 from finance import zustatek
@@ -12,16 +12,24 @@ from finance import vydaje_podle_kategorie, transakce_za_mesic, nejvetsi_vydaj
 from finance import zbyva_v_rozpoctu, prekrocene_rozpocty
 #@ 5+
 from finance import sloupec
-#@ 6
+#@ 6+
 from finance import uloz, nacti
+#@ 7
+from finance import obarvi
 #@ vse
 from ukazkova_data import transakce  #@1
 from ukazkova_data import transakce, KATEGORIE  #@2-3
 from ukazkova_data import transakce, KATEGORIE, rozpocty  #@4-5
-from ukazkova_data import KATEGORIE, rozpocty  #@6
-#@ 6
+from ukazkova_data import KATEGORIE, rozpocty  #@6+
+#@ 6+
 
 SOUBOR = "finance.json"
+#@ 7
+
+
+def upozorni(text):
+    # Hlášky o špatném vstupu jsou žluté, ať nezapadnou.
+    print(obarvi(text, "zluta"))
 #@ vse
 
 
@@ -31,10 +39,24 @@ def vypis(transakce):
     for cislo, t in enumerate(transakce, start=1):
         if t["typ"] == "prijem":
             znamenko = "+"
+            barva = "zelena"  #@7
         else:
             znamenko = "-"
-        zacatek = f"{cislo:3}. {t['datum']}  {znamenko}{t['castka']:6} Kč"
-        print(f"{zacatek}  {t['kategorie']:8} {t['popis']}")
+            barva = "cervena"  #@7
+        zacatek = f"{cislo:3}. {t['datum']}  {znamenko}{t['castka']:6} Kč"  #@1-6
+        print(f"{zacatek}  {t['kategorie']:8} {t['popis']}")  #@1-6
+        # Nejdřív zarovnat, potom obarvit. Kódy barev by se počítaly do šířky.  #@7
+        castka = obarvi(f"{znamenko}{t['castka']:6} Kč", barva)  #@7
+        print(f"{cislo:3}. {t['datum']}  {castka}  {t['kategorie']:8} {t['popis']}")  #@7
+#@ 7
+
+
+def vypis_zustatek(transakce):
+    castka = zustatek(transakce)
+    if castka < 0:
+        print(obarvi(f"Zůstatek: {castka} Kč", "cervena"))
+    else:
+        print(obarvi(f"Zůstatek: {castka} Kč", "zelena"))
 #@ 2+
 
 
@@ -43,7 +65,8 @@ def zeptej_se_na_datum():
         text = input("Datum (RRRR-MM-DD): ").strip()
         if je_platne_datum(text):
             return text
-        print("Datum napiš jako RRRR-MM-DD, třeba 2026-11-21.")
+        print("Datum napiš jako RRRR-MM-DD, třeba 2026-11-21.")  #@2-6
+        upozorni("Datum napiš jako RRRR-MM-DD, třeba 2026-11-21.")  #@7
 
 
 def zeptej_se_na_castku():
@@ -51,7 +74,8 @@ def zeptej_se_na_castku():
         text = input("Částka v Kč: ").strip()
         if je_platna_castka(text):
             return int(text)
-        print("Částka musí být celé kladné číslo.")
+        print("Částka musí být celé kladné číslo.")  #@2-6
+        upozorni("Částka musí být celé kladné číslo.")  #@7
 
 
 def zeptej_se_na_popis():
@@ -59,7 +83,8 @@ def zeptej_se_na_popis():
         text = input("Popis: ").strip()
         if text != "":
             return text
-        print("Popis nesmí být prázdný.")
+        print("Popis nesmí být prázdný.")  #@2-6
+        upozorni("Popis nesmí být prázdný.")  #@7
 
 
 def vyber_z_moznosti(otazka, moznosti):
@@ -67,7 +92,8 @@ def vyber_z_moznosti(otazka, moznosti):
         text = input(otazka).strip().lower()
         if text in moznosti:
             return text
-        print(f"Vyber jednu z možností: {', '.join(moznosti)}.")
+        print(f"Vyber jednu z možností: {', '.join(moznosti)}.")  #@2-6
+        upozorni(f"Vyber jednu z možností: {', '.join(moznosti)}.")  #@7
 
 
 def pridej(transakce):  #@2-3
@@ -78,7 +104,8 @@ def pridej(transakce, rozpocty):  #@4+
     kategorie = vyber_z_moznosti(f"Kategorie ({', '.join(KATEGORIE)}): ", KATEGORIE)
     popis = zeptej_se_na_popis()
     pridej_transakci(transakce, datum, typ, castka, kategorie, popis)
-    print("Přidáno.")
+    print("Přidáno.")  #@2-6
+    print(obarvi("Přidáno.", "zelena"))  #@7
     #@ 4+
 
     if typ == "vydaj" and kategorie in rozpocty:
@@ -86,7 +113,9 @@ def pridej(transakce, rozpocty):  #@4+
         v_mesici = transakce_za_mesic(transakce, mesic)
         zbyva = zbyva_v_rozpoctu(v_mesici, rozpocty, kategorie)
         if zbyva < 0:
-            print(f"Pozor, rozpočet na {kategorie} za {mesic} je překročený o {-zbyva} Kč.")
+            print(f"Pozor, rozpočet na {kategorie} za {mesic} je překročený o {-zbyva} Kč.")  #@4-6
+            text = f"Pozor, rozpočet na {kategorie} za {mesic} je překročený o {-zbyva} Kč."  #@7
+            print(obarvi(text, "cervena"))  #@7
     #@ 2+
 
 
@@ -96,11 +125,13 @@ def odeber(transakce):
     if text.isdigit():
         odebrana = odeber_transakci(transakce, int(text))
         if odebrana is None:
-            print("Transakce s tímhle číslem neexistuje.")
+            print("Transakce s tímhle číslem neexistuje.")  #@2-6
+            upozorni("Transakce s tímhle číslem neexistuje.")  #@7
         else:
             print(f"Odebráno: {odebrana['popis']} ({odebrana['castka']} Kč)")
     else:
-        print("To není číslo.")
+        print("To není číslo.")  #@2-6
+        upozorni("To není číslo.")  #@7
 #@ 3+
 
 
@@ -110,7 +141,8 @@ def zeptej_se_na_mesic():
         # Měsíc je platný, když je platné datum jeho prvního dne.
         if je_platne_datum(text + "-01"):
             return text
-        print("Měsíc napiš jako RRRR-MM, třeba 2026-11.")
+        print("Měsíc napiš jako RRRR-MM, třeba 2026-11.")  #@3-6
+        upozorni("Měsíc napiš jako RRRR-MM, třeba 2026-11.")  #@7
 
 
 def prehled_mesice(transakce):
@@ -119,12 +151,15 @@ def prehled_mesice(transakce):
     if len(v_mesici) == 0:
         print("V tomhle měsíci nejsou žádné transakce.")
     else:
-        print(f"Příjmy: {soucet_prijmu(v_mesici):7} Kč")
-        print(f"Výdaje: {soucet_vydaju(v_mesici):7} Kč")
+        print(f"Příjmy: {soucet_prijmu(v_mesici):7} Kč")  #@3-6
+        print(f"Výdaje: {soucet_vydaju(v_mesici):7} Kč")  #@3-6
+        print(obarvi(f"Příjmy: {soucet_prijmu(v_mesici):7} Kč", "zelena"))  #@7
+        print(obarvi(f"Výdaje: {soucet_vydaju(v_mesici):7} Kč", "cervena"))  #@7
         print(f"Rozdíl: {zustatek(v_mesici):7} Kč")
 
         print()
-        print("Výdaje podle kategorií:")
+        print("Výdaje podle kategorií:")  #@3-6
+        print(obarvi("Výdaje podle kategorií:", "tucne"))  #@7
         for kategorie, castka in vydaje_podle_kategorie(v_mesici).items():
             print(f"  {kategorie:10} {castka:6} Kč")
 
@@ -144,14 +179,17 @@ def ukaz_rozpocty(transakce, rozpocty):
         zbyva = zbyva_v_rozpoctu(v_mesici, rozpocty, kategorie)
         utraceno = limit - zbyva
         if zbyva < 0:
-            stav = f"překročeno o {-zbyva} Kč"
+            stav = f"překročeno o {-zbyva} Kč"  #@4-6
+            stav = obarvi(f"překročeno o {-zbyva} Kč", "cervena")  #@7
         else:
-            stav = f"zbývá {zbyva} Kč"
+            stav = f"zbývá {zbyva} Kč"  #@4-6
+            stav = obarvi(f"zbývá {zbyva} Kč", "zelena")  #@7
         print(f"  {kategorie:10} {utraceno:6} / {limit:6} Kč   {stav}")
 
     prekrocene = prekrocene_rozpocty(v_mesici, rozpocty)
     if len(prekrocene) > 0:
-        print(f"Překročené rozpočty: {', '.join(prekrocene)}")
+        print(f"Překročené rozpočty: {', '.join(prekrocene)}")  #@4-6
+        print(obarvi(f"Překročené rozpočty: {', '.join(prekrocene)}", "cervena"))  #@7
 
 
 def nastav_rozpocet(rozpocty):
@@ -170,14 +208,18 @@ def graf(transakce):
         nejvyssi = max(soucty.values())
         for kategorie, castka in soucty.items():
             cara = sloupec(castka, nejvyssi, 30)
-            print(f"{kategorie:10} {cara:30} {castka:7} Kč")
+            print(f"{kategorie:10} {cara:30} {castka:7} Kč")  #@5-6
+            # Sloupec se musí zarovnat na 30 znaků dřív, než se obarví.  #@7
+            cara = obarvi(f"{cara:30}", "tyrkysova")  #@7
+            print(f"{kategorie:10} {cara} {castka:7} Kč")  #@7
 #@ vse
 
 
-#@ 6
+#@ 6+
 transakce = nacti(SOUBOR)
 #@ vse
-print("Správce osobních financí")
+print("Správce osobních financí")  #@1-6
+print(obarvi("Správce osobních financí", "tucne"))  #@7
 
 while True:
     print()
@@ -195,19 +237,20 @@ while True:
     if volba == "1":
         vypis(transakce)
     elif volba == "2":
-        print(f"Zůstatek: {zustatek(transakce)} Kč")
+        print(f"Zůstatek: {zustatek(transakce)} Kč")  #@1-6
+        vypis_zustatek(transakce)  #@7
     #@ 2-3
     elif volba == "3":
         pridej(transakce)
     #@ 4+
     elif volba == "3":
         pridej(transakce, rozpocty)
-    #@ 6
+    #@ 6+
         uloz(transakce, SOUBOR)
     #@ 2+
     elif volba == "4":
         odeber(transakce)
-    #@ 6
+    #@ 6+
         uloz(transakce, SOUBOR)
     #@ 3+
     elif volba == "5":
@@ -225,4 +268,5 @@ while True:
         print("Ahoj!")
         break
     else:
-        print("Tuhle volbu neznám.")
+        print("Tuhle volbu neznám.")  #@1-6
+        upozorni("Tuhle volbu neznám.")  #@7

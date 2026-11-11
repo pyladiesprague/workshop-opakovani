@@ -2,7 +2,8 @@
 
 Spuštění:  python sestav.py
 
-Předloha (finance.py a app.py v této složce) obsahuje kód všech kroků.
+Předloha (finance.py a app.py v této složce) obsahuje kód všech kroků
+a jako "krok 7" i obarvenou verzi z bonusu Barvy v terminálu.
 Značky říkají, do kterých kroků řádek patří:
 
     #@ 3+        samostatný řádek: všechno pod ním patří do kroku 3 a dalších
@@ -13,9 +14,10 @@ Značky říkají, do kterých kroků řádek patří:
 Testy se berou ze zadání: do test_finance.py kroku N se za startovní soubor
 přidají bloky s testy ze zadani/krok1_*.md až zadani/krokN_*.md. Řešení se
 tak vždycky ověřuje proti testům, které účastnice opravdu dostanou.
+Obarvená verze má navíc testy z testy_barvy.py.
 
-Výsledek se zapíše do ../krok1 až ../krok6. Ty složky ručně neupravuj,
-uprav předlohu a spusť skript znovu.
+Výsledek se zapíše do ../krok1 až ../krok6 a ../bonusy/bonus1_barvy.
+Ty složky ručně neupravuj, uprav předlohu a spusť skript znovu.
 """
 
 import re
@@ -26,6 +28,7 @@ PREDLOHA = Path(__file__).resolve().parent
 RESENI = PREDLOHA.parent
 PROJEKT = RESENI.parent
 POCET_KROKU = 6
+KROK_BARVY = 7
 
 
 def plati(rozsah, krok):
@@ -37,7 +40,7 @@ def plati(rozsah, krok):
     return krok == int(rozsah)
 
 
-def vyber_krok(text, krok):
+def vyber_krok(text, krok, titulek):
     radky = []
     blok = None
     for radek in text.splitlines():
@@ -57,7 +60,11 @@ def vyber_krok(text, krok):
 
     vysledek = "\n".join(radky) + "\n"
     vysledek = re.sub(r"\n{4,}", "\n\n\n", vysledek)
-    return vysledek.replace("{KROK}", str(krok))
+    return vysledek.replace("{TITULEK}", titulek)
+
+
+def pridej_testy(text, testy):
+    return text.rstrip("\n") + "\n\n\n" + testy.strip("\n") + "\n"
 
 
 def testy_do_kroku(krok):
@@ -69,7 +76,7 @@ def testy_do_kroku(krok):
         obsah = zadani[0].read_text(encoding="utf-8")
         for blok in re.findall(r"```python\n(.*?)```", obsah, flags=re.DOTALL):
             if "def test_" in blok:
-                text = text.rstrip("\n") + "\n\n\n" + blok.strip("\n") + "\n"
+                text = pridej_testy(text, blok)
     return text
 
 
@@ -77,21 +84,32 @@ def zapis(cesta, text):
     cesta.write_text(text, encoding="utf-8", newline="\n")
 
 
+def sestav(slozka, krok, titulek, testy):
+    slozka.mkdir(parents=True, exist_ok=True)
+    for jmeno in ["finance.py", "app.py"]:
+        predloha = (PREDLOHA / jmeno).read_text(encoding="utf-8")
+        zapis(slozka / jmeno, vyber_krok(predloha, krok, titulek))
+    zapis(slozka / "test_finance.py", testy)
+    # Aby šla složka použít samostatně, třeba jako startovní bod dalšího kroku.
+    shutil.copyfile(PROJEKT / "ukazkova_data.py", slozka / "ukazkova_data.py")
+    if krok >= POCET_KROKU:
+        shutil.copyfile(PROJEKT / "finance.json", slozka / "finance.json")
+    print(f"{slozka.relative_to(RESENI).as_posix()}: hotovo")
+
+
 def main():
     for krok in range(1, POCET_KROKU + 1):
-        slozka = RESENI / f"krok{krok}"
-        slozka.mkdir(exist_ok=True)
-        for jmeno in ["finance.py", "app.py"]:
-            predloha = (PREDLOHA / jmeno).read_text(encoding="utf-8")
-            zapis(slozka / jmeno, vyber_krok(predloha, krok))
-        zapis(slozka / "test_finance.py", testy_do_kroku(krok))
-        # Aby šla složka použít samostatně jako startovní bod dalšího kroku.
-        shutil.copyfile(PROJEKT / "ukazkova_data.py", slozka / "ukazkova_data.py")
-        if krok == POCET_KROKU:
-            shutil.copyfile(PROJEKT / "finance.json", slozka / "finance.json")
-        print(f"krok{krok}: hotovo")
+        sestav(RESENI / f"krok{krok}", krok, f"krok {krok}", testy_do_kroku(krok))
 
-    # Řešení bonusů se píšou ručně, jen potřebují mít data vedle sebe.
+    testy_barvy = (PREDLOHA / "testy_barvy.py").read_text(encoding="utf-8")
+    sestav(
+        RESENI / "bonusy" / "bonus1_barvy",
+        KROK_BARVY,
+        "bonus 1, Barvy v terminálu",
+        pridej_testy(testy_do_kroku(POCET_KROKU), testy_barvy),
+    )
+
+    # Ostatní řešení bonusů se píšou ručně, jen potřebují mít data vedle sebe.
     shutil.copyfile(PROJEKT / "ukazkova_data.py", RESENI / "bonusy" / "ukazkova_data.py")
 
 
