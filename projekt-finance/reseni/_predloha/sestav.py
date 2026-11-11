@@ -2,14 +2,26 @@
 
 Spuštění:  python sestav.py
 
-Předloha (finance.py a app.py v této složce) obsahuje kód všech kroků
-a jako "krok 7" i obarvenou verzi z bonusu Barvy v terminálu.
+Předloha jsou soubory finance.py a app.py v této složce. Obsahují kód všech
+kroků a jako "krok 7" i obarvenou verzi z bonusu Barvy v terminálu.
+
+Předloha sama je platný Python a jde spustit (python app.py): chová se jako
+nejúplnější verze, tedy krok 6 s barvami. Data si bere z ukazkova_data.py
+a finance.json v této složce; obojí sem tento skript kopíruje z projektu.
+
 Značky říkají, do kterých kroků řádek patří:
 
-    #@ 3+        samostatný řádek: všechno pod ním patří do kroku 3 a dalších
-    #@ 2-4       samostatný řádek: všechno pod ním patří do kroků 2 až 4
-    #@ vse       samostatný řádek: všechno pod ním patří do všech kroků
-    kód  #@6     značka na konci řádku platí jen pro ten jeden řádek
+    #@ 3+            samostatný řádek: všechno pod ním patří do kroku 3 a dalších
+    #@ 2-4           samostatný řádek: všechno pod ním patří do kroků 2 až 4
+    #@ vse           samostatný řádek: všechno pod ním patří do všech kroků
+    #@ 0             samostatný řádek: všechno pod ním je jen pro předlohu
+    kód  #@6+        značka na konci řádku platí jen pro ten jeden řádek
+    #@2-6| kód       řádek, který do nejúplnější verze nepatří; v předloze je
+                     komentář, do kroků 2 až 6 se zapíše jako kód se stejným
+                     odsazením, jaké má značka
+
+Řádek, který se mezi kroky liší, je tedy v předloze dvakrát pod sebou:
+starší podoba jako "#@1-6| ..." a nejnovější jako kód se značkou "#@7".
 
 Testy se berou ze zadání: do test_finance.py kroku N se za startovní soubor
 přidají bloky s testy ze zadani/krok1_*.md až zadani/krokN_*.md. Řešení se
@@ -44,16 +56,23 @@ def vyber_krok(text, krok, titulek):
     radky = []
     blok = None
     for radek in text.splitlines():
+        # Samostatná značka přepíná rozsah pro další řádky.
         znacka = re.fullmatch(r"\s*#@ (\S+)", radek)
         if znacka:
             blok = None if znacka.group(1) == "vse" else znacka.group(1)
             continue
 
         rozsah = blok
-        znacka = re.search(r"\s+#@(\S+)$", radek)
-        if znacka:
-            rozsah = znacka.group(1)
-            radek = radek[: znacka.start()]
+        # Zakomentovaný řádek starší podoby: "    #@2-6| kód".
+        stary = re.fullmatch(r"(\s*)#@(\S+)\| ?(.*)", radek)
+        if stary:
+            rozsah = stary.group(2)
+            radek = stary.group(1) + stary.group(3)
+        else:
+            znacka = re.search(r"\s+#@(\S+)$", radek)
+            if znacka:
+                rozsah = znacka.group(1)
+                radek = radek[: znacka.start()]
 
         if rozsah is None or plati(rozsah, krok):
             radky.append(radek)
@@ -98,6 +117,10 @@ def sestav(slozka, krok, titulek, testy):
 
 
 def main():
+    # Data pro předlohu samotnou, aby šla spustit. Přepíšou se čistou kopií.
+    shutil.copyfile(PROJEKT / "ukazkova_data.py", PREDLOHA / "ukazkova_data.py")
+    shutil.copyfile(PROJEKT / "finance.json", PREDLOHA / "finance.json")
+
     for krok in range(1, POCET_KROKU + 1):
         sestav(RESENI / f"krok{krok}", krok, f"krok {krok}", testy_do_kroku(krok))
 

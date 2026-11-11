@@ -41,6 +41,9 @@ Ve složce `bonusy/` jsou řešení prvních čtyř bonusů. Ostatní bonusy
   Ručně je neupravuj. Uprav `_predloha/finance.py` nebo `_predloha/app.py`
   a spusť `python _predloha/sestav.py`. Jak fungují značky `#@`, je
   popsané na začátku skriptu.
+- Předloha sama jde spustit (`python _predloha/app.py`) a chová se jako
+  nejúplnější verze, tedy krok 6 s barvami. Změnu si tak vyzkoušíš dřív,
+  než z ní necháš sestavit kroky.
 - Testy v `krokN/test_finance.py` skript bere přímo ze zadání
   (`zadani/krokN_*.md`). Když změníš testy v zadání, spusť ho taky.
 - Ověření všech kroků: v každé složce `krokN/` spusť `python -m pytest`.
