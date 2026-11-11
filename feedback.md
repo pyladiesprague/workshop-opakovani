@@ -5,6 +5,7 @@
 - zadani bonusu rozdelit na samostatne soubory ne vse
 - reseni branch je jen pro kouce - zakum to nepujde (az pod hodine)
 - na konci workshopu bude prezentace kdo co udelal - rict jim to na zacatku a dat za to achiemevent
-- libi se nam napoveda k taskum jako samostatny soubor ve samostatne slozce - pouzijeme to i u normalnich materialu
+- libi se nam napoveda k taskum jako samostatny soubor ve samostatne slozce - pouzijeme to i u normalnich materialu - bude tam rovnou na rozdil od reseni
 - pridat cisteni terminalu jako bonus tam kde neni
 - soubor s bulletpoints s dalsima napadama k rozsireni bez reseni - napr high scores, obtiznosti, ...
+- pridat k titaniku taky grafy jako u financi?
