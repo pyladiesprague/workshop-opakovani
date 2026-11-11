@@ -246,6 +246,7 @@ Order: project-specific work first, repo-wide changes after.
       one, finance keeps its notes in `reseni/README.md`, Wordle has none.
 - [ ] Update the workshop design doc: pytest, ten Wordle steps as decided, and the
       dropped rule that anyone stuck can catch up from a solution (D5).
+- [ ] Delete `TODO-format.md` from `main` before the workshop.
 - [ ] Final pass for one style across projects (feedback): headings, tables,
       line wrapping, how the participant is addressed.
 
