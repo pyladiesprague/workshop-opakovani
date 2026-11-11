@@ -111,13 +111,13 @@ Branch `reseni` (one for all projects) is `main` plus:
 Status on 11 Nov: Tomas has chosen on all twelve. Vojtěch reviews them and writes
 his feedback into this file.
 
-**D1. Test tool. Tomas: pytest.**
+**D1. Test tool. Tomas, Vojta: pytest.**
 Plain functions and `assert`, no `class` or `self` to explain, clearer failure
 output, already configured at the root. The cost is `pip install pytest`: ask
 participants to install it before the workshop and keep five minutes for it at
 the start. Titanic bonus 3 needs `pip` anyway.
 
-**D2. Which folder a participant opens in VS Code. Tomas: the repo root.**
+**D2. Which folder a participant opens in VS Code. Tomas, Vojta: the repo root.**
 Reason: switching between projects is easy, Git works with no prompt, and there
 is one settings file. This differs from my first suggestion (project folder).
 Opening the root has one cost, the red tests of other projects, and it is solved
@@ -131,17 +131,17 @@ like this:
 - READMEs show how to run only your own project's tests in the Testing panel.
 - Per-project `.vscode` folders are removed; the root one is the only one.
 
-**D3. How participants get the repo and save work. Tomas: fork and clone.**
+**D3. How participants get the repo and save work. Tomas, Vojta: fork and clone.**
 The fork dialog copies only `main` by default, so the solutions branch does not
 come along. Download ZIP stays as the fallback for anyone whose Git setup
 fails. Every step in all three projects ends with the same Commit and Sync line.
 Saving to GitHub is taught before 21 Nov.
 
-**D4. `moje_hra/` and `moje_analyza/`. Tomas: flatten.**
+**D4. `moje_hra/` and `moje_analyza/`. Tomas, Vojta: flatten.**
 The subfolders kept participant files apart from `reseni/`. Once solutions leave
 `main`, that reason is gone. Working files sit in the project folder, as in finance.
 
-**D5. Who uses the solutions. Tomas: coaches during the day, everyone afterwards.**
+**D5. Who uses the solutions. Tomas, Vojta: coaches during the day, everyone afterwards.**
 - During the workshop the `reseni` branch is a tool for coaches. A coach looks
   at it to help a stuck participant straight away, or when the coach is stuck too.
 - The aim is not to lock solutions away, only to not make them easy. A branch
@@ -156,27 +156,27 @@ Consequence: the READMEs must not tell participants to copy a solution and
 carry on. Wordle and Titanic say that today, and the finance README promises
 "dostaneš hotové řešení toho kroku".
 
-**D6. Solutions branch. Tomas: one combined `reseni` branch.**
+**D6. Solutions branch. Tomas, Vojta: one combined `reseni` branch.**
 All three projects' solutions and coach notes live on one branch.
 
 **D7. Names. Tomas: Vojtěch's style throughout.**
 - Project folders keep the `projekt-` prefix: `projekt-finance/`, `projekt-wordle/`,
-  `projekt-titanic/`.
+  `projekt-titanic/`. Vojta: good to keep the projekt prefix as in root there will be also materials about testing and modules.
 - Steps folder: `zadani/`.
 - Step files: `krokNN_nazev.md`. Hints and bonuses follow the same pattern:
-  `napovedy/krokNN_nazev.md`, `bonusy/bonusNN_nazev.md`.
+  `napovedy/krokNN_nazev.md`, `bonusy/bonusNN_nazev.md`. Vojta: Not sure about this one, in lesson materials we use just numbering.
 - Titles: `Krok 1 – Název`.
 - Code file names stay per project (`finance.py`/`app.py`, `logika.py`/`wordle.py`,
   `analyza.py`/`zprava.py`). The rule is only: one logic file, one runnable file,
   one `test_<logika>.py`, all with names unique in the repo (see D2).
 - Numbers always have two digits: `krok01_nazev.md`, `bonus01_nazev.md`,
   `reseni/krok01/`. Wordle has ten steps and finance has eleven bonuses, and
-  without the leading zero `krok10_` sorts between `krok1_` and `krok2_`.
+  without the leading zero `krok10_` sorts between `krok1_` and `krok2_`. Vojta: I think we should have leading zeros for sorting.
 
-**D8. Order inside a step. Tomas: function description first, then tests.**
+**D8. Order inside a step. Tomas, Vojta: function description first, then tests.**
 Finance currently gives tests first, so its steps swap the two sections.
 
-**D9. How tests are handed out. Tomas: ready tests first, own tests later.**
+**D9. How tests are handed out. Tomas, Vojta: ready tests first, own tests later.**
 One style for all three projects:
 - *Early steps:* the step file contains finished tests. The participant copies
   them in and uses them to confirm quickly that her code works.
@@ -190,7 +190,7 @@ Wordle and Titanic already work this way. Finance gives ready tests in all six
 steps, so its later steps need rework; see the finance TODOs, including the
 note about the step 6 tests.
 
-**D10. Wordle game screen. Tomas: stays as step 10.**
+**D10. Wordle game screen. Tomas, Vojta: stays as step 10.**
 It was considered for a bonus only because clearing the screen did not seem to
 work when tried. It stays a regular step, so the cause needs finding first: see
 the Wordle TODO. Finance and Titanic get screen clearing as a bonus (feedback).
@@ -200,9 +200,9 @@ The text bar chart (today bonus 2) becomes a regular step before the report
 step, so the report can include it. It reuses the bar function from finance
 step 5, `sloupec(hodnota, nejvyssi, sirka)`: same name, same parameters, same
 tests, so both projects teach one design. The plotext charts stay a bonus,
-because they need an install.
+because they need an install. Vojta: What are plottext charts and are we using it? Should we do the same in finance?
 
-**D12. HTML report in finance. Tomas: last bonus.**
+**D12. HTML report in finance. Tomas, Vojta: last bonus.**
 Feedback said it comes too early and may be dropped. It moves to the end of the
 bonuses and can still be removed.
 
@@ -211,12 +211,15 @@ bonuses and can still be removed.
 ### Who does what
 - **Wordle and Titanic:** Tomas.
 - **Finance:** Vojtěch.
+- **Unit Testing Lesson:** Vojtěch.
+- **Modules Lesson:** Vojtěch.
 - **Repo-wide items:** whoever gets to them first.
 
 Order: project-specific work first, repo-wide changes after.
 
 ### Still open
-- Vojtěch reads this file and writes his feedback into it.
+- Vojtěch reads this file and writes his feedback into it. => Done
+  - Tomas: Validate feedback from Vojtech
 
 ### Repo
 - [ ] Create branch `reseni` from `main` and move the finance solutions there.
