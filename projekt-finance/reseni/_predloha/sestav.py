@@ -30,10 +30,21 @@ Obarvená verze má navíc testy z testy_barvy.py.
 
 Výsledek se zapíše do ../krok1 až ../krok6 a ../bonusy/bonus1_barvy.
 Ty složky ručně neupravuj, uprav předlohu a spusť skript znovu.
+
+Nakonec skript spustí řešení bonusu HTML report (../bonusy/bonus2_html_report.py)
+nad ukázkovými daty a stránku uloží sem jako vzorovy_report.html. Je to ukázka,
+jak má výstup bonusu vypadat; stačí ji otevřít v prohlížeči.
 """
 
+import contextlib
+import io
+import os
 import re
+import runpy
 import shutil
+import sys
+import tempfile
+import webbrowser
 from pathlib import Path
 
 PREDLOHA = Path(__file__).resolve().parent
@@ -134,6 +145,32 @@ def main():
 
     # Ostatní řešení bonusů se píšou ručně, jen potřebují mít data vedle sebe.
     shutil.copyfile(PROJEKT / "ukazkova_data.py", RESENI / "bonusy" / "ukazkova_data.py")
+
+    vzorovy_report()
+
+
+def vzorovy_report():
+    """Spustí řešení bonusu HTML report a jeho výstup uloží k předloze jako ukázku."""
+    bonusy = RESENI / "bonusy"
+    puvodni_slozka = Path.cwd()
+    puvodni_otevreni = webbrowser.open
+    # Skript zapisuje report.html do aktuální složky a otevírá prohlížeč.
+    # Tady ho necháme psát do dočasné složky a prohlížeč neotvíráme.
+    with tempfile.TemporaryDirectory() as docasna:
+        os.chdir(docasna)
+        sys.path.insert(0, str(bonusy))
+        webbrowser.open = lambda *argumenty: None
+        try:
+            with contextlib.redirect_stdout(io.StringIO()):
+                runpy.run_path(str(bonusy / "bonus2_html_report.py"), run_name="__main__")
+            html = Path("report.html").read_text(encoding="utf-8")
+        finally:
+            webbrowser.open = puvodni_otevreni
+            sys.path.remove(str(bonusy))
+            sys.modules.pop("ukazkova_data", None)
+            os.chdir(puvodni_slozka)
+    zapis(PREDLOHA / "vzorovy_report.html", html)
+    print("_predloha/vzorovy_report.html: hotovo")
 
 
 main()

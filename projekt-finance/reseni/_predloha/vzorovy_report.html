@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<title>Moje finance</title>
+<style>
+  body { font-family: sans-serif; margin: 2em; color: #222; }
+  table { border-collapse: collapse; }
+  th, td { padding: 4px 12px; border-bottom: 1px solid #ddd; text-align: left; }
+  td.castka { text-align: right; }
+  .prijem { color: green; }
+  .vydaj { color: crimson; }
+  .sloupec { background: teal; height: 18px; }
+</style>
+</head>
+<body>
+<h1>Moje finance</h1>
+<p>Zůstatek: <strong>25540 Kč</strong></p>
+
+<h2>Výdaje podle kategorií</h2>
+<p>bydleni: 28000 Kč</p>
+<div class="sloupec" style="width: 400px"></div>
+<p>jidlo: 8260 Kč</p>
+<div class="sloupec" style="width: 118px"></div>
+<p>doprava: 1100 Kč</p>
+<div class="sloupec" style="width: 15px"></div>
+<p>zabava: 1310 Kč</p>
+<div class="sloupec" style="width: 18px"></div>
+<p>ostatni: 1290 Kč</p>
+<div class="sloupec" style="width: 18px"></div>
+
+<h2>Transakce</h2>
+<table>
+<tr><th>Datum</th><th>Popis</th><th>Kategorie</th><th>Částka</th></tr>
+<tr><td>2026-10-01</td><td>výplata</td><td>vyplata</td><td class="castka prijem">+32000 Kč</td></tr>
+<tr><td>2026-10-02</td><td>nájem</td><td>bydleni</td><td class="castka vydaj">-14000 Kč</td></tr>
+<tr><td>2026-10-05</td><td>velký nákup</td><td>jidlo</td><td class="castka vydaj">-1850 Kč</td></tr>
+<tr><td>2026-10-12</td><td>lítačka</td><td>doprava</td><td class="castka vydaj">-550 Kč</td></tr>
+<tr><td>2026-10-17</td><td>kino</td><td>zabava</td><td class="castka vydaj">-420 Kč</td></tr>
+<tr><td>2026-10-24</td><td>nákupy a obědy</td><td>jidlo</td><td class="castka vydaj">-2300 Kč</td></tr>
+<tr><td>2026-11-01</td><td>výplata</td><td>vyplata</td><td class="castka prijem">+32000 Kč</td></tr>
+<tr><td>2026-11-02</td><td>nájem</td><td>bydleni</td><td class="castka vydaj">-14000 Kč</td></tr>
+<tr><td>2026-11-04</td><td>velký nákup</td><td>jidlo</td><td class="castka vydaj">-1630 Kč</td></tr>
+<tr><td>2026-11-07</td><td>prodej kola na bazaru</td><td>ostatni</td><td class="castka prijem">+1500 Kč</td></tr>
+<tr><td>2026-11-10</td><td>lítačka</td><td>doprava</td><td class="castka vydaj">-550 Kč</td></tr>
+<tr><td>2026-11-13</td><td>koncert</td><td>zabava</td><td class="castka vydaj">-890 Kč</td></tr>
+<tr><td>2026-11-15</td><td>oslava narozenin</td><td>jidlo</td><td class="castka vydaj">-2480 Kč</td></tr>
+<tr><td>2026-11-19</td><td>dárek pro mámu</td><td>ostatni</td><td class="castka vydaj">-1290 Kč</td></tr>
+</table>
+</body>
+</html>

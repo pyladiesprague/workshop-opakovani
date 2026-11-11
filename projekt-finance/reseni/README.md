@@ -44,6 +44,9 @@ Ve složce `bonusy/` jsou řešení prvních čtyř bonusů. Ostatní bonusy
 - Předloha sama jde spustit (`python _predloha/app.py`) a chová se jako
   nejúplnější verze, tedy krok 6 s barvami. Změnu si tak vyzkoušíš dřív,
   než z ní necháš sestavit kroky.
+- `_predloha/vzorovy_report.html` je ukázka výstupu bonusu HTML report nad
+  ukázkovými daty. Otevři ji v prohlížeči. Vyrábí ji `sestav.py` spuštěním
+  `bonusy/bonus2_html_report.py`, ručně ji neupravuj.
 - Testy v `krokN/test_finance.py` skript bere přímo ze zadání
   (`zadani/krokN_*.md`). Když změníš testy v zadání, spusť ho taky.
 - Ověření všech kroků: v každé složce `krokN/` spusť `python -m pytest`.
