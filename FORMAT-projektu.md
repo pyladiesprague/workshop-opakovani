@@ -16,14 +16,15 @@ sekce „Pro autory“, stejně jako v `materialy`.
 ## 1. Co převodník najde
 
 ```text
-README.md                 úvod workshopu (stránka workshopu)
+README.md                 převodník nečte, je psané pro GitHub (rozhodl Vojta 13. 11.)
 lekce-<nazev>/            lekce ve formátu materialy
 projekt-<nazev>/          projekt ve formátu níže
 <cokoli jiného>           převodník ignoruje (TODO, pytest.ini, .vscode …)
 ```
 
 Pořadí a české názvy lekcí a projektů jsou v `config.json` převodníku pro tohle
-repo, stejně jako `lessons` u `materialy`. Lekce workshopu nemají číslo, pořadí
+repo, stejně jako `lessons` u `materialy`. Z konfigurace vzniká i úvodní stránka
+workshopu: název, popis, seznam lekcí a seznam projektů s krátkými popisy. Lekce workshopu nemají číslo, pořadí
 proto určuje jen konfigurace.
 
 ### Adresy na webu
@@ -40,8 +41,9 @@ Adresa je název repa a pod ním cesty jako v Gitu (u `materialy` je to stejné)
 /materialy/workshop-opakovani/projekt-finance/napady/             nápady na rozšíření
 ```
 
-- Přehled `/materialy/` dostane pod „Hodiny“ sekci „Workshopy“ s odkazem na
-  workshop.
+- Přehled `/materialy/` má pod „Hodiny“ sekci „Workshopy“ s odkazem na
+  workshop. Je psaná ručně v šabloně `code/materials/overview.md` (rozhodl
+  Vojta 13. 11.), protože workshopy jsou za běh kurzu jen dva.
 - Závěrečný workshop (`workshop-zaverecny`) půjde stejnou cestou na
   `/materialy/workshop-zaverecny/`.
 - Termín, místo a program zůstávají v `/organizace/`. Harmonogram na stránku
@@ -261,8 +263,8 @@ protože chybějící sekce jsou povolené.
 
 ## 4. Zkušební převod (13. 11. 2026)
 
-Prototyp převodníku je v `public-pages` na lokální větvi `workshop-import`.
-Není commitnutý ani pushnutý.
+Prototyp převodníku je v `public-pages` na lokální větvi `workshop-import`,
+commit `b332ed3`. Zatím není pushnutý.
 - `code/materials/render.mjs` dostal volitelné `opts` pro lekce workshopu:
   cesta pod `/materialy/`, lekce bez čísla, pomocné soubory, bez přehledu
   `/materialy/`. Výchozí chování pro `materialy` se nezměnilo: 72 testů
@@ -296,16 +298,14 @@ Co převodník kontroluje, a proto to musí zdroj splnit:
 - každá lekce a projekt v konfiguraci.
 
 ### K rozhodnutí
-- [ ] **Úvodní stránka workshopu.** Prototyp ji skládá z konfigurace (název,
-      popis, seznam lekcí a projektů) a kořenový `README.md` nepoužívá. README
-      je psané pro GitHub (Download ZIP, tabulky složek). Návrh: nechat
-      stránku z konfigurace a README dál psát pro GitHub. Úprava části 2:
-      README workshopu převodník nečte.
-- [ ] **Sekce „Workshopy“ v přehledu `/materialy/`.** Workshop je v menu jako
-      podstránka Materiálů, ale přehled na něj zatím neodkazuje. Doplnit do
-      `code/materials/overview.md` ručně, nebo generovat?
-- [ ] **Taháky** lekcí i projektů jsou jako v materialy jen odkazy na GitHub.
-      Stačí to?
+Všechno rozhodl Vojta 13. 11. podle návrhu:
+- [x] **Úvodní stránka workshopu** se skládá z konfigurace. Kořenový
+      `README.md` převodník nečte, zůstává psané pro GitHub.
+- [x] **Sekce „Workshopy“ v přehledu `/materialy/`** je psaná ručně
+      v `code/materials/overview.md`. Na větvi `workshop-import` je hotová,
+      včetně přegenerovaného `content/materialy/index.md` a locku.
+- [x] **Taháky** lekcí i projektů zůstávají odkazy na GitHub, stejně jako
+      v materialy.
 
 ### Co zbývá, aby šel převod do provozu
 - zápis do webu s evidencí a kontrolou ručních změn (viz část 3, Převodník),
