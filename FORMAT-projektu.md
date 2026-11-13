@@ -26,6 +26,30 @@ Pořadí a české názvy lekcí a projektů jsou v `config.json` převodníku p
 repo, stejně jako `lessons` u `materialy`. Lekce workshopu nemají číslo, pořadí
 proto určuje jen konfigurace.
 
+### Adresy na webu
+
+Rozhodl Vojta 13. 11.: workshop je v sekci Materiály, stejně jako lekce kurzu.
+Adresa je název repa a pod ním cesty jako v Gitu (u `materialy` je to stejné):
+
+```text
+/materialy/workshop-opakovani/                                    úvod workshopu (README.md)
+/materialy/workshop-opakovani/lekce-testovani/…                   lekce, cesty jako v materialy
+/materialy/workshop-opakovani/projekt-finance/                    README projektu
+/materialy/workshop-opakovani/projekt-finance/cviceni/01_zaklad/  krok
+/materialy/workshop-opakovani/projekt-finance/bonusy/             všechny bonusy na jedné stránce
+/materialy/workshop-opakovani/projekt-finance/napady/             nápady na rozšíření
+```
+
+- Přehled `/materialy/` dostane pod „Hodiny“ sekci „Workshopy“ s odkazem na
+  workshop.
+- Závěrečný workshop (`workshop-zaverecny`) půjde stejnou cestou na
+  `/materialy/workshop-zaverecny/`.
+- Termín, místo a program zůstávají v `/organizace/`. Harmonogram na stránku
+  workshopu jen odkáže.
+- Převodník přesměrování nevytváří. Adresy se proto po rozeslání odkazů
+  účastnicím už nemění, a tím pádem ani názvy složek (`projekt-wordle/`,
+  `projekt-titanic/` přejmenovat dřív).
+
 ## 2. Formát zdroje
 
 ### Lekce (`lekce-<nazev>/`)
@@ -219,8 +243,9 @@ Stav ke 13. 11. 2026 na `main`. ✅ = už vyhovuje.
 
 ### Převodník (`public-pages`)
 - [ ] Zdroj `pyladiesprague/workshop-opakovani`, vlastní `config.json`
-      (pořadí a názvy lekcí a projektů), URL na webu (návrh
-      `/workshopy/opakovaci/…`).
+      (pořadí a názvy lekcí a projektů), výstup do
+      `content/materialy/workshop-opakovani/` (adresy viz část 1).
+- [ ] Sekce „Workshopy“ v šabloně přehledu `code/materials/overview.md`.
 - [ ] Lekce bez čísla (`lekce-<nazev>/`) a pomocné soubory bez `NN_`.
 - [ ] Projekty: stránky kroků, bonusů a nápadů, nápovědy za tlačítkem
       „Zobrazit nápovědu“ (další vnořené za „Zobrazit další nápovědu“),

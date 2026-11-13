@@ -320,7 +320,11 @@ Decisions:
         into the root README as "Pro autory"); part 3 lists what the current
         materials need to change to fit it, per project.
   - [ ] Review `FORMAT-projektu.md` (Vojta, Tomas). Open points there: step
-        web URL, `lekce-moduly` bonus 2 solution.
+        `lekce-moduly` bonus 2 solution.
+        Decided by Vojta on 13 Nov: the workshop goes under Materiály, like the
+        course lessons: `/materialy/workshop-opakovani/` plus repo paths
+        (`…/projekt-finance/cviceni/01_zaklad/`). Details in `FORMAT-projektu.md`,
+        part 1.
         Decided by Vojta on 13 Nov: README title is the short project name only
         (`# Správce osobních financí`, `# Wordle s řešičem`, `# Titanic`; done);
         the converter takes the page title from it, `config.json` holds order and
