@@ -10,6 +10,12 @@ Guiding rule: **`main` never contains direct answers.** Participants get
 hints in separate files. Full solutions and coach notes live on a branch that
 only coaches use during the day.
 
+Companion note: `REPORT-materialy.md` (13 Nov) compares this repo with the
+conventions of `pyladiesprague/materialy`. Its open decisions C1–C3 are listed
+in section 4 under "From the materialy comparison". C1 questions the guiding rule
+above for the lessons: `lekce-testovani/` on `main` already has `reseni/`, as in
+`materialy`. Suggested wording: **`main` never contains project solutions.**
+
 Section 3 records each decision as Tomas chose it. Vojtěch adds his feedback here.
 
 ## 1. Where we are
@@ -152,6 +158,11 @@ The subfolders kept participant files apart from `reseni/`. Once solutions leave
   stuck participant works it out with hints and a coach. This drops the earlier
   design assumption that anyone stuck can jump ahead from a solution.
 
+Open (C1 in `REPORT-materialy.md`): this applies to projects. `materialy` and the
+organizace authoring rules keep lesson solutions in `reseni/` next to the
+exercises, and `lekce-testovani/` does the same here. Suggested: lessons follow
+`materialy`, projects keep solutions on the `reseni` branch.
+
 Consequence: the READMEs must not tell participants to copy a solution and
 carry on. Wordle and Titanic say that today, and the finance README promises
 "dostaneš hotové řešení toho kroku".
@@ -172,6 +183,11 @@ All three projects' solutions and coach notes live on one branch.
 - Numbers always have two digits: `krok01_nazev.md`, `bonus01_nazev.md`,
   `reseni/krok01/`. Wordle has ten steps and finance has eleven bonuses, and
   without the leading zero `krok10_` sorts between `krok1_` and `krok2_`. Vojta: I think we should have leading zeros for sorting.
+- Open (C2 in `REPORT-materialy.md`): `materialy` uses `NN_nazev` with no word
+  prefix (`01_oddelovac.py`), which supports Vojta's doubt above. Suggested:
+  `zadani/01_zaklad.md`, `napovedy/01_zaklad.md`, `bonusy/01_barvy.md`; titles
+  stay `Krok N – Název` and `Bonus N – Název`, like `Cvičení N – …`. Solution
+  folders on `reseni` may keep `krok01/`. Renaming waits for this decision.
 
 **D8. Order inside a step. Tomas, Vojta: function description first, then tests.**
 Finance currently gives tests first, so its steps swap the two sections.
@@ -267,12 +283,52 @@ Order: project-specific work first, repo-wide changes after.
       one, finance keeps its notes in `reseni/README.md`, Wordle has none.
 - [ ] Update the workshop design doc: pytest, ten Wordle steps as decided, and the
       dropped rule that anyone stuck can catch up from a solution (D5).
-- [ ] Delete `TODO-format.md` from `main` before the workshop.
+- [ ] Delete `TODO-format.md` and `REPORT-materialy.md` from `main` before the workshop.
 - [ ] Final pass for one style across projects (feedback): headings, tables,
       line wrapping, how the participant is addressed.
 
+### From the materialy comparison (`REPORT-materialy.md`)
+Decisions:
+- [ ] **C1. Solutions:** lessons keep `reseni/` on `main` (as `materialy`),
+      projects keep solutions on the `reseni` branch? Then reword the guiding rule.
+- [ ] **C2. Numbering:** `NN_nazev.md` without the `krok`/`bonus` prefix? Blocks
+      the renaming items below.
+- [ ] **C3. Web:** teach the public-pages converter a strict Markdown project
+      format, or keep projects off the web for now? Fix the project format
+      before the converter is written either way.
+- [ ] **Exceptions:** organizace puts *soubory, výjimky a moduly* into this
+      workshop, but nothing here uses `try`/`except`. Add them (finance input
+      cleaning, Titanic number parsing), or tell organizace they move to L13.
+
+Alignment with `materialy`:
+- [ ] Titles with an en dash: Wordle `# Krok 1: …` and the Wordle and Titanic
+      bonuses `# Bonus 1: …` become `… – …`.
+- [ ] Solution headers in Wordle and Titanic: `# Řešení kroku N – …` /
+      `# Řešení bonusu N – …`, then "Tvoje řešení může vypadat jinak, a to je
+      v pořádku." (finance already does this).
+- [ ] Wrap Markdown prose at about 75–80 characters in Wordle and Titanic
+      (part of the final style pass).
+- [ ] `.gitattributes`: `export-ignore` for `TODO-format.md`,
+      `REPORT-materialy.md`, `feedback.md` and a future `.github/`, as
+      `materialy` does for its ZIP.
+- [ ] Root README "Jak si materiály stáhnout": fork and clone with ZIP as
+      fallback (D3), same wording as lesson 1 in `materialy`.
+- [ ] Project changes go through PRs with the other owner as reviewer; branch
+      names `finance/…`, `wordle/…`, `docs/…`; commit subjects `Finance: …`.
+- [ ] CI: until the converter exists, a workflow that runs pytest on `reseni`
+      (covers the "check script" item above); later copy the `web.yml` pattern.
+- [ ] Optional: one picture per project made with the `obrazek` skill from
+      `materialy`.
+
+Schedule fit (workshop Sat 21 Nov, after L9 Slovníky on 19 Nov):
+- [ ] Dictionaries are two days old. Project taháky link to the lesson 9
+      tahák; coaches expect questions on them.
+- [ ] CSV is taught only in L13 (17 Dec), so the Titanic tahák must explain
+      reading CSV on its own.
+
 ### Every project
 - [ ] Rename to the agreed layout (D7): `zadani/krokNN_nazev.md`, title `Krok N – Název`.
+      Waits for C2.
 - [ ] Use two-digit numbers in every file and folder name: steps, hints, bonuses
       and solution folders (`krok01_…`, `bonus01_…`, `reseni/krok01/`). Update the
       links in the READMEs and step tables to match.
