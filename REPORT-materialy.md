@@ -121,7 +121,11 @@ repo now does both: `lekce-testovani/` on `main` contains `cviceni/reseni/`.
 - Change the guiding rule in `TODO-format.md` from "`main` never contains
   direct answers" to "`main` never contains project solutions".
 
-**C2. Numbering and names.**
+**C2. Numbering and names.** *Decided 13 Nov (see D7 in `TODO-format.md`):
+the same as `materialy`. Steps go in `cviceni/NN_nazev.md`, hints in
+`napovedy/NN_nazev.md`, 1:1 with their step, with gaps allowed. Bonuses go in
+`bonusy/NN_nazev.md`. Solutions on `reseni` go in `cviceni/reseni/` and
+`bonusy/reseni/`. Done in all three projects.*
 Vojta's doubt on D7 matches `materialy`: two digits, no word prefix.
 - *Suggested:* `zadani/01_zaklad.md`, `napovedy/01_zaklad.md`,
   `bonusy/01_barvy.md`. Solution folders on `reseni`: `reseni/01/` or

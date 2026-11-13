@@ -32,13 +32,19 @@ měla dojít každá, zbytek je navíc.
 
 | Krok | Co přibude | Co si zopakuješ |
 |---|---|---|
-| [1 – Základ](zadani/krok1_zaklad.md) | výpis transakcí, zůstatek, menu | cykly, podmínky, funkce, čtení ze slovníku |
-| [2 – Přidání a odebrání](zadani/krok2_pridani_a_odebrani.md) | nové transakce, kontrola vstupu | seznamy, řetězce, `while` |
-| [3 – Přehledy](zadani/krok3_prehledy.md) | výdaje podle kategorií, přehled měsíce | slovníky, stavění seznamu |
-| [4 – Rozpočty](zadani/krok4_rozpocty.md) | limity a upozornění na překročení | slovníky, skládání funkcí |
-| [5 – Grafy](zadani/krok5_grafy.md) | sloupcový graf ze znaků | řetězce, `max` |
-| [6 – Uložení do souboru](zadani/krok6_soubory.md) | data přežijí ukončení programu | nové: soubory a JSON |
-| [Bonusy](zadani/bonusy.md) | barvy v terminálu, hledání, řazení, HTML report a další | podle chuti |
+| [1 – Základ](cviceni/01_zaklad.md) | výpis transakcí, zůstatek, menu | cykly, podmínky, funkce, čtení ze slovníku |
+| [2 – Přidání a odebrání](cviceni/02_pridani_a_odebrani.md) | nové transakce, kontrola vstupu | seznamy, řetězce, `while` |
+| [3 – Přehledy](cviceni/03_prehledy.md) | výdaje podle kategorií, přehled měsíce | slovníky, stavění seznamu |
+| [4 – Rozpočty](cviceni/04_rozpocty.md) | limity a upozornění na překročení | slovníky, skládání funkcí |
+| [5 – Grafy](cviceni/05_grafy.md) | sloupcový graf ze znaků | řetězce, `max` |
+| [6 – Uložení do souboru](cviceni/06_soubory.md) | data přežijí ukončení programu | nové: soubory a JSON |
+| [Bonusy](bonusy/) | barvy v terminálu, hledání, řazení, HTML report a další | podle chuti |
+
+Máš hotové kroky a zbývá čas? Vyber si, co tě láká. Bonusy na sebe
+nenavazují a pořadí je na tobě.
+
+U každého platí totéž co u kroků: logiku piš jako funkci do `finance.py`,
+napiš k ní aspoň jeden test a teprve potom ji přidej do menu.
 
 Každý krok má stejnou stavbu:
 
@@ -94,7 +100,7 @@ transakce = [
 3. Otevři panel **Testing** (ikona baňky vlevo) a spusť testy. V
    `test_finance.py` je jeden a má být zelený. Když je, všechno funguje.
 4. Spusť `app.py`. Má vypsat, kolik transakcí načetl.
-5. Otevři [krok 1](zadani/krok1_zaklad.md).
+5. Otevři [krok 1](cviceni/01_zaklad.md).
 
 ## Když se zasekneš
 
@@ -102,10 +108,6 @@ transakce = [
 2. Podívej se do nápovědy na konci zadání a do taháku, na který odkazuje.
 3. Zeptej se kolegyně ve dvojici nebo u stolu.
 4. Zavolej kouče.
-
-Když ti některý krok nejde dokončit a nechceš na něm strávit zbytek dne,
-řekni kouči. Dostaneš hotové řešení toho kroku a budeš pokračovat dalším.
-Nikdo nemusí zůstat stát.
 
 ## Co s tím dál
 
