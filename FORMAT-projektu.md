@@ -254,7 +254,8 @@ protože chybějící sekce jsou povolené.
       „Zobrazit nápovědu“ (další vnořené za „Zobrazit další nápovědu“),
       přepis odkazů, kontrola titulků, sekcí, odkazů a bloků kódu.
 - [x] Styl `details.napoveda` podle `details.reseni` (prototyp).
-- [ ] Otevírání nápověd v `tisk.js`.
+- [x] Tisk (13. 11.): lekce a projekty mají tiskovou verzi, u projektu je
+      přepínač „Včetně nápověd“ a každý krok začíná novou stranou.
 - [x] Zápis do webu (13. 11., `public-pages` větev `workshop-import`,
       commit `3a9f4b9`):
       - vlastní lock `code/workshop/opakovani.lock.json`,
@@ -317,8 +318,9 @@ Všechno rozhodl Vojta 13. 11. podle návrhu:
 ### Co zbývá, aby šel převod do provozu
 - [x] zápis do webu s evidencí a kontrolou ručních změn (13. 11.),
 - [x] testy (13. 11.),
-- [ ] push větve `workshop-import` a PR do `public-pages`,
-- [ ] `tisk.js`: otevírání nápověd v tiskové verzi,
+- [x] push větve `workshop-import` a PR do `public-pages`:
+      https://github.com/pyladiesprague/public-pages/pull/13 (13. 11.),
+- [x] tisková verze lekcí a projektů včetně nápověd (13. 11.),
 - [ ] workflow `web.yml` v tomhle repu (automatický import po pushi,
       vyžaduje secret `PUBLIC_PAGES_TOKEN` a workflow importu v `public-pages`).
 
