@@ -30,8 +30,8 @@ pusť do složky `cviceni/`.
 | Složka | Projekt |
 |---|---|
 | [`projekt-finance/`](projekt-finance/README.md) | Správce osobních financí: příjmy, výdaje, rozpočty a grafy v terminálu |
-| [`wordle/`](wordle/README.md) | Wordle s řešičem: česká hra Wordle a program, který ji umí hrát sám |
-| [`titanic/`](titanic/README.md) | Titanic: z dat o skutečných pasažérech zjistíš, jestli platilo „ženy a děti první“ |
+| [`projekt-wordle/`](projekt-wordle/README.md) | Wordle s řešičem: česká hra Wordle a program, který ji umí hrát sám |
+| [`projekt-titanic/`](projekt-titanic/README.md) | Titanic: z dat o skutečných pasažérech zjistíš, jestli platilo „ženy a děti první“ |
 
 Obsah sem přidávají koučové. Pokud chceš navrhnout úpravu, vytvoř si fork
 a pošli pull request.
