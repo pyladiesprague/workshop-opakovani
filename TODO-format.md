@@ -6,15 +6,16 @@ takes the notes in `feedback.md` as already agreed, and proposes one format for
 the repo. Both `feedback.md` and this file are one-off working notes. They are
 not part of the format and do not need to live on any branch.
 
-Guiding rule: **`main` never contains direct answers.** Participants get
-hints in separate files. Full solutions and coach notes live on a branch that
-only coaches use during the day.
+Guiding rule: **`main` never contains project solutions.** Participants get
+hints in separate files. Full project solutions and coach notes live on a branch
+that only coaches use during the day. Lessons (`lekce-*/`) follow `materialy`:
+their solutions sit in `reseni/` next to the exercises, on `main`.
+(C1, decided provisionally by Vojta on 13 Nov; **Tomas to confirm**.)
 
 Companion note: `REPORT-materialy.md` (13 Nov) compares this repo with the
 conventions of `pyladiesprague/materialy`. Its open decisions C1–C3 are listed
-in section 4 under "From the materialy comparison". C1 questions the guiding rule
-above for the lessons: `lekce-testovani/` on `main` already has `reseni/`, as in
-`materialy`. Suggested wording: **`main` never contains project solutions.**
+in section 4 under "From the materialy comparison". C1 changed the guiding rule
+above: it now covers projects only.
 
 Section 3 records each decision as Tomas chose it. Vojtěch adds his feedback here.
 
@@ -166,10 +167,10 @@ The subfolders kept participant files apart from `reseni/`. Once solutions leave
   stuck participant works it out with hints and a coach. This drops the earlier
   design assumption that anyone stuck can jump ahead from a solution.
 
-Open (C1 in `REPORT-materialy.md`): this applies to projects. `materialy` and the
-organizace authoring rules keep lesson solutions in `reseni/` next to the
-exercises, and `lekce-testovani/` does the same here. Suggested: lessons follow
-`materialy`, projects keep solutions on the `reseni` branch.
+C1 (provisional, Vojta 13 Nov, Tomas to confirm): this applies to projects only.
+Lessons follow `materialy` and the organizace authoring rules: their solutions
+sit in `reseni/` next to the exercises, on `main`, as `lekce-testovani/` and
+`lekce-moduly/` already do.
 
 Consequence: the READMEs must not tell participants to copy a solution and
 carry on. Wordle and Titanic say that today, and the finance README promises
@@ -303,8 +304,10 @@ Order: project-specific work first, repo-wide changes after.
 
 ### From the materialy comparison (`REPORT-materialy.md`)
 Decisions:
-- [ ] **C1. Solutions:** lessons keep `reseni/` on `main` (as `materialy`),
-      projects keep solutions on the `reseni` branch? Then reword the guiding rule.
+- [x] **C1. Solutions:** provisionally decided by Vojta on 13 Nov: projects keep
+      solutions only on the `reseni` branch, lessons keep `reseni/` on `main`
+      (as `materialy`). Guiding rule and D5 reworded.
+  - [ ] Tomas: confirm C1.
 - [x] **C2. Numbering:** decided 13 Nov, see D7: `cviceni/NN_nazev.md`,
       `napovedy/NN_nazev.md`, `bonusy/NN_nazev.md`, solutions as in `materialy`.
 - [ ] **C3. Web:** teach the public-pages converter a strict Markdown project

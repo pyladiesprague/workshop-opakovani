@@ -110,7 +110,9 @@ projects. Everything else is small alignment.
 
 ## 3. Conflicts to decide
 
-**C1. Where solutions live.**
+**C1. Where solutions live.** *Decided provisionally by Vojta on 13 Nov, Tomas to
+confirm: projects keep solutions only on the `reseni` branch, lessons keep
+`reseni/` on `main` (the suggestion below).*
 `materialy` and organizace say solutions sit next to the exercises, so
 participants can compare after trying. D5 says `main` never has answers. The
 repo now does both: `lekce-testovani/` on `main` contains `cviceni/reseni/`.
