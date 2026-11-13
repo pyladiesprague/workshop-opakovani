@@ -11,6 +11,20 @@ Výukové materiály k jednotlivým lekcím najdeš v repozitáři
 Nahoře klikni na zelené tlačítko **Code** → **Download ZIP**. Stažený archiv
 rozbal a složku otevři ve VS Code (**File → Open Folder**).
 
+## Než začneš: testování
+
+Projekty stojí na testech. Kdo s nimi ještě nepracoval, ať si nejdřív
+projde krátkou lekci [`lekce-testovani/`](lekce-testovani/TAHAK.md):
+`assert`, první testy s pytestem a jak číst test, který neprošel.
+
+| Složka | Téma |
+|---|---|
+| `lekce-testovani/01_assert/` | proč testovat, `assert` |
+| `lekce-testovani/02_pytest/` | testy s pytestem, čtení výpisu, co testovat, testy v projektu |
+
+Soubory s výkladem procházej popořadě podle čísla a čti komentáře. Pak se
+pusť do složky `cviceni/`.
+
 ## Projekty
 
 | Složka | Projekt |
