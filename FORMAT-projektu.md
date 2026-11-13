@@ -218,16 +218,16 @@ Stav ke 13. 11. 2026 na `main`. ✅ = už vyhovuje.
 | --- | --- | --- | --- |
 | Titulek `# Krok N – …` | ✅ | ❌ `Krok N:` | ❌ `Krok N:` |
 | Výsledek pod titulkem | ✅ | ❌ chybí, kroky začínají zadáním | ❌ chybí (pozor, výsledek je odpověď; ukázat tvar s vymyšlenými čísly) |
-| Sekce `##` (převod viz část 2, Krok, bod 3) | ❌ `1. Testy`, `2. Funkce do …`, `3. Menu do …`: přejmenovat a přehodit Funkce před Testy (D8) | ❌ `Logika` na `Funkce`; krok 6 na `Testy`, `Funkce` | ❌ `Logika` na `Funkce`, `Zpráva` na `Program`; krok 8 `### Závěr`; krok 9 `### Prezentace` |
+| Sekce `##` (převod viz část 2, Krok, bod 3) | ✅ (13. 11.) | ❌ `Logika` na `Funkce`; krok 6 na `Testy`, `Funkce` | ❌ `Logika` na `Funkce`, `Zpráva` na `Program`; krok 8 `### Závěr`; krok 9 `### Prezentace` |
 | `## Hotovo, když` | ✅ | ❌ chybí všude | ❌ chybí všude |
-| Odkaz na nápovědu | ❌ nápověda je přímo v kroku (`## Nápověda`), přesunout do `napovedy/` | ✅ 13 řádků v pevném tvaru | ❌ nápovědy nejsou |
-| Navíc | ❌ `## Když zbyde čas`: přesunout do `napady.md` | | |
+| Odkaz na nápovědu | ✅ (13. 11.) | ✅ 13 řádků v pevném tvaru | ❌ nápovědy nejsou |
+| Navíc | ✅ „Když zbyde čas“ je v `napady.md` | | |
 | Bloky kódu bez jazyka | ✅ | ❌ kroky 1, 9, 10 | ❌ krok 8 |
 
 ### Nápovědy
 - [ ] Wordle: titulky `# Nápověda ke kroku N: …` na `# Nápověda ke kroku N – …`
       (11 souborů). Krok 6 má `Nápověda 1` a `Nápověda 2` ✅.
-- [ ] Finance: vytvořit `napovedy/` ze sekcí `## Nápověda` (6 kroků).
+- ✅ Finance: `napovedy/` ze sekcí `## Nápověda` (13. 11.).
 - [ ] Titanic: napsat nápovědy (TODO), rovnou v tomhle formátu.
 
 ### Bonusy
@@ -237,7 +237,7 @@ Stav ke 13. 11. 2026 na `main`. ✅ = už vyhovuje.
 ### README a ostatní
 - ✅ Titulky README: `# Správce osobních financí`, `# Wordle s řešičem`,
       `# Titanic` (sjednoceno 13. 11.).
-- [ ] `napady.md` zatím nemá žádný projekt (TODO).
+- [ ] `napady.md`: finance ✅ (13. 11., i bývalé bonusy 5–11), Wordle a Titanic chybí.
 - [ ] Wordle a Titanic nemají `TAHAK.md` (Titanic ho potřebuje kvůli CSV).
 
 ### Převodník (`public-pages`)

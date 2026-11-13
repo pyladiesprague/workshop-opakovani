@@ -395,9 +395,12 @@ Schedule fit (workshop Sat 21 Nov, after L9 Slovníky on 19 Nov):
 
 ### Finance
 - [x] Renumber steps to `cviceni/01_…`, also in the solution generator (D7, C2).
-- [ ] Put the function description before the tests in every step (D8).
-- [ ] Move the inline "Nápověda" sections into `napovedy/`.
-- [ ] Move "Když zbyde čas" items and bonuses 5 to 11 (no solutions) into `napady.md`.
+- [x] Put the function description before the tests in every step (D8). Done 13 Nov:
+      steps follow `FORMAT-projektu.md` (`Funkce`, `Testy`, `Program`, hint link,
+      `Hotovo, když`); paragraphs about the tests moved from Funkce to Testy.
+- [x] Move the inline "Nápověda" sections into `napovedy/` (13 Nov).
+- [x] Move "Když zbyde čas" items and bonuses 5 to 11 (no solutions) into `napady.md`
+      (13 Nov). Bonuses are now 1 to 4, all with solutions.
 - [x] HTML report moved to bonus 4, last of the bonuses with solutions (D12).
 - [x] Solutions: rename `bonus2_html_report.py` to `bonus4_html_report.py`,
       `bonus3_hledani.py` to `bonus2_hledani.py`, `bonus4_razeni.py` to

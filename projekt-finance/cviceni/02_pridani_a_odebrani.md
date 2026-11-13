@@ -17,7 +17,23 @@ Popis: káva a dort
 Přidáno.
 ```
 
-## 1. Testy
+## Funkce
+
+Funkce píšeš do `finance.py`.
+
+| Funkce | Co dělá |
+|---|---|
+| `pridej_transakci(transakce, datum, typ, castka, kategorie, popis)` | poskládá z údajů slovník, přidá ho na konec seznamu a vrátí ho |
+| `odeber_transakci(transakce, cislo)` | odebere transakci s daným pořadovým číslem a vrátí ji; když taková není, vrátí `None` a seznam nechá být |
+| `je_platna_castka(text)` | vrátí `True`, když je text celé kladné číslo |
+| `je_platne_datum(text)` | vrátí `True`, když má text tvar `RRRR-MM-DD`, měsíc je 1 až 12 a den 1 až 31 |
+
+Pořadové číslo je to z výpisu, takže první transakce má číslo 1, ne 0.
+
+Poslední dvě funkce dostanou text z `input()` a jen řeknou, jestli je
+v pořádku. Na nic se neptají a nic nevypisují, takže se dají otestovat.
+
+## Testy
 
 Zkopíruj na konec `test_finance.py`:
 
@@ -72,27 +88,15 @@ def test_je_platne_datum():
 `assert` bez `==` říká „tohle má být pravda“, `assert not` říká „tohle má být
 nepravda“.
 
-## 2. Funkce do `finance.py`
-
-| Funkce | Co dělá |
-|---|---|
-| `pridej_transakci(transakce, datum, typ, castka, kategorie, popis)` | poskládá z údajů slovník, přidá ho na konec seznamu a vrátí ho |
-| `odeber_transakci(transakce, cislo)` | odebere transakci s daným pořadovým číslem a vrátí ji; když taková není, vrátí `None` a seznam nechá být |
-| `je_platna_castka(text)` | vrátí `True`, když je text celé kladné číslo |
-| `je_platne_datum(text)` | vrátí `True`, když má text tvar `RRRR-MM-DD`, měsíc je 1 až 12 a den 1 až 31 |
-
-Pořadové číslo je to z výpisu, takže první transakce má číslo 1, ne 0.
-
 Všimni si testu s číslem `0`. Zkus si v hlavě, co by udělalo
 `transakce.pop(0 - 1)`. Přesně na takové chyby testy jsou.
-
-Poslední dvě funkce dostanou text z `input()` a jen řeknou, jestli je
-v pořádku. Na nic se neptají a nic nevypisují, takže se dají otestovat.
 
 **Vlastní test:** přidej a hned odeber stejnou transakci. Co má platit
 o délce seznamu a o zůstatku?
 
-## 3. Menu do `app.py`
+## Program
+
+Menu je v `app.py`.
 
 Přidej do menu volby `3 – přidat transakci` a `4 – odebrat transakci`.
 
@@ -111,15 +115,7 @@ Při odebírání nejdřív vypiš transakce, ať je vidět jejich čísla, a pa
 zeptej na číslo. Když transakce s tím číslem není, nebo to vůbec není
 číslo, řekni to a nic neodebírej.
 
-## Nápověda
-
-- Přidání na konec: `append`. Odebrání podle indexu: `pop`, vrací odebranou položku. Tahák L8.
-- Funkce dostane ten samý seznam, ne kopii. Co do něj přidá, je vidět i venku. Tahák L8, *Dvě jména, jeden seznam*.
-- Jsou to samé číslice? `text.isdigit()`. Tahák L6.
-- Kousky textu: `text[:4]`, `text[5:7]`, jeden znak `text[4]`. Tahák L6.
-- Ptaní se, dokud není odpověď dobrá: `while True` a `return` uvnitř funkce cyklus i funkci ukončí. Taháky L4 a L5.
-- Je hodnota mezi povolenými? `in`. Tahák L8.
-- Seznam do jednoho textu: `", ".join(KATEGORIE)`. Tahák L8.
+Zasekla ses? Nápověda je v souboru [`napovedy/02_pridani_a_odebrani.md`](../napovedy/02_pridani_a_odebrani.md).
 
 ## Hotovo, když
 
@@ -127,9 +123,3 @@ zeptej na číslo. Když transakce s tím číslem není, nebo to vůbec není
 - [ ] přidaná transakce je vidět ve výpisu a změní zůstatek
 - [ ] program nespadne na vstupech `abc`, prázdný Enter, `-5`, `99`
 - [ ] odebrání neexistujícího čísla nic nesmaže
-
-## Když zbyde čas
-
-- `je_platne_datum` pustí i 31. únor. Dokážeš ji zpřísnit? Nejdřív na to napiš test.
-- Při zadávání data nabídni zkratku: prázdný Enter použije datum poslední transakce.
-- Před odebráním se zeptej „Opravdu odebrat? (ano/ne)“.

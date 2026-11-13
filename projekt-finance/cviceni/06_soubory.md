@@ -13,7 +13,18 @@ Jsou v něm stejné transakce jako v `ukazkova_data.py` a vypadají skoro
 stejně jako v Pythonu. JSON je způsob, jak seznamy a slovníky zapsat
 jako text.
 
-## 1. Testy
+## Funkce
+
+Funkce píšeš do `finance.py`.
+
+| Funkce | Co dělá |
+|---|---|
+| `uloz(transakce, cesta)` | zapíše seznam transakcí do souboru jako JSON |
+| `nacti(cesta)` | přečte soubor a vrátí seznam transakcí |
+
+Na začátek `finance.py` patří `import json`.
+
+## Testy
 
 Zkopíruj na konec `test_finance.py`:
 
@@ -37,19 +48,12 @@ Parametr `tmp_path` je dočasná složka, kterou testu půjčí pytest a potom
 ji sám uklidí. Testy tak nesahají na tvůj opravdový `finance.json`.
 Lomítkem se k cestě složky připojí jméno souboru. Ber to jako hotový recept.
 
-## 2. Funkce do `finance.py`
-
-| Funkce | Co dělá |
-|---|---|
-| `uloz(transakce, cesta)` | zapíše seznam transakcí do souboru jako JSON |
-| `nacti(cesta)` | přečte soubor a vrátí seznam transakcí |
-
-Na začátek `finance.py` patří `import json`.
-
 **Vlastní test:** ulož prázdný seznam a zkontroluj, že se načte zase
 prázdný seznam.
 
-## 3. Úprava `app.py`
+## Program
+
+Uprav `app.py`.
 
 - Transakce už neber z `ukazkova_data.py`. Na začátku programu je načti
   ze souboru `finance.json`.
@@ -66,21 +70,10 @@ Když si data pokazíš, původní `finance.json` si znovu stáhni z GitHubu,
 nebo si ho nech vyrobit: v Pythonu zavolej `uloz` se seznamem
 z `ukazkova_data.py`.
 
-## Nápověda
-
-- Zápis a čtení souboru, `json.dump` a `json.load`. `TAHAK.md`, *Soubory a JSON*.
-- Nezapomeň na `encoding="utf-8"` při otevírání a `ensure_ascii=False` při
-  zápisu. Bez nich se háčky a čárky pokazí, a hlídá to druhý test.
+Zasekla ses? Nápověda je v souboru [`napovedy/06_soubory.md`](../napovedy/06_soubory.md).
 
 ## Hotovo, když
 
 - [ ] všechny testy jsou zelené
 - [ ] přidaná transakce přežije ukončení a nové spuštění programu
 - [ ] `finance.json` je po uložení pořád čitelný a jsou v něm háčky a čárky
-
-## Když zbyde čas
-
-- Ukládej i rozpočty. Do souboru může jít slovník se dvěma klíči:
-  `{"transakce": [...], "rozpocty": {...}}`. Tahák L9, *data v datech*.
-- Přidej volbu „uložit zálohu“, která data zapíše do souboru, jehož jméno
-  si uživatelka zvolí.

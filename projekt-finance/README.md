@@ -38,7 +38,8 @@ měla dojít každá, zbytek je navíc.
 | [4 – Rozpočty](cviceni/04_rozpocty.md) | limity a upozornění na překročení | slovníky, skládání funkcí |
 | [5 – Grafy](cviceni/05_grafy.md) | sloupcový graf ze znaků | řetězce, `max` |
 | [6 – Uložení do souboru](cviceni/06_soubory.md) | data přežijí ukončení programu | nové: soubory a JSON |
-| [Bonusy](bonusy/) | barvy v terminálu, hledání, řazení, HTML report a další | podle chuti |
+| [Bonusy](bonusy/) | barvy v terminálu, hledání, řazení, HTML report | podle chuti |
+| [Nápady na rozšíření](napady.md) | další nápady bez řešení, třeba na doma | podle chuti |
 
 Máš hotové kroky a zbývá čas? Vyber si, co tě láká. Bonusy na sebe
 nenavazují a pořadí je na tobě.
@@ -48,10 +49,11 @@ napiš k ní aspoň jeden test a teprve potom ji přidej do menu.
 
 Každý krok má stejnou stavbu:
 
-1. **Testy.** Zkopíruješ si je do `test_finance.py`. Budou červené, protože
-   popisují funkce, které ještě nemáš.
-2. **Funkce.** Píšeš je do `finance.py`, dokud testy nezezelenají.
-3. **Menu.** Hotové funkce nabídneš uživatelce v `app.py`.
+1. **Funkce.** Co mají nové funkce v `finance.py` dělat.
+2. **Testy.** Zkopíruješ si je do `test_finance.py`. Budou červené, protože
+   popisují funkce, které ještě nemáš. Funkce píšeš, dokud testy nezezelenají.
+3. **Program.** Hotové funkce nabídneš uživatelce v menu v `app.py`.
+4. **Hotovo, když.** Podle seznamu na konci poznáš, že je krok hotový.
 
 Zadání říká, co má funkce dělat. Jak to udělá, je na tobě. Hotový kód
 v zadání nenajdeš, najdeš tam odkazy do taháků z lekcí.
@@ -66,6 +68,10 @@ v zadání nenajdeš, najdeš tam odkazy do taháků z lekcí.
 | `ukazkova_data.py` | ukázkové transakce, kategorie a rozpočty, ať je od začátku s čím pracovat |
 | `finance.json` | stejné transakce uložené v souboru, budeš ho potřebovat až v kroku 6 |
 | `TAHAK.md` | tahák k testům a k souborům |
+| `cviceni/` | zadání kroků, jeden soubor na krok |
+| `napovedy/` | nápověda ke kroku, soubor se jmenuje stejně jako krok |
+| `bonusy/` | bonusy, jeden soubor na bonus |
+| `napady.md` | nápady na rozšíření bez řešení |
 
 Proč dva soubory s kódem? Funkce, která se ptá přes `input()` a odpovídá
 přes `print()`, se testovat nedá: test za tebe nic nenapíše na klávesnici
@@ -105,7 +111,8 @@ transakce = [
 ## Když se zasekneš
 
 1. Přečti si chybovou hlášku odspodu. Tahák L7.
-2. Podívej se do nápovědy na konci zadání a do taháku, na který odkazuje.
+2. Otevři nápovědu ke kroku. Odkaz na ni je v zadání nad „Hotovo, když“,
+   soubory jsou ve složce `napovedy/`. Nápověda tě pošle i do taháku.
 3. Zeptej se kolegyně ve dvojici nebo u stolu.
 4. Zavolej kouče.
 
