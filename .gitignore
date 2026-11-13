@@ -1,4 +1,32 @@
-.idea
+# Python
 __pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+env/
+.env
 .pytest_cache/
+.coverage
+htmlcov/
+.mypy_cache/
+.ruff_cache/
+
+# IntelliJ IDEA, PyCharm
+.idea/
+*.iml
+
+# Visual Studio Code: sdílené nastavení repozitáře zůstává v Gitu
+.vscode/*
+!.vscode/settings.json
+!.vscode/launch.json
+
+# Systémové soubory
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Výstupy programů z projektů
 report.html
+statistiky.txt
+zprava.txt

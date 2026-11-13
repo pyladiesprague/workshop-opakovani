@@ -241,8 +241,9 @@ Order: project-specific work first, repo-wide changes after.
 - [ ] Keep the root `.vscode/` as the only one; remove the per-project unittest
       settings in Wordle and Titanic (D2).
 - [ ] `pytest.ini`: keep `norecursedirs = reseni`, needed on the `reseni` branch.
-- [ ] One root `.gitignore` with `statistiky.txt`, `zprava.txt`, `report.html`;
-      drop the per-project ones.
+- [x] One root `.gitignore` with `statistiky.txt`, `zprava.txt`, `report.html`;
+      drop the per-project ones. Done 13 Nov, also covers Python, IntelliJ/PyCharm
+      and VS Code (only the shared `.vscode/settings.json` and `launch.json` are kept).
 - [ ] Add `.gitattributes` with `* text=auto eol=lf`. Windows checkouts already
       produced mixed line endings.
 - [ ] A check script on `reseni` that runs pytest in every `krokNN` folder.
