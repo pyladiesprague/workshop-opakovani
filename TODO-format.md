@@ -225,9 +225,12 @@ Order: project-specific work first, repo-wide changes after.
 
 ### Repo
 - [x] Tag `pred-unifikaci` on `main` before any unification change (pushed 13 Nov).
-- [ ] Create branch `reseni` from `main` and move the finance solutions there.
-- [ ] Delete stale branches: `projekt-finance` (equals old `main`),
+- [x] Create branch `reseni` from `main` and move the finance solutions there.
+      Done 13 Nov: `reseni` = `main` + merge of `projekt-finance-reseni`.
+- [x] Delete stale branches: `projekt-finance` (equals old `main`),
       `projekty-wordle-titanic` (merged), and `projekt-finance-reseni` once moved.
+      Done 13 Nov, locally and on GitHub. All three were fully contained in
+      `main` or `reseni`; the pre-unification state is kept by tag `pred-unifikaci`.
 - [ ] Root `README.md`: how the day runs, fork and clone (D3), open the whole repo
       folder (D2), how to run only your project's tests, project table with the new folder links (D7), and that
       the day ends with a show and tell. No mention of solutions.
@@ -240,10 +243,13 @@ Order: project-specific work first, repo-wide changes after.
 - [ ] Keep the root `.vscode/` as the only one; remove the per-project unittest
       settings in Wordle and Titanic (D2).
 - [ ] `pytest.ini`: keep `norecursedirs = reseni`, needed on the `reseni` branch.
-- [ ] One root `.gitignore` with `statistiky.txt`, `zprava.txt`, `report.html`;
-      drop the per-project ones.
-- [ ] Add `.gitattributes` with `* text=auto eol=lf`. Windows checkouts already
+- [x] One root `.gitignore` with `statistiky.txt`, `zprava.txt`, `report.html`;
+      drop the per-project ones. Done 13 Nov, also covers Python, IntelliJ/PyCharm
+      and VS Code (only the shared `.vscode/settings.json` and `launch.json` are kept).
+- [x] Add `.gitattributes` with `* text=auto eol=lf`. Windows checkouts already
       produced mixed line endings.
+      Done 13 Nov on `main` and `reseni`, plus `"files.eol": "\n"` in the shared
+      `.vscode/settings.json`. LF on disk on every OS, including Windows.
 - [ ] A check script on `reseni` that runs pytest in every `krokNN` folder.
 - [ ] Solutions are generated, not edited by hand, in all three projects. Each
       owner regenerates and updates `reseni` after changing their project. See
@@ -287,7 +293,7 @@ Order: project-specific work first, repo-wide changes after.
 - [ ] Move the inline "Nápověda" sections into `napovedy/`.
 - [ ] Move "Když zbyde čas" items and bonuses 5 to 11 (no solutions) into `napady.md`.
 - [x] HTML report moved to bonus 4, last of the bonuses with solutions (D12).
-- [ ] Solutions: rename `bonus2_html_report.py` to `bonus4_html_report.py`,
+- [x] Solutions: rename `bonus2_html_report.py` to `bonus4_html_report.py`,
       `bonus3_hledani.py` to `bonus2_hledani.py`, `bonus4_razeni.py` to
       `bonus3_razeni.py`; update `reseni/README.md` and `_predloha/sestav.py` (D12).
 - [ ] Split bonuses 1 to 4 into separate files.
