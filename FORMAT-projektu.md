@@ -1,0 +1,195 @@
+# Formát workshopu pro převod na web
+
+Návrh ze 13. 11. 2026, rozhodnutí C3 v `TODO-format.md`: projekty jdou na web
+stejně jako `materialy`. Převodník v `public-pages` (`code/materials/`) dnes
+čte jen `pyladiesprague/materialy`. Tenhle dokument popisuje, co má umět
+přečíst z tohoto repa a jaká pravidla proto musí dodržet zdroj.
+
+Platí stejné zásady jako u `materialy`:
+- Převodník čte Git commit, ne pracovní kopii.
+- Python nikdy nespouští.
+- Při neznámém formátu skončí chybou s názvem souboru. Nic tiše nepřeskočí.
+
+Až převodník formát umí, přesune se popis zdroje (část 2) do README repa jako
+sekce „Pro autory“, stejně jako v `materialy`.
+
+## 1. Co převodník najde
+
+```text
+README.md                 úvod workshopu (stránka workshopu)
+lekce-<nazev>/            lekce ve formátu materialy
+projekt-<nazev>/          projekt ve formátu níže
+<cokoli jiného>           převodník ignoruje (TODO, pytest.ini, .vscode …)
+```
+
+Pořadí a české názvy lekcí a projektů jsou v `config.json` převodníku pro tohle
+repo, stejně jako `lessons` u `materialy`. Lekce workshopu nemají číslo, pořadí
+proto určuje jen konfigurace.
+
+## 2. Formát zdroje
+
+### Lekce (`lekce-<nazev>/`)
+
+Stejný formát jako `materialy` (viz README převodníku, „Podporovaný formát
+zdroje“). Jediný rozdíl je název složky bez čísla. Jedno rozšíření:
+
+- **Pomocné soubory.** Lekce o modulech potřebuje `.py` soubory, které nejsou
+  výklad ani úloha: importovaný modul (`prevody.py`), testy k ukázce
+  (`test_prevody.py`), modul k řešení (`reseni/spropitne.py`).
+  - Pravidlo: `.py` bez číselné předpony `NN_` je pomocný soubor.
+  - Převodník ho nevykresluje jako stránku, jen na něj odkáže na GitHubu
+    (u výkladu i u řešení).
+  - Soubor s předponou `NN_` musí formát dodržet, jinak je to chyba.
+
+### Projekt (`projekt-<nazev>/`)
+
+```text
+projekt-finance/
+  README.md                  úvodní stránka projektu
+  TAHAK.md                   odkaz na GitHub, nevykresluje se (jako v materialy)
+  napady.md                  stránka „Nápady na rozšíření“ (volitelná)
+  cviceni/
+    01_zaklad.md             krok = jedna stránka
+    02_pridani_a_odebrani.md
+  napovedy/
+    01_zaklad.md             nápověda ke kroku se stejným jménem
+    06_opakovana_pismena_1.md   víc nápověd ke kroku: _1, _2 …
+    06_opakovana_pismena_2.md
+  bonusy/
+    01_barvy.md              jeden bonus = jeden soubor, na webu jedna stránka se všemi bonusy
+  *.py, *.json, *.txt, *.csv, podsložky s kódem
+                             nevykreslují se; odkazy na ně vedou na GitHub
+```
+
+Na `main` nejsou složky `reseni/` (C1). Kdyby se tam objevily, je to chyba,
+aby řešení projektu omylem neodešlo na web.
+
+#### Krok (`cviceni/NN_nazev.md`)
+
+1. **První řádek:** `# Krok N – Název`. N musí sedět s `NN` v názvu souboru
+   (stejně jako `Cvičení N` u úloh). Pomlčka je en dash `–`.
+2. **Výsledek:** hned pod titulkem, bez nadpisu. Ukázka výstupu v bloku
+   `text`, nebo jedno volání funkce s výsledkem.
+3. **Sekce `##`** v tomhle pořadí. Převodník kontroluje názvy a pořadí,
+   chybějící sekce nevadí:
+   - `## Funkce` – co přibude do souboru s logikou, tabulka funkcí (D8).
+   - `## Testy` – hotové testy ke zkopírování, nebo seznam případů (D9).
+   - `## Program` – co přibude do spustitelného souboru.
+   - `## Hotovo, když` – kontrolní seznam (`- …`).
+   - Výjimka pro otevřený poslední krok bez kódu (Titanic 9): `## Postup`
+     místo `Funkce`, `Testy` a `Program`.
+   - Podnadpisy `###` jsou volné.
+4. **Odkaz na nápovědu** je jeden řádek v pevném tvaru, kdekoli v kroku:
+   ```text
+   Zasekla ses? Nápověda je v souboru [`napovedy/NN_nazev.md`](../napovedy/NN_nazev.md).
+   Zasekla ses? Nápověda je v souboru [`napovedy/NN_nazev.md`](../napovedy/NN_nazev.md), část Funkce.
+   ```
+   - Převodník řádek nahradí sbaleným blokem `<details class="napoveda">`
+     s celou nápovědou, případně jen s její částí `## Funkce`.
+   - Víc nápověd: druhý řádek `Když nestačí, druhá je v souboru […](…_2.md).`
+     dá druhý blok „Nápověda 2“.
+   - Odkaz na neexistující nápovědu, nebo nápověda bez odkazu z kroku, je
+     chyba.
+5. **Bloky kódu** mají vždy uvedený jazyk: `python`, `text` nebo `html`. Kód
+   převodník nemění.
+6. **Odkazy** jsou relativní:
+   - Na jiný `.md` v projektu se přepíšou na URL stránky.
+   - Na jiný soubor (kód, data) vedou na GitHub ke stejnému commitu.
+   - Odkaz mimo projekt je chyba, kromě odkazu na `../lekce-*/`.
+7. **Odkazy na taháky lekcí** se píšou textem „Tahák L8, *Název sekce*“.
+   Volitelně z nich převodník udělá odkaz na tahák v `materialy`.
+
+#### Nápověda (`napovedy/NN_nazev[_K].md`)
+
+- **První řádek:** `# Nápověda ke kroku N – Název`. Pro víc nápověd
+  `# Nápověda K ke kroku N – Název`. N a K musí sedět s názvem souboru.
+- Části `## Funkce`, `## Program` atd. jsou volitelné. Odkaz z kroku na ně
+  míří slovy „část Funkce“.
+- Na webu nemá vlastní stránku, je jen sbalená v kroku.
+
+#### Bonus (`bonusy/NN_nazev.md`)
+
+- **První řádek:** `# Bonus N – Název`. N musí sedět s názvem souboru.
+- Na webu jsou všechny bonusy jedna stránka, každý bonus je sekce
+  `## Bonus N – Název`, stejně jako `cviceni_bonusy` v materialy. Nadpisy uvnitř
+  bonusu se proto posunou o úroveň níž.
+
+#### README projektu
+
+- **První řádek:** `# Název projektu`. Na webu se použije název z
+  `config.json`, pokud tam je.
+- Odkazy na kroky a bonusy (`cviceni/…`, `bonusy/`) se přepíšou na stránky.
+- Sekce podle šablony README v `TODO-format.md`. Převodník je nekontroluje.
+
+#### Řešení
+
+Na webu nejsou. Převodník čte `main`, kde řešení projektů nejsou (C1).
+Lekce mají řešení na `main` a web je ukazuje sbalené pod úlohou jako
+v materialy. Otevřené: má po workshopu stránka projektu dostat odkaz
+„Řešení na GitHubu“ na větev `reseni`?
+
+## 3. Co je potřeba sjednotit v současných materiálech
+
+Stav ke 13. 11. 2026 na `main`. ✅ = už vyhovuje.
+
+### Celé repo
+- [ ] Složky projektů: `wordle/` na `projekt-wordle/` a `titanic/` na
+      `projekt-titanic/` (D7). Převodník hledá projekty podle předpony.
+- ✅ `projekt-finance/`, struktura `cviceni/`, `napovedy/`, `bonusy/` (C2).
+- ✅ Na `main` nejsou řešení projektů (C1).
+
+### Lekce
+- ✅ `lekce-testovani/`: všech 29 souborů výkladu, cvičení a řešení vyhovuje.
+- [ ] `lekce-moduly/`: osm `.py` bez předpony, které převodník dnes odmítne.
+      Po přidání pravidla „pomocné soubory“ budou v pořádku:
+      `02_instalace_knihoven/test_pytest_funguje.py`,
+      `03_vlastni_moduly/prevody.py`, `test_prevody.py`, `upovidany.py`,
+      `cviceni/reseni/spropitne.py`, `texty.py`,
+      `cviceni_bonusy/reseni/kostky.py`, `test_spropitne.py`.
+- [ ] `lekce-moduly/…/cviceni_bonusy/reseni/test_spropitne.py` má hlavičku
+      řešení („Řešení bonusu 2“), ale jmenuje se jinak než úloha
+      `02_test_modulu.py`, takže ho převodník nespáruje.
+      - Řešení: dát řešení úlohy jako `reseni/02_test_modulu.py` a
+        `test_spropitne.py` nechat jako pomocný soubor bez hlavičky řešení.
+      - Pozor, pytest soubor `02_test_modulu.py` nenajde. Ověřit, co má
+        účastnice spouštět.
+
+### Kroky
+
+| | Finance (6) | Wordle (10) | Titanic (9) |
+| --- | --- | --- | --- |
+| Titulek `# Krok N – …` | ✅ | ❌ `Krok N:` | ❌ `Krok N:` |
+| Výsledek pod titulkem | ✅ | ❌ chybí, kroky začínají zadáním | ❌ chybí (pozor, výsledek je odpověď; ukázat tvar s vymyšlenými čísly) |
+| Sekce `##` | ❌ `1. Testy`, `2. Funkce do …`, `3. Menu do …`: přejmenovat a přehodit Funkce před Testy (D8) | ❌ `Logika` na `Funkce`; krok 6 `Testy jako první`, `Oprava` | ❌ `Logika` na `Funkce`, `Zpráva` na `Program`; krok 8 `Závěr`; krok 9 na `Postup` |
+| `## Hotovo, když` | ✅ | ❌ chybí všude | ❌ chybí všude |
+| Odkaz na nápovědu | ❌ nápověda je přímo v kroku (`## Nápověda`), přesunout do `napovedy/` | ✅ 13 řádků v pevném tvaru | ❌ nápovědy nejsou |
+| Navíc | ❌ `## Když zbyde čas`: přesunout do `napady.md` | | |
+| Bloky kódu bez jazyka | ✅ | ❌ kroky 1, 9, 10 | ❌ krok 8 |
+
+### Nápovědy
+- [ ] Wordle: titulky `# Nápověda ke kroku N: …` na `# Nápověda ke kroku N – …`
+      (11 souborů). Krok 6 má `Nápověda 1` a `Nápověda 2` ✅.
+- [ ] Finance: vytvořit `napovedy/` ze sekcí `## Nápověda` (6 kroků).
+- [ ] Titanic: napsat nápovědy (TODO), rovnou v tomhle formátu.
+
+### Bonusy
+- ✅ Všech 18 souborů začíná `# Bonus N – Název` a číslo sedí s názvem.
+- [ ] Titanic `bonusy/03_grafy_s_knihovnou.md`: blok kódu bez jazyka.
+
+### README a ostatní
+- [ ] Titulky README: `# Projekt: Správce osobních financí`,
+      `# Wordle s řešičem`, `# Titanic: platilo „ženy a děti první“?`. Sjednotit
+      (návrh: jen název projektu bez „Projekt:“), nebo nechat a názvy dát do
+      `config.json`.
+- [ ] `napady.md` zatím nemá žádný projekt (TODO).
+- [ ] Wordle a Titanic nemají `TAHAK.md` (Titanic ho potřebuje kvůli CSV).
+
+### Převodník (`public-pages`)
+- [ ] Zdroj `pyladiesprague/workshop-opakovani`, vlastní `config.json`
+      (pořadí a názvy lekcí a projektů), URL na webu (návrh
+      `/workshopy/opakovaci/…`).
+- [ ] Lekce bez čísla (`lekce-<nazev>/`) a pomocné soubory bez `NN_`.
+- [ ] Projekty: stránky kroků, bonusů a nápadů, nápovědy jako sbalené bloky,
+      přepis odkazů, kontrola titulků, sekcí, odkazů a bloků kódu.
+- [ ] Workflow `web.yml` v tomhle repu podle `materialy` (secret
+      `PUBLIC_PAGES_TOKEN`, přeskočit ve forcích).

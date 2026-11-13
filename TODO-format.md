@@ -315,10 +315,14 @@ Decisions:
       `materialy`. The public-pages converter learns a strict Markdown project
       format (option 1 in the report): `README.md`, `cviceni/NN_*.md`,
       `napovedy/NN_*.md` (with `_1`/`_2`), `bonusy/NN_*.md`, `TAHAK.md`.
-  - [ ] Write the project format down for the converter, as `materialy` does in
-        its README "Pro autory": fixed first line of each file (`# Krok N – …`,
-        `# Bonus N – …`), fixed section headings from the step template, how a
-        hint links to its step. Do this before the converter is written.
+  - [x] Write the project format down for the converter: draft in
+        `FORMAT-projektu.md` (13 Nov). Part 2 is the source format (later moves
+        into the root README as "Pro autory"); part 3 lists what the current
+        materials need to change to fit it, per project.
+  - [ ] Review `FORMAT-projektu.md` (Vojta, Tomas). Open points there: step
+        section names (`Funkce`, `Testy`, `Program`, `Hotovo, když`, `Postup`),
+        hints as collapsed blocks in the step page, README titles, web URL,
+        a link to solutions after the workshop, `lekce-moduly` bonus 2 solution.
   - [ ] Solutions stay off the web during the day (they are only on `reseni`);
         decide whether the web shows them after the workshop.
 - [x] **Exceptions:** out of scope for this workshop, decided by Vojta on
