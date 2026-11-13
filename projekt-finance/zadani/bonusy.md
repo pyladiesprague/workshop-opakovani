@@ -58,7 +58,27 @@ původní text. O kolik znaků je delší než původní?
 Kdyby se ti místo barev vypisovaly znaky jako `←[32m`, tvůj terminál barvy
 neumí. V terminálu ve VS Code fungují.
 
-## Bonus 2 – HTML report
+## Bonus 2 – Hledání
+
+Funkce `najdi(transakce, text)` vrátí seznam transakcí, které mají hledaný
+text v popisu. Na velikosti písmen nezáleží: `"NÁKUP"` najde `"velký nákup"`.
+
+Testy: hledání najde víc transakcí, nenajde nic, nezáleží na velikosti písmen.
+
+## Bonus 3 – Řazení podle částky
+
+Funkce `serazene_podle_castky(transakce)` vrátí nový seznam transakcí
+seřazený od nejvyšší částky. Původní seznam nechá být.
+
+Seznam slovníků metodou `sort` přímo neseřadíš. Seznam n-tic ano: n-tice se
+porovnávají podle první položky, a když se shodují, podle druhé. Postav
+tedy seznam dvojic `(castka, index)`, seřaď ho a podle indexů poskládej
+výsledek.
+
+Vyzkoušej, co se stane, když místo indexu dáš do dvojice rovnou slovník
+a dvě transakce mají stejnou částku.
+
+## Bonus 4 – HTML report
 
 Grafické rozhraní bez jediné knihovny: program vyrobí webovou stránku
 s přehledem a ty si ji otevřeš v prohlížeči.
@@ -99,26 +119,6 @@ Kostra stránky, od které se můžeš odrazit:
   v obyčejném řetězci a s f-stringem je spoj přes `+`.
 
 Test: text, který funkce vrátí, obsahuje `<table>` a popis některé transakce.
-
-## Bonus 3 – Hledání
-
-Funkce `najdi(transakce, text)` vrátí seznam transakcí, které mají hledaný
-text v popisu. Na velikosti písmen nezáleží: `"NÁKUP"` najde `"velký nákup"`.
-
-Testy: hledání najde víc transakcí, nenajde nic, nezáleží na velikosti písmen.
-
-## Bonus 4 – Řazení podle částky
-
-Funkce `serazene_podle_castky(transakce)` vrátí nový seznam transakcí
-seřazený od nejvyšší částky. Původní seznam nechá být.
-
-Seznam slovníků metodou `sort` přímo neseřadíš. Seznam n-tic ano: n-tice se
-porovnávají podle první položky, a když se shodují, podle druhé. Postav
-tedy seznam dvojic `(castka, index)`, seřaď ho a podle indexů poskládej
-výsledek.
-
-Vyzkoušej, co se stane, když místo indexu dáš do dvojice rovnou slovník
-a dvě transakce mají stejnou částku.
 
 ## Bonus 5 – Cíl spoření
 
