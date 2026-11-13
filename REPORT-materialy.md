@@ -204,6 +204,8 @@ they are. Projects are Markdown. The options:
     (`int()` on bad input) or Titanic number parsing, or tell organizace that
     exceptions move to L13.
   - This is the one syllabus gap.
+  - *Decided by Vojta on 13 Nov, Tomas to confirm if needed: exceptions are
+    out of scope for this workshop and stay in L13.*
 - **Soubory and moduly:** covered.
   - Files: finance step 6 (JSON), Wordle word lists, Titanic CSV.
   - Modules: `lekce-moduly`, plus the logic/program split in every project.
@@ -221,7 +223,7 @@ comparison". C1 and C2 are also noted at the guiding rule, D5 and D7.
 - [ ] Decide C1 and reword the guiding rule in `TODO-format.md`.
 - [ ] Decide C2 (`NN_nazev.md` without prefix?) before any renaming starts.
 - [ ] Decide C3 (project format for the converter, or projects off the web).
-- [ ] Exceptions: add them to a project, or move them to L13 in organizace.
+- [x] Exceptions: out of scope, they stay in L13 (Vojta, 13 Nov).
 - [ ] Titles and solution headers in Wordle and Titanic: en dash, second line.
 - [ ] `.gitattributes`: `export-ignore` for working notes.
 - [ ] Root README: fork and clone, ZIP as fallback, same wording as lesson 1.

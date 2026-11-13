@@ -313,9 +313,11 @@ Decisions:
 - [ ] **C3. Web:** teach the public-pages converter a strict Markdown project
       format, or keep projects off the web for now? Fix the project format
       before the converter is written either way.
-- [ ] **Exceptions:** organizace puts *soubory, výjimky a moduly* into this
-      workshop, but nothing here uses `try`/`except`. Add them (finance input
-      cleaning, Titanic number parsing), or tell organizace they move to L13.
+- [x] **Exceptions:** out of scope for this workshop, decided by Vojta on
+      13 Nov; Tomas to confirm if he disagrees. They stay in L13 (CSV a výjimky).
+  - [ ] Tomas: confirm, if needed.
+  - [ ] Update `organizace/content/podzim-2026/materialy.md`, which still says
+        *soubory, výjimky a moduly patří do middle workshopu*.
 
 Alignment with `materialy`:
 - [ ] Titles with an en dash: Wordle `# Krok 1: …` becomes `# Krok 1 – …`.
