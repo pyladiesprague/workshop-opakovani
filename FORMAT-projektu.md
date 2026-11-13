@@ -84,10 +84,20 @@ aby řešení projektu omylem neodešlo na web.
    Zasekla ses? Nápověda je v souboru [`napovedy/NN_nazev.md`](../napovedy/NN_nazev.md).
    Zasekla ses? Nápověda je v souboru [`napovedy/NN_nazev.md`](../napovedy/NN_nazev.md), část Funkce.
    ```
-   - Převodník řádek nahradí sbaleným blokem `<details class="napoveda">`
-     s celou nápovědou, případně jen s její částí `## Funkce`.
+   - Na webu (rozhodl Vojta 13. 11.) převodník řádek nahradí tlačítkem
+     **Zobrazit nápovědu**, stejně jako je u úloh tlačítko „Zobrazit
+     řešení“. Je to blok `<details class="napoveda">` se shrnutím
+     „Zobrazit nápovědu / Skrýt nápovědu“. Obsahuje celou nápovědu, případně
+     jen její část `## Funkce`.
    - Víc nápověd: druhý řádek `Když nestačí, druhá je v souboru […](…_2.md).`
-     dá druhý blok „Nápověda 2“.
+     Převodník blok další nápovědy vloží na konec předchozího, s tlačítkem
+     **Zobrazit další nápovědu**.
+     - Další tlačítko se tedy objeví až po otevření předchozí nápovědy.
+     - Takhle to pokračuje, dokud jsou nápovědy k dispozici (`_1`, `_2`,
+       `_3` …).
+     - Stačí čisté HTML, žádný skript.
+   - Pro tisk: přepínač, který dnes otevírá řešení (`tisk.js`), by měl umět
+     otevřít i nápovědy.
    - Odkaz na neexistující nápovědu, nebo nápověda bez odkazu z kroku, je
      chyba.
 5. **Bloky kódu** mají vždy uvedený jazyk: `python`, `text` nebo `html`. Kód
@@ -123,10 +133,10 @@ aby řešení projektu omylem neodešlo na web.
 
 #### Řešení
 
-Na webu nejsou. Převodník čte `main`, kde řešení projektů nejsou (C1).
+Řešení projektů na webu nejsou, ani odkazem na větev `reseni` (rozhodl
+Vojta 13. 11.). Převodník čte `main`, kde řešení projektů nejsou (C1).
 Lekce mají řešení na `main` a web je ukazuje sbalené pod úlohou jako
-v materialy. Otevřené: má po workshopu stránka projektu dostat odkaz
-„Řešení na GitHubu“ na větev `reseni`?
+v materialy.
 
 ## 3. Co je potřeba sjednotit v současných materiálech
 
@@ -189,7 +199,10 @@ Stav ke 13. 11. 2026 na `main`. ✅ = už vyhovuje.
       (pořadí a názvy lekcí a projektů), URL na webu (návrh
       `/workshopy/opakovaci/…`).
 - [ ] Lekce bez čísla (`lekce-<nazev>/`) a pomocné soubory bez `NN_`.
-- [ ] Projekty: stránky kroků, bonusů a nápadů, nápovědy jako sbalené bloky,
+- [ ] Projekty: stránky kroků, bonusů a nápadů, nápovědy za tlačítkem
+      „Zobrazit nápovědu“ (další vnořené za „Zobrazit další nápovědu“),
       přepis odkazů, kontrola titulků, sekcí, odkazů a bloků kódu.
+- [ ] Styl `details.napoveda` podle `details.reseni` a otevírání nápověd
+      v `tisk.js`.
 - [ ] Workflow `web.yml` v tomhle repu podle `materialy` (secret
       `PUBLIC_PAGES_TOKEN`, přeskočit ve forcích).

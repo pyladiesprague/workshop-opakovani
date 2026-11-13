@@ -321,8 +321,10 @@ Decisions:
         materials need to change to fit it, per project.
   - [ ] Review `FORMAT-projektu.md` (Vojta, Tomas). Open points there: step
         section names (`Funkce`, `Testy`, `Program`, `Hotovo, když`, `Postup`),
-        hints as collapsed blocks in the step page, README titles, web URL,
-        a link to solutions after the workshop, `lekce-moduly` bonus 2 solution.
+        README titles, web URL, `lekce-moduly` bonus 2 solution.
+        Decided by Vojta on 13 Nov: hints sit behind a "Zobrazit nápovědu"
+        button like "Zobrazit řešení", each further hint behind "Zobrazit další
+        nápovědu" inside the previous one; no link to project solutions on the web.
   - [ ] Solutions stay off the web during the day (they are only on `reseni`);
         decide whether the web shows them after the workshop.
 - [x] **Exceptions:** out of scope for this workshop, decided by Vojta on
