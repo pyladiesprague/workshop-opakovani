@@ -255,9 +255,16 @@ protože chybějící sekce jsou povolené.
       přepis odkazů, kontrola titulků, sekcí, odkazů a bloků kódu.
 - [x] Styl `details.napoveda` podle `details.reseni` (prototyp).
 - [ ] Otevírání nápověd v `tisk.js`.
-- [ ] Zápis do webu: evidence v `lock.json` (nebo vlastní lock workshopu),
-      povolené cesty v `sync.mjs` (dnes jen `content/materialy/lekceNN…`),
-      `--check` a `--write` jako u materialy, testy.
+- [x] Zápis do webu (13. 11., `public-pages` větev `workshop-import`,
+      commit `3a9f4b9`):
+      - vlastní lock `code/workshop/opakovani.lock.json`,
+      - povolené cesty `content/materialy/<slug>/` v `sync.mjs`,
+      - `npm run workshop:import` (náhled, `--write`) a `workshop:check`,
+      - 9 testů, celkem prochází 81 testů,
+      - odkaz „Upravit na GitHubu“ vede do repa workshopu,
+      - první import `828e5c1`: 66 stránek, web se sestaví, odkazy vedou na
+        existující stránky,
+      - postup je v `code/workshop/README.md`.
 - [ ] Workflow `web.yml` v tomhle repu podle `materialy` (secret
       `PUBLIC_PAGES_TOKEN`, přeskočit ve forcích).
 
@@ -308,9 +315,10 @@ Všechno rozhodl Vojta 13. 11. podle návrhu:
       v materialy.
 
 ### Co zbývá, aby šel převod do provozu
-- zápis do webu s evidencí a kontrolou ručních změn (viz část 3, Převodník),
-- testy prototypu,
-- `tisk.js`,
-- workflow `web.yml` v tomhle repu,
-- PR do `public-pages`.
+- [x] zápis do webu s evidencí a kontrolou ručních změn (13. 11.),
+- [x] testy (13. 11.),
+- [ ] push větve `workshop-import` a PR do `public-pages`,
+- [ ] `tisk.js`: otevírání nápověd v tiskové verzi,
+- [ ] workflow `web.yml` v tomhle repu (automatický import po pushi,
+      vyžaduje secret `PUBLIC_PAGES_TOKEN` a workflow importu v `public-pages`).
 
