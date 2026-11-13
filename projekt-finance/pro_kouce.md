@@ -25,8 +25,9 @@ a `ukazkova_data.py`. Složka `06_soubory/` má navíc `finance.json`.
 
 ## Bonusy
 
-Ve složce `bonusy/reseni/` jsou řešení prvních čtyř bonusů. Ostatní bonusy
-řešení nemají, jsou to otevřené úlohy.
+Ve složce `bonusy/reseni/` jsou řešení všech čtyř bonusů. Nápady
+v `napady.md` (dřív bonusy 5 až 11 a „Když zbyde čas“) řešení nemají, jsou
+to otevřené úlohy.
 
 - `01_barvy/` je celý projekt po kroku 6 s barevným výstupem. Hodí se
   i na ukázku na začátku dne, co se bude stavět.
