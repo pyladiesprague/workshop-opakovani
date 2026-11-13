@@ -24,14 +24,15 @@ Značky říkají, do kterých kroků řádek patří:
 starší podoba jako "#@1-6| ..." a nejnovější jako kód se značkou "#@7".
 
 Testy se berou ze zadání: do test_finance.py kroku N se za startovní soubor
-přidají bloky s testy ze zadani/krok1_*.md až zadani/krokN_*.md. Řešení se
+přidají bloky s testy ze zadání cviceni/01_*.md až cviceni/NN_*.md. Řešení se
 tak vždycky ověřuje proti testům, které účastnice opravdu dostanou.
 Obarvená verze má navíc testy z testy_barvy.py.
 
-Výsledek se zapíše do ../krok1 až ../krok6 a ../bonusy/bonus1_barvy.
-Ty složky ručně neupravuj, uprav předlohu a spusť skript znovu.
+Výsledek se zapíše do cviceni/reseni/NN_nazev (jméno jako má zadání kroku)
+a do bonusy/reseni/01_barvy. Ty složky ručně neupravuj, uprav předlohu
+a spusť skript znovu.
 
-Nakonec skript spustí řešení bonusu HTML report (../bonusy/bonus4_html_report.py)
+Nakonec skript spustí řešení bonusu HTML report (bonusy/reseni/04_html_report.py)
 nad ukázkovými daty a stránku uloží sem jako vzorovy_report.html. Je to ukázka,
 jak má výstup bonusu vypadat; stačí ji otevřít v prohlížeči.
 """
@@ -48,8 +49,9 @@ import webbrowser
 from pathlib import Path
 
 PREDLOHA = Path(__file__).resolve().parent
-RESENI = PREDLOHA.parent
-PROJEKT = RESENI.parent
+RESENI = PREDLOHA.parent  # cviceni/reseni
+PROJEKT = RESENI.parent.parent
+BONUSY = PROJEKT / "bonusy" / "reseni"
 POCET_KROKU = 6
 KROK_BARVY = 7
 
@@ -97,13 +99,17 @@ def pridej_testy(text, testy):
     return text.rstrip("\n") + "\n\n\n" + testy.strip("\n") + "\n"
 
 
+def zadani_kroku(cislo):
+    zadani = sorted((PROJEKT / "cviceni").glob(f"{cislo:02d}_*.md"))
+    if len(zadani) != 1:
+        raise SystemExit(f"Čekám právě jedno zadání kroku {cislo}, mám {len(zadani)}.")
+    return zadani[0]
+
+
 def testy_do_kroku(krok):
     text = (PROJEKT / "test_finance.py").read_text(encoding="utf-8")
     for cislo in range(1, krok + 1):
-        zadani = sorted((PROJEKT / "zadani").glob(f"krok{cislo}_*.md"))
-        if len(zadani) != 1:
-            raise SystemExit(f"Čekám právě jedno zadání kroku {cislo}, mám {len(zadani)}.")
-        obsah = zadani[0].read_text(encoding="utf-8")
+        obsah = zadani_kroku(cislo).read_text(encoding="utf-8")
         for blok in re.findall(r"```python\n(.*?)```", obsah, flags=re.DOTALL):
             if "def test_" in blok:
                 text = pridej_testy(text, blok)
@@ -124,7 +130,7 @@ def sestav(slozka, krok, titulek, testy):
     shutil.copyfile(PROJEKT / "ukazkova_data.py", slozka / "ukazkova_data.py")
     if krok >= POCET_KROKU:
         shutil.copyfile(PROJEKT / "finance.json", slozka / "finance.json")
-    print(f"{slozka.relative_to(RESENI).as_posix()}: hotovo")
+    print(f"{slozka.relative_to(PROJEKT).as_posix()}: hotovo")
 
 
 def main():
@@ -133,25 +139,26 @@ def main():
     shutil.copyfile(PROJEKT / "finance.json", PREDLOHA / "finance.json")
 
     for krok in range(1, POCET_KROKU + 1):
-        sestav(RESENI / f"krok{krok}", krok, f"krok {krok}", testy_do_kroku(krok))
+        slozka = RESENI / zadani_kroku(krok).stem
+        sestav(slozka, krok, f"krok {krok}", testy_do_kroku(krok))
 
     testy_barvy = (PREDLOHA / "testy_barvy.py").read_text(encoding="utf-8")
     sestav(
-        RESENI / "bonusy" / "bonus1_barvy",
+        BONUSY / "01_barvy",
         KROK_BARVY,
         "bonus 1, Barvy v terminálu",
         pridej_testy(testy_do_kroku(POCET_KROKU), testy_barvy),
     )
 
     # Ostatní řešení bonusů se píšou ručně, jen potřebují mít data vedle sebe.
-    shutil.copyfile(PROJEKT / "ukazkova_data.py", RESENI / "bonusy" / "ukazkova_data.py")
+    shutil.copyfile(PROJEKT / "ukazkova_data.py", BONUSY / "ukazkova_data.py")
 
     vzorovy_report()
 
 
 def vzorovy_report():
     """Spustí řešení bonusu HTML report a jeho výstup uloží k předloze jako ukázku."""
-    bonusy = RESENI / "bonusy"
+    bonusy = BONUSY
     puvodni_slozka = Path.cwd()
     puvodni_otevreni = webbrowser.open
     # Skript zapisuje report.html do aktuální složky a otevírá prohlížeč.
@@ -162,7 +169,7 @@ def vzorovy_report():
         webbrowser.open = lambda *argumenty: None
         try:
             with contextlib.redirect_stdout(io.StringIO()):
-                runpy.run_path(str(bonusy / "bonus4_html_report.py"), run_name="__main__")
+                runpy.run_path(str(bonusy / "04_html_report.py"), run_name="__main__")
             html = Path("report.html").read_text(encoding="utf-8")
         finally:
             webbrowser.open = puvodni_otevreni
@@ -170,7 +177,7 @@ def vzorovy_report():
             sys.modules.pop("ukazkova_data", None)
             os.chdir(puvodni_slozka)
     zapis(PREDLOHA / "vzorovy_report.html", html)
-    print("_predloha/vzorovy_report.html: hotovo")
+    print(f"{(PREDLOHA / 'vzorovy_report.html').relative_to(PROJEKT).as_posix()}: hotovo")
 
 
 main()
