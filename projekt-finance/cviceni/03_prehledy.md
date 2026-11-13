@@ -20,7 +20,24 @@ Výdaje podle kategorií:
 Největší výdaj: nájem (14000 Kč)
 ```
 
-## 1. Testy
+## Funkce
+
+Funkce píšeš do `finance.py`.
+
+| Funkce | Co vrátí |
+|---|---|
+| `vydaje_podle_kategorie(transakce)` | slovník, kde klíč je kategorie a hodnota součet výdajů v ní; příjmy se nepočítají |
+| `transakce_za_mesic(transakce, mesic)` | nový seznam jen s transakcemi z daného měsíce; měsíc je text jako `"2026-11"` |
+| `nejvetsi_vydaj(transakce)` | transakci s nejvyšší částkou mezi výdaji; když žádný výdaj není, vrátí `None` |
+
+Funkce se dají skládat. Výdaje za listopad nepotřebují novou funkci:
+
+```python
+listopad = transakce_za_mesic(transakce, "2026-11")
+print(soucet_vydaju(listopad))
+```
+
+## Testy
 
 Zkopíruj na konec `test_finance.py`:
 
@@ -57,28 +74,15 @@ def test_nejvetsi_vydaj_bez_vydaju():
     assert finance.nejvetsi_vydaj([]) is None
 ```
 
-## 2. Funkce do `finance.py`
-
-| Funkce | Co vrátí |
-|---|---|
-| `vydaje_podle_kategorie(transakce)` | slovník, kde klíč je kategorie a hodnota součet výdajů v ní; příjmy se nepočítají |
-| `transakce_za_mesic(transakce, mesic)` | nový seznam jen s transakcemi z daného měsíce; měsíc je text jako `"2026-11"` |
-| `nejvetsi_vydaj(transakce)` | transakci s nejvyšší částkou mezi výdaji; když žádný výdaj není, vrátí `None` |
-
 Podívej se na test `test_nejvetsi_vydaj`. Největší částku v ukázce má
 brigáda za 1000, a přesto má vyjít pizza. Proč?
-
-Funkce se dají skládat. Výdaje za listopad nepotřebují novou funkci:
-
-```python
-listopad = transakce_za_mesic(transakce, "2026-11")
-print(soucet_vydaju(listopad))
-```
 
 **Vlastní test:** zkontroluj, že `vydaje_podle_kategorie` z listopadových
 transakcí ukázky vrátí správný slovník. Nejdřív si ho spočítej ručně.
 
-## 3. Menu do `app.py`
+## Program
+
+Menu je v `app.py`.
 
 Přidej volbu `5 – přehled měsíce`. Zeptá se na měsíc a vypíše:
 
@@ -91,23 +95,10 @@ Když v měsíci žádné transakce nejsou, vypiš jen zprávu o tom.
 Měsíc od uživatelky zkontroluj. Šikovný trik: měsíc `2026-11` je platný
 právě tehdy, když je platné datum `2026-11-01`, a na to už funkci máš.
 
-## Nápověda
-
-- Sčítání podle klíče je počítadlo, jen místo jedničky přičítáš částku. Tahák L9, *Počítadlo*.
-- Nový seznam z těch položek, které projdou podmínkou. Tahák L8, *Stavění seznamu v cyklu*.
-- Začíná text něčím? `startswith`. Tahák L6.
-- Hledání největšího: pamatuj si zatím nejlepšího a začni s `None`. Tahák L9, *Kdo vyhrál*.
-- Procházení slovníku po dvojicích: `for klic, hodnota in slovnik.items()`. Tahák L9.
+Zasekla ses? Nápověda je v souboru [`napovedy/03_prehledy.md`](../napovedy/03_prehledy.md).
 
 ## Hotovo, když
 
 - [ ] všechny testy jsou zelené
 - [ ] přehled za `2026-11` z ukázkových dat sedí s ukázkou nahoře
 - [ ] měsíc bez transakcí ani nesmyslný měsíc program neshodí
-
-## Když zbyde čas
-
-- Vypiš kategorie v přehledu od nejdražší po nejlevnější.
-- Přidej funkci `prijmy_podle_kategorie`. Všimni si, kolik kódu se opakuje.
-  Šla by z obou udělat jedna funkce s parametrem navíc?
-- Přidej volbu, která vypíše přehled za všechny měsíce, které v datech jsou.

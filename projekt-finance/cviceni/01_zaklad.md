@@ -23,7 +23,20 @@ Zůstatek: 25540 Kč
 
 Nejdřív si otevři `ukazkova_data.py` a prohlédni si, jak data vypadají.
 
-## 1. Testy
+## Funkce
+
+Funkce píšeš do `finance.py`.
+
+| Funkce | Co vrátí |
+|---|---|
+| `soucet_prijmu(transakce)` | součet částek všech transakcí, které mají typ `"prijem"` |
+| `soucet_vydaju(transakce)` | součet částek všech transakcí, které mají typ `"vydaj"` |
+| `zustatek(transakce)` | příjmy mínus výdaje |
+
+Funkce nic nevypisují a na nic se neptají. Dostanou seznam transakcí a vrátí
+číslo. Ve funkci `zustatek` použij ty dvě předchozí.
+
+## Testy
 
 Otevři `test_finance.py` a tyhle testy zkopíruj na jeho konec:
 
@@ -52,23 +65,14 @@ je tak, aby testy zezelenaly.
 Spočítej si na papíře, proč má z dat ve funkci `ukazka()` vyjít zrovna 1000,
 900 a 100. Uvidíš tak, co přesně testy kontrolují.
 
-## 2. Funkce do `finance.py`
-
-| Funkce | Co vrátí |
-|---|---|
-| `soucet_prijmu(transakce)` | součet částek všech transakcí, které mají typ `"prijem"` |
-| `soucet_vydaju(transakce)` | součet částek všech transakcí, které mají typ `"vydaj"` |
-| `zustatek(transakce)` | příjmy mínus výdaje |
-
-Funkce nic nevypisují a na nic se neptají. Dostanou seznam transakcí a vrátí
-číslo. Ve funkci `zustatek` použij ty dvě předchozí.
-
 Po každé funkci pusť testy. Zelených bude přibývat.
 
 **Vlastní test:** zůstatek může vyjít i záporný. Napiš test se seznamem,
 ve kterém je jediná transakce, a to výdaj. Seznam si napiš přímo v testu.
 
-## 3. Menu do `app.py`
+## Program
+
+Menu je v `app.py`.
 
 Funkce máš, teď je potřeba je někomu nabídnout.
 
@@ -88,14 +92,7 @@ z `random`:
 from finance import zustatek
 ```
 
-## Nápověda
-
-- Hodnotu ze slovníku čteš přes klíč: `t["castka"]`. Tahák L9, *Záznamy a tabulky*.
-- Sčítání v cyklu: začni nulou a v cyklu přičítej. Podmínka rozhodne, co se započítá.
-- V f-stringu se klíč píše do apostrofů: `f"{t['datum']}"`. Tahák L9.
-- Zarovnání na šířku: `f"{cislo:3}"`, `f"{text:10}"`. Tahák L6.
-- Pořadové číslo k položce: `enumerate(seznam, start=1)`. Lekce 8.
-- Menu: `while True`, `input`, `if/elif/else`, `break`. Tahák L4.
+Zasekla ses? Nápověda je v souboru [`napovedy/01_zaklad.md`](../napovedy/01_zaklad.md).
 
 ## Hotovo, když
 
@@ -103,9 +100,3 @@ from finance import zustatek
 - [ ] `app.py` vypíše transakce v čitelných sloupcích
 - [ ] zůstatek z ukázkových dat vyjde 25540 Kč
 - [ ] neznámá volba program neshodí a `0` ho ukončí
-
-## Když zbyde čas
-
-- Vypiš pod výpisem i součet příjmů a součet výdajů.
-- Částky ve výpisu oddělují tisíce mezerou: `32 000`. Zvládneš to
-  s tím, co umíš z řetězců?

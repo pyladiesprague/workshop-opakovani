@@ -110,7 +110,9 @@ projects. Everything else is small alignment.
 
 ## 3. Conflicts to decide
 
-**C1. Where solutions live.**
+**C1. Where solutions live.** *Decided provisionally by Vojta on 13 Nov, Tomas to
+confirm: projects keep solutions only on the `reseni` branch, lessons keep
+`reseni/` on `main` (the suggestion below).*
 `materialy` and organizace say solutions sit next to the exercises, so
 participants can compare after trying. D5 says `main` never has answers. The
 repo now does both: `lekce-testovani/` on `main` contains `cviceni/reseni/`.
@@ -123,7 +125,8 @@ repo now does both: `lekce-testovani/` on `main` contains `cviceni/reseni/`.
 
 **C2. Numbering and names.** *Decided 13 Nov (see D7 in `TODO-format.md`):
 the same as `materialy`. Steps go in `cviceni/NN_nazev.md`, hints in
-`napovedy/NN_nazev.md`, 1:1 with their step, with gaps allowed. Bonuses go in
+`napovedy/NN_nazev.md`, 1:1 with their step, with gaps allowed. A hard step
+may split its hint into `_1` and `_2`, and the web UI will show both. Bonuses go in
 `bonusy/NN_nazev.md`. Solutions on `reseni` go in `cviceni/reseni/` and
 `bonusy/reseni/`. Done in all three projects.*
 Vojta's doubt on D7 matches `materialy`: two digits, no word prefix.
@@ -137,7 +140,9 @@ Vojta's doubt on D7 matches `materialy`: two digits, no word prefix.
   not. `bonusy/` reads better in a project, and the converter rules for
   projects will be new anyway.
 
-**C3. Projects and the web converter.**
+**C3. Projects and the web converter.** *Decided by Vojta on 13 Nov: projects
+go on the web like `materialy`, through option 1 below. Folder names follow
+C2 (`cviceni/`, not `zadani/`).*
 The TODO already plans a converter for this repo. It can read the lessons as
 they are. Projects are Markdown. The options:
 1. Teach the converter a simple Markdown project format (`README.md`, then
@@ -201,6 +206,8 @@ they are. Projects are Markdown. The options:
     (`int()` on bad input) or Titanic number parsing, or tell organizace that
     exceptions move to L13.
   - This is the one syllabus gap.
+  - *Decided by Vojta on 13 Nov, Tomas to confirm if needed: exceptions are
+    out of scope for this workshop and stay in L13.*
 - **Soubory and moduly:** covered.
   - Files: finance step 6 (JSON), Wordle word lists, Titanic CSV.
   - Modules: `lekce-moduly`, plus the logic/program split in every project.
@@ -218,7 +225,7 @@ comparison". C1 and C2 are also noted at the guiding rule, D5 and D7.
 - [ ] Decide C1 and reword the guiding rule in `TODO-format.md`.
 - [ ] Decide C2 (`NN_nazev.md` without prefix?) before any renaming starts.
 - [ ] Decide C3 (project format for the converter, or projects off the web).
-- [ ] Exceptions: add them to a project, or move them to L13 in organizace.
+- [x] Exceptions: out of scope, they stay in L13 (Vojta, 13 Nov).
 - [ ] Titles and solution headers in Wordle and Titanic: en dash, second line.
 - [ ] `.gitattributes`: `export-ignore` for working notes.
 - [ ] Root README: fork and clone, ZIP as fallback, same wording as lesson 1.

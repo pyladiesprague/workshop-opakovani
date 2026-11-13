@@ -6,15 +6,16 @@ takes the notes in `feedback.md` as already agreed, and proposes one format for
 the repo. Both `feedback.md` and this file are one-off working notes. They are
 not part of the format and do not need to live on any branch.
 
-Guiding rule: **`main` never contains direct answers.** Participants get
-hints in separate files. Full solutions and coach notes live on a branch that
-only coaches use during the day.
+Guiding rule: **`main` never contains project solutions.** Participants get
+hints in separate files. Full project solutions and coach notes live on a branch
+that only coaches use during the day. Lessons (`lekce-*/`) follow `materialy`:
+their solutions sit in `reseni/` next to the exercises, on `main`.
+(C1, decided provisionally by Vojta on 13 Nov; **Tomas to confirm**.)
 
 Companion note: `REPORT-materialy.md` (13 Nov) compares this repo with the
 conventions of `pyladiesprague/materialy`. Its open decisions C1–C3 are listed
-in section 4 under "From the materialy comparison". C1 questions the guiding rule
-above for the lessons: `lekce-testovani/` on `main` already has `reseni/`, as in
-`materialy`. Suggested wording: **`main` never contains project solutions.**
+in section 4 under "From the materialy comparison". C1 changed the guiding rule
+above: it now covers projects only.
 
 Section 3 records each decision as Tomas chose it. Vojtěch adds his feedback here.
 
@@ -107,6 +108,9 @@ bonuses with their own `reseni/`). Two differences: bonuses are in `bonusy/`
 - Then, only if needed: a code skeleton with `...` where the thinking is.
 - Never the full function. That is what `reseni` is for.
 - Hard steps may have two files, `_1` and `_2`, so the first can be read alone.
+  Kept on purpose (decided 13 Nov): the step name plus a suffix, e.g.
+  `06_opakovana_pismena_1.md` and `_2.md`. The web UI shows them as hint 1
+  and hint 2 of that step.
 
 ### Project README template
 
@@ -163,10 +167,10 @@ The subfolders kept participant files apart from `reseni/`. Once solutions leave
   stuck participant works it out with hints and a coach. This drops the earlier
   design assumption that anyone stuck can jump ahead from a solution.
 
-Open (C1 in `REPORT-materialy.md`): this applies to projects. `materialy` and the
-organizace authoring rules keep lesson solutions in `reseni/` next to the
-exercises, and `lekce-testovani/` does the same here. Suggested: lessons follow
-`materialy`, projects keep solutions on the `reseni` branch.
+C1 (provisional, Vojta 13 Nov, Tomas to confirm): this applies to projects only.
+Lessons follow `materialy` and the organizace authoring rules: their solutions
+sit in `reseni/` next to the exercises, on `main`, as `lekce-testovani/` and
+`lekce-moduly/` already do.
 
 Consequence: the READMEs must not tell participants to copy a solution and
 carry on. Wordle and Titanic say that today, and the finance README promises
@@ -190,7 +194,8 @@ All three projects' solutions and coach notes live on one branch.
   without the leading zero `krok10_` sorts between `krok1_` and `krok2_`. Vojta: I think we should have leading zeros for sorting.
 - **Decided 13 Nov by Vojta (C2 in `REPORT-materialy.md`): same as `materialy`,
   the folder says what a file is.** `cviceni/01_zaklad.md`, `napovedy/01_zaklad.md`
-  (1:1 with its step, gaps allowed), `bonusy/01_barvy.md`. Solutions on `reseni`
+  (1:1 with its step, gaps allowed; a hard step may split its hint into `_1`
+  and `_2`), `bonusy/01_barvy.md`. Solutions on `reseni`
   as in `materialy`: `cviceni/reseni/01_zaklad/`, `bonusy/reseni/01_barvy/` or
   `bonusy/reseni/02_hledani.py`. Titles stay `Krok N – Název` and
   `Bonus N – Název`, like `Cvičení N – …`. Done in all three projects.
@@ -267,7 +272,11 @@ Order: project-specific work first, repo-wide changes after.
       Discord, web banner in `organizace/content/oznameni/`).
 - [ ] public-pages converter for the workshop repo. Today it only reads
       `pyladiesprague/materialy`. The lessons here (`lekce-moduly/`, testing)
-      already follow the materialy format, the projects do not.
+      already follow the materialy format; the projects get their own Markdown
+      format (C3: projects go on the web like `materialy`).
+      It must support several hints per step: `napovedy/NN_nazev_1.md`,
+      `_2.md` show as hint 1 and hint 2, so the second is opened only when the
+      first is not enough.
 - [ ] Root `TAHAK.md`: importing from your own file, writing a test, reading a
       failed test, common error messages. Move this out of the finance tahák
       and out of the Wordle and Titanic READMEs.
@@ -296,16 +305,42 @@ Order: project-specific work first, repo-wide changes after.
 
 ### From the materialy comparison (`REPORT-materialy.md`)
 Decisions:
-- [ ] **C1. Solutions:** lessons keep `reseni/` on `main` (as `materialy`),
-      projects keep solutions on the `reseni` branch? Then reword the guiding rule.
+- [x] **C1. Solutions:** provisionally decided by Vojta on 13 Nov: projects keep
+      solutions only on the `reseni` branch, lessons keep `reseni/` on `main`
+      (as `materialy`). Guiding rule and D5 reworded.
+  - [ ] Tomas: confirm C1.
 - [x] **C2. Numbering:** decided 13 Nov, see D7: `cviceni/NN_nazev.md`,
       `napovedy/NN_nazev.md`, `bonusy/NN_nazev.md`, solutions as in `materialy`.
-- [ ] **C3. Web:** teach the public-pages converter a strict Markdown project
-      format, or keep projects off the web for now? Fix the project format
-      before the converter is written either way.
-- [ ] **Exceptions:** organizace puts *soubory, výjimky a moduly* into this
-      workshop, but nothing here uses `try`/`except`. Add them (finance input
-      cleaning, Titanic number parsing), or tell organizace they move to L13.
+- [x] **C3. Web:** decided by Vojta on 13 Nov: projects go on the web like
+      `materialy`. The public-pages converter learns a strict Markdown project
+      format (option 1 in the report): `README.md`, `cviceni/NN_*.md`,
+      `napovedy/NN_*.md` (with `_1`/`_2`), `bonusy/NN_*.md`, `TAHAK.md`.
+  - [x] Write the project format down for the converter: draft in
+        `FORMAT-projektu.md` (13 Nov). Part 2 is the source format (later moves
+        into the root README as "Pro autory"); part 3 lists what the current
+        materials need to change to fit it, per project.
+  - [ ] Tomas: review `FORMAT-projektu.md`. All open points were decided by
+        Vojta on 13 Nov:
+        - Hints sit behind a "Zobrazit nápovědu" button like "Zobrazit řešení";
+          each further hint behind "Zobrazit další nápovědu" inside the previous one.
+        - No project solutions on the web, not even a link to the `reseni` branch.
+        - Step sections are fixed: `Funkce`, `Testy`, `Program`, `Hotovo, když`,
+          in this order, missing ones allowed, `###` free. Exceptions: a test-first
+          step may put `Testy` first, an open last step uses `Postup`. The converter
+          rejects anything else. Mapping of today's headings: part 2, Krok, point 3.
+        - README title is the short project name only (`# Správce osobních
+          financí`, `# Wordle s řešičem`, `# Titanic`; done). The converter takes
+          the page title from it; `config.json` holds order and a short description.
+        - The workshop goes under Materiály, like the course lessons:
+          `/materialy/workshop-opakovani/` plus repo paths. Details in part 1.
+        - `lekce-moduly` bonus 2: the solution is `reseni/02_test_modulu.py` (same
+          name as the task), with a copy of `spropitne.py` next to it so it runs
+          with `python -m pytest 02_test_modulu.py` (done).
+- [x] **Exceptions:** out of scope for this workshop, decided by Vojta on
+      13 Nov; Tomas to confirm if he disagrees. They stay in L13 (CSV a výjimky).
+  - [ ] Tomas: confirm, if needed.
+  - [ ] Update `organizace/content/podzim-2026/materialy.md`, which still says
+        *soubory, výjimky a moduly patří do middle workshopu*.
 
 Alignment with `materialy`:
 - [ ] Titles with an en dash: Wordle `# Krok 1: …` becomes `# Krok 1 – …`.
@@ -360,9 +395,12 @@ Schedule fit (workshop Sat 21 Nov, after L9 Slovníky on 19 Nov):
 
 ### Finance
 - [x] Renumber steps to `cviceni/01_…`, also in the solution generator (D7, C2).
-- [ ] Put the function description before the tests in every step (D8).
-- [ ] Move the inline "Nápověda" sections into `napovedy/`.
-- [ ] Move "Když zbyde čas" items and bonuses 5 to 11 (no solutions) into `napady.md`.
+- [x] Put the function description before the tests in every step (D8). Done 13 Nov:
+      steps follow `FORMAT-projektu.md` (`Funkce`, `Testy`, `Program`, hint link,
+      `Hotovo, když`); paragraphs about the tests moved from Funkce to Testy.
+- [x] Move the inline "Nápověda" sections into `napovedy/` (13 Nov).
+- [x] Move "Když zbyde čas" items and bonuses 5 to 11 (no solutions) into `napady.md`
+      (13 Nov). Bonuses are now 1 to 4, all with solutions.
 - [x] HTML report moved to bonus 4, last of the bonuses with solutions (D12).
 - [x] Solutions: rename `bonus2_html_report.py` to `bonus4_html_report.py`,
       `bonus3_hledani.py` to `bonus2_hledani.py`, `bonus4_razeni.py` to
@@ -387,9 +425,8 @@ Schedule fit (workshop Sat 21 Nov, after L9 Slovníky on 19 Nov):
       and the solutions; drop the `class` and `self` note.
 - [ ] Rename the folder `wordle/` to `projekt-wordle/` (D7).
 - [ ] Flatten `moje_hra/` (D4). Steps already moved to `cviceni/` (C2).
-- [ ] Hint file names must match their step 1:1: step 6 has two hints,
-      `06_opakovana_pismena_1.md` and `_2.md`. Merge them into one file with two
-      parts, or accept the exception.
+- [x] Step 6 keeps two hints, `06_opakovana_pismena_1.md` and `_2.md`
+      (decided 13 Nov). The web UI gets support for several hints per step.
 - [ ] Add "result first" and "Hotovo, když" to every step.
 - [ ] Review hints against the hint rules; several give most of the function.
 - [ ] Step 10 stays (D10). Find out why clearing the screen did not seem to work:
