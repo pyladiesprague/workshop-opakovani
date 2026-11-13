@@ -31,7 +31,7 @@ Obarvená verze má navíc testy z testy_barvy.py.
 Výsledek se zapíše do ../krok1 až ../krok6 a ../bonusy/bonus1_barvy.
 Ty složky ručně neupravuj, uprav předlohu a spusť skript znovu.
 
-Nakonec skript spustí řešení bonusu HTML report (../bonusy/bonus2_html_report.py)
+Nakonec skript spustí řešení bonusu HTML report (../bonusy/bonus4_html_report.py)
 nad ukázkovými daty a stránku uloží sem jako vzorovy_report.html. Je to ukázka,
 jak má výstup bonusu vypadat; stačí ji otevřít v prohlížeči.
 """
@@ -162,7 +162,7 @@ def vzorovy_report():
         webbrowser.open = lambda *argumenty: None
         try:
             with contextlib.redirect_stdout(io.StringIO()):
-                runpy.run_path(str(bonusy / "bonus2_html_report.py"), run_name="__main__")
+                runpy.run_path(str(bonusy / "bonus4_html_report.py"), run_name="__main__")
             html = Path("report.html").read_text(encoding="utf-8")
         finally:
             webbrowser.open = puvodni_otevreni

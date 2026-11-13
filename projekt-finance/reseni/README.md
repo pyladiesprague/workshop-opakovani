@@ -32,7 +32,7 @@ Ve složce `bonusy/` jsou řešení prvních čtyř bonusů. Ostatní bonusy
 
 - `bonus1_barvy/` je celý projekt po kroku 6 s barevným výstupem. Hodí se
   i na ukázku na začátku dne, co se bude stavět.
-- `bonus2_html_report.py`, `bonus3_hledani.py` a `bonus4_razeni.py` jsou
+- `bonus2_hledani.py`, `bonus3_razeni.py` a `bonus4_html_report.py` jsou
   samostatné soubory, každý jde spustit zvlášť.
 
 ## Pro kouče
@@ -46,7 +46,7 @@ Ve složce `bonusy/` jsou řešení prvních čtyř bonusů. Ostatní bonusy
   než z ní necháš sestavit kroky.
 - `_predloha/vzorovy_report.html` je ukázka výstupu bonusu HTML report nad
   ukázkovými daty. Otevři ji v prohlížeči. Vyrábí ji `sestav.py` spuštěním
-  `bonusy/bonus2_html_report.py`, ručně ji neupravuj.
+  `bonusy/bonus4_html_report.py`, ručně ji neupravuj.
 - Testy v `krokN/test_finance.py` skript bere přímo ze zadání
   (`zadani/krokN_*.md`). Když změníš testy v zadání, spusť ho taky.
 - Ověření všech kroků: v každé složce `krokN/` spusť `python -m pytest`.

@@ -1,4 +1,4 @@
-# Řešení bonusu 3 – Hledání
+# Řešení bonusu 2 – Hledání
 # Tvoje řešení může vypadat jinak, a to je v pořádku.
 #
 # Soubor jde spustit samostatně. Ve svém projektu dej funkci najdi

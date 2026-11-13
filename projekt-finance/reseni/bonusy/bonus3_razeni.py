@@ -1,4 +1,4 @@
-# Řešení bonusu 4 – Řazení podle částky
+# Řešení bonusu 3 – Řazení podle částky
 # Tvoje řešení může vypadat jinak, a to je v pořádku.
 #
 # Soubor jde spustit samostatně. Ve svém projektu dej funkci
