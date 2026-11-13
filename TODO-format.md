@@ -237,6 +237,15 @@ Order: project-specific work first, repo-wide changes after.
 - [ ] At the end of the workshop, send participants the link to the `reseni` branch (D5).
 - [ ] Before the workshop, tell participants to install pytest (D1) and to have a
       GitHub account ready (D3).
+- [ ] **Later, after the converter below:** a "before the workshop" document for
+      participants: GitHub account, fork and clone, `pip install pytest cowsay`
+      (the modules lesson needs cowsay; pyfiglet only for bonuses), what to do
+      when the install fails. It has to fit the public-pages converter, so it is
+      written once the converter supports this repo. Then announce it (e-mail,
+      Discord, web banner in `organizace/content/oznameni/`).
+- [ ] public-pages converter for the workshop repo. Today it only reads
+      `pyladiesprague/materialy`. The lessons here (`lekce-moduly/`, testing)
+      already follow the materialy format, the projects do not.
 - [ ] Root `TAHAK.md`: importing from your own file, writing a test, reading a
       failed test, common error messages. Move this out of the finance tahák
       and out of the Wordle and Titanic READMEs.
