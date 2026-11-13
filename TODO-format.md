@@ -227,8 +227,10 @@ Order: project-specific work first, repo-wide changes after.
 - [x] Tag `pred-unifikaci` on `main` before any unification change (pushed 13 Nov).
 - [x] Create branch `reseni` from `main` and move the finance solutions there.
       Done 13 Nov: `reseni` = `main` + merge of `projekt-finance-reseni`.
-- [ ] Delete stale branches: `projekt-finance` (equals old `main`),
+- [x] Delete stale branches: `projekt-finance` (equals old `main`),
       `projekty-wordle-titanic` (merged), and `projekt-finance-reseni` once moved.
+      Done 13 Nov, locally and on GitHub. All three were fully contained in
+      `main` or `reseni`; the pre-unification state is kept by tag `pred-unifikaci`.
 - [ ] Root `README.md`: how the day runs, fork and clone (D3), open the whole repo
       folder (D2), how to run only your project's tests, project table with the new folder links (D7), and that
       the day ends with a show and tell. No mention of solutions.
