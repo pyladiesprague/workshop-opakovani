@@ -1,0 +1,11 @@
+- html je moc brzo a je diskutabilni jestli to tam vubec davat (jestli je nebude html moc mast) - bud uplne vypustit nebo dat nakonec
+- Po tom co budeme mit vsechny 3 projekty - pustit unifikaci style a foprmatu
+- cisteni inputu - velka mala pismena, datove typy, strip, pozitivni/negativni, datum
+- libi se nam dat na zacatek ukazu jak to ma vypadat po dokonceni daneho kroku
+- zadani bonusu rozdelit na samostatne soubory ne vse
+- reseni branch je jen pro kouce - zakum to nepujde (az pod hodine)
+- na konci workshopu bude prezentace kdo co udelal - rict jim to na zacatku a dat za to achiemevent
+- libi se nam napoveda k taskum jako samostatny soubor ve samostatne slozce - pouzijeme to i u normalnich materialu - bude tam rovnou na rozdil od reseni
+- pridat cisteni terminalu jako bonus tam kde neni
+- soubor s bulletpoints s dalsima napadama k rozsireni bez reseni - napr high scores, obtiznosti, ...
+- pridat k titaniku taky grafy jako u financi?
