@@ -189,11 +189,12 @@ v materialy.
 
 ## 3. Co je potřeba sjednotit v současných materiálech
 
-Stav ke 13. 11. 2026 na `main`. ✅ = už vyhovuje.
+Stav ke 13. 11. 2026 na `main`. ✅ = už vyhovuje. Zbylé ❌ jsou obsahové
+(výsledek pod titulkem, „Hotovo, když“, nápovědy Titanicu). Převodu nevadí,
+protože chybějící sekce jsou povolené.
 
 ### Celé repo
-- [ ] Složky projektů: `wordle/` na `projekt-wordle/` a `titanic/` na
-      `projekt-titanic/` (D7). Převodník hledá projekty podle předpony.
+- ✅ Složky projektů `projekt-wordle/` a `projekt-titanic/` (D7, 13. 11.).
 - ✅ `projekt-finance/`, struktura `cviceni/`, `napovedy/`, `bonusy/` (C2).
 - ✅ Na `main` nejsou řešení projektů (C1).
 
@@ -216,23 +217,23 @@ Stav ke 13. 11. 2026 na `main`. ✅ = už vyhovuje.
 
 | | Finance (6) | Wordle (10) | Titanic (9) |
 | --- | --- | --- | --- |
-| Titulek `# Krok N – …` | ✅ | ❌ `Krok N:` | ❌ `Krok N:` |
+| Titulek `# Krok N – …` | ✅ | ✅ (13. 11.) | ✅ (13. 11.) |
 | Výsledek pod titulkem | ✅ | ❌ chybí, kroky začínají zadáním | ❌ chybí (pozor, výsledek je odpověď; ukázat tvar s vymyšlenými čísly) |
-| Sekce `##` (převod viz část 2, Krok, bod 3) | ✅ (13. 11.) | ❌ `Logika` na `Funkce`; krok 6 na `Testy`, `Funkce` | ❌ `Logika` na `Funkce`, `Zpráva` na `Program`; krok 8 `### Závěr`; krok 9 `### Prezentace` |
+| Sekce `##` (převod viz část 2, Krok, bod 3) | ✅ (13. 11.) | ✅ (13. 11.), krok 1 dostal nadpis `## Funkce` | ✅ (13. 11.) |
 | `## Hotovo, když` | ✅ | ❌ chybí všude | ❌ chybí všude |
 | Odkaz na nápovědu | ✅ (13. 11.) | ✅ 13 řádků v pevném tvaru | ❌ nápovědy nejsou |
 | Navíc | ✅ „Když zbyde čas“ je v `napady.md` | | |
-| Bloky kódu bez jazyka | ✅ | ❌ kroky 1, 9, 10 | ❌ krok 8 |
+| Bloky kódu bez jazyka | ✅ | ✅ (13. 11., `text`) | ✅ (13. 11., `text`) |
 
 ### Nápovědy
-- [ ] Wordle: titulky `# Nápověda ke kroku N: …` na `# Nápověda ke kroku N – …`
-      (11 souborů). Krok 6 má `Nápověda 1` a `Nápověda 2` ✅.
+- ✅ Wordle: titulky `# Nápověda ke kroku N – …` (13. 11.). Odkaz na první
+      nápovědu kroku 6 v pevném tvaru („Zasekla ses? Nápověda je v souboru“).
 - ✅ Finance: `napovedy/` ze sekcí `## Nápověda` (13. 11.).
 - [ ] Titanic: napsat nápovědy (TODO), rovnou v tomhle formátu.
 
 ### Bonusy
 - ✅ Všech 18 souborů začíná `# Bonus N – Název` a číslo sedí s názvem.
-- [ ] Titanic `bonusy/03_grafy_s_knihovnou.md`: blok kódu bez jazyka.
+- ✅ Titanic `bonusy/03_grafy_s_knihovnou.md`: blok kódu má jazyk (13. 11.).
 
 ### README a ostatní
 - ✅ Titulky README: `# Správce osobních financí`, `# Wordle s řešičem`,
