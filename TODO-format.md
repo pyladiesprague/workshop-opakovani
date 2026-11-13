@@ -246,8 +246,10 @@ Order: project-specific work first, repo-wide changes after.
 - [x] One root `.gitignore` with `statistiky.txt`, `zprava.txt`, `report.html`;
       drop the per-project ones. Done 13 Nov, also covers Python, IntelliJ/PyCharm
       and VS Code (only the shared `.vscode/settings.json` and `launch.json` are kept).
-- [ ] Add `.gitattributes` with `* text=auto eol=lf`. Windows checkouts already
+- [x] Add `.gitattributes` with `* text=auto eol=lf`. Windows checkouts already
       produced mixed line endings.
+      Done 13 Nov on `main` and `reseni`, plus `"files.eol": "\n"` in the shared
+      `.vscode/settings.json`. LF on disk on every OS, including Windows.
 - [ ] A check script on `reseni` that runs pytest in every `krokNN` folder.
 - [ ] Solutions are generated, not edited by hand, in all three projects. Each
       owner regenerates and updates `reseni` after changing their project. See
