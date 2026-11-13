@@ -320,8 +320,12 @@ Decisions:
         into the root README as "Pro autory"); part 3 lists what the current
         materials need to change to fit it, per project.
   - [ ] Review `FORMAT-projektu.md` (Vojta, Tomas). Open points there: step
-        section names (`Funkce`, `Testy`, `Program`, `Hotovo, když`, `Postup`),
         README titles, web URL, `lekce-moduly` bonus 2 solution.
+        Decided by Vojta on 13 Nov: step sections are fixed (`Funkce`, `Testy`,
+        `Program`, `Hotovo, když`, in this order, missing ones allowed, `###`
+        free; exceptions: test-first step may put `Testy` first, open last step
+        uses `Postup`); the converter rejects anything else. Mapping of today's
+        headings is in `FORMAT-projektu.md`, part 2, Krok, point 3.
         Decided by Vojta on 13 Nov: hints sit behind a "Zobrazit nápovědu"
         button like "Zobrazit řešení", each further hint behind "Zobrazit další
         nápovědu" inside the previous one; no link to project solutions on the web.

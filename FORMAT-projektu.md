@@ -70,15 +70,35 @@ aby řešení projektu omylem neodešlo na web.
    (stejně jako `Cvičení N` u úloh). Pomlčka je en dash `–`.
 2. **Výsledek:** hned pod titulkem, bez nadpisu. Ukázka výstupu v bloku
    `text`, nebo jedno volání funkce s výsledkem.
-3. **Sekce `##`** v tomhle pořadí. Převodník kontroluje názvy a pořadí,
-   chybějící sekce nevadí:
+3. **Sekce `##`** (rozhodl Vojta 13. 11.). Pevná jména v tomhle pořadí.
+   Převodník neznámý nadpis `##` nebo špatné pořadí odmítne. Chybějící sekce
+   nevadí, třeba krok jen s `Program`.
    - `## Funkce` – co přibude do souboru s logikou, tabulka funkcí (D8).
+     I tam, kde se soubor jmenuje jinak (`logika.py`, `analyza.py`).
    - `## Testy` – hotové testy ke zkopírování, nebo seznam případů (D9).
-   - `## Program` – co přibude do spustitelného souboru.
-   - `## Hotovo, když` – kontrolní seznam (`- …`).
-   - Výjimka pro otevřený poslední krok bez kódu (Titanic 9): `## Postup`
-     místo `Funkce`, `Testy` a `Program`.
-   - Podnadpisy `###` jsou volné.
+   - `## Program` – co přibude do spustitelného souboru. I pro Titanic, kde
+     je to `zprava.py`.
+   - `## Hotovo, když` – kontrolní seznam (`- …`), vždy poslední.
+   - Podnadpisy `###` uvnitř sekcí jsou volné.
+   - Výjimky:
+     - **Krok postavený na testu napřed** smí mít `## Testy` před
+       `## Funkce`. Například Wordle 6: nejdřív test, který odhalí chybu, pak
+       oprava.
+     - **Otevřený poslední krok bez kódu** (Titanic 9) má `## Postup` místo
+       `Funkce`, `Testy` a `Program`.
+
+   Jak na to převést dnešní kroky:
+
+   | Dnes | Nově |
+   | --- | --- |
+   | Finance `## 1. Testy`, `## 2. Funkce do finance.py`, `## 3. Menu do app.py` | `## Funkce`, `## Testy`, `## Program` (Funkce před Testy, D8) |
+   | Finance `## Nápověda` | soubor v `napovedy/` a řádek s odkazem |
+   | Finance `## Když zbyde čas` | `napady.md` |
+   | Wordle, Titanic `## Logika` | `## Funkce` |
+   | Titanic `## Zpráva` | `## Program` |
+   | Wordle 6 `## Testy jako první`, `## Oprava` | `## Testy`, `## Funkce` (výjimka test napřed) |
+   | Titanic 8 `## Závěr` | `### Závěr` uvnitř `## Program` |
+   | Titanic 9 `## Postup`, `## Prezentace` | `## Postup`, `### Prezentace` uvnitř |
 4. **Odkaz na nápovědu** je jeden řádek v pevném tvaru, kdekoli v kroku:
    ```text
    Zasekla ses? Nápověda je v souboru [`napovedy/NN_nazev.md`](../napovedy/NN_nazev.md).
@@ -170,7 +190,7 @@ Stav ke 13. 11. 2026 na `main`. ✅ = už vyhovuje.
 | --- | --- | --- | --- |
 | Titulek `# Krok N – …` | ✅ | ❌ `Krok N:` | ❌ `Krok N:` |
 | Výsledek pod titulkem | ✅ | ❌ chybí, kroky začínají zadáním | ❌ chybí (pozor, výsledek je odpověď; ukázat tvar s vymyšlenými čísly) |
-| Sekce `##` | ❌ `1. Testy`, `2. Funkce do …`, `3. Menu do …`: přejmenovat a přehodit Funkce před Testy (D8) | ❌ `Logika` na `Funkce`; krok 6 `Testy jako první`, `Oprava` | ❌ `Logika` na `Funkce`, `Zpráva` na `Program`; krok 8 `Závěr`; krok 9 na `Postup` |
+| Sekce `##` (převod viz část 2, Krok, bod 3) | ❌ `1. Testy`, `2. Funkce do …`, `3. Menu do …`: přejmenovat a přehodit Funkce před Testy (D8) | ❌ `Logika` na `Funkce`; krok 6 na `Testy`, `Funkce` | ❌ `Logika` na `Funkce`, `Zpráva` na `Program`; krok 8 `### Závěr`; krok 9 `### Prezentace` |
 | `## Hotovo, když` | ✅ | ❌ chybí všude | ❌ chybí všude |
 | Odkaz na nápovědu | ❌ nápověda je přímo v kroku (`## Nápověda`), přesunout do `napovedy/` | ✅ 13 řádků v pevném tvaru | ❌ nápovědy nejsou |
 | Navíc | ❌ `## Když zbyde čas`: přesunout do `napady.md` | | |
