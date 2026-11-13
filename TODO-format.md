@@ -272,7 +272,8 @@ Order: project-specific work first, repo-wide changes after.
       Discord, web banner in `organizace/content/oznameni/`).
 - [ ] public-pages converter for the workshop repo. Today it only reads
       `pyladiesprague/materialy`. The lessons here (`lekce-moduly/`, testing)
-      already follow the materialy format, the projects do not.
+      already follow the materialy format; the projects get their own Markdown
+      format (C3: projects go on the web like `materialy`).
       It must support several hints per step: `napovedy/NN_nazev_1.md`,
       `_2.md` show as hint 1 and hint 2, so the second is opened only when the
       first is not enough.
@@ -310,9 +311,16 @@ Decisions:
   - [ ] Tomas: confirm C1.
 - [x] **C2. Numbering:** decided 13 Nov, see D7: `cviceni/NN_nazev.md`,
       `napovedy/NN_nazev.md`, `bonusy/NN_nazev.md`, solutions as in `materialy`.
-- [ ] **C3. Web:** teach the public-pages converter a strict Markdown project
-      format, or keep projects off the web for now? Fix the project format
-      before the converter is written either way.
+- [x] **C3. Web:** decided by Vojta on 13 Nov: projects go on the web like
+      `materialy`. The public-pages converter learns a strict Markdown project
+      format (option 1 in the report): `README.md`, `cviceni/NN_*.md`,
+      `napovedy/NN_*.md` (with `_1`/`_2`), `bonusy/NN_*.md`, `TAHAK.md`.
+  - [ ] Write the project format down for the converter, as `materialy` does in
+        its README "Pro autory": fixed first line of each file (`# Krok N – …`,
+        `# Bonus N – …`), fixed section headings from the step template, how a
+        hint links to its step. Do this before the converter is written.
+  - [ ] Solutions stay off the web during the day (they are only on `reseni`);
+        decide whether the web shows them after the workshop.
 - [x] **Exceptions:** out of scope for this workshop, decided by Vojta on
       13 Nov; Tomas to confirm if he disagrees. They stay in L13 (CSV a výjimky).
   - [ ] Tomas: confirm, if needed.

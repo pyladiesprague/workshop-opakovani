@@ -140,7 +140,9 @@ Vojta's doubt on D7 matches `materialy`: two digits, no word prefix.
   not. `bonusy/` reads better in a project, and the converter rules for
   projects will be new anyway.
 
-**C3. Projects and the web converter.**
+**C3. Projects and the web converter.** *Decided by Vojta on 13 Nov: projects
+go on the web like `materialy`, through option 1 below. Folder names follow
+C2 (`cviceni/`, not `zadani/`).*
 The TODO already plans a converter for this repo. It can read the lessons as
 they are. Projects are Markdown. The options:
 1. Teach the converter a simple Markdown project format (`README.md`, then
