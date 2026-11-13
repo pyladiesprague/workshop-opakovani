@@ -242,15 +242,75 @@ protože chybějící sekce jsou povolené.
 - [ ] Wordle a Titanic nemají `TAHAK.md` (Titanic ho potřebuje kvůli CSV).
 
 ### Převodník (`public-pages`)
-- [ ] Zdroj `pyladiesprague/workshop-opakovani`, vlastní `config.json`
+- [x] Zdroj `pyladiesprague/workshop-opakovani`, vlastní konfigurace
       (pořadí a názvy lekcí a projektů), výstup do
-      `content/materialy/workshop-opakovani/` (adresy viz část 1).
+      `content/materialy/workshop-opakovani/` (adresy viz část 1). Prototyp,
+      viz část 4.
 - [ ] Sekce „Workshopy“ v šabloně přehledu `code/materials/overview.md`.
-- [ ] Lekce bez čísla (`lekce-<nazev>/`) a pomocné soubory bez `NN_`.
-- [ ] Projekty: stránky kroků, bonusů a nápadů, nápovědy za tlačítkem
+- [x] Lekce bez čísla (`lekce-<nazev>/`) a pomocné soubory bez `NN_` (prototyp).
+- [x] Projekty (prototyp): stránky kroků, bonusů a nápadů, nápovědy za tlačítkem
       „Zobrazit nápovědu“ (další vnořené za „Zobrazit další nápovědu“),
       přepis odkazů, kontrola titulků, sekcí, odkazů a bloků kódu.
-- [ ] Styl `details.napoveda` podle `details.reseni` a otevírání nápověd
-      v `tisk.js`.
+- [x] Styl `details.napoveda` podle `details.reseni` (prototyp).
+- [ ] Otevírání nápověd v `tisk.js`.
+- [ ] Zápis do webu: evidence v `lock.json` (nebo vlastní lock workshopu),
+      povolené cesty v `sync.mjs` (dnes jen `content/materialy/lekceNN…`),
+      `--check` a `--write` jako u materialy, testy.
 - [ ] Workflow `web.yml` v tomhle repu podle `materialy` (secret
       `PUBLIC_PAGES_TOKEN`, přeskočit ve forcích).
+
+## 4. Zkušební převod (13. 11. 2026)
+
+Prototyp převodníku je v `public-pages` na lokální větvi `workshop-import`.
+Není commitnutý ani pushnutý.
+- `code/materials/render.mjs` dostal volitelné `opts` pro lekce workshopu:
+  cesta pod `/materialy/`, lekce bez čísla, pomocné soubory, bez přehledu
+  `/materialy/`. Výchozí chování pro `materialy` se nezměnilo: 72 testů
+  prochází a `materials:check` hlásí „Beze změn“.
+- Projekty vykresluje nový `code/workshop/render.mjs`, konfigurace je
+  v `code/workshop/opakovani.json`.
+- Náhled vytvoří `code/import-workshop.mjs`, který zapisuje jen do zadané
+  složky:
+  `node code/import-workshop.mjs --source ../workshop-opakovani --ref main --out <složka>`
+- Styl `.napoveda` je v `code/styles.css`.
+
+Výsledek nad `main` (`46e3fe3`):
+- 66 stránek: úvod workshopu, 2 lekce (31 stránek), 3 projekty (25 kroků,
+  3 stránky bonusů, 1 stránka nápadů, 3 úvody).
+- Web se sestaví (Eleventy) a všech 66 interních odkazů na stránky workshopu
+  vede na existující stránku.
+- 19 nápověd za tlačítkem (finance 6, Wordle 13), ve Wordle 6 je druhá
+  nápověda vnořená.
+- `lekce-moduly`: pomocné soubory jsou na stránce tématu jako odkazy na
+  GitHub, bonus 2 má tlačítko „Zobrazit řešení“.
+- Převodník při první zkoušce našel chybu ve vlastní kontrole (poslední
+  odstavec souboru), ne ve zdroji. Zdroj formát splnil napoprvé.
+
+Co převodník kontroluje, a proto to musí zdroj splnit:
+- titulky kroků, nápověd a bonusů a jejich čísla podle názvu souboru,
+- pořadí sekcí kroku,
+- bloky kódu s jazykem,
+- odkaz na nápovědu v pevném tvaru a že na každou nápovědu nějaký odkaz vede,
+- relativní odkazy na existující soubory uvnitř projektu nebo do `lekce-*`,
+- žádné `reseni/` v projektech,
+- každá lekce a projekt v konfiguraci.
+
+### K rozhodnutí
+- [ ] **Úvodní stránka workshopu.** Prototyp ji skládá z konfigurace (název,
+      popis, seznam lekcí a projektů) a kořenový `README.md` nepoužívá. README
+      je psané pro GitHub (Download ZIP, tabulky složek). Návrh: nechat
+      stránku z konfigurace a README dál psát pro GitHub. Úprava části 2:
+      README workshopu převodník nečte.
+- [ ] **Sekce „Workshopy“ v přehledu `/materialy/`.** Workshop je v menu jako
+      podstránka Materiálů, ale přehled na něj zatím neodkazuje. Doplnit do
+      `code/materials/overview.md` ručně, nebo generovat?
+- [ ] **Taháky** lekcí i projektů jsou jako v materialy jen odkazy na GitHub.
+      Stačí to?
+
+### Co zbývá, aby šel převod do provozu
+- zápis do webu s evidencí a kontrolou ručních změn (viz část 3, Převodník),
+- testy prototypu,
+- `tisk.js`,
+- workflow `web.yml` v tomhle repu,
+- PR do `public-pages`.
+
