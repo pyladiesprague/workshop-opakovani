@@ -1,4 +1,4 @@
-# Projekt: Správce osobních financí
+# Správce osobních financí
 
 Napíšeš si program, kterému budeš zapisovat příjmy a výdaje. On ti řekne,
 kolik ti zbývá, za co utrácíš nejvíc a jestli držíš rozpočet. Všechno běží

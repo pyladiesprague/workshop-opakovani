@@ -146,8 +146,13 @@ aby řešení projektu omylem neodešlo na web.
 
 #### README projektu
 
-- **První řádek:** `# Název projektu`. Na webu se použije název z
-  `config.json`, pokud tam je.
+- **První řádek:** `# Název projektu` (rozhodl Vojta 13. 11.).
+  - Jen krátký název bez „Projekt:“ a bez podtitulu: `# Správce osobních
+    financí`, `# Wordle s řešičem`, `# Titanic`.
+  - To, co projekt láká (třeba otázka u Titanicu), patří do prvního odstavce.
+  - Převodník bere název stránky projektu z titulku. V `config.json` je jen
+    pořadí projektů a krátký popis do přehledu workshopu (jako `description`
+    u lekcí v materialy), protože úvody v README jsou na to moc dlouhé.
 - Odkazy na kroky a bonusy (`cviceni/…`, `bonusy/`) se přepíšou na stránky.
 - Sekce podle šablony README v `TODO-format.md`. Převodník je nekontroluje.
 
@@ -207,10 +212,8 @@ Stav ke 13. 11. 2026 na `main`. ✅ = už vyhovuje.
 - [ ] Titanic `bonusy/03_grafy_s_knihovnou.md`: blok kódu bez jazyka.
 
 ### README a ostatní
-- [ ] Titulky README: `# Projekt: Správce osobních financí`,
-      `# Wordle s řešičem`, `# Titanic: platilo „ženy a děti první“?`. Sjednotit
-      (návrh: jen název projektu bez „Projekt:“), nebo nechat a názvy dát do
-      `config.json`.
+- ✅ Titulky README: `# Správce osobních financí`, `# Wordle s řešičem`,
+      `# Titanic` (sjednoceno 13. 11.).
 - [ ] `napady.md` zatím nemá žádný projekt (TODO).
 - [ ] Wordle a Titanic nemají `TAHAK.md` (Titanic ho potřebuje kvůli CSV).
 

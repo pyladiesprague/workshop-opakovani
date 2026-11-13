@@ -1,4 +1,4 @@
-# Titanic: platilo „ženy a děti první“?
+# Titanic
 
 Dneska budeš datová analytička. Máš skutečný seznam pasažérů Titaniku a jednu hlavní otázku:
 

@@ -320,7 +320,11 @@ Decisions:
         into the root README as "Pro autory"); part 3 lists what the current
         materials need to change to fit it, per project.
   - [ ] Review `FORMAT-projektu.md` (Vojta, Tomas). Open points there: step
-        README titles, web URL, `lekce-moduly` bonus 2 solution.
+        web URL, `lekce-moduly` bonus 2 solution.
+        Decided by Vojta on 13 Nov: README title is the short project name only
+        (`# Správce osobních financí`, `# Wordle s řešičem`, `# Titanic`; done);
+        the converter takes the page title from it, `config.json` holds order and
+        a short description.
         Decided by Vojta on 13 Nov: step sections are fixed (`Funkce`, `Testy`,
         `Program`, `Hotovo, když`, in this order, missing ones allowed, `###`
         free; exceptions: test-first step may put `Testy` first, open last step
