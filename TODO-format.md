@@ -205,6 +205,8 @@ because they need an install. Vojta: What are plottext charts and are we using i
 **D12. HTML report in finance. Tomas, Vojta: last bonus.**
 Feedback said it comes too early and may be dropped. It moves to the end of the
 bonuses and can still be removed.
+Done 13 Nov on `main`: HTML report is now bonus 4 (after Barvy, Hledání, Řazení),
+so it stays last once bonuses 5 to 11 move to `napady.md`.
 
 ## 4. TODO
 
@@ -222,6 +224,7 @@ Order: project-specific work first, repo-wide changes after.
   - Tomas: Validate feedback from Vojtech
 
 ### Repo
+- [x] Tag `pred-unifikaci` on `main` before any unification change (pushed 13 Nov).
 - [ ] Create branch `reseni` from `main` and move the finance solutions there.
 - [ ] Delete stale branches: `projekt-finance` (equals old `main`),
       `projekty-wordle-titanic` (merged), and `projekt-finance-reseni` once moved.
@@ -283,7 +286,11 @@ Order: project-specific work first, repo-wide changes after.
 - [ ] Put the function description before the tests in every step (D8).
 - [ ] Move the inline "Nápověda" sections into `napovedy/`.
 - [ ] Move "Když zbyde čas" items and bonuses 5 to 11 (no solutions) into `napady.md`.
-- [ ] Split bonuses 1 to 4 into separate files, HTML report last (D12).
+- [x] HTML report moved to bonus 4, last of the bonuses with solutions (D12).
+- [ ] Solutions: rename `bonus2_html_report.py` to `bonus4_html_report.py`,
+      `bonus3_hledani.py` to `bonus2_hledani.py`, `bonus4_razeni.py` to
+      `bonus3_razeni.py`; update `reseni/README.md` and `_predloha/sestav.py` (D12).
+- [ ] Split bonuses 1 to 4 into separate files.
 - [ ] Step 6: build the path to `finance.json` from the file's location.
 - [ ] Move shared tahák parts to the root `TAHAK.md`; keep JSON in the project tahák.
 - [ ] Adjust the tests to D9: pick the step where ready tests stop, and from
