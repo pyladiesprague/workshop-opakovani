@@ -83,20 +83,20 @@ Zadání je ve složce `kroky`, jeden soubor na jeden krok. Každý krok začín
 4. Doplň do `poznamky.md`, co vyšlo, co tě překvapilo a na co se chceš zeptat dál.
 5. Ulož práci na GitHub: **Commit** a pak **Sync Changes**.
 
-Když se zasekneš, zeptej se kouče. Ve složce `reseni` je celý program po každém kroku. Když některý krok nejde, zkopíruj si z `reseni/krokNN` soubory `.py` do `moje_analyza` a pokračuj dalším krokem.
+Když se zasekneš, zeptej se kouče.
 
 ## Kroky
 
 | Krok | Otázka |
 | --- | --- |
-| [1](kroky/01_nacteni.md) | Co v souboru vlastně je? |
-| [2](kroky/02_uklid.md) | Co v datech chybí? |
-| [3](kroky/03_pocitani.md) | Kolik lidí přežilo? |
-| [4](kroky/04_filtrovani.md) | Přežívaly ženy častěji? |
-| [5](kroky/05_skupiny.md) | Záleželo i na penězích? |
-| [6](kroky/06_dva_sloupce.md) | Co rozhodovalo víc, pohlaví, nebo třída? |
-| [7](kroky/07_deti.md) | A děti první? |
-| [8](kroky/08_zprava.md) | Co z toho plyne? |
-| [9](kroky/09_moje_otazka.md) | Co zajímá tebe? |
+| [1](cviceni/01_nacteni.md) | Co v souboru vlastně je? |
+| [2](cviceni/02_uklid.md) | Co v datech chybí? |
+| [3](cviceni/03_pocitani.md) | Kolik lidí přežilo? |
+| [4](cviceni/04_filtrovani.md) | Přežívaly ženy častěji? |
+| [5](cviceni/05_skupiny.md) | Záleželo i na penězích? |
+| [6](cviceni/06_dva_sloupce.md) | Co rozhodovalo víc, pohlaví, nebo třída? |
+| [7](cviceni/07_deti.md) | A děti první? |
+| [8](cviceni/08_zprava.md) | Co z toho plyne? |
+| [9](cviceni/09_moje_otazka.md) | Co zajímá tebe? |
 
-Kdo stihne všech devět kroků, pokračuje [bonusy](kroky/bonusy.md).
+Kdo stihne všech devět kroků, pokračuje [bonusy](bonusy/).

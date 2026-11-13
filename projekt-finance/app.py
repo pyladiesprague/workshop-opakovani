@@ -4,7 +4,7 @@
 # volá funkce z finance.py a vypisuje výsledky.
 # Patří sem všechno s input() a print().
 #
-# Začni krokem 1: zadani/krok1_zaklad.md
+# Začni krokem 1: cviceni/01_zaklad.md
 
 from ukazkova_data import transakce
 

@@ -10,6 +10,12 @@ Guiding rule: **`main` never contains direct answers.** Participants get
 hints in separate files. Full solutions and coach notes live on a branch that
 only coaches use during the day.
 
+Companion note: `REPORT-materialy.md` (13 Nov) compares this repo with the
+conventions of `pyladiesprague/materialy`. Its open decisions C1–C3 are listed
+in section 4 under "From the materialy comparison". C1 questions the guiding rule
+above for the lessons: `lekce-testovani/` on `main` already has `reseni/`, as in
+`materialy`. Suggested wording: **`main` never contains project solutions.**
+
 Section 3 records each decision as Tomas chose it. Vojtěch adds his feedback here.
 
 ## 1. Where we are
@@ -63,9 +69,9 @@ pytest.ini, .gitignore, .vscode/   one shared VS Code setup, repo root is what g
 <projekt>/
     README.md              what you build, steps table, files, before you start, when stuck
     TAHAK.md               only what this project needs beyond lessons (JSON, CSV)
-    zadani/krokNN_nazev.md     one step per file, two-digit number
-    napovedy/krokNN_nazev.md   hint for the step with the same name
-    bonusy/bonusNN_nazev.md    one bonus per file
+    cviceni/NN_nazev.md    one step per file, two-digit number (C2, as `materialy`)
+    napovedy/NN_nazev.md   hint, same file name as its step; steps without a hint leave gaps
+    bonusy/NN_nazev.md     one bonus per file
     napady.md              ideas for extensions, no solutions
     <logika>.py, <program>.py, test_<logika>.py, data files
 ```
@@ -73,10 +79,15 @@ pytest.ini, .gitignore, .vscode/   one shared VS Code setup, repo root is what g
 Branch `reseni` (one for all projects) is `main` plus:
 
 ```
-<projekt>/reseni/krokNN/      full project after step NN
-<projekt>/reseni/bonusy/
-<projekt>/pro_kouce.md        intro script, expected results, what to watch for
+<projekt>/cviceni/reseni/NN_nazev/   full project after step NN, same name as the step
+<projekt>/bonusy/reseni/NN_nazev[.py|/]  bonus solution: one file, or a folder for a whole project
+<projekt>/pro_kouce.md               intro script, expected results, what to watch for
 ```
+
+The layout mirrors a concept folder in `materialy` (`cviceni/`, `cviceni/reseni/`,
+bonuses with their own `reseni/`). Two differences: bonuses are in `bonusy/`
+(not `cviceni_bonusy/`), and `napovedy/` is new. Solutions exist only on the
+`reseni` branch, so on `main` the `reseni/` folders are simply missing.
 
 ### Step file template
 
@@ -91,7 +102,7 @@ Branch `reseni` (one for all projects) is `main` plus:
 
 ### Hint file rules
 
-- Same file name as the step, in `napovedy/`.
+- Same file name as the step, in `napovedy/` (1:1). Not every step needs a hint.
 - First: the idea in words, and where to look (tahák and section).
 - Then, only if needed: a code skeleton with `...` where the thinking is.
 - Never the full function. That is what `reseni` is for.
@@ -152,6 +163,11 @@ The subfolders kept participant files apart from `reseni/`. Once solutions leave
   stuck participant works it out with hints and a coach. This drops the earlier
   design assumption that anyone stuck can jump ahead from a solution.
 
+Open (C1 in `REPORT-materialy.md`): this applies to projects. `materialy` and the
+organizace authoring rules keep lesson solutions in `reseni/` next to the
+exercises, and `lekce-testovani/` does the same here. Suggested: lessons follow
+`materialy`, projects keep solutions on the `reseni` branch.
+
 Consequence: the READMEs must not tell participants to copy a solution and
 carry on. Wordle and Titanic say that today, and the finance README promises
 "dostaneš hotové řešení toho kroku".
@@ -162,9 +178,9 @@ All three projects' solutions and coach notes live on one branch.
 **D7. Names. Tomas: Vojtěch's style throughout.**
 - Project folders keep the `projekt-` prefix: `projekt-finance/`, `projekt-wordle/`,
   `projekt-titanic/`. Vojta: good to keep the projekt prefix as in root there will be also materials about testing and modules.
-- Steps folder: `zadani/`.
-- Step files: `krokNN_nazev.md`. Hints and bonuses follow the same pattern:
-  `napovedy/krokNN_nazev.md`, `bonusy/bonusNN_nazev.md`. Vojta: Not sure about this one, in lesson materials we use just numbering.
+- ~~Steps folder: `zadani/`.~~ Replaced by C2: `cviceni/`.
+- ~~Step files: `krokNN_nazev.md`.~~ Replaced by C2: `NN_nazev.md`.
+  Vojta: Not sure about this one, in lesson materials we use just numbering.
 - Titles: `Krok 1 – Název`.
 - Code file names stay per project (`finance.py`/`app.py`, `logika.py`/`wordle.py`,
   `analyza.py`/`zprava.py`). The rule is only: one logic file, one runnable file,
@@ -172,6 +188,12 @@ All three projects' solutions and coach notes live on one branch.
 - Numbers always have two digits: `krok01_nazev.md`, `bonus01_nazev.md`,
   `reseni/krok01/`. Wordle has ten steps and finance has eleven bonuses, and
   without the leading zero `krok10_` sorts between `krok1_` and `krok2_`. Vojta: I think we should have leading zeros for sorting.
+- **Decided 13 Nov by Vojta (C2 in `REPORT-materialy.md`): same as `materialy`,
+  the folder says what a file is.** `cviceni/01_zaklad.md`, `napovedy/01_zaklad.md`
+  (1:1 with its step, gaps allowed), `bonusy/01_barvy.md`. Solutions on `reseni`
+  as in `materialy`: `cviceni/reseni/01_zaklad/`, `bonusy/reseni/01_barvy/` or
+  `bonusy/reseni/02_hledani.py`. Titles stay `Krok N – Název` and
+  `Bonus N – Název`, like `Cvičení N – …`. Done in all three projects.
 
 **D8. Order inside a step. Tomas, Vojta: function description first, then tests.**
 Finance currently gives tests first, so its steps swap the two sections.
@@ -237,6 +259,15 @@ Order: project-specific work first, repo-wide changes after.
 - [ ] At the end of the workshop, send participants the link to the `reseni` branch (D5).
 - [ ] Before the workshop, tell participants to install pytest (D1) and to have a
       GitHub account ready (D3).
+- [ ] **Later, after the converter below:** a "before the workshop" document for
+      participants: GitHub account, fork and clone, `pip install pytest cowsay`
+      (the modules lesson needs cowsay; pyfiglet only for bonuses), what to do
+      when the install fails. It has to fit the public-pages converter, so it is
+      written once the converter supports this repo. Then announce it (e-mail,
+      Discord, web banner in `organizace/content/oznameni/`).
+- [ ] public-pages converter for the workshop repo. Today it only reads
+      `pyladiesprague/materialy`. The lessons here (`lekce-moduly/`, testing)
+      already follow the materialy format, the projects do not.
 - [ ] Root `TAHAK.md`: importing from your own file, writing a test, reading a
       failed test, common error messages. Move this out of the finance tahák
       and out of the Wordle and Titanic READMEs.
@@ -250,28 +281,68 @@ Order: project-specific work first, repo-wide changes after.
       produced mixed line endings.
       Done 13 Nov on `main` and `reseni`, plus `"files.eol": "\n"` in the shared
       `.vscode/settings.json`. LF on disk on every OS, including Windows.
-- [ ] A check script on `reseni` that runs pytest in every `krokNN` folder.
+- [ ] A check script on `reseni` that runs pytest in every `cviceni/reseni/NN_*` folder.
 - [ ] Solutions are generated, not edited by hand, in all three projects. Each
       owner regenerates and updates `reseni` after changing their project. See
       whether finance's `sestav.py` can be made to serve all three.
 - [ ] Coach notes in one place per project: `pro_kouce.md` on `reseni`. Titanic has
-      one, finance keeps its notes in `reseni/README.md`, Wordle has none.
+      one (moved off `main` 13 Nov), finance's moved there from `reseni/README.md`
+      13 Nov, Wordle has none.
 - [ ] Update the workshop design doc: pytest, ten Wordle steps as decided, and the
       dropped rule that anyone stuck can catch up from a solution (D5).
-- [ ] Delete `TODO-format.md` from `main` before the workshop.
+- [ ] Delete `TODO-format.md` and `REPORT-materialy.md` from `main` before the workshop.
 - [ ] Final pass for one style across projects (feedback): headings, tables,
       line wrapping, how the participant is addressed.
 
+### From the materialy comparison (`REPORT-materialy.md`)
+Decisions:
+- [ ] **C1. Solutions:** lessons keep `reseni/` on `main` (as `materialy`),
+      projects keep solutions on the `reseni` branch? Then reword the guiding rule.
+- [x] **C2. Numbering:** decided 13 Nov, see D7: `cviceni/NN_nazev.md`,
+      `napovedy/NN_nazev.md`, `bonusy/NN_nazev.md`, solutions as in `materialy`.
+- [ ] **C3. Web:** teach the public-pages converter a strict Markdown project
+      format, or keep projects off the web for now? Fix the project format
+      before the converter is written either way.
+- [ ] **Exceptions:** organizace puts *soubory, výjimky a moduly* into this
+      workshop, but nothing here uses `try`/`except`. Add them (finance input
+      cleaning, Titanic number parsing), or tell organizace they move to L13.
+
+Alignment with `materialy`:
+- [ ] Titles with an en dash: Wordle `# Krok 1: …` becomes `# Krok 1 – …`.
+      Bonus files already use `# Bonus N – …` since the split on 13 Nov.
+- [ ] Solution headers in Wordle and Titanic: `# Řešení kroku N – …` /
+      `# Řešení bonusu N – …`, then "Tvoje řešení může vypadat jinak, a to je
+      v pořádku." (finance already does this).
+- [ ] Wrap Markdown prose at about 75–80 characters in Wordle and Titanic
+      (part of the final style pass).
+- [ ] `.gitattributes`: `export-ignore` for `TODO-format.md`,
+      `REPORT-materialy.md`, `feedback.md` and a future `.github/`, as
+      `materialy` does for its ZIP.
+- [ ] Root README "Jak si materiály stáhnout": fork and clone with ZIP as
+      fallback (D3), same wording as lesson 1 in `materialy`.
+- [ ] Project changes go through PRs with the other owner as reviewer; branch
+      names `finance/…`, `wordle/…`, `docs/…`; commit subjects `Finance: …`.
+- [ ] CI: until the converter exists, a workflow that runs pytest on `reseni`
+      (covers the "check script" item above); later copy the `web.yml` pattern.
+- [ ] Optional: one picture per project made with the `obrazek` skill from
+      `materialy`.
+
+Schedule fit (workshop Sat 21 Nov, after L9 Slovníky on 19 Nov):
+- [ ] Dictionaries are two days old. Project taháky link to the lesson 9
+      tahák; coaches expect questions on them.
+- [ ] CSV is taught only in L13 (17 Dec), so the Titanic tahák must explain
+      reading CSV on its own.
+
 ### Every project
-- [ ] Rename to the agreed layout (D7): `zadani/krokNN_nazev.md`, title `Krok N – Název`.
-- [ ] Use two-digit numbers in every file and folder name: steps, hints, bonuses
-      and solution folders (`krok01_…`, `bonus01_…`, `reseni/krok01/`). Update the
-      links in the READMEs and step tables to match.
+- [x] Rename to the agreed layout (D7, C2): `cviceni/NN_nazev.md`, bonuses split
+      into `bonusy/NN_nazev.md`, solutions into `cviceni/reseni/` and
+      `bonusy/reseni/` on `reseni`, README links updated. Done 13 Nov, all three
+      projects. Finance's bonus intro moved into its README.
 - [ ] Rewrite each step to the step template: result first, Hotovo když at the end.
 - [ ] Hints into `napovedy/`, following the hint rules.
 - [ ] Remove every sentence that sends participants to solutions or offers a
-      finished step for catching up (D5).
-- [ ] Split bonuses into `bonusy/bonusNN_nazev.md`.
+      finished step for catching up (D5). Done in the three project READMEs on
+      13 Nov; step files still to check.
 - [ ] Add `napady.md`: extension ideas without solutions (high scores,
       difficulty levels, and similar).
 - [ ] Add a bonus for clearing the terminal where the project lacks one.
@@ -288,7 +359,7 @@ Order: project-specific work first, repo-wide changes after.
       Commit and Sync.
 
 ### Finance
-- [ ] Renumber `krok1_…` to `krok01_…`, also in the solution generator (D7).
+- [x] Renumber steps to `cviceni/01_…`, also in the solution generator (D7, C2).
 - [ ] Put the function description before the tests in every step (D8).
 - [ ] Move the inline "Nápověda" sections into `napovedy/`.
 - [ ] Move "Když zbyde čas" items and bonuses 5 to 11 (no solutions) into `napady.md`.
@@ -296,7 +367,7 @@ Order: project-specific work first, repo-wide changes after.
 - [x] Solutions: rename `bonus2_html_report.py` to `bonus4_html_report.py`,
       `bonus3_hledani.py` to `bonus2_hledani.py`, `bonus4_razeni.py` to
       `bonus3_razeni.py`; update `reseni/README.md` and `_predloha/sestav.py` (D12).
-- [ ] Split bonuses 1 to 4 into separate files.
+- [x] Split all eleven bonuses into separate files (13 Nov).
 - [ ] Step 6: build the path to `finance.json` from the file's location.
 - [ ] Move shared tahák parts to the root `TAHAK.md`; keep JSON in the project tahák.
 - [ ] Adjust the tests to D9: pick the step where ready tests stop, and from
@@ -311,36 +382,42 @@ Order: project-specific work first, repo-wide changes after.
 - [ ] Add the Commit and Sync line to each step (D3).
 
 ### Wordle
-- [ ] Move `wordle/reseni/` from `main` to the `reseni` branch.
+- [x] Move `wordle/reseni/` from `main` to the `reseni` branch (13 Nov).
 - [ ] Convert tests to pytest functions (D1) in the starter file, the step files
       and the solutions; drop the `class` and `self` note.
 - [ ] Rename the folder `wordle/` to `projekt-wordle/` (D7).
-- [ ] Flatten `moje_hra/` (D4); rename `kroky/` to `zadani/` and the files to `krokNN_` (D7).
+- [ ] Flatten `moje_hra/` (D4). Steps already moved to `cviceni/` (C2).
+- [ ] Hint file names must match their step 1:1: step 6 has two hints,
+      `06_opakovana_pismena_1.md` and `_2.md`. Merge them into one file with two
+      parts, or accept the exception.
 - [ ] Add "result first" and "Hotovo, když" to every step.
 - [ ] Review hints against the hint rules; several give most of the function.
 - [ ] Step 10 stays (D10). Find out why clearing the screen did not seem to work:
       try it in the VS Code terminal on Windows and macOS.
-- [ ] Split the two bonuses into files.
+- [x] Split the two bonuses into files (13 Nov).
 - [ ] Add `napady.md`.
 - [ ] `pomocnik.py` looks for the word lists in `moje_hra/` when run from a solution
-      folder. Point it at the project folder after flattening.
+      folder. Since 13 Nov it searches every parent folder for `moje_hra/`, so the
+      deeper `cviceni/reseni/NN_*` folders work. Point it at the project folder
+      after flattening.
 - [ ] Write `pro_kouce.md` (intro, what to watch for in steps 5 and 6).
 - [ ] Build a generator for the solution folders, as finance has (one template,
       marked by step).
 
 ### Titanic
-- [ ] Move `titanic/reseni/` and `titanic/pro_kouce.md` from `main` to the `reseni` branch.
+- [x] Move `titanic/reseni/` and `titanic/pro_kouce.md` from `main` to the `reseni` branch (13 Nov).
 - [ ] Convert tests to pytest functions (D1) in the starter file, the step files
       and the solutions.
 - [ ] Rename the folder `titanic/` to `projekt-titanic/` (D7).
-- [ ] Flatten `moje_analyza/` (D4); rename `kroky/` to `zadani/` and the files to `krokNN_` (D7).
+- [ ] Flatten `moje_analyza/` (D4). Steps already moved to `cviceni/` (C2).
 - [ ] Write hints for all nine steps; none exist.
 - [ ] Add "Hotovo, když" to every step. "Result first" needs care here, because
       the result is the answer. Show the shape of the output with made-up numbers.
 - [ ] Turn the text bar chart (bonus 2) into a regular step before the report,
       using finance's `sloupec(hodnota, nejvyssi, sirka)` and its tests (D11).
       Renumber the steps and include the chart in the report step.
-- [ ] Split the remaining four bonuses into files.
+- [x] Split the bonuses into files (13 Nov). Bonus 2 leaves `bonusy/` once it
+      becomes a step (D11); renumber the remaining bonuses then.
 - [ ] Add `TAHAK.md` for CSV and `None`, and `napady.md`.
 - [ ] Add user input somewhere, so input cleaning is practised (for example,
       ask which column to group by in step 9).

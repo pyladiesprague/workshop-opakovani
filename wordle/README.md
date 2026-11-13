@@ -44,21 +44,19 @@ Zadání je ve složce `kroky`, jeden soubor na jeden krok. Každý krok rozši�
 
 Když se zasekneš, otevři si nápovědu ke kroku ve složce `napovedy`. Když nestačí, zeptej se kouče.
 
-Ve složce `reseni` je celý program po každém kroku. Když některý krok nejde, zkopíruj si obsah `reseni/krokNN` do `moje_hra` a pokračuj dalším krokem.
-
 ## Kroky
 
 | Krok | Co přibude |
 | --- | --- |
-| [1](kroky/01_jeden_pokus.md) | Vyhodnocení jednoho pokusu |
-| [2](kroky/02_cela_hra.md) | Šest pokusů, výhra a prohra |
-| [3](kroky/03_seznam_slov.md) | Náhodné slovo a kontrola zadaných slov |
-| [4](kroky/04_barvy.md) | Barevná pole |
-| [5](kroky/05_klavesnice.md) | Klávesnice s přehledem písmen |
-| [6](kroky/06_opakovana_pismena.md) | Slova se stejným písmenem dvakrát |
-| [7](kroky/07_napoveda.md) | Nápověda |
-| [8](kroky/08_resic.md) | Řešič |
-| [9](kroky/09_statistiky.md) | Statistiky uložené v souboru |
-| [10](kroky/10_herni_obrazovka.md) | Obrazovka, která zůstává na místě |
+| [1](cviceni/01_jeden_pokus.md) | Vyhodnocení jednoho pokusu |
+| [2](cviceni/02_cela_hra.md) | Šest pokusů, výhra a prohra |
+| [3](cviceni/03_seznam_slov.md) | Náhodné slovo a kontrola zadaných slov |
+| [4](cviceni/04_barvy.md) | Barevná pole |
+| [5](cviceni/05_klavesnice.md) | Klávesnice s přehledem písmen |
+| [6](cviceni/06_opakovana_pismena.md) | Slova se stejným písmenem dvakrát |
+| [7](cviceni/07_napoveda.md) | Nápověda |
+| [8](cviceni/08_resic.md) | Řešič |
+| [9](cviceni/09_statistiky.md) | Statistiky uložené v souboru |
+| [10](cviceni/10_herni_obrazovka.md) | Obrazovka, která zůstává na místě |
 
-Kdo stihne všech deset kroků, pokračuje [bonusy](kroky/bonusy.md).
+Kdo stihne všech deset kroků, pokračuje [bonusy](bonusy/).

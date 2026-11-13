@@ -17,7 +17,7 @@ KONEC_BARVY = "\033[0m"
 
 def _cesta(soubor):
     # Vzorová řešení nemají vlastní seznamy slov, ty leží ve složce moje_hra.
-    for slozka in (SLOZKA, SLOZKA.parent.parent / "moje_hra"):
+    for slozka in (SLOZKA, *(nad / "moje_hra" for nad in SLOZKA.parents)):
         if (slozka / soubor).exists():
             return slozka / soubor
     return SLOZKA / soubor
