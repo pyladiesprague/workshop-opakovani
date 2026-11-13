@@ -107,6 +107,9 @@ bonuses with their own `reseni/`). Two differences: bonuses are in `bonusy/`
 - Then, only if needed: a code skeleton with `...` where the thinking is.
 - Never the full function. That is what `reseni` is for.
 - Hard steps may have two files, `_1` and `_2`, so the first can be read alone.
+  Kept on purpose (decided 13 Nov): the step name plus a suffix, e.g.
+  `06_opakovana_pismena_1.md` and `_2.md`. The web UI shows them as hint 1
+  and hint 2 of that step.
 
 ### Project README template
 
@@ -190,7 +193,8 @@ All three projects' solutions and coach notes live on one branch.
   without the leading zero `krok10_` sorts between `krok1_` and `krok2_`. Vojta: I think we should have leading zeros for sorting.
 - **Decided 13 Nov by Vojta (C2 in `REPORT-materialy.md`): same as `materialy`,
   the folder says what a file is.** `cviceni/01_zaklad.md`, `napovedy/01_zaklad.md`
-  (1:1 with its step, gaps allowed), `bonusy/01_barvy.md`. Solutions on `reseni`
+  (1:1 with its step, gaps allowed; a hard step may split its hint into `_1`
+  and `_2`), `bonusy/01_barvy.md`. Solutions on `reseni`
   as in `materialy`: `cviceni/reseni/01_zaklad/`, `bonusy/reseni/01_barvy/` or
   `bonusy/reseni/02_hledani.py`. Titles stay `Krok N – Název` and
   `Bonus N – Název`, like `Cvičení N – …`. Done in all three projects.
@@ -268,6 +272,9 @@ Order: project-specific work first, repo-wide changes after.
 - [ ] public-pages converter for the workshop repo. Today it only reads
       `pyladiesprague/materialy`. The lessons here (`lekce-moduly/`, testing)
       already follow the materialy format, the projects do not.
+      It must support several hints per step: `napovedy/NN_nazev_1.md`,
+      `_2.md` show as hint 1 and hint 2, so the second is opened only when the
+      first is not enough.
 - [ ] Root `TAHAK.md`: importing from your own file, writing a test, reading a
       failed test, common error messages. Move this out of the finance tahák
       and out of the Wordle and Titanic READMEs.
@@ -387,9 +394,8 @@ Schedule fit (workshop Sat 21 Nov, after L9 Slovníky on 19 Nov):
       and the solutions; drop the `class` and `self` note.
 - [ ] Rename the folder `wordle/` to `projekt-wordle/` (D7).
 - [ ] Flatten `moje_hra/` (D4). Steps already moved to `cviceni/` (C2).
-- [ ] Hint file names must match their step 1:1: step 6 has two hints,
-      `06_opakovana_pismena_1.md` and `_2.md`. Merge them into one file with two
-      parts, or accept the exception.
+- [x] Step 6 keeps two hints, `06_opakovana_pismena_1.md` and `_2.md`
+      (decided 13 Nov). The web UI gets support for several hints per step.
 - [ ] Add "result first" and "Hotovo, když" to every step.
 - [ ] Review hints against the hint rules; several give most of the function.
 - [ ] Step 10 stays (D10). Find out why clearing the screen did not seem to work:
