@@ -319,26 +319,23 @@ Decisions:
         `FORMAT-projektu.md` (13 Nov). Part 2 is the source format (later moves
         into the root README as "Pro autory"); part 3 lists what the current
         materials need to change to fit it, per project.
-  - [ ] Review `FORMAT-projektu.md` (Vojta, Tomas). Open points there: step
-        `lekce-moduly` bonus 2 solution.
-        Decided by Vojta on 13 Nov: the workshop goes under Materiály, like the
-        course lessons: `/materialy/workshop-opakovani/` plus repo paths
-        (`…/projekt-finance/cviceni/01_zaklad/`). Details in `FORMAT-projektu.md`,
-        part 1.
-        Decided by Vojta on 13 Nov: README title is the short project name only
-        (`# Správce osobních financí`, `# Wordle s řešičem`, `# Titanic`; done);
-        the converter takes the page title from it, `config.json` holds order and
-        a short description.
-        Decided by Vojta on 13 Nov: step sections are fixed (`Funkce`, `Testy`,
-        `Program`, `Hotovo, když`, in this order, missing ones allowed, `###`
-        free; exceptions: test-first step may put `Testy` first, open last step
-        uses `Postup`); the converter rejects anything else. Mapping of today's
-        headings is in `FORMAT-projektu.md`, part 2, Krok, point 3.
-        Decided by Vojta on 13 Nov: hints sit behind a "Zobrazit nápovědu"
-        button like "Zobrazit řešení", each further hint behind "Zobrazit další
-        nápovědu" inside the previous one; no link to project solutions on the web.
-  - [ ] Solutions stay off the web during the day (they are only on `reseni`);
-        decide whether the web shows them after the workshop.
+  - [ ] Tomas: review `FORMAT-projektu.md`. All open points were decided by
+        Vojta on 13 Nov:
+        - Hints sit behind a "Zobrazit nápovědu" button like "Zobrazit řešení";
+          each further hint behind "Zobrazit další nápovědu" inside the previous one.
+        - No project solutions on the web, not even a link to the `reseni` branch.
+        - Step sections are fixed: `Funkce`, `Testy`, `Program`, `Hotovo, když`,
+          in this order, missing ones allowed, `###` free. Exceptions: a test-first
+          step may put `Testy` first, an open last step uses `Postup`. The converter
+          rejects anything else. Mapping of today's headings: part 2, Krok, point 3.
+        - README title is the short project name only (`# Správce osobních
+          financí`, `# Wordle s řešičem`, `# Titanic`; done). The converter takes
+          the page title from it; `config.json` holds order and a short description.
+        - The workshop goes under Materiály, like the course lessons:
+          `/materialy/workshop-opakovani/` plus repo paths. Details in part 1.
+        - `lekce-moduly` bonus 2: the solution is `reseni/02_test_modulu.py` (same
+          name as the task), with a copy of `spropitne.py` next to it so it runs
+          with `python -m pytest 02_test_modulu.py` (done).
 - [x] **Exceptions:** out of scope for this workshop, decided by Vojta on
       13 Nov; Tomas to confirm if he disagrees. They stay in L13 (CSV a výjimky).
   - [ ] Tomas: confirm, if needed.

@@ -204,14 +204,13 @@ Stav ke 13. 11. 2026 na `main`. ✅ = už vyhovuje.
       `02_instalace_knihoven/test_pytest_funguje.py`,
       `03_vlastni_moduly/prevody.py`, `test_prevody.py`, `upovidany.py`,
       `cviceni/reseni/spropitne.py`, `texty.py`,
-      `cviceni_bonusy/reseni/kostky.py`, `test_spropitne.py`.
-- [ ] `lekce-moduly/…/cviceni_bonusy/reseni/test_spropitne.py` má hlavičku
-      řešení („Řešení bonusu 2“), ale jmenuje se jinak než úloha
-      `02_test_modulu.py`, takže ho převodník nespáruje.
-      - Řešení: dát řešení úlohy jako `reseni/02_test_modulu.py` a
-        `test_spropitne.py` nechat jako pomocný soubor bez hlavičky řešení.
-      - Pozor, pytest soubor `02_test_modulu.py` nenajde. Ověřit, co má
-        účastnice spouštět.
+      `cviceni_bonusy/reseni/kostky.py`, `spropitne.py`.
+- ✅ Řešení bonusu 2 v `lekce-moduly` (rozhodl Vojta 13. 11.): dřív
+      `reseni/test_spropitne.py`, které převodník nespároval s úlohou
+      `02_test_modulu.py` a které nešlo spustit. Teď je to
+      `reseni/02_test_modulu.py` ve formátu řešení a vedle něj kopie
+      `spropitne.py` jako pomocný soubor. Spouští se jménem:
+      `python -m pytest 02_test_modulu.py` (3 testy projdou).
 
 ### Kroky
 
