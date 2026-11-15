@@ -46,7 +46,8 @@ vyjít. Co vyzkoušet:
 
 Výpisy píšeš do `zprava.py`.
 
-Pro každý přístav vypiš procento přeživších, počet lidí a podíl těch, kdo jeli 1. třídou.
+Pro každý přístav vypiš procento přeživších, počet lidí a podíl těch, kdo jeli
+1. třídou.
 
 Jeden řádek tě možná překvapí. V datech jsou dva lidé, u kterých přístav
 chybí.

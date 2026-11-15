@@ -1,4 +1,4 @@
-# Nápady na další rozšíření
+# Nápady na rozšíření
 
 Máš hotovo a chceš se v datech hrabat dál? Tady je pár směrů. Řešení k nim
 není, cesta je na tobě. U každého platí totéž co u kroků: počítání piš jako

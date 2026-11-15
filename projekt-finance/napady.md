@@ -13,8 +13,10 @@ jeden test a teprve potom ji přidej do menu.
 
 ## Ke kroku 2 – Přidání a odebrání transakce
 
-- `je_platne_datum` pustí i 31. únor. Dokážeš ji zpřísnit? Nejdřív na to napiš test.
-- Při zadávání data nabídni zkratku: prázdný Enter použije datum poslední transakce.
+- `je_platne_datum` pustí i 31. únor. Dokážeš ji zpřísnit? Nejdřív na to napiš
+  test.
+- Při zadávání data nabídni zkratku: prázdný Enter použije datum poslední
+  transakce.
 - Před odebráním se zeptej „Opravdu odebrat? (ano/ne)“.
 
 ## Ke kroku 3 – Přehledy

@@ -123,3 +123,15 @@ print(nakup[0]["co"])       # rohlíky
 
 Do JSON jdou seznamy, slovníky, texty, čísla, `True`, `False` a `None`.
 N-tice se uloží jako seznam.
+
+Samotné jméno souboru jako `"nakup.json"` se hledá ve složce, ze které
+program spouštíš. Soubor vedle programu najdeš odkudkoli takhle:
+
+```python
+from pathlib import Path
+
+SOUBOR = Path(__file__).parent / "nakup.json"   # složka programu + jméno souboru
+
+with open(SOUBOR, encoding="utf-8") as soubor:
+    nakup = json.load(soubor)
+```

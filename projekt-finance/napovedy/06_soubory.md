@@ -1,5 +1,9 @@
 # Nápověda ke kroku 6 – Uložení do souboru
 
-- Zápis a čtení souboru, `json.dump` a `json.load`. `TAHAK.md`, *Soubory a JSON*.
+- Zápis a čtení souboru, `json.dump` a `json.load`. `TAHAK.md`, *Soubory a
+  JSON*.
 - Nezapomeň na `encoding="utf-8"` při otevírání a `ensure_ascii=False` při
   zápisu. Bez nich se háčky a čárky pokazí, a hlídá to druhý test.
+- `FileNotFoundError`, nebo se data ukládají jinam? Cestu skládej od složky
+  programu: `Path(__file__).parent / "finance.json"`. `TAHAK.md`, *Soubory
+  a JSON*.

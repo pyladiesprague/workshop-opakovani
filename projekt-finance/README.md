@@ -116,8 +116,7 @@ transakce = [
 3. Zeptej se kolegyně ve dvojici nebo u stolu.
 4. Zavolej kouče.
 
-## Co s tím dál
+## Na konci dne
 
-Na závěrečném workshopu se k podobnému programu můžeš vrátit a přidat mu
-to, co se naučíš v dalších lekcích: transakci jako třídu, načtení výpisu
-z banky ze souboru CSV a ošetření chyb přes výjimky.
+Ukážeš ostatním, co jsi postavila. Stačí ukázat přehled nebo graf ze svých
+dat a říct, co ti dalo nejvíc práce.

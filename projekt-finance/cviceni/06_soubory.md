@@ -59,12 +59,23 @@ Uprav `app.py`.
   ze souboru `finance.json`.
 - Po každém přidání a odebrání transakce seznam ulož.
 
+Samotné jméno `"finance.json"` Python hledá ve složce, ze které program
+spouštíš, a to nemusí být složka projektu. Pak program hlásí
+`FileNotFoundError`, nebo si uloží nový soubor jinam. Proto cestu slož od
+složky, ve které leží `app.py`. Patří na začátek `app.py`:
+
+```python
+from pathlib import Path
+
+SOUBOR = Path(__file__).parent / "finance.json"
+```
+
+`__file__` je cesta k souboru `app.py`, `.parent` je složka, ve které leží,
+a lomítko k ní připojí jméno souboru, stejně jako u `tmp_path` v testech.
+Ber to jako hotový recept. Wordle a Titanic to dělají stejně.
+
 Vyzkoušej to: přidej transakci, ukonči program, spusť ho znovu a nech si
 vypsat transakce. Ta nová tam musí být.
-
-Kdyby program hlásil `FileNotFoundError`, hledá soubor v jiné složce, než
-ve které leží. Spouštěj `app.py` tlačítkem **Run** s otevřenou složkou
-celého workshopu, případně si v terminálu přejdi do složky projektu.
 
 Když si data pokazíš, původní `finance.json` si znovu stáhni z GitHubu,
 nebo si ho nech vyrobit: v Pythonu zavolej `uloz` se seznamem

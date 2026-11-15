@@ -1,4 +1,4 @@
-# Nápady na další rozšíření
+# Nápady na rozšíření
 
 Máš hotovo a chceš si hrát dál? Tady je pár směrů. Řešení k nim není, cesta je
 na tobě. U každého platí totéž co u kroků: logiku piš jako funkci do

@@ -283,7 +283,8 @@ Order: project-specific work first, repo-wide changes after.
       when the install fails. It has to fit the public-pages converter, so it is
       written once the converter supports this repo. Then announce it (e-mail,
       Discord, web banner in `organizace/content/oznameni/`).
-- [ ] public-pages converter for the workshop repo. Today it only reads
+- [x] public-pages converter for the workshop repo. Done 13–14 Nov (public-pages
+      PR #13, merged; automatic import since 14 Nov). It used to read only
       `pyladiesprague/materialy`. The lessons here (`lekce-moduly/`, testing)
       already follow the materialy format; the projects get their own Markdown
       format (C3: projects go on the web like `materialy`).
@@ -293,9 +294,10 @@ Order: project-specific work first, repo-wide changes after.
 - [ ] Root `TAHAK.md`: importing from your own file, writing a test, reading a
       failed test, common error messages. Move this out of the finance tahák
       and out of the Wordle and Titanic READMEs.
-- [ ] Keep the root `.vscode/` as the only one; remove the per-project unittest
-      settings in Wordle and Titanic (D2).
-- [ ] `pytest.ini`: keep `norecursedirs = reseni`, needed on the `reseni` branch.
+- [x] Keep the root `.vscode/` as the only one; remove the per-project unittest
+      settings in Wordle and Titanic (D2). Done 14 Nov (PR #2).
+- [x] `pytest.ini`: keep `norecursedirs = reseni`, needed on the `reseni` branch.
+      Present on `main` and `reseni`.
 - [x] One root `.gitignore` with `statistiky.txt`, `zprava.txt`, `report.html`;
       drop the per-project ones. Done 13 Nov, also covers Python, IntelliJ/PyCharm
       and VS Code (only the shared `.vscode/settings.json` and `launch.json` are kept).
@@ -305,17 +307,22 @@ Order: project-specific work first, repo-wide changes after.
       `.vscode/settings.json`. LF on disk on every OS, including Windows.
 - [x] A check script on `reseni` that runs pytest in every `cviceni/reseni/NN_*` folder:
       `zkontroluj_reseni.py` in the repo root (14 Nov).
-- [ ] Solutions are generated, not edited by hand, in all three projects. Each
+- [x] Solutions are generated, not edited by hand, in all three projects. Each
       owner regenerates and updates `reseni` after changing their project. See
       whether finance's `sestav.py` can be made to serve all three.
-- [ ] Coach notes in one place per project: `pro_kouce.md` on `reseni`. Titanic has
+      Done 15 Nov: each project has its own `cviceni/reseni/_predloha/sestav.py`
+      on `reseni`; `zkontroluj_reseni.py` passes for all three.
+- [x] Coach notes in one place per project: `pro_kouce.md` on `reseni`. Titanic has
       one (moved off `main` 13 Nov), finance's moved there from `reseni/README.md`
-      13 Nov, Wordle has none.
+      13 Nov, Wordle's added 15 Nov. All three have `pro_kouce.md` on `reseni`.
 - [ ] Update the workshop design doc: pytest, ten Wordle steps as decided, and the
       dropped rule that anyone stuck can catch up from a solution (D5).
 - [ ] Delete `TODO-format.md` and `REPORT-materialy.md` from `main` before the workshop.
-- [ ] Final pass for one style across projects (feedback): headings, tables,
-      line wrapping, how the participant is addressed.
+- [x] Final pass for one style across projects (feedback): headings, tables,
+      line wrapping, how the participant is addressed. Done 15 Nov: participant
+      is "ty", feminine, everywhere; function tables use "Co vrátí", or "Co dělá"
+      where a function changes data or returns nothing; `napady.md` titles and
+      the README ending ("Na konci dne") unified.
 
 ### From the materialy comparison (`REPORT-materialy.md`)
 Decisions:
@@ -357,13 +364,15 @@ Decisions:
         *soubory, výjimky a moduly patří do middle workshopu*.
 
 Alignment with `materialy`:
-- [ ] Titles with an en dash: Wordle `# Krok 1: …` becomes `# Krok 1 – …`.
+- [x] Titles with an en dash: Wordle `# Krok 1: …` becomes `# Krok 1 – …` (13 Nov).
       Bonus files already use `# Bonus N – …` since the split on 13 Nov.
-- [ ] Solution headers in Wordle and Titanic: `# Řešení kroku N – …` /
+- [x] Solution headers in Wordle and Titanic: `# Řešení kroku N – …` /
       `# Řešení bonusu N – …`, then "Tvoje řešení může vypadat jinak, a to je
-      v pořádku." (finance already does this).
-- [ ] Wrap Markdown prose at about 75–80 characters in Wordle and Titanic
-      (part of the final style pass).
+      v pořádku." Done 15 Nov in all three generators on `reseni`; the step
+      name comes from the step title.
+- [x] Wrap Markdown prose at about 75–80 characters in Wordle and Titanic
+      (part of the final style pass). Done 15 Nov, all three projects. Tables,
+      code and the hint pointer line stay on one line (the converter needs it).
 - [ ] `.gitattributes`: `export-ignore` for `TODO-format.md`,
       `REPORT-materialy.md`, `feedback.md` and a future `.github/`, as
       `materialy` does for its ZIP.
@@ -371,7 +380,7 @@ Alignment with `materialy`:
       fallback (D3), same wording as lesson 1 in `materialy`.
 - [ ] Project changes go through PRs with the other owner as reviewer; branch
       names `finance/…`, `wordle/…`, `docs/…`; commit subjects `Finance: …`.
-- [ ] CI: until the converter exists, a workflow that runs pytest on `reseni`
+- [ ] CI: a workflow that runs pytest on `reseni`
       (covers the "check script" item above); later copy the `web.yml` pattern.
       `web.yml` copied 14 Nov: converter check on PRs and pushes to `main`,
       automatic import into `public-pages` after a push. pytest on `reseni` is
@@ -382,30 +391,34 @@ Alignment with `materialy`:
 Schedule fit (workshop Sat 21 Nov, after L9 Slovníky on 19 Nov):
 - [ ] Dictionaries are two days old. Project taháky link to the lesson 9
       tahák; coaches expect questions on them.
-- [ ] CSV is taught only in L13 (17 Dec), so the Titanic tahák must explain
-      reading CSV on its own.
+- [x] CSV is taught only in L13 (17 Dec), so the Titanic tahák must explain
+      reading CSV on its own. Done 14 Nov: `projekt-titanic/TAHAK.md`.
 
 ### Every project
 - [x] Rename to the agreed layout (D7, C2): `cviceni/NN_nazev.md`, bonuses split
       into `bonusy/NN_nazev.md`, solutions into `cviceni/reseni/` and
       `bonusy/reseni/` on `reseni`, README links updated. Done 13 Nov, all three
       projects. Finance's bonus intro moved into its README.
-- [ ] Rewrite each step to the step template: result first, Hotovo když at the end.
-- [ ] Hints into `napovedy/`, following the hint rules.
-- [ ] Remove every sentence that sends participants to solutions or offers a
+- [x] Rewrite each step to the step template: result first, Hotovo když at the end.
+      All three projects (finance 13 Nov, Wordle and Titanic 14 Nov).
+- [x] Hints into `napovedy/`, following the hint rules. Every step of all three.
+- [x] Remove every sentence that sends participants to solutions or offers a
       finished step for catching up (D5). Done in the three project READMEs on
-      13 Nov; step files still to check.
-- [ ] Add `napady.md`: extension ideas without solutions (high scores,
+      13 Nov; step and hint files checked 15 Nov, none left.
+- [x] Add `napady.md`: extension ideas without solutions (high scores,
       difficulty levels, and similar).
 - [ ] Add a bonus for clearing the terminal where the project lacks one.
+      Wordle has it as step 10, Titanic as bonus 5; finance still lacks one.
 - [ ] README to the README template, including the minimum goal and the
       smoke test in "before you start".
-- [ ] Starter test file contains only one test, and it passes. Step 1 tests move
-      into the step file (D2).
-- [ ] Module and test file names are unique across the repo (D2).
+- [x] Starter test file contains only one test, and it passes. Step 1 tests move
+      into the step file (D2). All three: one passing test each (15 Nov).
+- [x] Module and test file names are unique across the repo (D2):
+      `finance.py`, `logika.py`, `analyza.py` and their `test_*.py`.
 - [ ] Check that input cleaning is practised (feedback): case, `strip`, types,
       positive and negative numbers, dates.
 - [ ] Data files are found from the file's own location, not the working folder.
+      Wordle and Titanic use `Path(__file__).parent`; finance step 6 open.
 - [ ] Last: test the participant path on Windows and macOS with this project:
       fork, clone, open the repo root, install pytest, Testing panel, Run,
       Commit and Sync.
@@ -507,8 +520,8 @@ Done by Tomas on 14 Nov, on top of the format from 13 Nov. Waiting for review.
 - [x] The heavy-topic warnings are gone. Children and adults moved to bonus 4.
 - [x] Steps follow `FORMAT-projektu.md`; the converter on `workshop-import`
       accepts the project without errors (preview run, 14 Nov).
-- [ ] public-pages `code/workshop/opakovani.json` still describes Titanic as
-      "jestli platilo ženy a děti první". Change it to the new question.
+- [x] public-pages `code/workshop/opakovani.json` still describes Titanic as
+      "jestli platilo ženy a děti první". Change it to the new question. Done 14 Nov.
 
 ## 5. How `feedback.md` maps to this
 
