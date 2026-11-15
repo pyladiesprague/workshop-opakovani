@@ -100,3 +100,4 @@ Zasekla ses? Nápověda je v souboru [`napovedy/04_rozpocty.md`](../napovedy/04_
 - [ ] rozpočty za `2026-11` z ukázkových dat sedí s ukázkou nahoře
 - [ ] nově nastavený rozpočet se hned projeví ve volbě 6
 - [ ] výdaj, který rozpočet překročí, vyvolá upozornění
+- [ ] práce je uložená na GitHubu: **Commit** a pak **Sync Changes**

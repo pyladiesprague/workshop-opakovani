@@ -106,7 +106,7 @@ projects. Everything else is small alignment.
 | Line wrapping | Comments ~75 characters | Finance wrapped; Wordle and Titanic steps have unwrapped lines over 100 | ⚠️ |
 | Addressing | *ty*, feminine | Same in all three projects | ✅ |
 | Workflow | PR per change, review, `L8:` subjects | Mostly direct pushes to `main` (one PR so far) | ⚠️ |
-| CI | `web.yml` converter check | None | ⚠️ |
+| CI | `web.yml` converter check | Same `web.yml` since 14 Nov (needs secret `PUBLIC_PAGES_TOKEN`) | ✅ |
 
 ## 3. Conflicts to decide
 

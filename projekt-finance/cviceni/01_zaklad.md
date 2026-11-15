@@ -100,3 +100,4 @@ Zasekla ses? Nápověda je v souboru [`napovedy/01_zaklad.md`](../napovedy/01_za
 - [ ] `app.py` vypíše transakce v čitelných sloupcích
 - [ ] zůstatek z ukázkových dat vyjde 25540 Kč
 - [ ] neznámá volba program neshodí a `0` ho ukončí
+- [ ] práce je uložená na GitHubu: **Commit** a pak **Sync Changes**

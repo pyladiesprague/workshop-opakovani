@@ -1,6 +1,8 @@
 # Nápověda ke kroku 10 – Herní obrazovka
 
-Překreslovat se musí i po špatně zadaném slově, takže `vykresli` patří dovnitř cyklu ve funkci `nacti_slovo`. Ta k tomu potřebuje `pokusy` a `pismena` jako další parametry:
+Překreslovat se musí i po špatně zadaném slově, takže `vykresli` patří dovnitř
+cyklu ve funkci `nacti_slovo`. Ta k tomu potřebuje `pokusy` a `pismena` jako
+další parametry:
 
 ```python
 def nacti_slovo(pokusy, pismena, povolena, mozna):
@@ -11,4 +13,7 @@ def nacti_slovo(pokusy, pismena, povolena, mozna):
         ...
 ```
 
-V cyklu už nic nevypisuj přes `print`. Nápovědu, radu i chybu jen ulož do `zprava`.
+V cyklu už nic nevypisuj přes `print`. Nápovědu, radu i chybu jen ulož do
+`zprava`.
+
+Počet prázdných řádků na ploše je `POCET_POKUSU - len(pokusy)`.

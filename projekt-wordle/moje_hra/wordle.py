@@ -1,1 +1,0 @@
-# Wordle: hraj tlačítkem Run.

@@ -41,7 +41,7 @@ jeden test a teprve potom ji přidej do menu.
 ## Ke kroku 6 – Uložení do souboru
 
 - Ukládej i rozpočty. Do souboru může jít slovník se dvěma klíči:
-  `{"transakce": [...], "rozpocty": {...}}`. Tahák L9, *data v datech*.
+  `{"transakce": [...], "rozpocty": {...}}`. Tahák L9, *Záznamy a tabulky*.
 - Přidej volbu „uložit zálohu“, která data zapíše do souboru, jehož jméno
   si uživatelka zvolí.
 

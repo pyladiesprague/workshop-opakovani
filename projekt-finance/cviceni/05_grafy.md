@@ -79,3 +79,4 @@ Zasekla ses? Nápověda je v souboru [`napovedy/05_grafy.md`](../napovedy/05_gra
 - [ ] všechny testy jsou zelené
 - [ ] graf z ukázkových dat vypadá jako ukázka nahoře
 - [ ] částky za sloupci stojí pod sebou
+- [ ] práce je uložená na GitHubu: **Commit** a pak **Sync Changes**

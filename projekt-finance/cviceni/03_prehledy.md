@@ -102,3 +102,4 @@ Zasekla ses? Nápověda je v souboru [`napovedy/03_prehledy.md`](../napovedy/03_
 - [ ] všechny testy jsou zelené
 - [ ] přehled za `2026-11` z ukázkových dat sedí s ukázkou nahoře
 - [ ] měsíc bez transakcí ani nesmyslný měsíc program neshodí
+- [ ] práce je uložená na GitHubu: **Commit** a pak **Sync Changes**

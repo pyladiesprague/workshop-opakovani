@@ -1,8 +1,25 @@
 # Krok 1 – Jeden pokus
 
+Na konci tohohle kroku program vyhodnotí jedno hádané slovo:
+
+```text
+Tvůj pokus: kabát
+k a b á t
++ ? - - -
+```
+
+Tajné slovo je tady `kočka`. Značka `+` znamená, že písmeno sedí, `?` že ve
+slově je, ale jinde, a `-` že ve slově není.
+
 ## Funkce
 
-V `logika.py` je připravená prázdná funkce `vyhodnot(hadane, tajne)`. Dostane dvě slova o pěti písmenech a má vrátit seznam pěti řetězců, jeden pro každé písmeno hádaného slova:
+Funkce píšeš do `logika.py`.
+
+| Funkce | Co vrátí |
+| --- | --- |
+| `vyhodnot(hadane, tajne)` | seznam pěti řetězců, jeden pro každé písmeno hádaného slova |
+
+V seznamu můžou být tři hodnoty:
 
 | Hodnota | Význam |
 | --- | --- |
@@ -15,29 +32,61 @@ vyhodnot("kabát", "kočka")
 # ["spravne", "jinde", "neni", "neni", "neni"]
 ```
 
-Nahoře v `logika.py` jsou dvě konstanty, `DELKA_SLOVA` a `POCET_POKUSU`. Konstanta je obyčejná proměnná, kterou program nikde nemění. Velká písmena v názvu to dávají najevo. Používej je místo čísel 5 a 6.
+Nahoře v `logika.py` jsou dvě konstanty, `DELKA_SLOVA` a `POCET_POKUSU`.
+Konstanta je obyčejná proměnná, kterou program nikde nemění. Velká písmena v
+názvu to dávají najevo. Používej je místo čísel 5 a 6.
 
 ## Testy
 
-Testy pro tenhle krok už máš hotové v `test_logika.py`. Spusť je v panelu Testing. Jsou červené, protože funkce zatím nic nedělá.
+Otevři `test_logika.py` a tyhle testy zkopíruj na jeho konec:
 
-Napiš funkci tak, aby všechny zezelenaly. Slova se stejným písmenem dvakrát teď neřeš, přijdou na řadu v kroku 6.
+```python
+def test_uhodnute_slovo():
+    assert logika.vyhodnot("panna", "panna") == [S, S, S, S, S]
 
-Zasekla ses? Nápověda je v souboru [`napovedy/01_jeden_pokus.md`](../napovedy/01_jeden_pokus.md), část Funkce.
+
+def test_zadna_shoda():
+    assert logika.vyhodnot("mléko", "sušit") == [N, N, N, N, N]
+
+
+def test_pismeno_na_jinem_miste():
+    assert logika.vyhodnot("kabát", "kočka") == [S, J, N, N, N]
+
+
+def test_diakritika_je_jine_pismeno():
+    assert logika.vyhodnot("město", "mesto") == [S, N, S, S, S]
+```
+
+`S`, `J` a `N` jsou zkratky pro `"spravne"`, `"jinde"` a `"neni"`. Najdeš je
+nahoře v souboru s testy.
+
+Spusť testy v panelu **Testing**. Budou červené a v hlášce uvidíš
+`AttributeError: module 'logika' has no attribute 'vyhodnot'`. To je v
+pořádku: testy popisují funkci, která ještě neexistuje. Napiš ji tak, aby
+zezelenaly.
+
+Slova se stejným písmenem dvakrát teď neřeš, přijdou na řadu v kroku 6.
 
 ## Program
 
-Ve `wordle.py` napiš funkci `vypis_pokus(hadane, vysledek)`, která vypíše slovo a pod něj značky `+`, `?` a `-`:
+Program píšeš do `wordle.py`.
 
-```text
-k a b á t
-+ ? - - -
-```
+1. Napiš funkci `vypis_pokus(hadane, vysledek)`, která vypíše slovo a pod něj
+   značky `+`, `?` a `-` jako v ukázce nahoře.
+2. Tajné slovo si zatím napiš přímo do kódu. Zeptej se hráče na slovo,
+   vyhodnoť ho a vypiš.
 
-Tajné slovo si zatím napiš přímo do kódu. Zeptej se hráče na slovo, vyhodnoť ho a vypiš. Funkci si do `wordle.py` naimportuješ takhle:
+Funkci si do `wordle.py` naimportuješ stejně, jako importuješ z `random`:
 
 ```python
 from logika import vyhodnot
 ```
 
-Zasekla ses? Nápověda je v souboru [`napovedy/01_jeden_pokus.md`](../napovedy/01_jeden_pokus.md), část Program.
+Zasekla ses? Nápověda je v souboru [`napovedy/01_jeden_pokus.md`](../napovedy/01_jeden_pokus.md).
+
+## Hotovo, když
+
+- [ ] všech pět testů je zelených
+- [ ] pro slovo `kabát` program vypíše `+ ? - - -`
+- [ ] pro slovo `kočka` vypíše pět plusů
+- [ ] práce je uložená na GitHubu: **Commit** a pak **Sync Changes**

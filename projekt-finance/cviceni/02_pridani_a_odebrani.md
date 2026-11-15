@@ -123,3 +123,4 @@ Zasekla ses? Nápověda je v souboru [`napovedy/02_pridani_a_odebrani.md`](../na
 - [ ] přidaná transakce je vidět ve výpisu a změní zůstatek
 - [ ] program nespadne na vstupech `abc`, prázdný Enter, `-5`, `99`
 - [ ] odebrání neexistujícího čísla nic nesmaže
+- [ ] práce je uložená na GitHubu: **Commit** a pak **Sync Changes**

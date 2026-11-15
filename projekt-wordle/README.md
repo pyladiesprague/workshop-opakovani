@@ -1,62 +1,116 @@
 # Wordle s řešičem
 
-Během dne postavíš českou verzi hry Wordle. Hráč má šest pokusů na uhodnutí slova o pěti písmenech a po každém pokusu vidí, která písmena sedí. Na konci napíšeš program, který hru umí hrát sám.
+Postavíš českou verzi hry Wordle. Hráč má šest pokusů na uhodnutí slova o pěti
+písmenech a po každém pokusu vidí, která písmena sedí. Nakonec napíšeš řešič:
+program, který hru umí hrát sám. Vystačíš si s tím, co umíš z lekcí 1 až 9.
+
+```text
+             K   A   B   Á   T
+             P   A   U   Z   A
+             ·   ·   ·   ·   ·
+             ·   ·   ·   ·   ·
+             ·   ·   ·   ·   ·
+             ·   ·   ·   ·   ·
+
+         Ě   Š   Č   Ř   Ž   Ý   Á   Í   É
+ Q   W   E   R   T   Z   U   I   O   P   Ú
+   A   S   D   F   G   H   J   K   L   Ů
+ Y   X   C   V   B   N   M   Ď   Ť   Ň   Ó
+
+  Zkus: PAUZA
+
+  Tvůj pokus:
+```
 
 Pracovat můžeš sama nebo ve dvojici.
 
-## Jak začít
+## Jak to bude probíhat
 
-Ve VS Code otevři složku `projekt-wordle/moje_hra` přes **File → Open Folder**. Tady budeš pracovat celý den.
+Projekt je rozdělený na kroky. Začneš programem, který vyhodnotí jedno slovo,
+a v každém kroku mu něco přidáš. Nemusíš stihnout všechno. Do kroku 3 by měla
+dojít každá, to už je hra, která se dá hrát. Zbytek je navíc.
 
-| Soubor | Co v něm je |
+| Krok | Co přibude | Co si zopakuješ |
+| --- | --- | --- |
+| [1 – Jeden pokus](cviceni/01_jeden_pokus.md) | vyhodnocení jednoho slova | řetězce, seznamy, `for`, funkce |
+| [2 – Celá hra](cviceni/02_cela_hra.md) | šest pokusů, kontrola vstupu, výhra a prohra | `while`, metody řetězců |
+| [3 – Seznam slov](cviceni/03_seznam_slov.md) | náhodné slovo, jen skutečná slova | `in`, `randrange`, import |
+| [4 – Barvy](cviceni/04_barvy.md) | barevná pole místo značek | seznam n-tic, rozbalování |
+| [5 – Klávesnice](cviceni/05_klavesnice.md) | přehled písmen | slovníky, slovník ve funkci |
+| [6 – Opakovaná písmena](cviceni/06_opakovana_pismena.md) | oprava chyby u slov se stejným písmenem dvakrát | měnění seznamu, testy jako první |
+| [7 – Nápověda](cviceni/07_napoveda.md) | která slova ještě připadají v úvahu | stavění seznamu, skládání funkcí |
+| [8 – Řešič](cviceni/08_resic.md) | program poradí nejlepší slovo | počítadlo, hledání největšího |
+| [9 – Statistiky](cviceni/09_statistiky.md) | výsledky uložené v souboru | slovník ve slovníku |
+| [10 – Herní obrazovka](cviceni/10_herni_obrazovka.md) | obrazovka, která zůstává na místě | rozdělení programu na funkce |
+
+Kdo stihne všech deset kroků, najde další úkoly ve složce [`bonusy`](bonusy/)
+a volné náměty v souboru [`napady.md`](napady.md).
+
+Každý krok má stejnou stavbu:
+
+1. **Funkce.** Zadání řekne, co má funkce dostat a co vrátit. Píšeš ji do
+   `logika.py`.
+2. **Testy.** V prvních krocích je dostaneš hotové a zkopíruješ si je do
+   `test_logika.py`. Od kroku 6 je píšeš sama.
+3. **Program.** Hotové funkce použiješ ve hře ve `wordle.py`.
+
+Zadání říká, co má funkce dělat. Jak to udělá, je na tobě.
+
+Po každém kroku ulož práci na GitHub: **Commit** a pak **Sync Changes**.
+
+## Soubory
+
+| Soubor | K čemu je |
 | --- | --- |
-| `logika.py` | Funkce s pravidly hry. Tady se nic nevypisuje a na nic se neptá. |
-| `wordle.py` | Samotná hra. Spouštíš ji tlačítkem Run. |
-| `test_logika.py` | Testy funkcí z `logika.py`. |
-| `pomocnik.py` | Hotové funkce na barvy a soubory. Nemusíš ho číst ani měnit. |
-| `hadana_slova.txt` | 425 slov, která může program vybrat jako tajná. |
-| `povolena_slova.txt` | Skoro 28 000 slov, která může hráč zadat. |
+| `logika.py` | **logika**: funkce s pravidly hry. Dostanou data a vrátí výsledek. Tyhle funkce se testují. |
+| `wordle.py` | **hra**: `input()` a `print()`. Volá funkce z `logika.py`. Tenhle soubor spouštíš. |
+| `test_logika.py` | testy funkcí z `logika.py` |
+| `pomocnik.py` | hotové funkce na barvy a soubory. Nemusíš ho číst ani měnit. |
+| `hadana_slova.txt` | 425 slov, která může program vybrat jako tajná |
+| `povolena_slova.txt` | skoro 28 000 slov, která může hráč zadat |
 
-Hru máme ve dvou souborech kvůli testům. Test si soubor naimportuje a tím ho celý spustí, takže kdyby v něm byl `input()`, test by čekal na hráče.
+Proč dva soubory s kódem? Funkce, která se ptá přes `input()` a odpovídá přes
+`print()`, se testovat nedá: test za tebe nic nenapíše na klávesnici a
+nepřečte si obrazovku. Funkci, která dostane data a výsledek vrátí, otestuješ
+na jednom řádku. Proto pravidla hry bydlí v `logika.py` a povídání s hráčem ve
+`wordle.py`.
 
-## Jak spouštět testy
-
-Vlevo klikni na ikonu zkumavky **Testing** a nahoře na dvě šipky **Run All Tests**. Zelená znamená, že test prošel, červená, že ne.
-
-Test vypadá takhle:
+## Jak vypadá test
 
 ```python
-class TestVyhodnot(unittest.TestCase):
-    def test_uhodnute_slovo(self):
-        self.assertEqual(vyhodnot("panna", "panna"), [S, S, S, S, S])
+def test_uhodnute_slovo():
+    assert logika.vyhodnot("panna", "panna") == [S, S, S, S, S]
 ```
 
-Do `assertEqual` patří to, co funkce vrátila, a to, co vrátit měla. `S`, `J` a `N` jsou zkratky pro `"spravne"`, `"jinde"` a `"neni"`, najdeš je nahoře v souboru s testy. Slova `class` a `self` si zatím jen opiš, testy jsou v Pythonu uspořádané do tříd. Co přesně znamenají, se naučíme v lekci o třídách.
+Test je funkce, jejíž jméno začíná `test_`. Slovo `assert` znamená „tvrdím,
+že“: nalevo je to, co funkce vrátila, napravo to, co vrátit měla. Když tvrzení
+platí, test je zelený. Když ne, je červený a v hlášce uvidíš, co funkce
+vrátila doopravdy.
 
-## Jak pracovat
+Víc o testech je v lekci o testování, tahák najdeš v
+[`lekce-testovani/TAHAK.md`](../lekce-testovani/TAHAK.md).
 
-Zadání je ve složce `kroky`, jeden soubor na jeden krok. Každý krok rozšiřuje stejný program.
+## Než začneš
 
-1. Přečti si zadání kroku.
-2. Doplň kód a testy.
-3. Spusť testy a zahraj si.
-4. Ulož práci na GitHub: **Commit** a pak **Sync Changes**. Do zprávy napiš, co přibylo, třeba „Hra má šest pokusů“.
+1. V terminálu ve VS Code nainstaluj pytest: `pip install pytest`. Na Windows
+   případně `py -m pip install pytest`.
+2. Ve VS Code měj otevřenou složku celého workshopu (**File → Open Folder**),
+   ne jen složku projektu.
+3. Otevři panel **Testing** (ikona baňky vlevo). Rozbal `projekt-wordle` a
+   spusť jeho testy šipkou vedle názvu. V `test_logika.py` je jeden test a má
+   být zelený. Když je, všechno funguje.
+4. Spusť `wordle.py`. Má vypsat, kolik písmen slovo má a kolik máš pokusů.
+5. Otevři [krok 1](cviceni/01_jeden_pokus.md).
 
-Když se zasekneš, otevři si nápovědu ke kroku ve složce `napovedy`. Když nestačí, zeptej se kouče.
+## Když se zasekneš
 
-## Kroky
+1. Přečti si chybovou hlášku odspodu.
+2. Otevři nápovědu ke kroku ve složce [`napovedy`](napovedy/). Jmenuje se
+   stejně jako zadání.
+3. Zeptej se kolegyně ve dvojici nebo u stolu.
+4. Zavolej kouče.
 
-| Krok | Co přibude |
-| --- | --- |
-| [1](cviceni/01_jeden_pokus.md) | Vyhodnocení jednoho pokusu |
-| [2](cviceni/02_cela_hra.md) | Šest pokusů, výhra a prohra |
-| [3](cviceni/03_seznam_slov.md) | Náhodné slovo a kontrola zadaných slov |
-| [4](cviceni/04_barvy.md) | Barevná pole |
-| [5](cviceni/05_klavesnice.md) | Klávesnice s přehledem písmen |
-| [6](cviceni/06_opakovana_pismena.md) | Slova se stejným písmenem dvakrát |
-| [7](cviceni/07_napoveda.md) | Nápověda |
-| [8](cviceni/08_resic.md) | Řešič |
-| [9](cviceni/09_statistiky.md) | Statistiky uložené v souboru |
-| [10](cviceni/10_herni_obrazovka.md) | Obrazovka, která zůstává na místě |
+## Na konci dne
 
-Kdo stihne všech deset kroků, pokračuje [bonusy](bonusy/).
+Ukážeš ostatním, co jsi postavila. Stačí si zahrát jednu hru a říct, co ti
+dalo nejvíc práce.

@@ -249,6 +249,19 @@ Order: project-specific work first, repo-wide changes after.
 ### Still open
 - Vojtěch reads this file and writes his feedback into it. => Done
   - Tomas: Validate feedback from Vojtech
+- **Wordle and Titanic refactor (Tomas, 14 Nov).** Both projects are rewritten
+  to the agreed format: pytest, flattened, result first, hints, `napady.md`,
+  generated solutions. Titanic also has a new line of questions. Details in the
+  Wordle and Titanic lists below. For Vojtěch to review:
+  - Titanic now has twelve steps and a different main question.
+  - `sloupec_grafu` in Titanic differs in name from finance's `sloupec`.
+  - Each step's "Hotovo, když" ends with the Commit and Sync item (D3).
+  - `zkontroluj_reseni.py` on `reseni` runs pytest in every
+    `cviceni/reseni/NN_*` folder of all three projects.
+- **plotext (answer to Vojtěch's question in D11).** A small library that draws
+  charts in the terminal. Only Titanic bonus 2 uses it, as a taste of "a library
+  does this for you" after participants wrote their own chart in step 9. It
+  needs `pip install plotext==5.3.2`. Finance does not need it.
 
 ### Repo
 - [x] Tag `pred-unifikaci` on `main` before any unification change (pushed 13 Nov).
@@ -290,7 +303,8 @@ Order: project-specific work first, repo-wide changes after.
       produced mixed line endings.
       Done 13 Nov on `main` and `reseni`, plus `"files.eol": "\n"` in the shared
       `.vscode/settings.json`. LF on disk on every OS, including Windows.
-- [ ] A check script on `reseni` that runs pytest in every `cviceni/reseni/NN_*` folder.
+- [x] A check script on `reseni` that runs pytest in every `cviceni/reseni/NN_*` folder:
+      `zkontroluj_reseni.py` in the repo root (14 Nov).
 - [ ] Solutions are generated, not edited by hand, in all three projects. Each
       owner regenerates and updates `reseni` after changing their project. See
       whether finance's `sestav.py` can be made to serve all three.
@@ -359,6 +373,9 @@ Alignment with `materialy`:
       names `finance/…`, `wordle/…`, `docs/…`; commit subjects `Finance: …`.
 - [ ] CI: until the converter exists, a workflow that runs pytest on `reseni`
       (covers the "check script" item above); later copy the `web.yml` pattern.
+      `web.yml` copied 14 Nov: converter check on PRs and pushes to `main`,
+      automatic import into `public-pages` after a push. pytest on `reseni` is
+      still open.
 - [ ] Optional: one picture per project made with the `obrazek` skill from
       `materialy`.
 
@@ -417,50 +434,81 @@ Schedule fit (workshop Sat 21 Nov, after L9 Slovníky on 19 Nov):
       as an exception, or explain `tmp_path` briefly in the step.
 - [ ] The solution generator takes tests from the step files. Once later steps
       have none, the solution tests need another source.
-- [ ] Add the Commit and Sync line to each step (D3).
+- [x] Add the Commit and Sync line to each step (D3). Done 14 Nov, same wording
+      as Wordle and Titanic.
+- [x] Every "Tahák LN" reference names the section: "Tahák L6, *Výřez*"
+      (14 Nov, section names from the lesson taháky; L9 from `materialy`
+      branch `lekce09/init-materials`).
 
 ### Wordle
+Done by Tomas on 14 Nov, on top of the format from 13 Nov. Waiting for review.
 - [x] Move `wordle/reseni/` from `main` to the `reseni` branch (13 Nov).
-- [ ] Convert tests to pytest functions (D1) in the starter file, the step files
-      and the solutions; drop the `class` and `self` note.
-- [ ] Rename the folder `wordle/` to `projekt-wordle/` (D7).
-- [ ] Flatten `moje_hra/` (D4). Steps already moved to `cviceni/` (C2).
+- [x] Convert tests to pytest functions (D1) in the starter file, the step files
+      and the solutions; drop the `class` and `self` note. Tests use
+      `import logika` and `logika.vyhodnot(...)`, as finance does.
+- [x] Rename the folder `wordle/` to `projekt-wordle/` (D7).
+- [x] Flatten `moje_hra/` (D4). Steps already moved to `cviceni/` (C2).
 - [x] Step 6 keeps two hints, `06_opakovana_pismena_1.md` and `_2.md`
       (decided 13 Nov). The web UI gets support for several hints per step.
-- [ ] Add "result first" and "Hotovo, když" to every step.
-- [ ] Review hints against the hint rules; several give most of the function.
+- [x] Add "result first" and "Hotovo, když" to every step.
+- [x] Review hints against the hint rules; several give most of the function.
+      Every hint now points to a lesson tahák section first.
 - [ ] Step 10 stays (D10). Find out why clearing the screen did not seem to work:
-      try it in the VS Code terminal on Windows and macOS.
+      try it in the VS Code terminal on Windows and macOS. Changed meanwhile:
+      `pomocnik.py` calls the system command (`cls` on Windows, `clear`
+      elsewhere) instead of printing an escape code. Not tried on Windows or macOS.
 - [x] Split the two bonuses into files (13 Nov).
-- [ ] Add `napady.md`.
-- [ ] `pomocnik.py` looks for the word lists in `moje_hra/` when run from a solution
-      folder. Since 13 Nov it searches every parent folder for `moje_hra/`, so the
-      deeper `cviceni/reseni/NN_*` folders work. Point it at the project folder
-      after flattening.
-- [ ] Write `pro_kouce.md` (intro, what to watch for in steps 5 and 6).
-- [ ] Build a generator for the solution folders, as finance has (one template,
-      marked by step).
+- [x] Add `napady.md`.
+- [x] `pomocnik.py` after flattening: it looks next to itself. The generator
+      rewrites the path when it copies the file into a solution folder.
+- [x] Write `pro_kouce.md` (intro, what to watch for in steps 5 and 6).
+- [x] Build a generator for the solution folders, as finance has (one template,
+      marked by step): `cviceni/reseni/_predloha/sestav.py`. It names the
+      folders after the step files and runs their tests.
+- [x] Steps follow `FORMAT-projektu.md`; the converter on `workshop-import`
+      accepts the project without errors (preview run, 14 Nov).
 
 ### Titanic
+Done by Tomas on 14 Nov, on top of the format from 13 Nov. Waiting for review.
 - [x] Move `titanic/reseni/` and `titanic/pro_kouce.md` from `main` to the `reseni` branch (13 Nov).
-- [ ] Convert tests to pytest functions (D1) in the starter file, the step files
-      and the solutions.
-- [ ] Rename the folder `titanic/` to `projekt-titanic/` (D7).
-- [ ] Flatten `moje_analyza/` (D4). Steps already moved to `cviceni/` (C2).
-- [ ] Write hints for all nine steps; none exist.
-- [ ] Add "Hotovo, když" to every step. "Result first" needs care here, because
-      the result is the answer. Show the shape of the output with made-up numbers.
-- [ ] Turn the text bar chart (bonus 2) into a regular step before the report,
-      using finance's `sloupec(hodnota, nejvyssi, sirka)` and its tests (D11).
-      Renumber the steps and include the chart in the report step.
-- [x] Split the bonuses into files (13 Nov). Bonus 2 leaves `bonusy/` once it
-      becomes a step (D11); renumber the remaining bonuses then.
-- [ ] Add `TAHAK.md` for CSV and `None`, and `napady.md`.
-- [ ] Add user input somewhere, so input cleaning is practised (for example,
-      ask which column to group by in step 9).
-- [ ] Every solution folder carries its own copy of the CSV. Keep one copy in the
-      project folder and point the solutions at it.
-- [ ] Build a generator for the solution folders, as finance has.
+- [x] Convert tests to pytest functions (D1) in the starter file, the step files
+      and the solutions. The test data is a function `ukazka()`, as in finance.
+- [x] Rename the folder `titanic/` to `projekt-titanic/` (D7).
+- [x] Flatten `moje_analyza/` (D4). Steps already moved to `cviceni/` (C2).
+- [x] Write hints for all steps; none existed.
+- [x] Add "Hotovo, když" to every step. "Result first" shows the shape of the
+      output with question marks in place of the numbers.
+- [x] Turn the text bar chart (bonus 2) into a regular step before the report (D11).
+      It is step 9; the report is step 10 and includes a chart. Same parameters
+      and the same five test cases as finance. **Deviation:** the function is
+      called `sloupec_grafu`, not `sloupec`, because in Titanic `sloupec` already
+      means a column of the data and is a parameter name in several functions.
+- [x] Split the bonuses into files (13 Nov). Bonuses are now: report in a file,
+      charts with a library, families, children and adults, clearing the screen.
+- [x] Add `TAHAK.md` for CSV and `None`, and `napady.md`.
+- [x] Add user input somewhere, so input cleaning is practised: step 11 is a
+      small explorer that asks for a column name and accepts any letter case.
+- [x] One copy of the CSV in the project folder; the solutions read it from there.
+- [x] Build a generator for the solution folders, as finance has.
+- [x] **New line of questions (Tomas, 12 Nov).** The project no longer tests the
+      claim "women and children first". It asks "who was on board and how did
+      they fare?" and has twelve steps in three blocks:
+      - who was on board: 3 oldest, youngest and average age, 4 ticket prices,
+        5 names and titles (counts only);
+      - how they fared: 6 who survived, 7 ports, 8 port or class;
+      - putting it together: 9 chart, 10 report "Titanic v číslech",
+        11 explorer, 12 own question.
+      Steps 1 and 2 (loading, cleaning) are unchanged.
+- [x] One idea next to the Python: a difference between groups is not a cause.
+      Women and 1st class in step 6 (large groups, big difference), ports in
+      steps 7 and 8 (most of the difference comes from class), titles in the
+      explorer in step 11 (groups of one to seven people, chance). No
+      terminology in the participant materials; `pro_kouce.md` has the numbers.
+- [x] The heavy-topic warnings are gone. Children and adults moved to bonus 4.
+- [x] Steps follow `FORMAT-projektu.md`; the converter on `workshop-import`
+      accepts the project without errors (preview run, 14 Nov).
+- [ ] public-pages `code/workshop/opakovani.json` still describes Titanic as
+      "jestli platilo ženy a děti první". Change it to the new question.
 
 ## 5. How `feedback.md` maps to this
 

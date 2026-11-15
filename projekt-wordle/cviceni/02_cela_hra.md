@@ -1,35 +1,54 @@
 # Krok 2 – Celá hra
 
-Udělej z jednoho pokusu celou hru. Hráč má šest pokusů.
+Na konci tohohle kroku má hráč šest pokusů a hra pozná výhru i prohru:
+
+```text
+Tvůj pokus: pes
+Slovo musí mít 5 písmen.
+Tvůj pokus: Kabát
+k a b á t
++ ? - - -
+Tvůj pokus: kočka
+k o č k a
++ + + + +
+Uhodla jsi to na 2. pokus!
+```
 
 ## Funkce
 
-Do `logika.py` přidej dvě funkce:
+Funkce píšeš do `logika.py`.
 
-- `uprav_vstup(text)` odstraní mezery kolem textu a převede ho na malá písmena.
-- `chyba_slova(slovo)` vrátí `"Slovo musí mít 5 písmen."`, když slovo nemá pět písmen. Když je v pořádku, vrátí prázdný řetězec `""`.
+| Funkce | Co vrátí |
+| --- | --- |
+| `uprav_vstup(text)` | text bez mezer na začátku a na konci, převedený na malá písmena |
+| `chyba_slova(slovo)` | `"Slovo musí mít 5 písmen."`, když slovo nemá pět písmen; když je v pořádku, prázdný řetězec `""` |
 
 ## Testy
 
-Na konec `test_logika.py` zkopíruj tuhle třídu a místo `___` doplň, co má funkce vrátit. Nahoře v souboru přidej nové funkce do importu.
+Zkopíruj na konec `test_logika.py` a místo `___` doplň, co má funkce vrátit:
 
 ```python
-class TestVstup(unittest.TestCase):
-    def test_uprav_vstup(self):
-        self.assertEqual(uprav_vstup("  KOČKA "), ___)
+def test_uprav_vstup():
+    assert logika.uprav_vstup("  KOČKA ") == ___
 
-    def test_kratke_slovo(self):
-        self.assertEqual(chyba_slova("kočk"), ___)
 
-    def test_spravna_delka(self):
-        self.assertEqual(chyba_slova("kočka"), ___)
+def test_kratke_slovo():
+    assert logika.chyba_slova("kočk") == ___
+
+
+def test_spravna_delka():
+    assert logika.chyba_slova("kočka") == ___
 ```
 
 ## Program
 
-Ve `wordle.py` napiš dvě funkce.
+Program píšeš do `wordle.py`.
 
-`nacti_slovo()` se hráče ptá tak dlouho, dokud nezadá slovo, které projde kontrolou. Když slovo neprojde, vypíše chybu a zeptá se znovu. Vrátí upravené slovo.
+Napiš dvě funkce.
+
+`nacti_slovo()` se hráče ptá tak dlouho, dokud nezadá slovo, které projde
+kontrolou. Když slovo neprojde, vypíše chybu a zeptá se znovu. Vrátí upravené
+slovo.
 
 `zahraj(tajne)` odehraje celou hru:
 
@@ -40,3 +59,11 @@ Ve `wordle.py` napiš dvě funkce.
 Špatně zadané slovo se díky `nacti_slovo` nepočítá jako pokus.
 
 Zasekla ses? Nápověda je v souboru [`napovedy/02_cela_hra.md`](../napovedy/02_cela_hra.md).
+
+## Hotovo, když
+
+- [ ] všechny testy jsou zelené
+- [ ] slovo `Kabát` s velkým písmenem a mezerami kolem hra přijme
+- [ ] krátké slovo hra odmítne a pokus za něj nepočítá
+- [ ] po šesti špatných pokusech hra prozradí tajné slovo
+- [ ] práce je uložená na GitHubu: **Commit** a pak **Sync Changes**

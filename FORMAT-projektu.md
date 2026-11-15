@@ -16,14 +16,15 @@ sekce „Pro autory“, stejně jako v `materialy`.
 ## 1. Co převodník najde
 
 ```text
-README.md                 úvod workshopu (stránka workshopu)
+README.md                 převodník nečte, je psané pro GitHub (rozhodl Vojta 13. 11.)
 lekce-<nazev>/            lekce ve formátu materialy
 projekt-<nazev>/          projekt ve formátu níže
 <cokoli jiného>           převodník ignoruje (TODO, pytest.ini, .vscode …)
 ```
 
 Pořadí a české názvy lekcí a projektů jsou v `config.json` převodníku pro tohle
-repo, stejně jako `lessons` u `materialy`. Lekce workshopu nemají číslo, pořadí
+repo, stejně jako `lessons` u `materialy`. Z konfigurace vzniká i úvodní stránka
+workshopu: název, popis, seznam lekcí a seznam projektů s krátkými popisy. Lekce workshopu nemají číslo, pořadí
 proto určuje jen konfigurace.
 
 ### Adresy na webu
@@ -40,8 +41,9 @@ Adresa je název repa a pod ním cesty jako v Gitu (u `materialy` je to stejné)
 /materialy/workshop-opakovani/projekt-finance/napady/             nápady na rozšíření
 ```
 
-- Přehled `/materialy/` dostane pod „Hodiny“ sekci „Workshopy“ s odkazem na
-  workshop.
+- Přehled `/materialy/` má pod „Hodiny“ sekci „Workshopy“ s odkazem na
+  workshop. Je psaná ručně v šabloně `code/materials/overview.md` (rozhodl
+  Vojta 13. 11.), protože workshopy jsou za běh kurzu jen dva.
 - Závěrečný workshop (`workshop-zaverecny`) půjde stejnou cestou na
   `/materialy/workshop-zaverecny/`.
 - Termín, místo a program zůstávají v `/organizace/`. Harmonogram na stránku
@@ -189,9 +191,9 @@ v materialy.
 
 ## 3. Co je potřeba sjednotit v současných materiálech
 
-Stav ke 13. 11. 2026 na `main`. ✅ = už vyhovuje. Zbylé ❌ jsou obsahové
-(výsledek pod titulkem, „Hotovo, když“, nápovědy Titanicu). Převodu nevadí,
-protože chybějící sekce jsou povolené.
+Stav ke 14. 11. 2026 na `main` (po sloučení Tomášova PR #2). ✅ = už vyhovuje.
+Všechny tři projekty a obě lekce mají formát pro převodník; převodník z
+`workshop-import` přijme `main` (`987e470`) bez chyb, 71 stránek.
 
 ### Celé repo
 - ✅ Složky projektů `projekt-wordle/` a `projekt-titanic/` (D7, 13. 11.).
@@ -200,8 +202,8 @@ protože chybějící sekce jsou povolené.
 
 ### Lekce
 - ✅ `lekce-testovani/`: všech 29 souborů výkladu, cvičení a řešení vyhovuje.
-- [ ] `lekce-moduly/`: osm `.py` bez předpony, které převodník dnes odmítne.
-      Po přidání pravidla „pomocné soubory“ budou v pořádku:
+- ✅ `lekce-moduly/`: osm `.py` bez předpony převodník bere jako pomocné
+      soubory (pravidlo přidané 13. 11.):
       `02_instalace_knihoven/test_pytest_funguje.py`,
       `03_vlastni_moduly/prevody.py`, `test_prevody.py`, `upovidany.py`,
       `cviceni/reseni/spropitne.py`, `texty.py`,
@@ -215,42 +217,131 @@ protože chybějící sekce jsou povolené.
 
 ### Kroky
 
-| | Finance (6) | Wordle (10) | Titanic (9) |
+Wordle a Titanic přepsal Tomáš 14. 11. (PR #2). Titanic má novou otázku
+„kdo byl na palubě a jak dopadl“ a 12 kroků místo 9.
+
+| | Finance (6) | Wordle (10) | Titanic (12) |
 | --- | --- | --- | --- |
-| Titulek `# Krok N – …` | ✅ | ✅ (13. 11.) | ✅ (13. 11.) |
-| Výsledek pod titulkem | ✅ | ❌ chybí, kroky začínají zadáním | ❌ chybí (pozor, výsledek je odpověď; ukázat tvar s vymyšlenými čísly) |
-| Sekce `##` (převod viz část 2, Krok, bod 3) | ✅ (13. 11.) | ✅ (13. 11.), krok 1 dostal nadpis `## Funkce` | ✅ (13. 11.) |
-| `## Hotovo, když` | ✅ | ❌ chybí všude | ❌ chybí všude |
-| Odkaz na nápovědu | ✅ (13. 11.) | ✅ 13 řádků v pevném tvaru | ❌ nápovědy nejsou |
+| Titulek `# Krok N – …` | ✅ | ✅ | ✅ |
+| Výsledek pod titulkem | ✅ | ✅ (14. 11.) | ✅ (14. 11., tvar výstupu s otazníky místo čísel) |
+| Sekce `##` (převod viz část 2, Krok, bod 3) | ✅ (13. 11.) | ✅ | ✅ |
+| `## Hotovo, když` | ✅ | ✅ (14. 11., končí Commit a Sync, D3) | ✅ (14. 11., končí Commit a Sync, D3) |
+| Odkaz na nápovědu | ✅ (13. 11.) | ✅ v každém kroku, krok 6 dvě nápovědy | ✅ v každém kroku (14. 11.) |
 | Navíc | ✅ „Když zbyde čas“ je v `napady.md` | | |
-| Bloky kódu bez jazyka | ✅ | ✅ (13. 11., `text`) | ✅ (13. 11., `text`) |
+| Bloky kódu bez jazyka | ✅ | ✅ | ✅ |
 
 ### Nápovědy
 - ✅ Wordle: titulky `# Nápověda ke kroku N – …` (13. 11.). Odkaz na první
       nápovědu kroku 6 v pevném tvaru („Zasekla ses? Nápověda je v souboru“).
 - ✅ Finance: `napovedy/` ze sekcí `## Nápověda` (13. 11.).
-- [ ] Titanic: napsat nápovědy (TODO), rovnou v tomhle formátu.
+- ✅ Wordle: 11 nápověd, ke každému kroku, pro krok 6 dvě (14. 11.).
+- ✅ Titanic: 12 nápověd, ke každému kroku (14. 11.).
 
 ### Bonusy
-- ✅ Všech 18 souborů začíná `# Bonus N – Název` a číslo sedí s názvem.
-- ✅ Titanic `bonusy/03_grafy_s_knihovnou.md`: blok kódu má jazyk (13. 11.).
+- ✅ Všech 11 souborů (finance 4, Wordle 2, Titanic 5) začíná
+      `# Bonus N – Název` a číslo sedí s názvem.
+- ✅ Titanic: graf v textu je místo bonusu krok 9 (D11); bonusy jsou zpráva
+      v souboru, grafy s knihovnou, rodiny, děti a dospělí, mazání obrazovky.
 
 ### README a ostatní
 - ✅ Titulky README: `# Správce osobních financí`, `# Wordle s řešičem`,
       `# Titanic` (sjednoceno 13. 11.).
-- [ ] `napady.md`: finance ✅ (13. 11., i bývalé bonusy 5–11), Wordle a Titanic chybí.
-- [ ] Wordle a Titanic nemají `TAHAK.md` (Titanic ho potřebuje kvůli CSV).
+- ✅ `napady.md`: finance (13. 11., i bývalé bonusy 5–11), Wordle a Titanic (14. 11.).
+- ✅ Titanic má `TAHAK.md` pro CSV a `None` (14. 11.). Wordle ho nemá a zatím
+      nepotřebuje.
 
 ### Převodník (`public-pages`)
-- [ ] Zdroj `pyladiesprague/workshop-opakovani`, vlastní `config.json`
+- [x] Zdroj `pyladiesprague/workshop-opakovani`, vlastní konfigurace
       (pořadí a názvy lekcí a projektů), výstup do
-      `content/materialy/workshop-opakovani/` (adresy viz část 1).
-- [ ] Sekce „Workshopy“ v šabloně přehledu `code/materials/overview.md`.
-- [ ] Lekce bez čísla (`lekce-<nazev>/`) a pomocné soubory bez `NN_`.
-- [ ] Projekty: stránky kroků, bonusů a nápadů, nápovědy za tlačítkem
+      `content/materialy/workshop-opakovani/` (adresy viz část 1). Prototyp,
+      viz část 4.
+- [x] Sekce „Workshopy“ v šabloně přehledu `code/materials/overview.md` (13. 11.).
+- [x] Lekce bez čísla (`lekce-<nazev>/`) a pomocné soubory bez `NN_` (prototyp).
+- [x] Projekty (prototyp): stránky kroků, bonusů a nápadů, nápovědy za tlačítkem
       „Zobrazit nápovědu“ (další vnořené za „Zobrazit další nápovědu“),
       přepis odkazů, kontrola titulků, sekcí, odkazů a bloků kódu.
-- [ ] Styl `details.napoveda` podle `details.reseni` a otevírání nápověd
-      v `tisk.js`.
-- [ ] Workflow `web.yml` v tomhle repu podle `materialy` (secret
-      `PUBLIC_PAGES_TOKEN`, přeskočit ve forcích).
+- [x] Styl `details.napoveda` podle `details.reseni` (prototyp).
+- [x] Tisk (13. 11.): lekce a projekty mají tiskovou verzi, u projektu je
+      přepínač „Včetně nápověd“ a každý krok začíná novou stranou.
+- [x] Zápis do webu (13. 11., `public-pages` větev `workshop-import`,
+      commit `3a9f4b9`):
+      - vlastní lock `code/workshop/opakovani.lock.json`,
+      - povolené cesty `content/materialy/<slug>/` v `sync.mjs`,
+      - `npm run workshop:import` (náhled, `--write`) a `workshop:check`,
+      - 9 testů, celkem prochází 81 testů,
+      - odkaz „Upravit na GitHubu“ vede do repa workshopu,
+      - první import `828e5c1`: 66 stránek, web se sestaví, odkazy vedou na
+        existující stránky,
+      - postup je v `code/workshop/README.md`.
+- [x] Popis Titanicu v `code/workshop/opakovani.json`: nová otázka (14. 11.).
+- [x] Seznamy `- [ ] …` mimo kód převodník převede na zaškrtávací políčko
+      (14. 11.). Na webu si ho účastnice může odškrtat, stav se neukládá;
+      v tisku je prázdný čtvereček.
+- [x] Import z `e41e0ce` (po PR #2): 71 stránek, 83 testů prochází.
+- [x] PR #13 sloučený do `main` v `public-pages` 14. 11. (`962f779`).
+- [x] Automatický import (14. 11.), stejně jako v `materialy`:
+      - `.github/workflows/web.yml` tady: při PR do `main` a pushi do `main`
+        náhled převodu (chyba formátu PR zastaví), po pushi `repository_dispatch`
+        `workshop-opakovani-push` do `public-pages`; ve forcích se přeskočí;
+      - `public-pages` `.github/workflows/import-workshopu.yml`: import
+        z aktuálního `main`, testy, build a PR z větve
+        `import-workshopu-opakovani`; ruční spuštění ověřeno (bez změn, PR
+        nevznikl);
+      - **chybí secret `PUBLIC_PAGES_TOKEN` v tomhle repu** (v `materialy` je),
+        bez něj `web.yml` selže.
+
+## 4. Zkušební převod (13. 11. 2026)
+
+Prototyp převodníku je v `public-pages` na lokální větvi `workshop-import`,
+commit `b332ed3`. Zatím není pushnutý.
+- `code/materials/render.mjs` dostal volitelné `opts` pro lekce workshopu:
+  cesta pod `/materialy/`, lekce bez čísla, pomocné soubory, bez přehledu
+  `/materialy/`. Výchozí chování pro `materialy` se nezměnilo: 72 testů
+  prochází a `materials:check` hlásí „Beze změn“.
+- Projekty vykresluje nový `code/workshop/render.mjs`, konfigurace je
+  v `code/workshop/opakovani.json`.
+- Náhled vytvoří `code/import-workshop.mjs`, který zapisuje jen do zadané
+  složky:
+  `node code/import-workshop.mjs --source ../workshop-opakovani --ref main --out <složka>`
+- Styl `.napoveda` je v `code/styles.css`.
+
+Výsledek nad `main` (`46e3fe3`):
+- 66 stránek: úvod workshopu, 2 lekce (31 stránek), 3 projekty (25 kroků,
+  3 stránky bonusů, 1 stránka nápadů, 3 úvody).
+- Web se sestaví (Eleventy) a všech 66 interních odkazů na stránky workshopu
+  vede na existující stránku.
+- 19 nápověd za tlačítkem (finance 6, Wordle 13), ve Wordle 6 je druhá
+  nápověda vnořená.
+- `lekce-moduly`: pomocné soubory jsou na stránce tématu jako odkazy na
+  GitHub, bonus 2 má tlačítko „Zobrazit řešení“.
+- Převodník při první zkoušce našel chybu ve vlastní kontrole (poslední
+  odstavec souboru), ne ve zdroji. Zdroj formát splnil napoprvé.
+
+Co převodník kontroluje, a proto to musí zdroj splnit:
+- titulky kroků, nápověd a bonusů a jejich čísla podle názvu souboru,
+- pořadí sekcí kroku,
+- bloky kódu s jazykem,
+- odkaz na nápovědu v pevném tvaru a že na každou nápovědu nějaký odkaz vede,
+- relativní odkazy na existující soubory uvnitř projektu nebo do `lekce-*`,
+- žádné `reseni/` v projektech,
+- každá lekce a projekt v konfiguraci.
+
+### K rozhodnutí
+Všechno rozhodl Vojta 13. 11. podle návrhu:
+- [x] **Úvodní stránka workshopu** se skládá z konfigurace. Kořenový
+      `README.md` převodník nečte, zůstává psané pro GitHub.
+- [x] **Sekce „Workshopy“ v přehledu `/materialy/`** je psaná ručně
+      v `code/materials/overview.md`. Na větvi `workshop-import` je hotová,
+      včetně přegenerovaného `content/materialy/index.md` a locku.
+- [x] **Taháky** lekcí i projektů zůstávají odkazy na GitHub, stejně jako
+      v materialy.
+
+### Co zbývá, aby šel převod do provozu
+- [x] zápis do webu s evidencí a kontrolou ručních změn (13. 11.),
+- [x] testy (13. 11.),
+- [x] push větve `workshop-import` a PR do `public-pages`:
+      https://github.com/pyladiesprague/public-pages/pull/13 (13. 11.),
+- [x] tisková verze lekcí a projektů včetně nápověd (13. 11.),
+- [x] workflow `web.yml` v tomhle repu a `import-workshopu.yml` v `public-pages`
+      (14. 11.; secret `PUBLIC_PAGES_TOKEN` je potřeba přidat).
+

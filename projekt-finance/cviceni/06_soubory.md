@@ -77,3 +77,4 @@ Zasekla ses? Nápověda je v souboru [`napovedy/06_soubory.md`](../napovedy/06_s
 - [ ] všechny testy jsou zelené
 - [ ] přidaná transakce přežije ukončení a nové spuštění programu
 - [ ] `finance.json` je po uložení pořád čitelný a jsou v něm háčky a čárky
+- [ ] práce je uložená na GitHubu: **Commit** a pak **Sync Changes**

@@ -6,7 +6,8 @@ Slovník se značkami z kroku 1 vyměň za slovník s barvami:
 BARVY_POLI = {"spravne": "zelena", "jinde": "zluta", "neni": "seda"}
 ```
 
-Seznam n-tic projdeš cyklem, který si každou n-tici rovnou rozbalí:
+Seznam n-tic projdeš cyklem, který si každou n-tici rovnou rozbalí. Tahák L8,
+*Rozbalování*.
 
 ```python
 for hadane, vysledek in pokusy:

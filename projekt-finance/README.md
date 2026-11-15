@@ -110,7 +110,7 @@ transakce = [
 
 ## Když se zasekneš
 
-1. Přečti si chybovou hlášku odspodu. Tahák L7.
+1. Přečti si chybovou hlášku odspodu. Tahák L7, *Jak číst chybovou hlášku*.
 2. Otevři nápovědu ke kroku. Odkaz na ni je v zadání nad „Hotovo, když“,
    soubory jsou ve složce `napovedy/`. Nápověda tě pošle i do taháku.
 3. Zeptej se kolegyně ve dvojici nebo u stolu.

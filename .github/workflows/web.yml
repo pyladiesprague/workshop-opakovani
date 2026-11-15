@@ -1,0 +1,56 @@
+# Ověří, že se lekce a projekty dají převést na web (soukromé pyladiesprague/public-pages,
+# čte se tokenem PUBLIC_PAGES_TOKEN), a po pushi do main tam spustí import,
+# který otevře PR s novými stránkami. Stejně jako web.yml v pyladiesprague/materialy.
+#
+# Jen větev main: řešení projektů jsou na větvi reseni a na web nepatří (C1);
+# převodník by je stejně odmítl.
+name: Web
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  kontrola:
+    # Jen v původním repu: forky (účastnice) nemají secret PUBLIC_PAGES_TOKEN,
+    # bez něj se soukromé public-pages nenaklonuje a push do forku by končil
+    # chybou a e-mailem. PR z forků běží v kontextu tohohle repa, ale secret
+    # taky nedostanou, proto i porovnání head.repo.
+    if: >-
+      github.repository == 'pyladiesprague/workshop-opakovani' &&
+      (github.event_name == 'push' || github.event.pull_request.head.repo.full_name == github.repository)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: actions/checkout@v7
+        with:
+          repository: pyladiesprague/public-pages
+          path: .web
+          token: ${{ secrets.PUBLIC_PAGES_TOKEN }}
+          persist-credentials: false
+
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 24
+
+      # Jen náhled: vypíše změněné stránky, nic nezapisuje. Selže na chybě
+      # formátu (titulek kroku, sekce, odkaz na nápovědu, blok kódu bez jazyka,
+      # odkaz na neexistující soubor, složka reseni/ na main).
+      - name: Převod na web
+        run: node .web/code/import-workshop.mjs --config .web/code/workshop/opakovani.json --source . --ref HEAD
+
+  web:
+    needs: kontrola
+    if: github.repository == 'pyladiesprague/workshop-opakovani' && github.event_name == 'push'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Spustit import na webu
+        env:
+          GH_TOKEN: ${{ secrets.PUBLIC_PAGES_TOKEN }}
+        run: gh api repos/pyladiesprague/public-pages/dispatches -f event_type=workshop-opakovani-push -f "client_payload[sha]=$GITHUB_SHA"

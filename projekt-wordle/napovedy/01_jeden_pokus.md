@@ -2,7 +2,12 @@
 
 ## Funkce
 
-Projdi pozice jednu po druhé. U každé se nejdřív zeptej, jestli je v tajném slově na stejném místě stejné písmeno. Když ne, zeptej se operátorem `in`, jestli je písmeno v tajném slově aspoň někde.
+Projdi pozice jednu po druhé. U každé se nejdřív zeptej, jestli je v tajném
+slově na stejném místě stejné písmeno. Když ne, zeptej se operátorem `in`,
+jestli je písmeno v tajném slově aspoň někde.
+
+- Výsledky sbírej do seznamu. Tahák L8, *Stavění seznamu v cyklu*.
+- Na pozice se dostaneš přes `range` a index: `hadane[i]`, `tajne[i]`.
 
 ```python
 vysledek = []
@@ -15,7 +20,10 @@ return vysledek
 
 ## Program
 
-Poskládej si dva řetězce, jeden s písmeny a druhý se značkami, a pak je vypiš. Který výsledek má jakou značku, si můžeš uložit do slovníku:
+Poskládej si dva řetězce, jeden s písmeny a druhý se značkami, a pak je vypiš.
+
+Který výsledek má jakou značku, si ulož do slovníku. Značku pak najdeš přes
+klíč, bez podmínek:
 
 ```python
 ZNACKY = {"spravne": "+", "jinde": "?", "neni": "-"}
