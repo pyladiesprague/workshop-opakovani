@@ -1,4 +1,5 @@
-# Wordle: hraj tlačítkem Run.
+# Řešení – krok 10: Wordle – hra
+# Tvoje řešení může vypadat jinak, a to je v pořádku.
 # Místo slova můžeš napsat ? (která slova zbývají) nebo ! (rada řešiče).
 
 from random import randrange
@@ -14,12 +15,7 @@ from logika import (
     uprav_vstup,
     vyhodnot,
 )
-from pomocnik import (
-    nacti_radky,
-    obarvi,
-    pridej_radek,
-    vycisti_obrazovku,
-)
+from pomocnik import nacti_radky, obarvi, pridej_radek, vycisti_obrazovku
 
 BARVY_POLI = {"spravne": "zelena", "jinde": "zluta", "neni": "seda"}
 BARVY_KLAVES = {"spravne": "zelena", "jinde": "zluta", "neni": "tlumena"}

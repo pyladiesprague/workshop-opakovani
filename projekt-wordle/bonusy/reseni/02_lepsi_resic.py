@@ -1,4 +1,5 @@
-# Bonus 2: lepší řešič
+# Řešení bonusu 2 – Lepší řešič
+# Tvoje řešení může vypadat jinak, a to je v pořádku.
 
 from logika import filtruj, vyhodnot
 from pomocnik import nacti_radky

@@ -1,4 +1,5 @@
-# Wordle: hraj tlačítkem Run.
+# Řešení – krok 4: Wordle – hra
+# Tvoje řešení může vypadat jinak, a to je v pořádku.
 
 from random import randrange
 

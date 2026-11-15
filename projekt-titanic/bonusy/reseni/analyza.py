@@ -1,13 +1,27 @@
-# Analýza pasažérů Titaniku.
+# Řešení – krok 12: Titanic – analýza
+# Tvoje řešení může vypadat jinak, a to je v pořádku.
 # Funkce tady nic nevypisují, takže jdou snadno testovat.
 
 import csv
 from pathlib import Path
 
-# Složka, ve které leží tenhle soubor, a cesta k datům v ní.
-# Díky tomu program data najde, ať máš ve VS Code otevřenou jakoukoliv složku.
-SLOZKA = Path(__file__).parent
+# Data leží ve složce projektu.
+SLOZKA = Path(__file__).parent.parent.parent
 SOUBOR = SLOZKA / "Titanic-Dataset.csv"
+SIRKA_GRAFU = 30
+
+POHLAVI = {"female": "ženy", "male": "muži"}
+TRIDY = {1: "1. třída", 2: "2. třída", 3: "3. třída"}
+PRISTAVY = {"S": "Southampton", "C": "Cherbourg", "Q": "Queenstown"}
+ZAVER = [
+    "",
+    "Závěr",
+    "  Čemu věřím: ženy a lidé z 1. třídy přežívali mnohem častěji.",
+    "  Skupiny jsou velké a rozdíl je obrovský.",
+    "  Čemu nevěřím: že rozhodoval přístav. Z Cherbourgu jela polovina",
+    "  lidí 1. třídou, a ta přežívala častěji ve všech přístavech.",
+]
+RODINY = {"sám": "cestoval sám", "malá": "rodina do 3 lidí", "velká": "rodina 4 a víc"}
 
 
 def nacti_pasazery(soubor):
@@ -42,6 +56,100 @@ def uprav_pasazery(radky):
     return pasazeri
 
 
+def prumerny_vek(pasazeri):
+    """Vrátí průměrný věk těch, u kterých věk známe. Když není u nikoho, vrátí None."""
+    soucet = 0
+    pocet = 0
+    for pasazer in pasazeri:
+        if pasazer["Age"] is not None:
+            soucet = soucet + pasazer["Age"]
+            pocet = pocet + 1
+    if pocet == 0:
+        return None
+    return soucet / pocet
+
+
+def nejstarsi(pasazeri):
+    """Vrátí pasažéra s nejvyšším známým věkem. Když věk nemá nikdo, vrátí None."""
+    vitez = None
+    for pasazer in pasazeri:
+        if pasazer["Age"] is not None:
+            if vitez is None or pasazer["Age"] > vitez["Age"]:
+                vitez = pasazer
+    return vitez
+
+
+def nejmladsi(pasazeri):
+    """Vrátí pasažéra s nejnižším známým věkem. Když věk nemá nikdo, vrátí None."""
+    vitez = None
+    for pasazer in pasazeri:
+        if pasazer["Age"] is not None:
+            if vitez is None or pasazer["Age"] < vitez["Age"]:
+                vitez = pasazer
+    return vitez
+
+
+def filtruj(pasazeri, sloupec, hodnota):
+    """Vrátí pasažéry, kteří mají v daném sloupci danou hodnotu."""
+    vybrani = []
+    for pasazer in pasazeri:
+        if pasazer[sloupec] == hodnota:
+            vybrani.append(pasazer)
+    return vybrani
+
+
+def prumerna_cena(pasazeri):
+    """Vrátí průměrnou cenu lístku. Pro prázdný seznam vrátí 0."""
+    if len(pasazeri) == 0:
+        return 0
+    soucet = 0
+    for pasazer in pasazeri:
+        soucet = soucet + pasazer["Fare"]
+    return soucet / len(pasazeri)
+
+
+def nejdrazsi_listek(pasazeri):
+    """Vrátí nejvyšší cenu lístku. Pro prázdný seznam vrátí 0."""
+    nejvyssi = 0
+    for pasazer in pasazeri:
+        if pasazer["Fare"] > nejvyssi:
+            nejvyssi = pasazer["Fare"]
+    return nejvyssi
+
+
+def titul(jmeno):
+    """Z "Braund, Mr. Owen Harris" vrátí "Mr"."""
+    za_carkou = jmeno.split(",")[1]
+    return za_carkou.split(".")[0].strip()
+
+
+def krestni_jmeno(jmeno):
+    """Z "Braund, Mr. Owen Harris" vrátí "Owen". Když jméno chybí, vrátí ""."""
+    slova = jmeno.split(".")[1].split()
+    if len(slova) == 0:
+        return ""
+    return slova[0].strip('"()')
+
+
+def pridej_jmena(pasazeri):
+    """Přidá každému pasažérovi sloupce Titul a Krestni."""
+    for pasazer in pasazeri:
+        pasazer["Titul"] = titul(pasazer["Name"])
+        pasazer["Krestni"] = krestni_jmeno(pasazer["Name"])
+
+
+def pocty(pasazeri, sloupec):
+    """Vrátí slovník: hodnota ve sloupci -> kolik pasažérů ji má."""
+    vysledek = {}
+    for pasazer in pasazeri:
+        hodnota = pasazer[sloupec]
+        if hodnota in vysledek:
+            vysledek[hodnota] = vysledek[hodnota] + 1
+        else:
+            vysledek[hodnota] = 1
+    return vysledek
+
+
 def pocet_prezivsich(pasazeri):
     pocet = 0
     for pasazer in pasazeri:
@@ -54,15 +162,6 @@ def mira_preziti(pasazeri):
     if len(pasazeri) == 0:
         return 0
     return pocet_prezivsich(pasazeri) / len(pasazeri) * 100
-
-
-def filtruj(pasazeri, sloupec, hodnota):
-    """Vrátí pasažéry, kteří mají v daném sloupci danou hodnotu."""
-    vybrani = []
-    for pasazer in pasazeri:
-        if pasazer[sloupec] == hodnota:
-            vybrani.append(pasazer)
-    return vybrani
 
 
 def rozdel_podle(pasazeri, sloupec):
@@ -105,36 +204,34 @@ def prezivani_podle_dvou(pasazeri, sloupec1, sloupec2):
     return miry_skupin(rozdel_podle_dvou(pasazeri, sloupec1, sloupec2))
 
 
-def vekova_skupina(vek):
-    if vek is None:
-        return "neznámý"
-    if vek < 16:
-        return "dítě"
-    return "dospělý"
+def sloupec_grafu(hodnota, nejvyssi, sirka):
+    """Vrátí text ze znaků █. Nejvyšší hodnota dostane plnou šířku."""
+    if hodnota <= 0 or nejvyssi <= 0:
+        return ""
+    delka = int(hodnota * sirka / nejvyssi)
+    if delka == 0:
+        # I malá hodnota má být v grafu vidět.
+        delka = 1
+    return "█" * delka
 
 
-def pridej_skupiny(pasazeri):
-    """Přidá každému pasažérovi sloupec Skupina."""
-    for pasazer in pasazeri:
-        pasazer["Skupina"] = vekova_skupina(pasazer["Age"])
+def popisky_trid_a_pohlavi():
+    popisky = {}
+    for trida in TRIDY:
+        for pohlavi in POHLAVI:
+            popisky[(trida, pohlavi)] = f"{TRIDY[trida]}, {POHLAVI[pohlavi]}"
+    return popisky
 
 
-POHLAVI = {"female": "ženy", "male": "muži"}
-TRIDY = {1: "1. třída", 2: "2. třída", 3: "3. třída"}
-SKUPINY = {
-    "dítě": "děti do 16 let",
-    "dospělý": "dospělí",
-    "neznámý": "věk neznámý",
-}
-PRISTAVY = {"S": "Southampton", "C": "Cherbourg", "Q": "Queenstown"}
-ZAVER = [
-    "",
-    "Závěr",
-    "  Pravidlo „ženy a děti první“ platilo jen zčásti.",
-    "  Ženy přežívaly mnohem častěji než muži, ale ve 3. třídě",
-    "  přežila jen polovina. Děti z 1. a 2. třídy přežily",
-    "  téměř všechny, děti ze 3. třídy méně než z poloviny.",
-]
+def graf(nadpis, skupiny, popisky):
+    """Vrátí řádky grafu. Pořadí a názvy řádků určuje slovník popisky."""
+    radky = ["", nadpis]
+    for klic in popisky:
+        if klic in skupiny:
+            procenta = mira_preziti(skupiny[klic])
+            cara = sloupec_grafu(procenta, 100, SIRKA_GRAFU)
+            radky.append(f"  {popisky[klic]:16}{cara:{SIRKA_GRAFU}} {procenta:5.1f} %")
+    return radky
 
 
 def radek_tabulky(nazev, procenta, pocet):
@@ -153,57 +250,89 @@ def tabulka(nadpis, skupiny, popisky):
     return radky
 
 
-def popisky_trid_a_pohlavi():
-    popisky = {}
-    for trida in TRIDY:
-        for pohlavi in POHLAVI:
-            popisky[(trida, pohlavi)] = f"{TRIDY[trida]}, {POHLAVI[pohlavi]}"
-    return popisky
+def najdi_sloupec(text, sloupce):
+    """Najde sloupec podle textu od uživatelky. Když neexistuje, vrátí None."""
+    hledany = text.strip().lower()
+    for nazev in sloupce:
+        if nazev.lower() == hledany:
+            return nazev
+    return None
+
+
+def prehled_podle(pasazeri, sloupec):
+    """Vrátí řádky s přežitím ve skupinách podle libovolného sloupce."""
+    skupiny = rozdel_podle(pasazeri, sloupec)
+    radky = []
+    for hodnota in skupiny:
+        skupina = skupiny[hodnota]
+        radky.append(
+            radek_tabulky(str(hodnota), mira_preziti(skupina), len(skupina))
+        )
+    return radky
+
+
+def velikost_rodiny(pasazer):
+    """Vrátí "sám", "malá" nebo "velká" podle počtu příbuzných na palubě."""
+    pribuznych = pasazer["SibSp"] + pasazer["Parch"]
+    if pribuznych == 0:
+        return "sám"
+    if pribuznych <= 3:
+        return "malá"
+    return "velká"
+
+
+def pridej_rodiny(pasazeri):
+    """Přidá každému pasažérovi sloupec Rodina."""
+    for pasazer in pasazeri:
+        pasazer["Rodina"] = velikost_rodiny(pasazer)
 
 
 def moje_otazka(pasazeri):
-    """Záleželo na tom, kde pasažéři nastoupili, a proč?"""
-    radky = ["", "Moje otázka: záleželo na přístavu?"]
-    radky = radky + tabulka(
-        "Podle přístavu", rozdel_podle(pasazeri, "Embarked"), PRISTAVY
-    )
-    z_cherbourgu = filtruj(pasazeri, "Embarked", "C")
-    prvni_trida = filtruj(z_cherbourgu, "Pclass", 1)
-    podil = len(prvni_trida) / len(z_cherbourgu) * 100
-    radky.append("")
-    radky.append(f"  Z pasažérů z Cherbourgu jelo 1. třídou {podil:.1f} %.")
+    """Přežívali častěji lidé, kteří cestovali s rodinou?"""
+    radky = ["", "Moje otázka: pomohlo cestovat s rodinou?"]
+    radky = radky + tabulka("Podle rodiny", rozdel_podle(pasazeri, "Rodina"), RODINY)
     return radky
 
 
 def sestav_zpravu(pasazeri):
     """Vrátí zprávu jako seznam řádků."""
-    prezili = pocet_prezivsich(pasazeri)
-    dospeli = filtruj(pasazeri, "Skupina", "dospělý")
-    deti = filtruj(pasazeri, "Skupina", "dítě")
+    stary = nejstarsi(pasazeri)
+    mlady = nejmladsi(pasazeri)
+    muzi = filtruj(pasazeri, "Sex", "male")
 
     radky = [
-        "TITANIC: PLATILO „ŽENY A DĚTI PRVNÍ“?",
+        "TITANIC V ČÍSLECH",
         "=" * 44,
         "",
-        f"{'Pasažérů celkem:':26}{len(pasazeri):5}",
-        f"{'Přežilo:':26}{prezili:5} ({mira_preziti(pasazeri):.1f} %)",
+        f"{'Pasažérů v souboru:':26}{len(pasazeri):5}",
+        f"{'Přežilo:':26}{pocet_prezivsich(pasazeri):5} ({mira_preziti(pasazeri):.1f} %)",
+        f"{'Průměrný věk:':26}{prumerny_vek(pasazeri):5.1f} let",
+        f"{'Nejstarší:':26}{stary['Name']} ({stary['Age']:g})",
+        f"{'Nejmladší:':26}{mlady['Name']} ({mlady['Age']:g})",
+        "",
+        "Průměrná cena lístku",
     ]
+    for trida in TRIDY:
+        cena = prumerna_cena(filtruj(pasazeri, "Pclass", trida))
+        radky.append(f"  {TRIDY[trida]:24}{cena:5.1f} liber")
+
+    radky.append("")
+    radky.append(f"{'Různých titulů:':26}{len(pocty(pasazeri, 'Titul')):5}")
+    radky.append("Nejčastější mužská jména")
+    jmena = pocty(muzi, "Krestni")
+    for jmeno in jmena:
+        if jmena[jmeno] >= 20:
+            radky.append(f"  {jmeno:24}{jmena[jmeno]:5}")
+
+    radky = radky + tabulka("Podle pohlaví", rozdel_podle(pasazeri, "Sex"), POHLAVI)
+    radky = radky + tabulka("Podle třídy", rozdel_podle(pasazeri, "Pclass"), TRIDY)
     radky = radky + tabulka(
-        "Dospělí podle pohlaví", rozdel_podle(dospeli, "Sex"), POHLAVI
+        "Podle přístavu", rozdel_podle(pasazeri, "Embarked"), PRISTAVY
     )
-    radky = radky + tabulka(
-        "Všichni podle třídy", rozdel_podle(pasazeri, "Pclass"), TRIDY
-    )
-    radky = radky + tabulka(
-        "Třída a pohlaví",
+    radky = radky + graf(
+        "Třída a pohlaví v grafu",
         rozdel_podle_dvou(pasazeri, "Pclass", "Sex"),
         popisky_trid_a_pohlavi(),
-    )
-    radky = radky + tabulka(
-        "Podle věku", rozdel_podle(pasazeri, "Skupina"), SKUPINY
-    )
-    radky = radky + tabulka(
-        "Děti podle třídy", rozdel_podle(deti, "Pclass"), TRIDY
     )
     radky = radky + moje_otazka(pasazeri)
     radky = radky + ZAVER

@@ -1,4 +1,5 @@
-# Wordle: hraj tlačítkem Run.
+# Řešení – krok 8: Wordle – hra
+# Tvoje řešení může vypadat jinak, a to je v pořádku.
 # Místo slova můžeš napsat ? (která slova zbývají) nebo ! (rada řešiče).
 
 from random import randrange

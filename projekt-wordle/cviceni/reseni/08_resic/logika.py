@@ -1,4 +1,5 @@
-# Logika hry Wordle.
+# Řešení – krok 8: Wordle – logika
+# Tvoje řešení může vypadat jinak, a to je v pořádku.
 # Funkce tady nic nevypisují a na nic se neptají, takže jdou snadno testovat.
 
 DELKA_SLOVA = 5

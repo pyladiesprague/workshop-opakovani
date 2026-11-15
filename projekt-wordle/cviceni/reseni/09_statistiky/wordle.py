@@ -1,4 +1,5 @@
-# Wordle: hraj tlačítkem Run.
+# Řešení – krok 9: Wordle – hra
+# Tvoje řešení může vypadat jinak, a to je v pořádku.
 # Místo slova můžeš napsat ? (která slova zbývají) nebo ! (rada řešiče).
 
 from random import randrange
@@ -18,8 +19,8 @@ from pomocnik import nacti_radky, obarvi, pridej_radek
 
 BARVY_POLI = {"spravne": "zelena", "jinde": "zluta", "neni": "seda"}
 BARVY_KLAVES = {"spravne": "zelena", "jinde": "zluta", "neni": "tlumena"}
-SOUBOR_STATISTIK = "statistiky.txt"
 KLAVESNICE = ["ěščřžýáíé", "qwertzuiopú", "asdfghjklů", "yxcvbnmďťňó"]
+SOUBOR_STATISTIK = "statistiky.txt"
 
 
 def vypis_pokusy(pokusy):

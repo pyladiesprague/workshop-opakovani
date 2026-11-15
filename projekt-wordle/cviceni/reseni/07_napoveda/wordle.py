@@ -1,4 +1,5 @@
-# Wordle: hraj tlačítkem Run.
+# Řešení – krok 7: Wordle – hra
+# Tvoje řešení může vypadat jinak, a to je v pořádku.
 # Místo slova můžeš napsat ? a program ukáže, která slova zbývají.
 
 from random import randrange

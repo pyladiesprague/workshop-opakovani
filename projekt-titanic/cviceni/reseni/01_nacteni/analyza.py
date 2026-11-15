@@ -1,12 +1,12 @@
-# Analýza pasažérů Titaniku.
+# Řešení – krok 1: Titanic – analýza
+# Tvoje řešení může vypadat jinak, a to je v pořádku.
 # Funkce tady nic nevypisují, takže jdou snadno testovat.
 
 import csv
 from pathlib import Path
 
-# Složka, ve které leží tenhle soubor, a cesta k datům v ní.
-# Díky tomu program data najde, ať máš ve VS Code otevřenou jakoukoliv složku.
-SLOZKA = Path(__file__).parent
+# Data leží ve složce projektu.
+SLOZKA = Path(__file__).parent.parent.parent.parent
 SOUBOR = SLOZKA / "Titanic-Dataset.csv"
 
 

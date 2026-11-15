@@ -1,4 +1,5 @@
-# Bonus 1: jak dobrý je řešič
+# Řešení bonusu 1 – Jak dobrý je řešič
+# Tvoje řešení může vypadat jinak, a to je v pořádku.
 
 from logika import filtruj, nejlepsi_slovo, vyhodnot
 from pomocnik import nacti_radky

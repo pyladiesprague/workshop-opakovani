@@ -1,4 +1,5 @@
-# Zpráva o pasažérech Titaniku. Spusť tlačítkem Run.
+# Řešení – krok 1: Titanic – zpráva
+# Tvoje řešení může vypadat jinak, a to je v pořádku.
 
 from analyza import SOUBOR, nacti_pasazery
 
