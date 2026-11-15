@@ -1,6 +1,7 @@
 # Řešení bonusu 1 – Barvy v terminálu
 # Tvoje řešení může vypadat jinak, a to je v pořádku.
 
+from pathlib import Path
 from finance import zustatek
 from finance import pridej_transakci, odeber_transakci
 from finance import je_platna_castka, je_platne_datum
@@ -12,7 +13,8 @@ from finance import uloz, nacti
 from finance import obarvi
 from ukazkova_data import KATEGORIE, rozpocty
 
-SOUBOR = "finance.json"
+# Cesta od složky, ve které leží app.py, ať program soubor najde odkudkoli.
+SOUBOR = Path(__file__).parent / "finance.json"
 
 
 def upozorni(text):

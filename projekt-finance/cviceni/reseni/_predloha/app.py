@@ -8,6 +8,7 @@
 # Značky popisuje začátek sestav.py.
 #@ vse
 
+from pathlib import Path  #@6+
 from finance import zustatek
 #@ 2+
 from finance import pridej_transakci, odeber_transakci
@@ -30,7 +31,8 @@ from finance import obarvi
 from ukazkova_data import KATEGORIE, rozpocty  #@6+
 #@ 6+
 
-SOUBOR = "finance.json"
+# Cesta od složky, ve které leží app.py, ať program soubor najde odkudkoli.
+SOUBOR = Path(__file__).parent / "finance.json"
 #@ 7
 
 
