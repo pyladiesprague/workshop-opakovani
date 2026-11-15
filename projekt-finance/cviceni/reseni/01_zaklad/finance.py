@@ -1,4 +1,4 @@
-# Řešení – krok 1: Správce osobních financí – logika
+# Řešení kroku 1 – Základ: výpis a zůstatek
 # Tvoje řešení může vypadat jinak, a to je v pořádku.
 
 

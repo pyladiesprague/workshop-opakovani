@@ -1,4 +1,4 @@
-# Řešení – krok 1: Wordle – hra
+# Řešení kroku 1 – Jeden pokus
 # Tvoje řešení může vypadat jinak, a to je v pořádku.
 
 from logika import vyhodnot

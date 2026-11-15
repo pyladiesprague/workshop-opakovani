@@ -1,4 +1,4 @@
-# Řešení – krok 8: Titanic – zpráva
+# Řešení kroku 8 – Přístav, nebo třída?
 # Tvoje řešení může vypadat jinak, a to je v pořádku.
 
 from analyza import (

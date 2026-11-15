@@ -1,4 +1,4 @@
-# Řešení – krok 10: Titanic – analýza
+# Řešení kroku 10 – Titanic v číslech
 # Tvoje řešení může vypadat jinak, a to je v pořádku.
 # Funkce tady nic nevypisují, takže jdou snadno testovat.
 

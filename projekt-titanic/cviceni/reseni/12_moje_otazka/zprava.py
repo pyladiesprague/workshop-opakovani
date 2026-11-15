@@ -1,4 +1,4 @@
-# Řešení – krok 12: Titanic – zpráva
+# Řešení kroku 12 – Co zajímá tebe?
 # Tvoje řešení může vypadat jinak, a to je v pořádku.
 
 from analyza import (

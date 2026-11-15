@@ -1,4 +1,4 @@
-# Řešení – krok 6: Titanic – zpráva
+# Řešení kroku 6 – Kdo přežil častěji?
 # Tvoje řešení může vypadat jinak, a to je v pořádku.
 
 from analyza import (

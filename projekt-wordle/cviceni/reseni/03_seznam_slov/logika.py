@@ -1,4 +1,4 @@
-# Řešení – krok 3: Wordle – logika
+# Řešení kroku 3 – Seznam slov
 # Tvoje řešení může vypadat jinak, a to je v pořádku.
 # Funkce tady nic nevypisují a na nic se neptají, takže jdou snadno testovat.
 

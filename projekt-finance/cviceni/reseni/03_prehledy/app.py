@@ -1,4 +1,4 @@
-# Řešení – krok 3: Správce osobních financí – menu
+# Řešení kroku 3 – Přehledy
 # Tvoje řešení může vypadat jinak, a to je v pořádku.
 
 from finance import zustatek

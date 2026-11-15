@@ -1,4 +1,4 @@
-# Řešení – krok 5: Titanic – analýza
+# Řešení kroku 5 – Co prozradí jména?
 # Tvoje řešení může vypadat jinak, a to je v pořádku.
 # Funkce tady nic nevypisují, takže jdou snadno testovat.
 

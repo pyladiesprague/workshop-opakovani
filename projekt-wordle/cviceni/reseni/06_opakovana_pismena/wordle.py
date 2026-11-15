@@ -1,4 +1,4 @@
-# Řešení – krok 6: Wordle – hra
+# Řešení kroku 6 – Opakovaná písmena
 # Tvoje řešení může vypadat jinak, a to je v pořádku.
 
 from random import randrange

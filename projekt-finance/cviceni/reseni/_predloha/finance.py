@@ -1,4 +1,4 @@
-# Řešení – {TITULEK}: Správce osobních financí – logika
+# {TITULEK}
 # Tvoje řešení může vypadat jinak, a to je v pořádku.
 #@ 6+
 

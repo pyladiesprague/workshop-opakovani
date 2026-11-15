@@ -1,4 +1,4 @@
-# Řešení – krok 2: Titanic – zpráva
+# Řešení kroku 2 – Co v datech chybí?
 # Tvoje řešení může vypadat jinak, a to je v pořádku.
 
 from analyza import SOUBOR, nacti_pasazery, uprav_pasazery

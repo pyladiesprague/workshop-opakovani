@@ -1,4 +1,4 @@
-# Řešení – krok 4: Titanic – analýza
+# Řešení kroku 4 – Kolik stál lístek?
 # Tvoje řešení může vypadat jinak, a to je v pořádku.
 # Funkce tady nic nevypisují, takže jdou snadno testovat.
 

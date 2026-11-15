@@ -1,4 +1,4 @@
-# Řešení – krok 10: Titanic – zpráva
+# Řešení kroku 10 – Titanic v číslech
 # Tvoje řešení může vypadat jinak, a to je v pořádku.
 
 from analyza import SOUBOR, nacti_pasazery, pridej_jmena, sestav_zpravu, uprav_pasazery

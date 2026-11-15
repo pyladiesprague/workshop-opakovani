@@ -1,4 +1,4 @@
-# Řešení – krok 5: Titanic – zpráva
+# Řešení kroku 5 – Co prozradí jména?
 # Tvoje řešení může vypadat jinak, a to je v pořádku.
 
 from analyza import (

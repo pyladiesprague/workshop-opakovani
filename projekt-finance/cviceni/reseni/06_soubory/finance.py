@@ -1,4 +1,4 @@
-# Řešení – krok 6: Správce osobních financí – logika
+# Řešení kroku 6 – Uložení do souboru
 # Tvoje řešení může vypadat jinak, a to je v pořádku.
 
 import json

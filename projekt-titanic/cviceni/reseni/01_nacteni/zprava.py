@@ -1,4 +1,4 @@
-# Řešení – krok 1: Titanic – zpráva
+# Řešení kroku 1 – Co v souboru vlastně je?
 # Tvoje řešení může vypadat jinak, a to je v pořádku.
 
 from analyza import SOUBOR, nacti_pasazery

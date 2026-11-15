@@ -1,4 +1,4 @@
-# Řešení – krok 2: Správce osobních financí – logika
+# Řešení kroku 2 – Přidání a odebrání transakce
 # Tvoje řešení může vypadat jinak, a to je v pořádku.
 
 

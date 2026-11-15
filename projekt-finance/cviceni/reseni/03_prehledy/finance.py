@@ -1,4 +1,4 @@
-# Řešení – krok 3: Správce osobních financí – logika
+# Řešení kroku 3 – Přehledy
 # Tvoje řešení může vypadat jinak, a to je v pořádku.
 
 

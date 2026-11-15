@@ -1,4 +1,4 @@
-# Řešení – krok 9: Wordle – hra
+# Řešení kroku 9 – Statistiky
 # Tvoje řešení může vypadat jinak, a to je v pořádku.
 # Místo slova můžeš napsat ? (která slova zbývají) nebo ! (rada řešiče).
 

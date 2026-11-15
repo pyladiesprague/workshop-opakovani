@@ -1,4 +1,4 @@
-# Řešení – krok 2: Titanic – analýza
+# Řešení kroku 2 – Co v datech chybí?
 # Tvoje řešení může vypadat jinak, a to je v pořádku.
 # Funkce tady nic nevypisují, takže jdou snadno testovat.
 

@@ -1,4 +1,4 @@
-# Řešení – krok 4: Wordle – hra
+# Řešení kroku 4 – Barvy
 # Tvoje řešení může vypadat jinak, a to je v pořádku.
 
 from random import randrange

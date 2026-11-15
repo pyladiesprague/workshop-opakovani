@@ -1,4 +1,4 @@
-# Řešení – krok 10: Wordle – hra
+# Řešení kroku 10 – Herní obrazovka
 # Tvoje řešení může vypadat jinak, a to je v pořádku.
 # Místo slova můžeš napsat ? (která slova zbývají) nebo ! (rada řešiče).
 

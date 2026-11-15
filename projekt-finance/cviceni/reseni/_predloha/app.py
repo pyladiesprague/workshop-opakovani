@@ -1,4 +1,4 @@
-# Řešení – {TITULEK}: Správce osobních financí – menu
+# {TITULEK}
 # Tvoje řešení může vypadat jinak, a to je v pořádku.
 #@ 0
 #

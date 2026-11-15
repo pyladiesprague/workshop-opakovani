@@ -1,4 +1,4 @@
-# Řešení – krok 5: Wordle – logika
+# Řešení kroku 5 – Klávesnice
 # Tvoje řešení může vypadat jinak, a to je v pořádku.
 # Funkce tady nic nevypisují a na nic se neptají, takže jdou snadno testovat.
 

@@ -1,4 +1,4 @@
-# Řešení – krok 7: Titanic – analýza
+# Řešení kroku 7 – Záleželo na tom, kde kdo nastoupil?
 # Tvoje řešení může vypadat jinak, a to je v pořádku.
 # Funkce tady nic nevypisují, takže jdou snadno testovat.
 

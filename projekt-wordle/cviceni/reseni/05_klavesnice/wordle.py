@@ -1,4 +1,4 @@
-# Řešení – krok 5: Wordle – hra
+# Řešení kroku 5 – Klávesnice
 # Tvoje řešení může vypadat jinak, a to je v pořádku.
 
 from random import randrange

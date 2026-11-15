@@ -1,4 +1,4 @@
-# Řešení – krok 3: Wordle – hra
+# Řešení kroku 3 – Seznam slov
 # Tvoje řešení může vypadat jinak, a to je v pořádku.
 
 from random import randrange

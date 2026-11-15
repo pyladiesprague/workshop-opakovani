@@ -1,4 +1,4 @@
-# Řešení – krok 11: Titanic – zpráva
+# Řešení kroku 11 – Co dalšího se dá z dat zjistit?
 # Tvoje řešení může vypadat jinak, a to je v pořádku.
 
 from analyza import (

@@ -1,4 +1,4 @@
-# Řešení – krok 2: Wordle – hra
+# Řešení kroku 2 – Celá hra
 # Tvoje řešení může vypadat jinak, a to je v pořádku.
 
 from logika import POCET_POKUSU, chyba_slova, uprav_vstup, vyhodnot

@@ -1,4 +1,4 @@
-# Řešení – krok 6: Správce osobních financí – menu
+# Řešení kroku 6 – Uložení do souboru
 # Tvoje řešení může vypadat jinak, a to je v pořádku.
 
 from finance import zustatek

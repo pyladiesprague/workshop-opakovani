@@ -1,4 +1,4 @@
-# Řešení – bonus 1, Barvy v terminálu: Správce osobních financí – menu
+# Řešení bonusu 1 – Barvy v terminálu
 # Tvoje řešení může vypadat jinak, a to je v pořádku.
 
 from finance import zustatek

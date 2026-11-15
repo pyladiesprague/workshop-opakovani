@@ -1,4 +1,4 @@
-# Řešení – krok 4: Správce osobních financí – logika
+# Řešení kroku 4 – Rozpočty
 # Tvoje řešení může vypadat jinak, a to je v pořádku.
 
 

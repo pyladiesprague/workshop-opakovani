@@ -1,4 +1,4 @@
-# Řešení – krok 9: Titanic – analýza
+# Řešení kroku 9 – Jak to ukázat na první pohled?
 # Tvoje řešení může vypadat jinak, a to je v pořádku.
 # Funkce tady nic nevypisují, takže jdou snadno testovat.
 

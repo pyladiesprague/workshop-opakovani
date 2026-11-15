@@ -106,6 +106,15 @@ def zadani_kroku(cislo):
     return zadani[0]
 
 
+def nazev_kroku(cislo):
+    """Název z titulku zadání: „# Krok 3 – Přehledy“ → „Přehledy“."""
+    prvni = zadani_kroku(cislo).read_text(encoding="utf-8").split("\n", 1)[0]
+    shoda = re.fullmatch(r"# Krok \d+ – (.+)", prvni)
+    if not shoda:
+        raise SystemExit(f"Zadání kroku {cislo} nezačíná titulkem „# Krok N – Název“.")
+    return shoda[1]
+
+
 def testy_do_kroku(krok):
     text = (PROJEKT / "test_finance.py").read_text(encoding="utf-8")
     for cislo in range(1, krok + 1):
@@ -140,13 +149,13 @@ def main():
 
     for krok in range(1, POCET_KROKU + 1):
         slozka = RESENI / zadani_kroku(krok).stem
-        sestav(slozka, krok, f"krok {krok}", testy_do_kroku(krok))
+        sestav(slozka, krok, f"Řešení kroku {krok} – {nazev_kroku(krok)}", testy_do_kroku(krok))
 
     testy_barvy = (PREDLOHA / "testy_barvy.py").read_text(encoding="utf-8")
     sestav(
         BONUSY / "01_barvy",
         KROK_BARVY,
-        "bonus 1, Barvy v terminálu",
+        "Řešení bonusu 1 – Barvy v terminálu",
         pridej_testy(testy_do_kroku(POCET_KROKU), testy_barvy),
     )
 

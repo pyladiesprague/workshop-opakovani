@@ -1,4 +1,4 @@
-# Řešení – krok 4: Titanic – zpráva
+# Řešení kroku 4 – Kolik stál lístek?
 # Tvoje řešení může vypadat jinak, a to je v pořádku.
 
 from analyza import (

@@ -1,4 +1,4 @@
-# Řešení – krok 12: Titanic – analýza
+# Řešení kroku 12 – Co zajímá tebe?
 # Tvoje řešení může vypadat jinak, a to je v pořádku.
 # Funkce tady nic nevypisují, takže jdou snadno testovat.
 

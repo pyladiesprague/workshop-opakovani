@@ -46,7 +46,7 @@ PROGRAM = "zprava.py"     # soubor, do kterého se doplňují importy
 MODULY = ["analyza"]       # moduly, ze kterých program importuje
 Z_PROJEKTU = []    # soubory, které se berou ze složky projektu
 DO_BONUSU = ["analyza.py"]
-HLAVICKY = {"analyza.py": "Titanic – analýza", "zprava.py": "Titanic – zpráva"}
+HLAVICKY = ["analyza.py", "zprava.py"]  # soubory, které dostanou hlavičku řešení
 # ---------------------------------------------------------------------------
 
 ZNACKA = re.compile(r"^\s*#@ (\S+)\s*$")
@@ -126,13 +126,23 @@ def dopln_importy(program, moduly):
     return program.replace("#@ importy", "\n".join(importy))
 
 
-def s_hlavickou(jmeno, text, krok):
-    """První řádek souboru nahradí hlavičkou řešení."""
+def nazev_kroku(jmeno_kroku):
+    """Název z titulku zadání: „# Krok 3 – Kdo byl na palubě“ → „Kdo byl na palubě“."""
+    zadani = PROJEKT / "cviceni" / f"{jmeno_kroku}.md"
+    prvni = zadani.read_text(encoding="utf-8").split("\n", 1)[0]
+    shoda = re.fullmatch(r"# Krok \d+ – (.+)", prvni)
+    if not shoda:
+        raise SystemExit(f"{zadani.name} nezačíná titulkem „# Krok N – Název“.")
+    return shoda[1]
+
+
+def s_hlavickou(jmeno, text, krok, nazev):
+    """První řádek souboru nahradí hlavičkou řešení, stejnou jako v materialy."""
     if jmeno not in HLAVICKY:
         return text
     zbytek = text.split("\n", 1)[1]
     return (
-        f"# Řešení – krok {krok}: {HLAVICKY[jmeno]}\n"
+        f"# Řešení kroku {krok} – {nazev}\n"
         "# Tvoje řešení může vypadat jinak, a to je v pořádku.\n" + zbytek
     )
 
@@ -155,8 +165,9 @@ def sestav_krok(krok, jmeno_kroku):
         moduly[modul] = soubory[f"{modul}.py"]
     soubory[PROGRAM] = uklid(dopln_importy(soubory[PROGRAM], moduly))
 
+    nazev = nazev_kroku(jmeno_kroku)
     for jmeno in soubory:
-        text = s_hlavickou(jmeno, soubory[jmeno], krok)
+        text = s_hlavickou(jmeno, soubory[jmeno], krok, nazev)
         text = text.replace(SLOZKA_V_PROJEKTU, SLOZKA_V_KROKU)
         (slozka / jmeno).write_text(text, encoding="utf-8", newline="\n")
     return slozka

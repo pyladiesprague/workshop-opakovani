@@ -1,4 +1,4 @@
-# Řešení – krok 3: Titanic – analýza
+# Řešení kroku 3 – Kdo byl na palubě?
 # Tvoje řešení může vypadat jinak, a to je v pořádku.
 # Funkce tady nic nevypisují, takže jdou snadno testovat.
 

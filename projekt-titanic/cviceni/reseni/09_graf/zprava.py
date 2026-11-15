@@ -1,4 +1,4 @@
-# Řešení – krok 9: Titanic – zpráva
+# Řešení kroku 9 – Jak to ukázat na první pohled?
 # Tvoje řešení může vypadat jinak, a to je v pořádku.
 
 from analyza import (

@@ -1,4 +1,4 @@
-# Řešení – krok 2: Wordle – logika
+# Řešení kroku 2 – Celá hra
 # Tvoje řešení může vypadat jinak, a to je v pořádku.
 # Funkce tady nic nevypisují a na nic se neptají, takže jdou snadno testovat.
 

@@ -1,4 +1,4 @@
-# Řešení – krok 10: Wordle – logika
+# Řešení kroku 10 – Herní obrazovka
 # Tvoje řešení může vypadat jinak, a to je v pořádku.
 # Funkce tady nic nevypisují a na nic se neptají, takže jdou snadno testovat.
 

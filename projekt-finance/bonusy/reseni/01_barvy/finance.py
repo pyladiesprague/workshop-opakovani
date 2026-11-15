@@ -1,4 +1,4 @@
-# Řešení – bonus 1, Barvy v terminálu: Správce osobních financí – logika
+# Řešení bonusu 1 – Barvy v terminálu
 # Tvoje řešení může vypadat jinak, a to je v pořádku.
 
 import json
