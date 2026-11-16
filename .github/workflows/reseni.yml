@@ -1,0 +1,30 @@
+# Po každém pushi do větve reseni spustí testy ve všech složkách s řešením
+# (zkontroluj_reseni.py). Rozbité řešení se tak ukáže hned, ne až kouči na workshopu.
+#
+# Soubor je jen na větvi reseni. Forky účastnic kopírují jen main, takže se
+# k nim nedostane a jejich rozpracované (červené) testy nikdo nekontroluje.
+name: Řešení
+
+on:
+  push:
+    branches: [reseni]
+  pull_request:
+    branches: [reseni]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  testy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+
+      - run: python -m pip install pytest
+
+      - run: python zkontroluj_reseni.py
