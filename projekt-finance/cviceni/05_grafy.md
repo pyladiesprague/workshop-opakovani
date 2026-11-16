@@ -26,7 +26,7 @@ Funkce píšeš do `finance.py`.
 |---|---|
 | `sloupec(hodnota, nejvyssi, sirka)` | text ze znaků `█`, dlouhý podle toho, jak velká je `hodnota` proti `nejvyssi`; nejvyšší hodnota dostane `sirka` znaků |
 
-Dvě věci, na které testy myslí:
+Dvě věci, na které musíš myslet ve funkci i v testech:
 
 - Malá částka by po zaokrouhlení vyšla na nula znaků a z grafu by zmizela.
   Každá částka větší než nula má mít aspoň jeden znak.
@@ -34,31 +34,15 @@ Dvě věci, na které testy myslí:
 
 ## Testy
 
-Zkopíruj na konec `test_finance.py`:
+Testy zase píšeš sama, stejně jako v kroku 4. Výsledek si vždycky spočítej
+z hlavy, třeba `"█" * 5`. Co vyzkoušet:
 
-```python
-def test_sloupec_nejvyssi_hodnoty_ma_plnou_sirku():
-    assert finance.sloupec(100, 100, 10) == "█" * 10
-
-
-def test_sloupec_polovicni_hodnoty_je_polovicni():
-    assert finance.sloupec(50, 100, 10) == "█" * 5
-
-
-def test_sloupec_nuly_je_prazdny():
-    assert finance.sloupec(0, 100, 10) == ""
-
-
-def test_sloupec_male_hodnoty_je_videt():
-    assert finance.sloupec(1, 1000, 10) == "█"
-
-
-def test_sloupec_kdyz_je_nejvyssi_nula():
-    assert finance.sloupec(0, 0, 10) == ""
-```
-
-**Vlastní test:** jak dlouhý má být sloupec pro hodnotu 75 ze 100 při
-šířce 20? Napiš na to test.
+- nejvyšší hodnota má plnou šířku: `sloupec(100, 100, 10)`,
+- poloviční hodnota má poloviční sloupec: `sloupec(50, 100, 10)`,
+- nula dá prázdný text,
+- malá hodnota je vidět: `sloupec(1, 1000, 10)` má jeden znak,
+- když je `nejvyssi` nula, funkce nespadne a vrátí prázdný text,
+- hodnota 75 ze 100 při šířce 20.
 
 ## Program
 
@@ -76,7 +60,7 @@ Zasekla ses? Nápověda je v souboru [`napovedy/05_grafy.md`](../napovedy/05_gra
 
 ## Hotovo, když
 
-- [ ] všechny testy jsou zelené
+- [ ] máš test na každý bod ze seznamu a všechny jsou zelené
 - [ ] graf z ukázkových dat vypadá jako ukázka nahoře
 - [ ] částky za sloupci stojí pod sebou
 - [ ] práce je uložená na GitHubu: **Commit** a pak **Sync Changes**

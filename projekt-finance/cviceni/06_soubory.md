@@ -26,7 +26,8 @@ Na začátek `finance.py` patří `import json`.
 
 ## Testy
 
-Zkopíruj na konec `test_finance.py`:
+Tady testy zase dostaneš hotové. Pracují s dočasným souborem, a takový test
+se napřed těžko vymýšlí. Zkopíruj je na konec `test_finance.py`:
 
 ```python
 def test_uloz_a_nacti(tmp_path):

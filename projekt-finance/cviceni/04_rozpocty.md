@@ -32,41 +32,30 @@ Součet výdajů v kategorii taky nemusíš psát znovu.
 
 ## Testy
 
-Zkopíruj na konec `test_finance.py`:
+Od tohohle kroku píšeš testy sama. Stavba je stejná jako u testů, které už
+máš: data z `ukazka()`, zavolání funkce a `assert`. Rozpočty si v každém
+testu připrav jako malý slovník, třeba:
 
 ```python
-def test_zbyva_v_rozpoctu():
-    rozpocty = {"jidlo": 1000, "doprava": 100}
-    assert finance.zbyva_v_rozpoctu(ukazka(), rozpocty, "jidlo") == 250
-
-
-def test_zbyva_v_rozpoctu_po_prekroceni():
-    rozpocty = {"jidlo": 1000, "doprava": 100}
-    assert finance.zbyva_v_rozpoctu(ukazka(), rozpocty, "doprava") == -50
-
-
-def test_zbyva_v_rozpoctu_kdyz_se_neutracelo():
-    rozpocty = {"zabava": 500}
-    assert finance.zbyva_v_rozpoctu(ukazka(), rozpocty, "zabava") == 500
-
-
-def test_zbyva_v_rozpoctu_bez_rozpoctu():
-    rozpocty = {"jidlo": 1000}
-    assert finance.zbyva_v_rozpoctu(ukazka(), rozpocty, "doprava") is None
-
-
-def test_prekrocene_rozpocty():
-    rozpocty = {"jidlo": 1000, "doprava": 100}
-    assert finance.prekrocene_rozpocty(ukazka(), rozpocty) == ["doprava"]
-
-
-def test_rozpocet_presne_na_korunu_neni_prekroceny():
-    rozpocty = {"jidlo": 750}
-    assert finance.prekrocene_rozpocty(ukazka(), rozpocty) == []
+rozpocty = {"jidlo": 1000, "doprava": 100}
 ```
 
-**Vlastní test:** co má `prekrocene_rozpocty` vrátit, když je slovník
-rozpočtů prázdný? Napiš na to test a zjisti, jestli to tvoje funkce splní.
+V `ukazka()` se za jídlo utratilo 750 Kč a za dopravu 150 Kč. Na každý
+řádek tabulky napiš jeden test:
+
+| Co vyzkoušet | Rozpočty | Volání | Má vrátit |
+|---|---|---|---|
+| kolik zbývá | `{"jidlo": 1000, "doprava": 100}` | `zbyva_v_rozpoctu(ukazka(), rozpocty, "jidlo")` | `250` |
+| překročený rozpočet | `{"jidlo": 1000, "doprava": 100}` | `zbyva_v_rozpoctu(ukazka(), rozpocty, "doprava")` | `-50` |
+| kategorie bez výdajů | `{"zabava": 500}` | `zbyva_v_rozpoctu(ukazka(), rozpocty, "zabava")` | `500` |
+| kategorie bez rozpočtu | `{"jidlo": 1000}` | `zbyva_v_rozpoctu(ukazka(), rozpocty, "doprava")` | `None` |
+| překročené rozpočty | `{"jidlo": 1000, "doprava": 100}` | `prekrocene_rozpocty(ukazka(), rozpocty)` | `["doprava"]` |
+| utraceno přesně na korunu | `{"jidlo": 750}` | `prekrocene_rozpocty(ukazka(), rozpocty)` | `[]` |
+| žádné rozpočty | `{}` | `prekrocene_rozpocty(ukazka(), rozpocty)` | rozmysli sama |
+
+Na `None` se v testu ptej přes `is None`, viz
+[tahák k testování](../../lekce-testovani/TAHAK.md), *Tvary, se kterými si
+vystačíš*.
 
 ## Program
 
@@ -96,7 +85,7 @@ Zasekla ses? Nápověda je v souboru [`napovedy/04_rozpocty.md`](../napovedy/04_
 
 ## Hotovo, když
 
-- [ ] všechny testy jsou zelené
+- [ ] máš test na každý řádek tabulky a všechny jsou zelené
 - [ ] rozpočty za `2026-11` z ukázkových dat sedí s ukázkou nahoře
 - [ ] nově nastavený rozpočet se hned projeví ve volbě 6
 - [ ] výdaj, který rozpočet překročí, vyvolá upozornění

@@ -389,11 +389,12 @@ Alignment with `materialy`:
       fallback (D3), same wording as lesson 1 in `materialy`.
 - [ ] Project changes go through PRs with the other owner as reviewer; branch
       names `finance/…`, `wordle/…`, `docs/…`; commit subjects `Finance: …`.
-- [ ] CI: a workflow that runs pytest on `reseni`
+- [x] CI: a workflow that runs pytest on `reseni`
       (covers the "check script" item above); later copy the `web.yml` pattern.
       `web.yml` copied 14 Nov: converter check on PRs and pushes to `main`,
-      automatic import into `public-pages` after a push. pytest on `reseni` is
-      still open.
+      automatic import into `public-pages` after a push. Done 16 Nov:
+      `.github/workflows/reseni.yml`, only on `reseni` (forks copy only `main`),
+      runs `zkontroluj_reseni.py` on push and PR to `reseni`; first run green.
 - [ ] Optional: one picture per project made with the `obrazek` skill from
       `materialy`.
 

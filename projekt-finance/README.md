@@ -50,8 +50,10 @@ napiš k ní aspoň jeden test a teprve potom ji přidej do menu.
 Každý krok má stejnou stavbu:
 
 1. **Funkce.** Co mají nové funkce v `finance.py` dělat.
-2. **Testy.** Zkopíruješ si je do `test_finance.py`. Budou červené, protože
-   popisují funkce, které ještě nemáš. Funkce píšeš, dokud testy nezezelenají.
+2. **Testy.** V krocích 1 až 3 a v kroku 6 je dostaneš hotové a zkopíruješ si
+   je do `test_finance.py`. V krocích 4 a 5 je píšeš sama podle seznamu, co
+   vyzkoušet. Testy budou červené, protože popisují funkce, které ještě nemáš.
+   Funkce píšeš, dokud nezezelenají.
 3. **Program.** Hotové funkce nabídneš uživatelce v menu v `app.py`.
 4. **Hotovo, když.** Podle seznamu na konci poznáš, že je krok hotový.
 
@@ -64,7 +66,7 @@ v zadání nenajdeš, najdeš tam odkazy do taháků z lekcí.
 |---|---|
 | `finance.py` | **logika**: funkce, které dostanou data a vrátí výsledek. Píšeš sem většinu kódu a tyhle funkce se testují. |
 | `app.py` | **menu**: `while True`, `input()` a `print()`. Volá funkce z `finance.py`. Tenhle soubor spouštíš. |
-| `test_finance.py` | testy. V každém kroku si sem zkopíruješ připravené a přidáš vlastní. |
+| `test_finance.py` | testy. Hotové sem zkopíruješ, vlastní sem napíšeš. |
 | `ukazkova_data.py` | ukázkové transakce, kategorie a rozpočty, ať je od začátku s čím pracovat |
 | `finance.json` | stejné transakce uložené v souboru, budeš ho potřebovat až v kroku 6 |
 | `TAHAK.md` | tahák k tomu, co je v projektu nové: import z `finance.py`, data pro testy, soubory a JSON |
