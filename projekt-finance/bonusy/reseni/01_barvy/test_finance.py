@@ -122,6 +122,9 @@ def test_nejvetsi_vydaj_bez_vydaju():
     assert finance.nejvetsi_vydaj([]) is None
 
 
+# Vlastní testy kroku 4, napsané podle tabulky v zadání kroku 4.
+
+
 def test_zbyva_v_rozpoctu():
     rozpocty = {"jidlo": 1000, "doprava": 100}
     assert finance.zbyva_v_rozpoctu(ukazka(), rozpocty, "jidlo") == 250
@@ -152,6 +155,13 @@ def test_rozpocet_presne_na_korunu_neni_prekroceny():
     assert finance.prekrocene_rozpocty(ukazka(), rozpocty) == []
 
 
+def test_prekrocene_rozpocty_bez_rozpoctu():
+    assert finance.prekrocene_rozpocty(ukazka(), {}) == []
+
+
+# Vlastní testy kroku 5, napsané podle seznamu v zadání kroku 5.
+
+
 def test_sloupec_nejvyssi_hodnoty_ma_plnou_sirku():
     assert finance.sloupec(100, 100, 10) == "█" * 10
 
@@ -170,6 +180,10 @@ def test_sloupec_male_hodnoty_je_videt():
 
 def test_sloupec_kdyz_je_nejvyssi_nula():
     assert finance.sloupec(0, 0, 10) == ""
+
+
+def test_sloupec_tri_ctvrtiny():
+    assert finance.sloupec(75, 100, 20) == "█" * 15
 
 
 def test_uloz_a_nacti(tmp_path):

@@ -26,6 +26,9 @@ starší podoba jako "#@1-6| ..." a nejnovější jako kód se značkou "#@7".
 Testy se berou ze zadání: do test_finance.py kroku N se za startovní soubor
 přidají bloky s testy ze zadání cviceni/01_*.md až cviceni/NN_*.md. Řešení se
 tak vždycky ověřuje proti testům, které účastnice opravdu dostanou.
+Kroky, ve kterých účastnice píše testy sama (4 a 5), mají v zadání jen seznam
+případů. Jejich testy jsou tady v testy_NN.py a přidají se za testy ze zadání
+téhož kroku. Když změníš seznam případů v zadání, uprav i testy_NN.py.
 Obarvená verze má navíc testy z testy_barvy.py.
 
 Výsledek se zapíše do cviceni/reseni/NN_nazev (jméno jako má zadání kroku)
@@ -119,9 +122,18 @@ def testy_do_kroku(krok):
     text = (PROJEKT / "test_finance.py").read_text(encoding="utf-8")
     for cislo in range(1, krok + 1):
         obsah = zadani_kroku(cislo).read_text(encoding="utf-8")
-        for blok in re.findall(r"```python\n(.*?)```", obsah, flags=re.DOTALL):
-            if "def test_" in blok:
-                text = pridej_testy(text, blok)
+        bloky = [
+            blok
+            for blok in re.findall(r"```python\n(.*?)```", obsah, flags=re.DOTALL)
+            if "def test_" in blok
+        ]
+        vlastni = PREDLOHA / f"testy_{cislo:02d}.py"
+        if vlastni.exists():
+            bloky.append(vlastni.read_text(encoding="utf-8"))
+        if not bloky:
+            raise SystemExit(f"Krok {cislo} nemá testy v zadání ani v {vlastni.name}.")
+        for blok in bloky:
+            text = pridej_testy(text, blok)
     return text
 
 
