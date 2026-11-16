@@ -38,7 +38,7 @@ měla dojít každá, zbytek je navíc.
 | [4 – Rozpočty](cviceni/04_rozpocty.md) | limity a upozornění na překročení | slovníky, skládání funkcí |
 | [5 – Grafy](cviceni/05_grafy.md) | sloupcový graf ze znaků | řetězce, `max` |
 | [6 – Uložení do souboru](cviceni/06_soubory.md) | data přežijí ukončení programu | nové: soubory a JSON |
-| [Bonusy](bonusy/) | barvy v terminálu, hledání, řazení, HTML report | podle chuti |
+| [Bonusy](bonusy/) | barvy v terminálu, hledání, řazení, HTML report, čistá obrazovka | podle chuti |
 | [Nápady na rozšíření](napady.md) | další nápady bez řešení, třeba na doma | podle chuti |
 
 Máš hotové kroky a zbývá čas? Vyber si, co tě láká. Bonusy na sebe

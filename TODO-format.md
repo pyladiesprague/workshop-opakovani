@@ -213,9 +213,8 @@ One style for all three projects:
 - A middle stage with blanks to fill in (`___`) is allowed where it helps.
 - Each project owner picks the step where the switch happens.
 
-Wordle and Titanic already work this way. Finance gives ready tests in all six
-steps, so its later steps need rework; see the finance TODOs, including the
-note about the step 6 tests.
+Wordle and Titanic already work this way. Finance switches at step 4 (16 Nov):
+steps 4 and 5 list cases, step 6 keeps ready tests as an exception (`tmp_path`).
 
 **D10. Wordle game screen. Tomas, Vojta: stays as step 10.**
 It was considered for a bonus only because clearing the screen did not seem to
@@ -417,8 +416,11 @@ Schedule fit (workshop Sat 21 Nov, after L9 Slovníky on 19 Nov):
       13 Nov; step and hint files checked 15 Nov, none left.
 - [x] Add `napady.md`: extension ideas without solutions (high scores,
       difficulty levels, and similar).
-- [ ] Add a bonus for clearing the terminal where the project lacks one.
+- [x] Add a bonus for clearing the terminal where the project lacks one.
       Wordle has it as step 10, Titanic as bonus 5; finance still lacks one.
+      Done 16 Nov: finance bonus 5 `05_cisteni_obrazovky.md`, same recipe as
+      Titanic (clear before the menu, wait for Enter, balance above the menu);
+      solution `bonusy/reseni/05_cisteni_obrazovky.py` on `reseni`.
 - [x] README to the README template, including the minimum goal and the
       smoke test in "before you start". Done: all three have the template
       sections, a minimum goal (finance and Wordle step 3, Titanic step 6) and a
@@ -467,17 +469,25 @@ Schedule fit (workshop Sat 21 Nov, after L9 Slovníky on 19 Nov):
       replaced by links to the lesson taháky; kept the `finance.py` import
       rule, `ukazka()` and JSON. README got "Jak vypadá test" like Wordle and
       Titanic.
-- [ ] Adjust the tests to D9: pick the step where ready tests stop, and from
+- [x] Adjust the tests to D9: pick the step where ready tests stop, and from
       there on replace the test code with a list of cases the participant tests
       herself.
+      Done 16 Nov (Vojta picked step 4): step 4 has a table of calls and
+      expected results (the empty-budgets row is left for her to work out),
+      step 5 a list of cases. Step 6 keeps ready tests (tmp_path exception
+      below) and says why. README "Každý krok" and the file table updated.
 - [x] **Decided 16 Nov (Vojta):** the step 6 tests use pytest's `tmp_path`, so they do not
       touch the real `finance.json`. Beginners cannot write that themselves, which
       clashes with "own tests in later steps". They stay ready-made as an
       exception to D9, even if earlier steps switch to own tests. The step
       already explains `tmp_path` in one paragraph as a recipe; the own test
       (save and load an empty list) reuses it.
-- [ ] The solution generator takes tests from the step files. Once later steps
+- [x] The solution generator takes tests from the step files. Once later steps
       have none, the solution tests need another source.
+      Done 16 Nov on `reseni`: `_predloha/testy_04.py` and `testy_05.py`,
+      appended after the step's own tests; `sestav.py` stops when a step has
+      no tests at all. Includes the former "own test" cases (empty budgets,
+      75 of 100 at width 20).
 - [x] Add the Commit and Sync line to each step (D3). Done 14 Nov, same wording
       as Wordle and Titanic.
 - [x] Every "Tahák LN" reference names the section: "Tahák L6, *Výřez*"
