@@ -25,14 +25,15 @@ a `ukazkova_data.py`. Složka `06_soubory/` má navíc `finance.json`.
 
 ## Bonusy
 
-Ve složce `bonusy/reseni/` jsou řešení všech čtyř bonusů. Nápady
+Ve složce `bonusy/reseni/` jsou řešení všech pěti bonusů. Nápady
 v `napady.md` (dřív bonusy 5 až 11 a „Když zbyde čas“) řešení nemají, jsou
 to otevřené úlohy.
 
 - `01_barvy/` je celý projekt po kroku 6 s barevným výstupem. Hodí se
   i na ukázku na začátku dne, co se bude stavět.
-- `02_hledani.py`, `03_razeni.py` a `04_html_report.py` jsou samostatné
-  soubory, každý jde spustit zvlášť.
+- `02_hledani.py`, `03_razeni.py`, `04_html_report.py` a
+  `05_cisteni_obrazovky.py` jsou samostatné soubory, každý jde spustit zvlášť.
+  Čistá obrazovka ukazuje jen upravený hlavní cyklus na menu se třemi volbami.
 
 ## Generátor řešení
 
@@ -49,6 +50,9 @@ to otevřené úlohy.
   `bonusy/reseni/04_html_report.py`, ručně ji neupravuj.
 - Testy v `test_finance.py` jednotlivých kroků bere skript přímo ze zadání
   (`cviceni/NN_*.md`). Když změníš testy v zadání, spusť ho taky.
+- Kroky 4 a 5 mají v zadání jen seznam případů, účastnice testy píše sama.
+  Jejich testy pro řešení jsou v `_predloha/testy_04.py` a `testy_05.py`.
+  Když změníš případy v zadání, uprav i tyhle soubory a spusť skript.
 - Ověření všech kroků: v každé složce `cviceni/reseni/NN_nazev/` spusť
   `python -m pytest`.
 - Hledání testů z kořene repozitáře složky `reseni` přeskakuje (nastavení
