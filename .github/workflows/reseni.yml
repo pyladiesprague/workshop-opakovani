@@ -1,4 +1,4 @@
-# Po každém pushi do větve reseni spustí testy ve všech složkách s řešením
+# Po každém pushi do větve reseni zkontroluje všechna řešení kroků i bonusů
 # (zkontroluj_reseni.py). Rozbité řešení se tak ukáže hned, ne až kouči na workshopu.
 #
 # Soubor je jen na větvi reseni. Forky účastnic kopírují jen main, takže se
@@ -25,6 +25,7 @@ jobs:
         with:
           python-version: "3.12"
 
-      - run: python -m pip install pytest
+      # plotext potřebuje bonus Titanicu 2 (verze jako v zadání bonusu)
+      - run: python -m pip install pytest plotext==5.3.2
 
       - run: python zkontroluj_reseni.py
