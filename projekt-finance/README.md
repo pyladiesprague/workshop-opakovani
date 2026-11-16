@@ -67,7 +67,7 @@ v zadání nenajdeš, najdeš tam odkazy do taháků z lekcí.
 | `test_finance.py` | testy. V každém kroku si sem zkopíruješ připravené a přidáš vlastní. |
 | `ukazkova_data.py` | ukázkové transakce, kategorie a rozpočty, ať je od začátku s čím pracovat |
 | `finance.json` | stejné transakce uložené v souboru, budeš ho potřebovat až v kroku 6 |
-| `TAHAK.md` | tahák k testům a k souborům |
+| `TAHAK.md` | tahák k tomu, co je v projektu nové: import z `finance.py`, data pro testy, soubory a JSON |
 | `cviceni/` | zadání kroků, jeden soubor na krok |
 | `napovedy/` | nápověda ke kroku, soubor se jmenuje stejně jako krok |
 | `bonusy/` | bonusy, jeden soubor na bonus |
@@ -78,6 +78,21 @@ přes `print()`, se testovat nedá: test za tebe nic nenapíše na klávesnici
 a nepřečte si obrazovku. Funkci, která dostane data a výsledek vrátí,
 otestuješ na jednom řádku. Proto počítání bydlí ve `finance.py` a povídání
 s uživatelkou v `app.py`.
+
+## Jak vypadá test
+
+```python
+def test_zustatek_bez_transakci():
+    assert finance.zustatek([]) == 0
+```
+
+Test je funkce, jejíž jméno začíná `test_`. Slovo `assert` znamená „tvrdím,
+že“: nalevo je to, co funkce vrátila, napravo to, co vrátit měla. Když tvrzení
+platí, test je zelený. Když ne, je červený a v hlášce uvidíš, co funkce
+vrátila doopravdy.
+
+Víc o testech je v lekci o testování, tahák najdeš v
+[`lekce-testovani/TAHAK.md`](../lekce-testovani/TAHAK.md).
 
 ## Jak vypadají data
 
@@ -99,12 +114,14 @@ transakce = [
 
 ## Než začneš
 
-1. V terminálu ve VS Code nainstaluj pytest: `pip install pytest`.
-   Na Windows případně `py -m pip install pytest`.
+1. Měj připravený počítač podle návodu [Před workshopem](../PRED-WORKSHOPEM.md):
+   fork, clone a nainstalovaný pytest. Když pytest chybí, napiš v terminálu
+   ve VS Code `pip install pytest`, na Windows případně `py -m pip install pytest`.
 2. Ve VS Code měj otevřenou složku celého workshopu (**File → Open Folder**),
-   ne jen jeden soubor.
-3. Otevři panel **Testing** (ikona baňky vlevo) a spusť testy. V
-   `test_finance.py` je jeden a má být zelený. Když je, všechno funguje.
+   ne jen složku projektu.
+3. Otevři panel **Testing** (ikona baňky vlevo). Rozbal `projekt-finance` a
+   spusť jeho testy šipkou vedle názvu. V `test_finance.py` je jeden test a má
+   být zelený. Když je, všechno funguje.
 4. Spusť `app.py`. Má vypsat, kolik transakcí načetl.
 5. Otevři [krok 1](cviceni/01_zaklad.md).
 

@@ -92,8 +92,9 @@ Víc o testech je v lekci o testování, tahák najdeš v
 
 ## Než začneš
 
-1. V terminálu ve VS Code nainstaluj pytest: `pip install pytest`. Na Windows
-   případně `py -m pip install pytest`.
+1. Měj připravený počítač podle návodu [Před workshopem](../PRED-WORKSHOPEM.md):
+   fork, clone a nainstalovaný pytest. Když pytest chybí, napiš v terminálu
+   ve VS Code `pip install pytest`, na Windows případně `py -m pip install pytest`.
 2. Ve VS Code měj otevřenou složku celého workshopu (**File → Open Folder**),
    ne jen složku projektu.
 3. Otevři panel **Testing** (ikona baňky vlevo). Rozbal `projekt-wordle` a

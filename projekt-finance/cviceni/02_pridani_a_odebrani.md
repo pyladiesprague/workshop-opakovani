@@ -108,6 +108,10 @@ Při přidávání se ptej tak dlouho, dokud nedostaneš platnou odpověď:
 - kategorie musí být jedna z `KATEGORIE` z `ukazkova_data.py`,
 - popis nesmí být prázdný.
 
+Každou odpověď nejdřív očisti: mezery na začátku a na konci pryč, typ a
+kategorii převeď na malá písmena. Uživatelka často napíše ` Jidlo` nebo
+`VYDAJ` a myslí to dobře.
+
 Ptaní se v cyklu budeš potřebovat několikrát. Udělej si na něj funkce,
 třeba `zeptej_se_na_castku()`, která vrátí až platné číslo.
 
@@ -122,5 +126,6 @@ Zasekla ses? Nápověda je v souboru [`napovedy/02_pridani_a_odebrani.md`](../na
 - [ ] všechny testy jsou zelené, včetně těch z kroku 1
 - [ ] přidaná transakce je vidět ve výpisu a změní zůstatek
 - [ ] program nespadne na vstupech `abc`, prázdný Enter, `-5`, `99`
+- [ ] projde i ` 250 `, `Vydaj` a `JIDLO`
 - [ ] odebrání neexistujícího čísla nic nesmaže
 - [ ] práce je uložená na GitHubu: **Commit** a pak **Sync Changes**

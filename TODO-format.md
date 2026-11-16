@@ -65,7 +65,7 @@ Section 3 records each decision as Tomas chose it. Vojtěch adds his feedback he
 
 ```
 README.md                  how the day works, how to get the repo, project table
-TAHAK.md                   shared: importing your own file, tests, reading a failed test
+(no root TAHAK.md: the lesson taháky cover imports and tests, decided 16 Nov)
 pytest.ini, .gitignore, .vscode/   one shared VS Code setup, repo root is what gets opened
 <projekt>/
     README.md              what you build, steps table, files, before you start, when stuck
@@ -271,18 +271,26 @@ Order: project-specific work first, repo-wide changes after.
       `projekty-wordle-titanic` (merged), and `projekt-finance-reseni` once moved.
       Done 13 Nov, locally and on GitHub. All three were fully contained in
       `main` or `reseni`; the pre-unification state is kept by tag `pred-unifikaci`.
-- [ ] Root `README.md`: how the day runs, fork and clone (D3), open the whole repo
+- [x] Root `README.md`: how the day runs, fork and clone (D3), open the whole repo
       folder (D2), how to run only your project's tests, project table with the new folder links (D7), and that
       the day ends with a show and tell. No mention of solutions.
+      Done 16 Nov, with a link to `PRED-WORKSHOPEM.md` and fork and clone
+      replacing Download ZIP (ZIP stays as the fallback).
 - [ ] At the end of the workshop, send participants the link to the `reseni` branch (D5).
 - [ ] Before the workshop, tell participants to install pytest (D1) and to have a
       GitHub account ready (D3).
-- [ ] **Later, after the converter below:** a "before the workshop" document for
+- [x] **Later, after the converter below:** a "before the workshop" document for
       participants: GitHub account, fork and clone, `pip install pytest cowsay`
       (the modules lesson needs cowsay; pyfiglet only for bonuses), what to do
       when the install fails. It has to fit the public-pages converter, so it is
-      written once the converter supports this repo. Then announce it (e-mail,
-      Discord, web banner in `organizace/content/oznameni/`).
+      written once the converter supports this repo.
+      Done 15 Nov: `PRED-WORKSHOPEM.md` (fork, clone in GitHub Desktop, ZIP
+      fallback, `pip install pytest cowsay pyfiglet`, troubleshooting table,
+      check with the Testing panel and the cow, sync the fork in the morning).
+      The converter renders it as `/materialy/workshop-opakovani/pred-workshopem/`,
+      linked from the workshop page (public-pages PR #15).
+  - [ ] Announce it: e-mail and Discord still open. Web banner done 16 Nov
+        (public-pages `content/oznameni/workshop-opakovani.md`, until 21 Nov).
 - [x] public-pages converter for the workshop repo. Done 13–14 Nov (public-pages
       PR #13, merged; automatic import since 14 Nov). It used to read only
       `pyladiesprague/materialy`. The lessons here (`lekce-moduly/`, testing)
@@ -291,9 +299,10 @@ Order: project-specific work first, repo-wide changes after.
       It must support several hints per step: `napovedy/NN_nazev_1.md`,
       `_2.md` show as hint 1 and hint 2, so the second is opened only when the
       first is not enough.
-- [ ] Root `TAHAK.md`: importing from your own file, writing a test, reading a
-      failed test, common error messages. Move this out of the finance tahák
-      and out of the Wordle and Titanic READMEs.
+- [x] ~~Root `TAHAK.md`~~: dropped by Vojta on 16 Nov. The lesson taháky
+      (`lekce-testovani/TAHAK.md`, `lekce-moduly/TAHAK.md`) already cover
+      importing your own file, writing and reading tests and common errors;
+      a root tahák would be a third copy. Project taháky and READMEs link there.
 - [x] Keep the root `.vscode/` as the only one; remove the per-project unittest
       settings in Wordle and Titanic (D2). Done 14 Nov (PR #2).
 - [x] `pytest.ini`: keep `norecursedirs = reseni`, needed on the `reseni` branch.
@@ -376,7 +385,7 @@ Alignment with `materialy`:
 - [ ] `.gitattributes`: `export-ignore` for `TODO-format.md`,
       `REPORT-materialy.md`, `feedback.md` and a future `.github/`, as
       `materialy` does for its ZIP.
-- [ ] Root README "Jak si materiály stáhnout": fork and clone with ZIP as
+- [x] Root README "Jak si materiály stáhnout": fork and clone with ZIP as
       fallback (D3), same wording as lesson 1 in `materialy`.
 - [ ] Project changes go through PRs with the other owner as reviewer; branch
       names `finance/…`, `wordle/…`, `docs/…`; commit subjects `Finance: …`.
@@ -409,16 +418,30 @@ Schedule fit (workshop Sat 21 Nov, after L9 Slovníky on 19 Nov):
       difficulty levels, and similar).
 - [ ] Add a bonus for clearing the terminal where the project lacks one.
       Wordle has it as step 10, Titanic as bonus 5; finance still lacks one.
-- [ ] README to the README template, including the minimum goal and the
-      smoke test in "before you start".
+- [x] README to the README template, including the minimum goal and the
+      smoke test in "before you start". Done: all three have the template
+      sections, a minimum goal (finance and Wordle step 3, Titanic step 6) and a
+      smoke test. 16 Nov: "Než začneš" step 1 links to `PRED-WORKSHOPEM.md`
+      (pytest command kept as fallback), finance step 3 runs only its own tests
+      like Wordle and Titanic.
 - [x] Starter test file contains only one test, and it passes. Step 1 tests move
       into the step file (D2). All three: one passing test each (15 Nov).
 - [x] Module and test file names are unique across the repo (D2):
       `finance.py`, `logika.py`, `analyza.py` and their `test_*.py`.
-- [ ] Check that input cleaning is practised (feedback): case, `strip`, types,
+- [x] Check that input cleaning is practised (feedback): case, `strip`, types,
       positive and negative numbers, dates.
-- [ ] Data files are found from the file's own location, not the working folder.
-      Wordle and Titanic use `Path(__file__).parent`; finance step 6 open.
+      Finance checked 16 Nov: types, sign, dates and empty input were already in
+      step 2 (`je_platna_castka`, `je_platne_datum`, Hotovo když); `strip` and
+      `lower` were only in the solution, now also in the step, its Hotovo když
+      and the hint. Wordle and Titanic checked 16 Nov, no change needed:
+      Wordle step 2 `uprav_vstup` (strip, lower) with a test and Hotovo když
+      (`Kabát` with spaces), length check, step 3 unknown words and the
+      play-again answer through the same function. Titanic step 2 converts
+      types (`int`, `cislo_nebo_nic`, empty text to `None`), step 11
+      `najdi_sloupec` ignores case and spaces, unknown column and empty answer
+      do not crash. Negative numbers and dates only apply to finance.
+- [x] Data files are found from the file's own location, not the working folder.
+      Done 15 Nov: all three use `Path(__file__).parent`.
 - [ ] Last: test the participant path on Windows and macOS with this project:
       fork, clone, open the repo root, install pytest, Testing panel, Run,
       Commit and Sync.
@@ -436,15 +459,22 @@ Schedule fit (workshop Sat 21 Nov, after L9 Slovníky on 19 Nov):
       `bonus3_hledani.py` to `bonus2_hledani.py`, `bonus4_razeni.py` to
       `bonus3_razeni.py`; update `reseni/README.md` and `_predloha/sestav.py` (D12).
 - [x] Split all eleven bonuses into separate files (13 Nov).
-- [ ] Step 6: build the path to `finance.json` from the file's location.
-- [ ] Move shared tahák parts to the root `TAHAK.md`; keep JSON in the project tahák.
+- [x] Step 6: build the path to `finance.json` from the file's location.
+      Done 15 Nov: `Path(__file__).parent / "finance.json"` as a recipe in the
+      step, the tahák and the hint; solutions regenerated on `reseni`.
+- [x] Shared tahák parts out of the finance tahák (16 Nov): imports and tests
+      replaced by links to the lesson taháky; kept the `finance.py` import
+      rule, `ukazka()` and JSON. README got "Jak vypadá test" like Wordle and
+      Titanic.
 - [ ] Adjust the tests to D9: pick the step where ready tests stop, and from
       there on replace the test code with a list of cases the participant tests
       herself.
-- [ ] **To figure out:** the step 6 tests use pytest's `tmp_path`, so they do not
+- [x] **Decided 16 Nov (Vojta):** the step 6 tests use pytest's `tmp_path`, so they do not
       touch the real `finance.json`. Beginners cannot write that themselves, which
-      clashes with "own tests in later steps". Either keep these tests ready-made
-      as an exception, or explain `tmp_path` briefly in the step.
+      clashes with "own tests in later steps". They stay ready-made as an
+      exception to D9, even if earlier steps switch to own tests. The step
+      already explains `tmp_path` in one paragraph as a recipe; the own test
+      (save and load an empty list) reuses it.
 - [ ] The solution generator takes tests from the step files. Once later steps
       have none, the solution tests need another source.
 - [x] Add the Commit and Sync line to each step (D3). Done 14 Nov, same wording

@@ -17,6 +17,7 @@ sekce „Pro autory“, stejně jako v `materialy`.
 
 ```text
 README.md                 převodník nečte, je psané pro GitHub (rozhodl Vojta 13. 11.)
+PRED-WORKSHOPEM.md        příprava doma, stránka pred-workshopem/ s odkazem z úvodu (15. 11.)
 lekce-<nazev>/            lekce ve formátu materialy
 projekt-<nazev>/          projekt ve formátu níže
 <cokoli jiného>           převodník ignoruje (TODO, pytest.ini, .vscode …)
@@ -34,6 +35,7 @@ Adresa je název repa a pod ním cesty jako v Gitu (u `materialy` je to stejné)
 
 ```text
 /materialy/workshop-opakovani/                                    úvod workshopu (README.md)
+/materialy/workshop-opakovani/pred-workshopem/                    PRED-WORKSHOPEM.md
 /materialy/workshop-opakovani/lekce-testovani/…                   lekce, cesty jako v materialy
 /materialy/workshop-opakovani/projekt-finance/                    README projektu
 /materialy/workshop-opakovani/projekt-finance/cviceni/01_zaklad/  krok
