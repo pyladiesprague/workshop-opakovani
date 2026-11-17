@@ -5,7 +5,7 @@
 #
 # Začni krokem 1: cviceni/01_nacteni.md
 
-from analyza import SOUBOR
+import analyza
 
 print("Titanic")
-print(f"Data jsou v souboru {SOUBOR.name}.")
+print(f"Data jsou v souboru {analyza.SOUBOR.name}.")

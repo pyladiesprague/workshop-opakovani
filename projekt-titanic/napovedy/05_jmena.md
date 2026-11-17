@@ -29,7 +29,7 @@ jinak přičti jedna. Tahák L9, *Počítadlo*.
 
 ## Program
 
-Ve `zprava.py` zavolej `pridej_jmena(pasazeri)` hned po načtení dat.
+Ve `zprava.py` zavolej `analyza.pridej_jmena(pasazeri)` hned po načtení dat.
 
 Tituly: zavolej `pocty` na sloupec `Titul` a slovník projdi cyklem. Tahák L9,
 *Procházení*.
