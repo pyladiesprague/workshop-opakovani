@@ -9,8 +9,8 @@ je.
   dál. Ve které skupině přežívali lidé nejčastěji?
 - **Věk podle třídy.** Jaký byl průměrný věk v jednotlivých třídách? Čím to
   může být?
-- **Sám, nebo s rodinou.** Přidej sloupec s velikostí rodiny (`SibSp + Parch`)
-  a porovnej lidi, kteří cestovali sami, s ostatními.
+- **Sám, nebo s rodinou.** Přidej sloupec s počtem příbuzných na
+  palubě (`SibSp + Parch`) a porovnej lidi, kteří cestovali sami, s ostatními.
 - **Ženská jména.** Nejčastější mužské jméno už znáš. Jak zjistíš nejčastější
   ženské, když vdané ženy mají v datech jméno manžela? Vlastní jméno mají v
   závorce.
