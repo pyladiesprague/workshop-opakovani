@@ -1,9 +1,9 @@
 # Řešení kroku 2 – Co v datech chybí?
 # Tvoje řešení může vypadat jinak, a to je v pořádku.
 
-from analyza import SOUBOR, nacti_pasazery, uprav_pasazery
+import analyza
 
-pasazeri = uprav_pasazery(nacti_pasazery(SOUBOR))
+pasazeri = analyza.uprav_pasazery(analyza.nacti_pasazery(analyza.SOUBOR))
 
 bez_veku = 0
 for pasazer in pasazeri:

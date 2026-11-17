@@ -3,14 +3,7 @@
 
 import os
 
-from analyza import (
-    SOUBOR,
-    nacti_pasazery,
-    najdi_sloupec,
-    prehled_podle,
-    pridej_jmena,
-    uprav_pasazery,
-)
+import analyza
 
 
 def vycisti_obrazovku():
@@ -20,8 +13,8 @@ def vycisti_obrazovku():
         os.system("clear")
 
 
-pasazeri = uprav_pasazery(nacti_pasazery(SOUBOR))
-pridej_jmena(pasazeri)
+pasazeri = analyza.uprav_pasazery(analyza.nacti_pasazery(analyza.SOUBOR))
+analyza.pridej_jmena(pasazeri)
 sloupce = list(pasazeri[0])
 
 # Co se má ukázat, se nevypisuje hned. Uloží se do seznamu a vypíše se
@@ -38,11 +31,11 @@ while True:
     if text.strip() == "":
         break
 
-    nazev = najdi_sloupec(text, sloupce)
+    nazev = analyza.najdi_sloupec(text, sloupce)
     if nazev is None:
         radky = [f"Takový sloupec neznám. Vyber si z těchhle: {', '.join(sloupce)}"]
     else:
-        prehled = prehled_podle(pasazeri, nazev)
+        prehled = analyza.prehled_podle(pasazeri, nazev)
         if len(prehled) > 20:
             radky = [f"Sloupec {nazev} má {len(prehled)} různých hodnot, to je na přehled moc."]
         else:

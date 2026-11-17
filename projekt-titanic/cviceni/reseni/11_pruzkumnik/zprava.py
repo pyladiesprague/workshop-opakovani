@@ -1,20 +1,12 @@
 # Řešení kroku 11 – Co dalšího se dá z dat zjistit?
 # Tvoje řešení může vypadat jinak, a to je v pořádku.
 
-from analyza import (
-    SOUBOR,
-    nacti_pasazery,
-    najdi_sloupec,
-    prehled_podle,
-    pridej_jmena,
-    sestav_zpravu,
-    uprav_pasazery,
-)
+import analyza
 
-pasazeri = uprav_pasazery(nacti_pasazery(SOUBOR))
-pridej_jmena(pasazeri)
+pasazeri = analyza.uprav_pasazery(analyza.nacti_pasazery(analyza.SOUBOR))
+analyza.pridej_jmena(pasazeri)
 
-for radek in sestav_zpravu(pasazeri):
+for radek in analyza.sestav_zpravu(pasazeri):
     print(radek)
 
 print()
@@ -26,11 +18,11 @@ while True:
     text = input("Sloupec: ")
     if text.strip() == "":
         break
-    nazev = najdi_sloupec(text, sloupce)
+    nazev = analyza.najdi_sloupec(text, sloupce)
     if nazev is None:
         print(f"Takový sloupec neznám. Vyber si z těchhle: {', '.join(sloupce)}")
     else:
-        radky = prehled_podle(pasazeri, nazev)
+        radky = analyza.prehled_podle(pasazeri, nazev)
         if len(radky) > 20:
             print(f"Sloupec {nazev} má {len(radky)} různých hodnot, to je na přehled moc.")
         else:

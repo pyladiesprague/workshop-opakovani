@@ -4,34 +4,25 @@
 
 import plotext as plt
 
-from analyza import (
-    POHLAVI,
-    SOUBOR,
-    TRIDY,
-    miry_skupin,
-    nacti_pasazery,
-    prezivani_podle,
-    rozdel_podle_dvou,
-    uprav_pasazery,
-)
+import analyza
 
-pasazeri = uprav_pasazery(nacti_pasazery(SOUBOR))
+pasazeri = analyza.uprav_pasazery(analyza.nacti_pasazery(analyza.SOUBOR))
 
-miry = prezivani_podle(pasazeri, "Pclass")
+miry = analyza.prezivani_podle(pasazeri, "Pclass")
 nazvy = []
 hodnoty = []
-for trida in TRIDY:
-    nazvy.append(TRIDY[trida])
+for trida in analyza.TRIDY:
+    nazvy.append(analyza.TRIDY[trida])
     hodnoty.append(miry[trida])
 
 plt.simple_bar(nazvy, hodnoty, width=50, title="Přežití podle třídy (%)")
 plt.show()
 plt.clear_figure()
 
-miry = miry_skupin(rozdel_podle_dvou(pasazeri, "Pclass", "Sex"))
+miry = analyza.miry_skupin(analyza.rozdel_podle_dvou(pasazeri, "Pclass", "Sex"))
 zeny = []
 muzi = []
-for trida in TRIDY:
+for trida in analyza.TRIDY:
     zeny.append(miry[(trida, "female")])
     muzi.append(miry[(trida, "male")])
 
@@ -39,7 +30,7 @@ plt.simple_multiple_bar(
     nazvy,
     [zeny, muzi],
     width=50,
-    labels=[POHLAVI["female"], POHLAVI["male"]],
+    labels=[analyza.POHLAVI["female"], analyza.POHLAVI["male"]],
     title="Přežití podle třídy a pohlaví (%)",
 )
 plt.show()
