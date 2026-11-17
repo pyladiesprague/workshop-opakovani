@@ -1,6 +1,6 @@
 # Bonus 4 – HTML report
 
-Grafické rozhraní bez jediné knihovny: program vyrobí webovou stránku
+Hezčí přehled bez instalace knihoven: program vyrobí webovou stránku
 s přehledem a ty si ji otevřeš v prohlížeči.
 
 Napiš funkci `html_report(transakce)`, která vrátí text stránky v jazyce

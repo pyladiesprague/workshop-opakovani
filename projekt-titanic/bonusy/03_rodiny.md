@@ -16,5 +16,5 @@ Na konci tohohle bonusu program vypíše něco takového:
   `rozdel_podle`, kterou už máš.
 - Vypiš jen rodiny, které mají aspoň šest lidí.
 
-Pozor na závěr: mají všichni lidé se stejným příjmením opravdu být jedna
+Pozor na závěr: jsou všichni lidé se stejným příjmením opravdu jedna
 rodina? Jak bys to z dat ověřila?

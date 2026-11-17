@@ -49,8 +49,8 @@ python -m pytest 01_prvni_testy.py    jen tenhle soubor
 python -m pytest -v                   s jmény testů
 ```
 
-Ve VS Code je panel **Testing** (ikona baňky vlevo): zelená fajfka
-prošel, červený křížek neprošel.
+Ve VS Code je panel **Testing** (ikona baňky vlevo): zelená fajfka:
+test prošel, červený křížek: neprošel.
 
 ## Když test neprojde
 
