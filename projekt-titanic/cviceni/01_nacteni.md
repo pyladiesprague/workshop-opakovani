@@ -70,13 +70,17 @@ zezelenaly.
 
 Výpisy píšeš do `zprava.py`.
 
-Do `zprava.py` si naimportuj funkci i cestu k datům:
+Na začátku `zprava.py` už je `import analyza`. Funkce a cestu k datům
+z `analyza.py` proto voláš s tečkou, stejně jako v testech:
 
 ```python
-from analyza import SOUBOR, nacti_pasazery
+pasazeri = analyza.nacti_pasazery(analyza.SOUBOR)
 ```
 
-Načti pasažéry a vypiš:
+Import už nikdy měnit nemusíš. Každá funkce, kterou do `analyza.py` přidáš,
+je ve `zprava.py` hned k dispozici jako `analyza.jmeno_funkce`.
+
+Vypiš:
 
 1. Kolik jich je.
 2. Názvy sloupců. Klíče slovníku jako seznam získáš takhle:
