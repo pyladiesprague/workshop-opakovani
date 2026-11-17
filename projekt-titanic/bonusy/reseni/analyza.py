@@ -21,7 +21,7 @@ ZAVER = [
     "  Čemu nevěřím: že rozhodoval přístav. Z Cherbourgu jela polovina",
     "  lidí 1. třídou, a ta přežívala častěji ve všech přístavech.",
 ]
-RODINY = {"sám": "cestoval sám", "malá": "rodina do 3 lidí", "velká": "rodina 4 a víc"}
+RODINY = {"sám": "cestoval sám", "malá": "s 1 až 3 příbuznými", "velká": "se 4 a více příbuznými"}
 
 
 def nacti_pasazery(soubor):
