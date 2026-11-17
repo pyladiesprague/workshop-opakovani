@@ -1,14 +1,14 @@
 # Řešení bonusu 2 – Lepší řešič
 # Tvoje řešení může vypadat jinak, a to je v pořádku.
 
-from logika import filtruj, vyhodnot
+import logika
 from pomocnik import nacti_radky
 
 
 def prumerny_zbytek(kandidat, mozna):
     pocty = {}
     for tajne in mozna:
-        klic = tuple(vyhodnot(kandidat, tajne))
+        klic = tuple(logika.vyhodnot(kandidat, tajne))
         if klic in pocty:
             pocty[klic] = pocty[klic] + 1
         else:
@@ -36,14 +36,14 @@ def odehraj(tajne, hadana, prvni_slovo):
     hadane = prvni_slovo
     pokus = 1
     while hadane != tajne:
-        mozna = filtruj(mozna, hadane, vyhodnot(hadane, tajne))
-        hadane = nejlepsi_slovo(mozna)
+        mozna = logika.filtruj(mozna, hadane, logika.vyhodnot(hadane, tajne))
+        hadane = logika.nejlepsi_slovo(mozna)
         pokus = pokus + 1
     return pokus
 
 
 hadana = nacti_radky("hadana_slova.txt")
-prvni_slovo = nejlepsi_slovo(hadana)
+prvni_slovo = logika.nejlepsi_slovo(hadana)
 soucet = 0
 nejhorsi = hadana[0]
 nejvic = 0

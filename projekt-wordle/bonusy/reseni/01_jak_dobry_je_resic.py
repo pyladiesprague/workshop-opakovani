@@ -1,7 +1,7 @@
 # Řešení bonusu 1 – Jak dobrý je řešič
 # Tvoje řešení může vypadat jinak, a to je v pořádku.
 
-from logika import filtruj, nejlepsi_slovo, vyhodnot
+import logika
 from pomocnik import nacti_radky
 
 
@@ -10,10 +10,10 @@ def odehraj(tajne, hadana):
     pokus = 0
     while True:
         pokus = pokus + 1
-        hadane = nejlepsi_slovo(mozna)
+        hadane = logika.nejlepsi_slovo(mozna)
         if hadane == tajne:
             return pokus
-        mozna = filtruj(mozna, hadane, vyhodnot(hadane, tajne))
+        mozna = logika.filtruj(mozna, hadane, logika.vyhodnot(hadane, tajne))
 
 
 hadana = nacti_radky("hadana_slova.txt")
@@ -31,7 +31,7 @@ for tajne in hadana:
     if pokusu > 6:
         prohry = prohry + 1
 
-print(f"První slovo: {nejlepsi_slovo(hadana)}")
+print(f"První slovo: {logika.nejlepsi_slovo(hadana)}")
 print(f"Průměr: {soucet / len(hadana):.2f} pokusu")
 print(f"Nejhorší slovo: {nejhorsi} ({nejvic} pokusů)")
 print(f"Víc než šest pokusů: {prohry}")
