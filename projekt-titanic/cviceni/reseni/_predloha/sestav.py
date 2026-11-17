@@ -9,8 +9,6 @@ všech kroků a značky říkají, do kterých kroků která část patří:
     #@ 2-4       všechno pod značkou patří do kroků 2 až 4
     #@ 5         všechno pod značkou patří jen do kroku 5
     #@ vse       všechno pod značkou patří do všech kroků
-    #@ importy   na tohle místo skript doplní importy z modulů v MODULY
-                 podle toho, která jména se v programu opravdu používají
 
 Značka je vždy na samostatném řádku a platí až do další značky. Funkce,
 která se mezi kroky mění, je v předloze víckrát pod sebou, pokaždé s jiným
@@ -42,8 +40,6 @@ BONUSY = PROJEKT / "bonusy" / "reseni"
 
 # --- nastavení projektu ----------------------------------------------------
 SABLONY = ["analyza.py", "zprava.py", "test_analyza.py"]
-PROGRAM = "zprava.py"     # soubor, do kterého se doplňují importy
-MODULY = ["analyza"]       # moduly, ze kterých program importuje
 Z_PROJEKTU = []    # soubory, které se berou ze složky projektu
 DO_BONUSU = ["analyza.py"]
 HLAVICKY = ["analyza.py", "zprava.py"]  # soubory, které dostanou hlavičku řešení
@@ -84,9 +80,6 @@ def vyber(text, krok):
         if znacka is None:
             if plati(rozsah, krok):
                 radky.append(radek)
-        elif znacka.group(1) == "importy":
-            if plati(rozsah, krok):
-                radky.append(radek)
         else:
             rozsah = znacka.group(1)
     return "\n".join(radky)
@@ -96,34 +89,6 @@ def uklid(text):
     """Nejvýš dva prázdné řádky za sebou, žádné na začátku a na konci."""
     text = re.sub(r"\n{4,}", "\n\n\n", text)
     return text.strip("\n") + "\n"
-
-
-def verejna_jmena(text):
-    """Jména funkcí a konstant, která modul nabízí."""
-    return re.findall(r"^def (\w+)", text, re.M) + re.findall(
-        r"^([A-Z][A-Z_]*) =", text, re.M
-    )
-
-
-def radek_importu(modul, jmena):
-    jmena = sorted(jmena)
-    radek = f"from {modul} import {', '.join(jmena)}"
-    if len(radek) <= 88:
-        return radek
-    return f"from {modul} import (\n" + "".join(f"    {j},\n" for j in jmena) + ")"
-
-
-def dopln_importy(program, moduly):
-    """Nahradí řádek '#@ importy' importy jmen, která program používá."""
-    importy = []
-    for modul in MODULY:
-        pouzita = []
-        for jmeno in verejna_jmena(moduly[modul]):
-            if re.search(rf"\b{jmeno}\b", program):
-                pouzita.append(jmeno)
-        if pouzita:
-            importy.append(radek_importu(modul, pouzita))
-    return program.replace("#@ importy", "\n".join(importy))
 
 
 def nazev_kroku(jmeno_kroku):
@@ -159,11 +124,6 @@ def sestav_krok(krok, jmeno_kroku):
     for jmeno in SABLONY:
         predloha = (PREDLOHA / jmeno).read_text(encoding="utf-8")
         soubory[jmeno] = uklid(vyber(predloha, krok))
-
-    moduly = {}
-    for modul in MODULY:
-        moduly[modul] = soubory[f"{modul}.py"]
-    soubory[PROGRAM] = uklid(dopln_importy(soubory[PROGRAM], moduly))
 
     nazev = nazev_kroku(jmeno_kroku)
     for jmeno in soubory:
