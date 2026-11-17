@@ -41,6 +41,9 @@ POHLAVI = {"female": "ženy", "male": "muži"}
 PRISTAVY = {"S": "Southampton", "C": "Cherbourg", "Q": "Queenstown"}
 ```
 
+Slovníky dej do `analyza.py` pod `SOUBOR`. Ve `zprava.py` je pak použiješ
+jako `analyza.TRIDY` a tak dál.
+
 Slovník `popisky` určuje i pořadí řádků. Když nějaká skupina v datech chybí,
 řádek vynech. A naopak: skupina, která není v popiscích, se do grafu
 nedostane. Tak z grafu zmizí dva lidé bez přístavu.

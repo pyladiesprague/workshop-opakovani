@@ -54,7 +54,7 @@ chybí.
 
 Teď se zastav a doplň poznámky:
 
-- V jednom přístavu přežilo výrazně víc lidí. Může za to ten přístav?
+- V jednom přístavu přežila výrazně větší část lidí. Může za to ten přístav?
 - Podívej se na podíl 1. třídy. Co už víš o 1. třídě z minulého kroku?
 
 Zasekla ses? Nápověda je v souboru [`napovedy/07_pristavy.md`](../napovedy/07_pristavy.md).

@@ -59,7 +59,7 @@ Odhady, výsledky a další otázky si zapisuj do souboru `poznamky.md`.
 ## Jak to bude probíhat
 
 Projekt je rozdělený na kroky a každý krok začíná otázkou. Nemusíš stihnout
-všechno. Do kroku 6 by měla dojít každá, to už víš, kdo na lodi byl a kdo
+všechno. Do kroku 6 by měla dojít každá. Pak už víš, kdo na lodi byl a kdo
 přežil častěji. Zbytek je navíc.
 
 | Krok | Otázka | Co si zopakuješ |

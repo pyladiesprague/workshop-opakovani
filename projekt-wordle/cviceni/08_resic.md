@@ -18,7 +18,7 @@ Funkce píšeš do `logika.py`.
 
 | Funkce | Co vrátí |
 | --- | --- |
-| `spocitej_pismena(slova)` | slovník, ve kolika slovech je které písmeno; slovo se dvěma a se počítá jen jednou |
+| `spocitej_pismena(slova)` | slovník: v kolika slovech je které písmeno; slovo se dvěma `a` se počítá jen jednou |
 | `ohodnot(slovo, cetnosti)` | součet bodů za různá písmena ve slově; slovo `panna` dostane body za p, a, n |
 | `nejlepsi_slovo(mozna)` | slovo s nejvíc body; když je jich víc se stejnými body, je jedno které |
 

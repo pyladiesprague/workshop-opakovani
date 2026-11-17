@@ -14,8 +14,9 @@ Nejdřív si otázku vyber. Hraj si s průzkumníkem z minulého kroku a projdi 
 co sis během dne zapsala do poznámek. Pokud nevíš, čím začít, můžeš zkusit
 některou z těchhle otázek:
 
-- Přežívali lidé s rodinou častěji než ti, kdo cestovali sami? Velikost rodiny
-  je `SibSp + Parch`.
+- Přežívali lidé s rodinou častěji než ti, kdo cestovali sami? Kolik měl
+  pasažér na palubě příbuzných, je `SibSp + Parch`. Rodina i s ním je
+  o jednoho větší.
 - Jak dopadly děti? Kde bys udělala hranici mezi dítětem a dospělým?
 - Jak dopadli lidé podle věku po desetiletích?
 - Muži ve 2. třídě přežívali skoro stejně málo jako ve 3. Platí to i pro ženy?

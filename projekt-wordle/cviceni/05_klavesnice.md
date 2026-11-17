@@ -59,13 +59,21 @@ def test_jinde_se_nezhorsi_na_neni():
 ```
 
 **Vlastní test:** stejné písmeno dvakrát v jednom slově. Ve slově `banka`
-vyjde první a `"jinde"` a druhé `"neni"`. Ve slovníku má zůstat `"jinde"`.
+vyjde první `a` jako `"jinde"` a druhé jako `"neni"`. Ve slovníku má
+zůstat `"jinde"`.
 
 ## Program
 
 Program píšeš do `wordle.py`.
 
-Před každým pokusem vypiš klávesnici:
+Hra si musí pamatovat, co hráč o písmenech zjistil:
+
+1. Na začátku funkce `zahraj` si založ prázdný slovník `pismena = {}`.
+2. Po každém vyhodnoceném pokusu zavolej
+   `logika.aktualizuj_pismena(pismena, hadane, vysledek)`.
+3. Před každým pokusem vypiš klávesnici podle slovníku `pismena`.
+
+Klávesnice má tyhle řádky:
 
 ```python
 KLAVESNICE = ["ěščřžýáíé", "qwertzuiopú", "asdfghjklů", "yxcvbnmďťňó"]

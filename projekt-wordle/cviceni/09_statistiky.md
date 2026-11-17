@@ -8,15 +8,6 @@ Her: 4   Úspěšnost: 75 %
 Pokusy:  1: 0  2: 0  3: 2  4: 0  5: 0  6: 1
 ```
 
-Do importu ve `wordle.py` přidej `pridej_radek`:
-
-```python
-pridej_radek("statistiky.txt", 4)
-```
-
-Tohle přidá do souboru řádek `4`. Když soubor neexistuje, založí ho. Funkce
-`nacti_radky` pak vrátí seznam řetězců, takže čísla bude potřeba převést.
-
 ## Funkce
 
 Funkce píšeš do `logika.py`.
@@ -43,7 +34,17 @@ Napiš testy sama. Co vyzkoušet:
 
 ## Program
 
-Program píšeš do `wordle.py`.
+Program píšeš do `wordle.py`. Do importu z `pomocnik` přidej `pridej_radek`:
+
+```python
+from pomocnik import nacti_radky, obarvi, pridej_radek
+```
+
+Funkce přidá na konec souboru jeden řádek. Když soubor neexistuje, založí
+ho. Třeba `pridej_radek("statistiky.txt", 4)` přidá řádek `4`. Ty tam místo
+4 pošleš počet pokusů z právě odehrané hry. Řádky pak přečteš funkcí
+`nacti_radky`, kterou už znáš. Vrátí seznam řetězců, takže čísla bude
+potřeba převést.
 
 1. Ať `zahraj` vrací počet pokusů, nebo 0, když hráč prohrál.
 2. Po každé hře výsledek ulož a vypiš statistiky jako v ukázce nahoře.

@@ -11,7 +11,7 @@ slovníku, kolikrát padl který výsledek. Klíčem bude n-tice, seznam klíče
 nemůže:
 
 ```python
-klic = tuple(vyhodnot(kandidat, tajne))
+klic = tuple(logika.vyhodnot(kandidat, tajne))
 ```
 
 Když výsledek padl n-krát, zbude po něm n slov. Průměrný zbytek je součet `n *

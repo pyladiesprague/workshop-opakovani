@@ -35,7 +35,7 @@ Funkce píšeš do `logika.py`.
 
 | Funkce | Co vrátí |
 | --- | --- |
-| `chyba_slova(slovo, povolena)` | to co dřív, a navíc `"Takové slovo neznám."`, když slovo o pěti písmenech není v seznamu `povolena` |
+| `chyba_slova(slovo, povolena)` | to, co dřív, a navíc `"Takové slovo neznám."`, když slovo o pěti písmenech není v seznamu `povolena` |
 
 ## Testy
 

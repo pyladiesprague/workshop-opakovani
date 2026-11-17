@@ -27,5 +27,5 @@ Tři třídy projdeš cyklem přes seznam `[1, 2, 3]`.
 Kdo zaplatil nejvíc, zjistíš ve dvou krocích: nejdřív nejvyšší cenu, potom
 `filtruj` podle sloupce `Fare` a téhle ceny.
 
-Počet lidí zadarmo je délka seznamu, který vrátí `filtruj(pasazeri, "Fare",
-0)`.
+Počet lidí zadarmo je délka seznamu, který vrátí
+`analyza.filtruj(pasazeri, "Fare", 0)`.

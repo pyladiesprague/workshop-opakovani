@@ -76,11 +76,16 @@ Program píšeš do `wordle.py`.
 2. Tajné slovo si zatím napiš přímo do kódu. Zeptej se hráče na slovo,
    vyhodnoť ho a vypiš.
 
-Funkci si do `wordle.py` naimportuješ stejně, jako importuješ z `random`:
+Na začátku `wordle.py` už je `import logika`. Funkce a konstanty
+z `logika.py` proto voláš s tečkou, stejně jako v testech:
 
 ```python
-from logika import vyhodnot
+vysledek = logika.vyhodnot(hadane, "kočka")
 ```
+
+Import už nikdy měnit nemusíš. Každá funkce, kterou do `logika.py` přidáš,
+je ve `wordle.py` hned k dispozici jako `logika.jmeno_funkce`, konstanty
+jako `logika.DELKA_SLOVA`.
 
 Zasekla ses? Nápověda je v souboru [`napovedy/01_jeden_pokus.md`](../napovedy/01_jeden_pokus.md).
 

@@ -15,5 +15,5 @@ prázdným řádkem a nadpisem a přičítej k němu řádky. Tabulku ti udělá
 Popisky jsou slovník, který určuje názvy a pořadí řádků, třeba:
 
 ```python
-RODINY = {"sám": "cestoval sám", "malá": "rodina do 3 lidí", "velká": "rodina 4 a víc"}
+RODINY = {"sám": "cestoval sám", "malá": "s 1 až 3 příbuznými", "velká": "se 4 a více příbuznými"}
 ```
