@@ -90,7 +90,7 @@ def filtruj(mozna, hadane, vysledek):
 
 #@ 8+
 def spocitej_pismena(slova):
-    """Vrátí slovník: ve kolika slovech se které písmeno vyskytuje."""
+    """Vrátí slovník: v kolika slovech se které písmeno vyskytuje."""
     cetnosti = {}
     for slovo in slova:
         videna = ""
