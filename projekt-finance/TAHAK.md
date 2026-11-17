@@ -62,7 +62,7 @@ print(nakup[0]["co"])       # rohlíky
 |---|---|
 | `open("nakup.json", "w", ...)` | otevři soubor pro zápis (`w` jako write); když neexistuje, vytvoří se, když existuje, přepíše se |
 | `open("nakup.json", ...)` | bez `"w"` se soubor otevře pro čtení; když neexistuje, je to `FileNotFoundError` |
-| `encoding="utf-8"` | kódování textu; piš ho vždycky, jinak se pokazí háčky a čárky |
+| `encoding="utf-8"` | kódování textu; piš ho vždycky, jinak se na Windows pokazí háčky a čárky |
 | `with ... as soubor:` | uvnitř odsazeného bloku je soubor otevřený, na konci se sám zavře |
 | `json.dump(data, soubor)` | zapiš data do souboru |
 | `ensure_ascii=False` | nech háčky a čárky čitelné |
