@@ -73,6 +73,10 @@ def test_seniorska_sleva_plati_od_65():
 #
 # Každá tečka je jeden test, který prošel. Passed znamená prošel.
 # Když je řádek zelený, je všechno v pořádku.
+#
+# Když místo toho uvidíš ERROR: file or directory not found nebo
+# no tests ran, terminál stojí v jiné složce. Otevři ho znovu
+# podle bodu 1.
 
 
 # ----- Podrobnější výpis -----

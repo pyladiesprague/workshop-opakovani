@@ -9,6 +9,7 @@ Ve VS Code otevři **Terminal → New Terminal** a napiš:
 python -m pip install plotext==5.3.2
 ```
 
+Na Macu místo `python` piš `python3`, na Windows případně `py`.
 Když to nepůjde, zavolej kouče. Verzi piš přesně takhle, novější verze se
 ovládá jinak.
 

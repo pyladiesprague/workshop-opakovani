@@ -55,7 +55,13 @@ V terminálu jde totéž:
 python -m pytest projekt-finance
 ```
 
-Na Macu místo `python` piš `python3`.
+Na Macu místo `python` piš `python3`, na Windows případně `py`.
+
+Příkaz platí v terminálu, který stojí v hlavní složce workshopu. Terminál
+ale zůstane ve složce posledního souboru, který jsi spustila tlačítkem
+Run. Když pytest napíše `ERROR: file or directory not found` nebo
+`no tests ran`, zavři terminál (ikona koše) a otevři nový přes
+**Terminal → New Terminal**. Nový terminál začíná v hlavní složce.
 
 ## Lekce
 
