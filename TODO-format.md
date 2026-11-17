@@ -362,7 +362,7 @@ Decisions:
         - No project solutions on the web, not even a link to the `reseni` branch.
         - Step sections are fixed: `Funkce`, `Testy`, `Program`, `Hotovo, když`,
           in this order, missing ones allowed, `###` free. Exceptions: a test-first
-          step may put `Testy` first, an open last step uses `Postup`. The converter
+          step may put `Testy` first, an open last step uses `Postup` (no step does today). The converter
           rejects anything else. Mapping of today's headings: part 2, Krok, point 3.
         - README title is the short project name only (`# Správce osobních
           financí`, `# Wordle s řešičem`, `# Titanic`; done). The converter takes

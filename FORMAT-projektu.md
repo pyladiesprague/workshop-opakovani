@@ -113,8 +113,10 @@ aby řešení projektu omylem neodešlo na web.
      - **Krok postavený na testu napřed** smí mít `## Testy` před
        `## Funkce`. Například Wordle 6: nejdřív test, který odhalí chybu, pak
        oprava.
-     - **Otevřený poslední krok bez kódu** (Titanic 9) má `## Postup` místo
-       `Funkce`, `Testy` a `Program`.
+     - **Otevřený poslední krok bez kódu** má `## Postup` místo `Funkce`,
+       `Testy` a `Program`. Převodník ho povoluje, ale dnes ho žádný krok
+       nepoužívá: poslední krok Titanicu (12, vlastní otázka) má od přepisu
+       14. 11. `Funkce`, `Testy` a `Program`.
 
    Jak na to převést dnešní kroky:
 
@@ -127,7 +129,7 @@ aby řešení projektu omylem neodešlo na web.
    | Titanic `## Zpráva` | `## Program` |
    | Wordle 6 `## Testy jako první`, `## Oprava` | `## Testy`, `## Funkce` (výjimka test napřed) |
    | Titanic 8 `## Závěr` | `### Závěr` uvnitř `## Program` |
-   | Titanic 9 `## Postup`, `## Prezentace` | `## Postup`, `### Prezentace` uvnitř |
+   | Titanic 9 `## Postup`, `## Prezentace` (před přepisem 14. 11.) | `## Postup`, `### Prezentace` uvnitř |
 4. **Odkaz na nápovědu** je jeden řádek v pevném tvaru, kdekoli v kroku:
    ```text
    Zasekla ses? Nápověda je v souboru [`napovedy/NN_nazev.md`](../napovedy/NN_nazev.md).
@@ -297,8 +299,8 @@ Wordle a Titanic přepsal Tomáš 14. 11. (PR #2). Titanic má novou otázku
         z aktuálního `main`, testy, build a PR z větve
         `import-workshopu-opakovani`; ruční spuštění ověřeno (bez změn, PR
         nevznikl);
-      - **chybí secret `PUBLIC_PAGES_TOKEN` v tomhle repu** (v `materialy` je),
-        bez něj `web.yml` selže.
+      - secret `PUBLIC_PAGES_TOKEN` je v tomhle repu od 14. 11., `web.yml`
+        prochází.
 
 ## 4. Zkušební převod (13. 11. 2026)
 
@@ -354,5 +356,5 @@ Všechno rozhodl Vojta 13. 11. podle návrhu:
       https://github.com/pyladiesprague/public-pages/pull/13 (13. 11.),
 - [x] tisková verze lekcí a projektů včetně nápověd (13. 11.),
 - [x] workflow `web.yml` v tomhle repu a `import-workshopu.yml` v `public-pages`
-      (14. 11.; secret `PUBLIC_PAGES_TOKEN` je potřeba přidat).
+      (14. 11.; secret `PUBLIC_PAGES_TOKEN` přidaný 14. 11.).
 
