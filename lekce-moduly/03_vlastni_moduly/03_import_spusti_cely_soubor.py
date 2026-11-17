@@ -17,7 +17,8 @@ print(pozdrav("Petro"))
 #   print(...)      mimo funkci se opravdu provede
 #
 # Kdyby v modulu byl input(), program by se při importu nečekaně zeptal
-# na odpověď. Testy by se na něm zasekly a čekaly by navždy.
+# na odpověď. Testy, které budeš psát v lekci o testování, by se na něm
+# zasekly a čekaly by navždy.
 #
 # Proto pravidlo, které platí i v projektech:
 #

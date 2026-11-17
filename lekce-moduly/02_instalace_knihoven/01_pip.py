@@ -1,7 +1,8 @@
 # ---------------------------------------------
 #  Knihovny z internetu: pip
 # ---------------------------------------------
-# Spusť soubor. Nejspíš spadne – a to je teď dobře.
+# Spusť soubor. Když sis doma podle návodu Před workshopem nainstalovala
+# knihovny, promluví kráva. Když ne, program spadne – návod je níž.
 #
 # Standardní knihovna je jen začátek. Další tisíce modulů napsali lidé
 # z celého světa a dali je zdarma k dispozici na webu PyPI:

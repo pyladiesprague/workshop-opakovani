@@ -43,7 +43,7 @@ def test_seniorska_sleva_plati_od_65():     # jméno začíná test_
 ## Instalace a spuštění
 
 ```text
-python -m pip install pytest          jednou, na Macu python3
+pip install pytest                    jednou, už máš z přípravy
 python -m pytest                      všechny soubory test_*.py
 python -m pytest 01_prvni_testy.py    jen tenhle soubor
 python -m pytest -v                   s jmény testů
@@ -99,7 +99,7 @@ test_finance.py     testy
 ```
 
 ```python
-import finance                          # jméno souboru bez .py
+import finance                          # vlastní modul, jméno bez .py
 
 
 def test_zustatek_bez_transakci():

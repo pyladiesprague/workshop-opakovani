@@ -1,7 +1,8 @@
 # Řešení bonusu 1 – Velký nápis
 # Tvoje řešení může vypadat jinak, a to je v pořádku.
 
-# Nainstaluj si sama knihovnu pyfiglet. Na stránce
+# Knihovnu pyfiglet sis nainstalovala doma, když ne, nainstaluj ji
+#     stejně jako cowsay. Na stránce
 #     https://pypi.org/project/pyfiglet/ najdi, jak se vyrábí velký
 #     nápis, a vypiš jím svoje jméno.
 #

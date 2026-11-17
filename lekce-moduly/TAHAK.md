@@ -42,13 +42,9 @@ knihovnu používáš.
 
 ## Pytest
 
-```text
-python -m pytest --version      # je nainstalovaný?
-python -m pytest                # spusť všechny testy
-```
-
-Pytest najde soubory `test_něco.py` a v nich funkce `test_něco` a spustí je.
-Ve VS Code je spouštíš v panelu **Testing** (ikona baňky).
+Knihovna na testy. Najde soubory `test_něco.py` a v nich funkce
+`test_něco` a spustí je. Ve VS Code je spouštíš v panelu **Testing**
+(ikona baňky). Jak testy psát, je v taháku lekce o testování.
 
 ## Vlastní modul
 

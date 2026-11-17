@@ -16,8 +16,8 @@
 # ----- Test si funkci půjčí -----
 #
 # Testy jsou v jiném souboru než funkce, takže si je musí naimportovat.
-# Funguje to stejně jako u random, jen místo random je jméno tvého
-# souboru bez .py:
+# Je to import vlastního modulu z lekce o modulech, stejně jako
+# import prevody v test_prevody.py:
 #
 #   import finance
 #
@@ -35,10 +35,12 @@
 # jen vypíše print, nevrací nic, s čím by assert mohl porovnat.
 #
 # Proto je logika ve finance.py bez inputu a printu. Všechno, co se
-# ptá a vypisuje, je v app.py.
+# ptá a vypisuje, je v app.py. Stejně jako prevody.py a program
+# 04_program_a_logika.py v lekci o modulech.
 #
-# Pozor: při importu se celý soubor provede. Kdyby ve finance.py byl
-# input mimo funkci, testy by se zasekly a čekaly na odpověď.
+# Pozor, z lekce o modulech víš, že import spustí celý soubor. Kdyby
+# ve finance.py byl input mimo funkci, testy by se zasekly a čekaly
+# na odpověď.
 
 
 # ----- Jména souborů -----

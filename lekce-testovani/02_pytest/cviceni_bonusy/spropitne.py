@@ -1,4 +1,5 @@
-# Kopie modulu ze cvičení 1 – Rozděl program, aby šlo řešení bonusu 2 spustit.
+# Modul k bonusu 3. Je stejný jako spropitne.py, který sis psala
+# v lekci o modulech (03_vlastni_moduly, cvičení 1).
 # Jen funkce, žádný input() ani print().
 
 
