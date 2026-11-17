@@ -1,8 +1,8 @@
 # Krok 8 – Přístav, nebo třída?
 
 V minulém kroku to vypadalo, že lidé z jednoho přístavu měli větší štěstí.
-Jenže z toho přístavu jelo taky nejvíc lidí 1. třídou. Co z toho tedy
-rozhodovalo?
+Jenže z toho přístavu jela 1. třídou taky největší část lidí. Co z toho
+tedy rozhodovalo?
 
 Zjistíš to tak, že porovnáš lidi ze stejné třídy. Na konci tohohle kroku budeš
 umět dělit pasažéry podle dvou sloupců najednou:
