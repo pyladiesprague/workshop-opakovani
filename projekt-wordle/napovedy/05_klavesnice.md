@@ -19,7 +19,10 @@ for i in range(DELKA_SLOVA):
 
 ## Program
 
-Potřebuješ dva cykly v sobě: vnější přes řádky klávesnice, vnitřní přes
+Slovník `pismena` založ jednou na začátku hry, ne v cyklu. Jinak by si
+klávesnice po každém pokusu všechno zapomněla.
+
+Na výpis potřebuješ dva cykly v sobě: vnější přes řádky klávesnice, vnitřní přes
 písmena v řádku.
 
 Jestli o písmenu něco víš, zjistíš podmínkou `if pismeno in pismena:`. Tahák
