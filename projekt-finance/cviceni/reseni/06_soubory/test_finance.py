@@ -192,10 +192,13 @@ def test_uloz_a_nacti(tmp_path):
     assert finance.nacti(cesta) == ukazka()
 
 
-def test_ulozeni_zachova_hacky_a_carky(tmp_path):
+def test_nacti_hacky_a_carky(tmp_path):
     cesta = tmp_path / "pokus.json"
-    transakce = [
-        {"datum": "2026-11-21", "typ": "vydaj", "castka": 90, "kategorie": "jidlo", "popis": "žluťoučký koláč"},
-    ]
-    finance.uloz(transakce, cesta)
-    assert finance.nacti(cesta)[0]["popis"] == "žluťoučký koláč"
+    cesta.write_text('[{"popis": "žluťoučký koláč"}]', encoding="utf-8")
+    assert finance.nacti(cesta) == [{"popis": "žluťoučký koláč"}]
+
+
+def test_ulozeny_soubor_je_citelny(tmp_path):
+    cesta = tmp_path / "pokus.json"
+    finance.uloz([{"popis": "žluťoučký koláč"}], cesta)
+    assert "žluťoučký koláč" in cesta.read_text(encoding="utf-8")
