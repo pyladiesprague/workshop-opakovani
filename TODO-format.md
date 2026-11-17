@@ -298,6 +298,10 @@ Order: project-specific work first, repo-wide changes after.
       It must support several hints per step: `napovedy/NN_nazev_1.md`,
       `_2.md` show as hint 1 and hint 2, so the second is opened only when the
       first is not enough.
+- [x] Lesson order: modules first, then testing, which builds on importing your
+      own module (Vojta, 17 Nov). README, both lessons and their taháky say so.
+  - [ ] public-pages: swap `order` of `lekce-moduly` and `lekce-testovani` in
+        `code/workshop/opakovani.json`, today testing is still first on the web.
 - [x] ~~Root `TAHAK.md`~~: dropped by Vojta on 16 Nov. The lesson taháky
       (`lekce-testovani/TAHAK.md`, `lekce-moduly/TAHAK.md`) already cover
       importing your own file, writing and reading tests and common errors;
@@ -365,9 +369,11 @@ Decisions:
           the page title from it; `config.json` holds order and a short description.
         - The workshop goes under Materiály, like the course lessons:
           `/materialy/workshop-opakovani/` plus repo paths. Details in part 1.
-        - `lekce-moduly` bonus 2: the solution is `reseni/02_test_modulu.py` (same
-          name as the task), with a copy of `spropitne.py` next to it so it runs
-          with `python -m pytest 02_test_modulu.py` (done).
+        - The "test your module" bonus: the solution has the same name as the
+          task, with a copy of `spropitne.py` next to it so it runs with
+          `python -m pytest 03_test_modulu.py` (done). Since 17 Nov it is
+          bonus 3 in `lekce-testovani/02_pytest/`, no longer bonus 2 in
+          `lekce-moduly` (it needs pytest, which comes after modules).
 - [x] **Exceptions:** out of scope for this workshop, decided by Vojta on
       13 Nov; Tomas to confirm if he disagrees. They stay in L13 (CSV a výjimky).
   - [ ] Tomas: confirm, if needed.
