@@ -1,2 +1,7 @@
 # Konce řádků: v repozitáři i na disku vždy LF, na Windows, Linuxu i Macu.
 * text=auto eol=lf
+
+# Do ZIPu ke stažení pro účastnice nepatří.
+.github export-ignore
+.gitattributes export-ignore
+FORMAT-projektu.md export-ignore
