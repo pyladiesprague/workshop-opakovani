@@ -63,11 +63,11 @@
 #
 #   - Dvojitá šipka nahoře spustí všechny testy.
 #   - Šipka u složky nebo souboru spustí jen ty testy pod ní.
-#   - Zelená fajfka prošel, červený křížek neprošel.
+#   - Zelená fajfka: test prošel. Červený křížek: neprošel.
 #   - Kliknutím na neprošlý test se otevře výpis, stejný jako
 #     v terminálu.
 #
-# Když panel testy nevidí, zmáčkni nahoře v panelu tlačítko
+# Když panel testy nevidí, klikni nahoře v panelu na tlačítko
 # Refresh Tests (kolečková šipka).
 #
 # V repozitáři workshopu je VS Code nastavený tak, že panel testy

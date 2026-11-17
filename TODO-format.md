@@ -323,8 +323,11 @@ Order: project-specific work first, repo-wide changes after.
 - [x] Coach notes in one place per project: `pro_kouce.md` on `reseni`. Titanic has
       one (moved off `main` 13 Nov), finance's moved there from `reseni/README.md`
       13 Nov, Wordle's added 15 Nov. All three have `pro_kouce.md` on `reseni`.
-- [ ] Update the workshop design doc: pytest, ten Wordle steps as decided, and the
+- [x] Update the workshop design doc: pytest, ten Wordle steps as decided, and the
       dropped rule that anyone stuck can catch up from a solution (D5).
+      Done 16 Nov as a new comment under Tomas's design in organizace issue #22
+      (his comment left as is): pytest, steps per project, `reseni` branch for
+      coaches only, no catching up by copying.
 - [ ] Delete `TODO-format.md` and `REPORT-materialy.md` from `main` before the workshop.
 - [x] Final pass for one style across projects (feedback): headings, tables,
       line wrapping, how the participant is addressed. Done 15 Nov: participant
@@ -368,8 +371,10 @@ Decisions:
 - [x] **Exceptions:** out of scope for this workshop, decided by Vojta on
       13 Nov; Tomas to confirm if he disagrees. They stay in L13 (CSV a výjimky).
   - [ ] Tomas: confirm, if needed.
-  - [ ] Update `organizace/content/podzim-2026/materialy.md`, which still says
+  - [x] Update `organizace/content/podzim-2026/materialy.md`, which still says
         *soubory, výjimky a moduly patří do middle workshopu*.
+        Done 16 Nov (organizace `22a32f8`): moduly, pytest and soubory belong
+        to the workshop, výjimky stay in L13.
 
 Alignment with `materialy`:
 - [x] Titles with an en dash: Wordle `# Krok 1: …` becomes `# Krok 1 – …` (13 Nov).
@@ -381,9 +386,11 @@ Alignment with `materialy`:
 - [x] Wrap Markdown prose at about 75–80 characters in Wordle and Titanic
       (part of the final style pass). Done 15 Nov, all three projects. Tables,
       code and the hint pointer line stay on one line (the converter needs it).
-- [ ] `.gitattributes`: `export-ignore` for `TODO-format.md`,
+- [x] `.gitattributes`: `export-ignore` for `TODO-format.md`,
       `REPORT-materialy.md`, `feedback.md` and a future `.github/`, as
       `materialy` does for its ZIP.
+      Done 16 Nov: `.github`, `.gitattributes` and `FORMAT-projektu.md`.
+      `feedback.md` is gone; TODO and REPORT get deleted before the workshop.
 - [x] Root README "Jak si materiály stáhnout": fork and clone with ZIP as
       fallback (D3), same wording as lesson 1 in `materialy`.
 - [ ] Project changes go through PRs with the other owner as reviewer; branch

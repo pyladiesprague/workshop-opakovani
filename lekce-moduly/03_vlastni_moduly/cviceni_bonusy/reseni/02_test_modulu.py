@@ -13,7 +13,7 @@
 #          - celkem za 500 Kč s 10 % je 550 Kč.
 #     4. Spusť je v panelu Testing a dívej se, jestli svítí zeleně.
 #
-#     Jak test vypadá, se podívej do 03_vlastni_moduly/test_prevody.py.
+#     Jak test vypadá, uvidíš v 03_vlastni_moduly/test_prevody.py.
 
 # U tebe se tenhle soubor jmenuje test_spropitne.py a leží ve složce
 # cviceni vedle spropitne.py. Tady má jméno podle zadání, a tak ho pytest

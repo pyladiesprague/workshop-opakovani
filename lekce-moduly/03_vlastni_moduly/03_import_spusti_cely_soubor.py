@@ -7,7 +7,7 @@ print("Začátek programu")
 
 from upovidany import pozdrav
 
-print(pozdrav("Petra"))
+print(pozdrav("Petro"))
 
 
 # Vypsalo se i něco, co v tomhle souboru vůbec není. Otevři upovidany.py.

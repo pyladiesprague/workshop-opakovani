@@ -8,7 +8,7 @@ jeden test a teprve potom ji přidej do menu.
 ## Ke kroku 1 – Základ: výpis a zůstatek
 
 - Vypiš pod výpisem i součet příjmů a součet výdajů.
-- Částky ve výpisu oddělují tisíce mezerou: `32 000`. Zvládneš to
+- Odděl v částkách ve výpisu tisíce mezerou: `32 000`. Zvládneš to
   s tím, co umíš z řetězců?
 
 ## Ke kroku 2 – Přidání a odebrání transakce
@@ -55,7 +55,7 @@ Funkce `mesicu_do_cile(usetreno, cil, mesicni_uspora)` vrátí, za kolik
 měsíců naspoříš cílovou částku. Když je měsíční úspora nula nebo záporná,
 vrátí `None`, protože cíle nikdy nedosáhneš.
 
-V menu se zeptej na cíl. Jako to, co už máš, vezmi zůstatek. Měsíční úsporu
+V menu se zeptej na cíl. Jako už naspořenou částku vezmi zůstatek. Měsíční úsporu
 spočítej jako průměrný rozdíl příjmů a výdajů za měsíce, které jsou v datech.
 
 ### Opakující se platby

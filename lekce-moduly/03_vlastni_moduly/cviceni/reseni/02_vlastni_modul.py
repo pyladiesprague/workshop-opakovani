@@ -5,9 +5,9 @@
 #
 #    ramecek(text)   vrátí text v rámečku z hvězdiček, tři řádky:
 #
-#                    ************
-#                    * Ahoj Evo *
-#                    ************
+#                    ***************
+#                    * Ahoj, světe *
+#                    ***************
 #
 #                    (řádky spoj znakem nového řádku "\n")
 #
@@ -16,15 +16,14 @@
 #
 #    Funkce text vrací (return), nevypisují ho.
 #
-# 2. Tady se zeptej na jméno a vypiš pozdrav v rámečku a pak ho
+# 2. Tady se zeptej na vzkaz a vypiš ho v rámečku a pak ho
 #    vypiš ještě jednou nakřičený. Funkce si vezmi z texty.py.
 
 # Funkce jsou v souboru texty.py vedle tohohle.
 
 import texty
 
-jmeno = input("Jak se jmenuješ? ")
-pozdrav = f"Ahoj {jmeno}"
+vzkaz = input("Co chceš vzkázat? ")
 
-print(texty.ramecek(pozdrav))
-print(texty.kricet(pozdrav))
+print(texty.ramecek(vzkaz))
+print(texty.kricet(vzkaz))

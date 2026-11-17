@@ -59,7 +59,8 @@ def test_jinde_se_nezhorsi_na_neni():
 ```
 
 **Vlastní test:** stejné písmeno dvakrát v jednom slově. Ve slově `banka`
-vyjde první a `"jinde"` a druhé `"neni"`. Ve slovníku má zůstat `"jinde"`.
+vyjde první `a` jako `"jinde"` a druhé jako `"neni"`. Ve slovníku má
+zůstat `"jinde"`.
 
 ## Program
 
