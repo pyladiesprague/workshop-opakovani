@@ -10,7 +10,7 @@ TITANIC V ČÍSLECH
 
 Pasažérů v souboru:         ???
 Přežilo:                    ??? (??.? %)
-Průměrný věk:              ??.? let
+Průměrný věk:              ??.? roku
 
 Podle pohlaví             Přežilo  (lidí)
   ženy                     ??.? %  (???)

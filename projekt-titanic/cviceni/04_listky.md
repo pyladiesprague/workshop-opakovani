@@ -5,10 +5,10 @@ tři třídy a lístek do každé stál jinak. Na konci tohohle kroku budeš um�
 vybrat z pasažérů jen některé a budeš vědět, kolik se za cestu platilo:
 
 ```text
-1. třída: průměrně ??.? liber
-2. třída: průměrně ??.? liber
-3. třída: průměrně ??.? liber
-Nejdražší lístek: ???.? liber
+1. třída: průměrně ??.? libry
+2. třída: průměrně ??.? libry
+3. třída: průměrně ??.? libry
+Nejdražší lístek: ???.? libry
   ?????, lístek ?????
 Zadarmo: ?? lidí
 ```
