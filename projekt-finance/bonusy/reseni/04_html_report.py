@@ -5,6 +5,7 @@
 # do finance.py a zápis do souboru s otevřením prohlížeče do app.py.
 
 import webbrowser
+from pathlib import Path
 
 from ukazkova_data import transakce
 
@@ -98,8 +99,9 @@ def html_report(transakce):
     return hlavicka + telo
 
 
-with open("report.html", "w", encoding="utf-8") as soubor:
+cesta = Path(__file__).parent / "report.html"
+with open(cesta, "w", encoding="utf-8") as soubor:
     soubor.write(html_report(transakce))
 
 print("Report je v souboru report.html, otevírám ho v prohlížeči.")
-webbrowser.open("report.html")
+webbrowser.open(cesta.as_uri())
