@@ -1,8 +1,8 @@
 # Workshop – opakování
 
 Opakovací workshop kurzu PyLadies Praha (běh **podzim 2026**), sobota
-21. 11. 2026. Zopakujeme si to hlavní z dosavadních lekcí, přidáme testy
-a moduly a pak celý den stavíš vlastní program.
+21. 11. 2026. Zopakujeme si to hlavní z dosavadních lekcí, přidáme moduly
+a testy a pak celý den stavíš vlastní program.
 
 Výukové materiály k jednotlivým lekcím najdeš v repozitáři
 [materialy](https://github.com/pyladiesprague/materialy).
@@ -16,7 +16,7 @@ můžeme hned začít.
 ## Jak den probíhá
 
 1. **Ráno** si zkontrolujeme, že všem fungují testy, a projdeme dvě krátké
-   lekce: testování s pytestem a moduly.
+   lekce: moduly a testování s pytestem.
 2. **Pak si vybereš jeden projekt** a pracuješ na něm zbytek dne, nejlépe ve
    dvojici. Projekt je rozdělený na kroky. Každý krok má zadání, testy a
    nápovědu a končí seznamem „Hotovo, když“.
@@ -55,16 +55,22 @@ V terminálu jde totéž:
 python -m pytest projekt-finance
 ```
 
-Na Macu místo `python` piš `python3`.
+Na Macu místo `python` piš `python3`, na Windows případně `py`.
+
+Příkaz platí v terminálu, který stojí v hlavní složce workshopu. Terminál
+ale zůstane ve složce posledního souboru, který jsi spustila tlačítkem
+Run. Když pytest napíše `ERROR: file or directory not found` nebo
+`no tests ran`, zavři terminál (ikona koše) a otevři nový přes
+**Terminal → New Terminal**. Nový terminál začíná v hlavní složce.
 
 ## Lekce
 
 | Složka | Téma |
 |---|---|
-| [`lekce-testovani/`](lekce-testovani/TAHAK.md) | `assert`, první testy s pytestem a jak číst test, který neprošel |
 | [`lekce-moduly/`](lekce-moduly/TAHAK.md) | vestavěné moduly, instalace knihoven přes pip a vlastní moduly |
+| [`lekce-testovani/`](lekce-testovani/TAHAK.md) | `assert`, první testy s pytestem a jak číst test, který neprošel |
 
-Soubory s výkladem procházej popořadě podle čísla, spouštěj je tlačítkem
+Začni moduly, testy na ně navazují. Soubory s výkladem procházej popořadě podle čísla, spouštěj je tlačítkem
 **Run** a čti komentáře. Pak se pusť do složky `cviceni/`.
 
 ## Projekty

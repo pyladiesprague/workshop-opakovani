@@ -26,7 +26,8 @@ else:
 #   04_program_a_logika.py  program    input, print, spouští se tlačítkem Run
 #   test_prevody.py         testy      kontrolují funkce z prevody.py
 #
-# Otevři test_prevody.py. Testy si modul importují úplně stejně jako
+# Otevři test_prevody.py. Jak se testy píšou, se naučíš v další lekci.
+# Teď si všimni jen toho, že si testy modul importují úplně stejně jako
 # tenhle program – import prevody. Program s input() otestovat nejde,
 # test by čekal na odpověď. Funkci, která jen vrátí číslo, ano.
 #

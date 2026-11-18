@@ -1,7 +1,8 @@
 # Bonus 1 – Velký nápis
 # Doplň kód pod zadání a soubor spusť (Run).
 
-# Nainstaluj si sama knihovnu pyfiglet. Na stránce
+# Knihovnu pyfiglet sis nainstalovala doma, když ne, nainstaluj ji
+#     stejně jako cowsay. Na stránce
 #     https://pypi.org/project/pyfiglet/ najdi, jak se vyrábí velký
 #     nápis, a vypiš jím svoje jméno.
 #

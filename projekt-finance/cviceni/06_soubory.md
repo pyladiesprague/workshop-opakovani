@@ -36,18 +36,28 @@ def test_uloz_a_nacti(tmp_path):
     assert finance.nacti(cesta) == ukazka()
 
 
-def test_ulozeni_zachova_hacky_a_carky(tmp_path):
+def test_nacti_hacky_a_carky(tmp_path):
     cesta = tmp_path / "pokus.json"
-    transakce = [
-        {"datum": "2026-11-21", "typ": "vydaj", "castka": 90, "kategorie": "jidlo", "popis": "žluťoučký koláč"},
-    ]
-    finance.uloz(transakce, cesta)
-    assert finance.nacti(cesta)[0]["popis"] == "žluťoučký koláč"
+    cesta.write_text('[{"popis": "žluťoučký koláč"}]', encoding="utf-8")
+    assert finance.nacti(cesta) == [{"popis": "žluťoučký koláč"}]
+
+
+def test_ulozeny_soubor_je_citelny(tmp_path):
+    cesta = tmp_path / "pokus.json"
+    finance.uloz([{"popis": "žluťoučký koláč"}], cesta)
+    assert "žluťoučký koláč" in cesta.read_text(encoding="utf-8")
 ```
 
 Parametr `tmp_path` je dočasná složka, kterou testu půjčí pytest a potom
 ji sám uklidí. Testy tak nesahají na tvůj opravdový `finance.json`.
-Lomítkem se k cestě složky připojí jméno souboru. Ber to jako hotový recept.
+Lomítkem se k cestě složky připojí jméno souboru. `write_text` zapíše
+do souboru celý text najednou a `read_text` ho celý přečte. Ber to jako
+hotový recept.
+
+Druhý a třetí test hlídají háčky a čárky. Soubor `finance.json` je uložený
+v kódování UTF-8, stejně jako ho zapíše `uloz`. Když `open` kódování
+nedostane, použije výchozí kódování počítače. Na Macu je to UTF-8, na
+Windows ne, a háčky a čárky se pak načtou rozbité.
 
 **Vlastní test:** ulož prázdný seznam a zkontroluj, že se načte zase
 prázdný seznam.

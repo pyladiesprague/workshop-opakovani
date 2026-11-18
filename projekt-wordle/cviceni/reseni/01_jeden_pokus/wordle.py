@@ -1,7 +1,8 @@
 # Řešení kroku 1 – Jeden pokus
 # Tvoje řešení může vypadat jinak, a to je v pořádku.
 
-from logika import vyhodnot
+import logika
+
 
 ZNACKY = {"spravne": "+", "jinde": "?", "neni": "-"}
 
@@ -18,4 +19,4 @@ def vypis_pokus(hadane, vysledek):
 
 tajne = "kočka"
 hadane = input("Tvůj pokus: ")
-vypis_pokus(hadane, vyhodnot(hadane, tajne))
+vypis_pokus(hadane, logika.vyhodnot(hadane, tajne))

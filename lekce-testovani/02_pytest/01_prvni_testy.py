@@ -45,13 +45,14 @@ def test_seniorska_sleva_plati_od_65():
 
 # ----- Instalace -----
 #
-# pytest není součástí Pythonu, musíš si ho nainstalovat. Stačí to
-# jednou. V terminálu VS Code napiš:
+# pytest je knihovna z PyPI, stejně jako cowsay z lekce o modulech.
+# Nainstalovala sis ho doma podle návodu Před workshopem. Kdyby
+# chyběl, nainstaluj ho stejně jako cowsay:
 #
-#   python -m pip install pytest
+#   pip install pytest
 #
-# Na Macu místo python piš python3, tady i ve všech dalších
-# příkazech.
+# Na Macu místo python piš python3 ve všech dalších příkazech,
+# na Windows případně py.
 
 
 # ----- Spuštění -----
@@ -72,6 +73,10 @@ def test_seniorska_sleva_plati_od_65():
 #
 # Každá tečka je jeden test, který prošel. Passed znamená prošel.
 # Když je řádek zelený, je všechno v pořádku.
+#
+# Když místo toho uvidíš ERROR: file or directory not found nebo
+# no tests ran, terminál stojí v jiné složce. Otevři ho znovu
+# podle bodu 1.
 
 
 # ----- Podrobnější výpis -----

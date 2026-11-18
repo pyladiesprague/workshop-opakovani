@@ -32,4 +32,5 @@ print("Maraton má 26,2 mil, to je", prevody.mile_na_km(26.2), "km.")
 #     podívá se do prevody.py. Kdo chce vědět, co program dělá, čte tenhle.
 #   - Stejné funkce můžeš použít ve víc programech, nemusíš je kopírovat.
 #   - Funkce v modulu jde otestovat. Test si ji naimportuje stejně jako
-#     tenhle soubor. To uvidíš na konci téhle části.
+#     tenhle soubor. Ukázku uvidíš na konci téhle části, psát testy se
+#     naučíš v lekci o testování.

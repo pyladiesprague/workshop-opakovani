@@ -4,16 +4,7 @@
 
 from random import randrange
 
-from logika import (
-    DELKA_SLOVA,
-    POCET_POKUSU,
-    aktualizuj_pismena,
-    chyba_slova,
-    filtruj,
-    nejlepsi_slovo,
-    uprav_vstup,
-    vyhodnot,
-)
+import logika
 from pomocnik import nacti_radky, obarvi
 
 BARVY_POLI = {"spravne": "zelena", "jinde": "zluta", "neni": "seda"}
@@ -25,7 +16,7 @@ def vypis_pokusy(pokusy):
     print()
     for hadane, vysledek in pokusy:
         radek = ""
-        for i in range(DELKA_SLOVA):
+        for i in range(logika.DELKA_SLOVA):
             pole = f" {hadane[i].upper()} "
             radek = radek + obarvi(pole, BARVY_POLI[vysledek[i]]) + " "
         print(radek)
@@ -50,13 +41,13 @@ def text_napovedy(mozna):
 
 def nacti_slovo(povolena, mozna):
     while True:
-        slovo = uprav_vstup(input("Tvůj pokus: "))
+        slovo = logika.uprav_vstup(input("Tvůj pokus: "))
         if slovo == "?":
             print(text_napovedy(mozna))
         elif slovo == "!":
-            print(f"Zkus: {nejlepsi_slovo(mozna).upper()}")
+            print(f"Zkus: {logika.nejlepsi_slovo(mozna).upper()}")
         else:
-            chyba = chyba_slova(slovo, povolena)
+            chyba = logika.chyba_slova(slovo, povolena)
             if chyba == "":
                 return slovo
             print(chyba)
@@ -67,13 +58,13 @@ def zahraj(tajne, povolena, hadana):
     pokusy = []
     mozna = hadana
 
-    for pokus in range(1, POCET_POKUSU + 1):
+    for pokus in range(1, logika.POCET_POKUSU + 1):
         vypis_klavesnici(pismena)
         hadane = nacti_slovo(povolena, mozna)
-        vysledek = vyhodnot(hadane, tajne)
+        vysledek = logika.vyhodnot(hadane, tajne)
         pokusy.append((hadane, vysledek))
-        aktualizuj_pismena(pismena, hadane, vysledek)
-        mozna = filtruj(mozna, hadane, vysledek)
+        logika.aktualizuj_pismena(pismena, hadane, vysledek)
+        mozna = logika.filtruj(mozna, hadane, vysledek)
         vypis_pokusy(pokusy)
 
         if hadane == tajne:
@@ -88,5 +79,5 @@ povolena = nacti_radky("povolena_slova.txt")
 while True:
     tajne = hadana[randrange(len(hadana))]
     zahraj(tajne, povolena, hadana)
-    if uprav_vstup(input("Hrát znovu? (ano/ne) ")) != "ano":
+    if logika.uprav_vstup(input("Hrát znovu? (ano/ne) ")) != "ano":
         break

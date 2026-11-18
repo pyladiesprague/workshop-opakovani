@@ -27,8 +27,8 @@ Funkce vrací celého pasažéra, ne jen jeho věk. Jméno si pak přečteš př
 
 ## Program
 
-Výsledek `nejstarsi(pasazeri)` si ulož do proměnné. Je to slovník, takže jméno
-je `stary["Name"]`.
+Výsledek `analyza.nejstarsi(pasazeri)` si ulož do proměnné, třeba `stary`.
+Je to slovník, takže jméno je `stary["Name"]`.
 
 V f-stringu, který je v uvozovkách, piš klíč do apostrofů:
 `f"{stary['Name']}"`. Tahák L9, *Slovník*.

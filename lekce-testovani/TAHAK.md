@@ -43,14 +43,19 @@ def test_seniorska_sleva_plati_od_65():     # jméno začíná test_
 ## Instalace a spuštění
 
 ```text
-python -m pip install pytest          jednou, na Macu python3
+pip install pytest                    jednou, už máš z přípravy
 python -m pytest                      všechny soubory test_*.py
 python -m pytest 01_prvni_testy.py    jen tenhle soubor
 python -m pytest -v                   s jmény testů
 ```
 
-Ve VS Code je panel **Testing** (ikona baňky vlevo): zelená fajfka
-prošel, červený křížek neprošel.
+Na Macu místo `python` piš `python3`, na Windows případně `py`.
+
+Pytest hledá soubory ve složce, kde stojí terminál. Terminál do složky
+otevřeš pravým tlačítkem na složku → **Open in Integrated Terminal**.
+
+Ve VS Code je panel **Testing** (ikona baňky vlevo): zelená fajfka:
+test prošel, červený křížek: neprošel.
 
 ## Když test neprojde
 
@@ -76,6 +81,7 @@ pustí všechny testy, i když některý neprojde.
 | `NameError: name 'cena' is not defined` | funkce chybí, nebo se jmenuje jinak |
 | `AttributeError: module 'finance' has no attribute 'zustatek'` | totéž, když se funkce importuje z jiného souboru |
 | `TypeError: … takes 1 positional argument but 2 were given` | test volá funkci s jiným počtem argumentů |
+| `ERROR: file or directory not found`, `no tests ran` | terminál stojí v jiné složce než soubor s testy |
 
 Chyba může být i v testu. Rozhoduje zadání: když funkce dělá, co
 má, opravuje se test. Neupravuj ale test jen proto, aby prošel.
@@ -99,7 +105,7 @@ test_finance.py     testy
 ```
 
 ```python
-import finance                          # jméno souboru bez .py
+import finance                          # vlastní modul, jméno bez .py
 
 
 def test_zustatek_bez_transakci():

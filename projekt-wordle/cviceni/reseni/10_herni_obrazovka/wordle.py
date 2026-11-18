@@ -4,17 +4,7 @@
 
 from random import randrange
 
-from logika import (
-    DELKA_SLOVA,
-    POCET_POKUSU,
-    aktualizuj_pismena,
-    chyba_slova,
-    filtruj,
-    nejlepsi_slovo,
-    spocitej_statistiky,
-    uprav_vstup,
-    vyhodnot,
-)
+import logika
 from pomocnik import nacti_radky, obarvi, pridej_radek, vycisti_obrazovku
 
 BARVY_POLI = {"spravne": "zelena", "jinde": "zluta", "neni": "seda"}
@@ -26,13 +16,13 @@ SOUBOR_STATISTIK = "statistiky.txt"
 def vypis_hraci_plochu(pokusy):
     for hadane, vysledek in pokusy:
         radek = ""
-        for i in range(DELKA_SLOVA):
+        for i in range(logika.DELKA_SLOVA):
             pole = f" {hadane[i].upper()} "
             radek = radek + obarvi(pole, BARVY_POLI[vysledek[i]]) + " "
         print(f"{' ' * 12}{radek}")
 
-    for i in range(POCET_POKUSU - len(pokusy)):
-        print(f"{' ' * 12}{obarvi(' ·  ' * DELKA_SLOVA, 'tlumena')}")
+    for i in range(logika.POCET_POKUSU - len(pokusy)):
+        print(f"{' ' * 12}{obarvi(' ·  ' * logika.DELKA_SLOVA, 'tlumena')}")
 
 
 def vypis_klavesnici(pismena):
@@ -65,19 +55,19 @@ def nacti_slovo(pokusy, pismena, povolena, mozna):
     zprava = obarvi("? = nápověda   ! = rada", "tlumena")
     while True:
         vykresli(pokusy, pismena, zprava)
-        slovo = uprav_vstup(input("  Tvůj pokus: "))
+        slovo = logika.uprav_vstup(input("  Tvůj pokus: "))
         if slovo == "?":
             zprava = text_napovedy(mozna)
         elif slovo == "!":
-            zprava = f"Zkus: {nejlepsi_slovo(mozna).upper()}"
+            zprava = f"Zkus: {logika.nejlepsi_slovo(mozna).upper()}"
         else:
-            zprava = chyba_slova(slovo, povolena)
+            zprava = logika.chyba_slova(slovo, povolena)
             if zprava == "":
                 return slovo
 
 
 def vypis_statistiky():
-    statistiky = spocitej_statistiky(nacti_radky(SOUBOR_STATISTIK))
+    statistiky = logika.spocitej_statistiky(nacti_radky(SOUBOR_STATISTIK))
     print(f"  Her: {statistiky['her']}   Úspěšnost: {round(statistiky['uspesnost'])} %")
 
     radek = "  Pokusy:"
@@ -92,12 +82,12 @@ def zahraj(tajne, povolena, hadana):
     pokusy = []
     mozna = hadana
 
-    for pokus in range(1, POCET_POKUSU + 1):
+    for pokus in range(1, logika.POCET_POKUSU + 1):
         hadane = nacti_slovo(pokusy, pismena, povolena, mozna)
-        vysledek = vyhodnot(hadane, tajne)
+        vysledek = logika.vyhodnot(hadane, tajne)
         pokusy.append((hadane, vysledek))
-        aktualizuj_pismena(pismena, hadane, vysledek)
-        mozna = filtruj(mozna, hadane, vysledek)
+        logika.aktualizuj_pismena(pismena, hadane, vysledek)
+        mozna = logika.filtruj(mozna, hadane, vysledek)
 
         if hadane == tajne:
             vykresli(pokusy, pismena, f"Uhodla jsi to na {pokus}. pokus!")
@@ -115,5 +105,5 @@ while True:
     pokusu = zahraj(tajne, povolena, hadana)
     pridej_radek(SOUBOR_STATISTIK, pokusu)
     vypis_statistiky()
-    if uprav_vstup(input("  Hrát znovu? (ano/ne) ")) != "ano":
+    if logika.uprav_vstup(input("  Hrát znovu? (ano/ne) ")) != "ano":
         break

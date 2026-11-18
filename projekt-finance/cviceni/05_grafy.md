@@ -28,7 +28,7 @@ Funkce píšeš do `finance.py`.
 
 Dvě věci, na které musíš myslet ve funkci i v testech:
 
-- Malá částka by po zaokrouhlení vyšla na nula znaků a z grafu by zmizela.
+- Malá částka by po zaokrouhlení měla nula znaků a z grafu by zmizela.
   Každá částka větší než nula má mít aspoň jeden znak.
 - Když je `nejvyssi` nula, nesmí funkce spadnout na dělení nulou.
 

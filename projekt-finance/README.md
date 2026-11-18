@@ -1,6 +1,6 @@
 # Správce osobních financí
 
-Napíšeš si program, kterému budeš zapisovat příjmy a výdaje. On ti řekne,
+Napíšeš si program, do kterého budeš zapisovat příjmy a výdaje. Ten ti řekne,
 kolik ti zbývá, za co utrácíš nejvíc a jestli držíš rozpočet. Všechno běží
 v terminálu a vystačíš si s tím, co umíš z lekcí 1 až 9.
 

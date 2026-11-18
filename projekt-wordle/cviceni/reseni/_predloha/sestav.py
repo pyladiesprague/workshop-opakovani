@@ -43,7 +43,8 @@ BONUSY = PROJEKT / "bonusy" / "reseni"
 # --- nastavení projektu ----------------------------------------------------
 SABLONY = ["logika.py", "wordle.py", "test_logika.py"]
 PROGRAM = "wordle.py"     # soubor, do kterého se doplňují importy
-MODULY = ["logika", "pomocnik"]       # moduly, ze kterých program importuje
+MODULY = ["pomocnik"]       # moduly, ze kterých program importuje jména
+                           # (logika se importuje celá: import logika)
 Z_PROJEKTU = ["pomocnik.py"]    # soubory, které se berou ze složky projektu
 DO_BONUSU = ["logika.py", "pomocnik.py"]
 HLAVICKY = ["logika.py", "wordle.py"]  # soubory, které dostanou hlavičku řešení

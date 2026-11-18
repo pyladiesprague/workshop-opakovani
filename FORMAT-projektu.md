@@ -36,7 +36,7 @@ Adresa je název repa a pod ním cesty jako v Gitu (u `materialy` je to stejné)
 ```text
 /materialy/workshop-opakovani/                                    úvod workshopu (README.md)
 /materialy/workshop-opakovani/pred-workshopem/                    PRED-WORKSHOPEM.md
-/materialy/workshop-opakovani/lekce-testovani/…                   lekce, cesty jako v materialy
+/materialy/workshop-opakovani/lekce-moduly/…                      lekce, cesty jako v materialy
 /materialy/workshop-opakovani/projekt-finance/                    README projektu
 /materialy/workshop-opakovani/projekt-finance/cviceni/01_zaklad/  krok
 /materialy/workshop-opakovani/projekt-finance/bonusy/             všechny bonusy na jedné stránce
@@ -61,9 +61,10 @@ Adresa je název repa a pod ním cesty jako v Gitu (u `materialy` je to stejné)
 Stejný formát jako `materialy` (viz README převodníku, „Podporovaný formát
 zdroje“). Jediný rozdíl je název složky bez čísla. Jedno rozšíření:
 
-- **Pomocné soubory.** Lekce o modulech potřebuje `.py` soubory, které nejsou
-  výklad ani úloha: importovaný modul (`prevody.py`), testy k ukázce
-  (`test_prevody.py`), modul k řešení (`reseni/spropitne.py`).
+- **Pomocné soubory.** Lekce potřebují `.py` soubory, které nejsou výklad
+  ani úloha: importovaný modul (`prevody.py`), testy k ukázce
+  (`test_prevody.py`), modul k řešení (`cviceni/reseni/spropitne.py`),
+  modul, ke kterému bonus píše testy (`cviceni_bonusy/spropitne.py`).
   - Pravidlo: `.py` bez číselné předpony `NN_` je pomocný soubor.
   - Převodník ho nevykresluje jako stránku, jen na něj odkáže na GitHubu
     (u výkladu i u řešení).
@@ -112,8 +113,10 @@ aby řešení projektu omylem neodešlo na web.
      - **Krok postavený na testu napřed** smí mít `## Testy` před
        `## Funkce`. Například Wordle 6: nejdřív test, který odhalí chybu, pak
        oprava.
-     - **Otevřený poslední krok bez kódu** (Titanic 9) má `## Postup` místo
-       `Funkce`, `Testy` a `Program`.
+     - **Otevřený poslední krok bez kódu** má `## Postup` místo `Funkce`,
+       `Testy` a `Program`. Převodník ho povoluje, ale dnes ho žádný krok
+       nepoužívá: poslední krok Titanicu (12, vlastní otázka) má od přepisu
+       14. 11. `Funkce`, `Testy` a `Program`.
 
    Jak na to převést dnešní kroky:
 
@@ -126,7 +129,7 @@ aby řešení projektu omylem neodešlo na web.
    | Titanic `## Zpráva` | `## Program` |
    | Wordle 6 `## Testy jako první`, `## Oprava` | `## Testy`, `## Funkce` (výjimka test napřed) |
    | Titanic 8 `## Závěr` | `### Závěr` uvnitř `## Program` |
-   | Titanic 9 `## Postup`, `## Prezentace` | `## Postup`, `### Prezentace` uvnitř |
+   | Titanic 9 `## Postup`, `## Prezentace` (před přepisem 14. 11.) | `## Postup`, `### Prezentace` uvnitř |
 4. **Odkaz na nápovědu** je jeden řádek v pevném tvaru, kdekoli v kroku:
    ```text
    Zasekla ses? Nápověda je v souboru [`napovedy/NN_nazev.md`](../napovedy/NN_nazev.md).
@@ -203,19 +206,26 @@ Všechny tři projekty a obě lekce mají formát pro převodník; převodník z
 - ✅ Na `main` nejsou řešení projektů (C1).
 
 ### Lekce
-- ✅ `lekce-testovani/`: všech 29 souborů výkladu, cvičení a řešení vyhovuje.
-- ✅ `lekce-moduly/`: osm `.py` bez předpony převodník bere jako pomocné
+- ✅ Pořadí lekcí (17. 11.): nejdřív `lekce-moduly/`, pak `lekce-testovani/`,
+      testy na moduly navazují (import vlastního modulu). Na webu pořadí určuje
+      `code/workshop/opakovani.json` v `public-pages`, je potřeba ho prohodit.
+- ✅ `lekce-moduly/`: sedm `.py` bez předpony převodník bere jako pomocné
       soubory (pravidlo přidané 13. 11.):
       `02_instalace_knihoven/test_pytest_funguje.py`,
       `03_vlastni_moduly/prevody.py`, `test_prevody.py`, `upovidany.py`,
       `cviceni/reseni/spropitne.py`, `texty.py`,
-      `cviceni_bonusy/reseni/kostky.py`, `spropitne.py`.
-- ✅ Řešení bonusu 2 v `lekce-moduly` (rozhodl Vojta 13. 11.): dřív
+      `cviceni_bonusy/reseni/kostky.py`.
+- ✅ `lekce-testovani/`: 31 souborů výkladu, cvičení a řešení vyhovuje,
+      dva pomocné soubory: `02_pytest/cviceni_bonusy/spropitne.py` a jeho
+      kopie v `cviceni_bonusy/reseni/`.
+- ✅ Bonus „Otestuj svůj modul“: dřív bonus 2 v `lekce-moduly` s řešením
       `reseni/test_spropitne.py`, které převodník nespároval s úlohou
-      `02_test_modulu.py` a které nešlo spustit. Teď je to
-      `reseni/02_test_modulu.py` ve formátu řešení a vedle něj kopie
+      `02_test_modulu.py` a které nešlo spustit. Od 13. 11. bylo řešení
+      `reseni/02_test_modulu.py` ve formátu řešení. Od 17. 11. je to bonus 3
+      v `lekce-testovani/02_pytest/`: úloha `cviceni_bonusy/03_test_modulu.py`,
+      vedle ní `spropitne.py`, řešení `reseni/03_test_modulu.py` a kopie
       `spropitne.py` jako pomocný soubor. Spouští se jménem:
-      `python -m pytest 02_test_modulu.py` (3 testy projdou).
+      `python -m pytest 03_test_modulu.py` (3 testy projdou).
 
 ### Kroky
 
@@ -289,8 +299,8 @@ Wordle a Titanic přepsal Tomáš 14. 11. (PR #2). Titanic má novou otázku
         z aktuálního `main`, testy, build a PR z větve
         `import-workshopu-opakovani`; ruční spuštění ověřeno (bez změn, PR
         nevznikl);
-      - **chybí secret `PUBLIC_PAGES_TOKEN` v tomhle repu** (v `materialy` je),
-        bez něj `web.yml` selže.
+      - secret `PUBLIC_PAGES_TOKEN` je v tomhle repu od 14. 11., `web.yml`
+        prochází.
 
 ## 4. Zkušební převod (13. 11. 2026)
 
@@ -315,7 +325,8 @@ Výsledek nad `main` (`46e3fe3`):
 - 19 nápověd za tlačítkem (finance 6, Wordle 13), ve Wordle 6 je druhá
   nápověda vnořená.
 - `lekce-moduly`: pomocné soubory jsou na stránce tématu jako odkazy na
-  GitHub, bonus 2 má tlačítko „Zobrazit řešení“.
+  GitHub, bonus 2 má tlačítko „Zobrazit řešení“ (od 17. 11. je ten bonus
+  jako bonus 3 v `lekce-testovani`).
 - Převodník při první zkoušce našel chybu ve vlastní kontrole (poslední
   odstavec souboru), ne ve zdroji. Zdroj formát splnil napoprvé.
 
@@ -345,5 +356,5 @@ Všechno rozhodl Vojta 13. 11. podle návrhu:
       https://github.com/pyladiesprague/public-pages/pull/13 (13. 11.),
 - [x] tisková verze lekcí a projektů včetně nápověd (13. 11.),
 - [x] workflow `web.yml` v tomhle repu a `import-workshopu.yml` v `public-pages`
-      (14. 11.; secret `PUBLIC_PAGES_TOKEN` je potřeba přidat).
+      (14. 11.; secret `PUBLIC_PAGES_TOKEN` přidaný 14. 11.).
 

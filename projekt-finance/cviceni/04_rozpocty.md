@@ -76,7 +76,7 @@ Přidáno.
 Pozor, rozpočet na jidlo za 2026-11 je překročený o 210 Kč.
 ```
 
-Měsíc transakce jsou první znaky jejího data.
+Měsíc transakce tvoří prvních sedm znaků jejího data.
 
 Slovník `rozpocty` si do `app.py` naimportuj z `ukazkova_data` a funkcím,
 které ho potřebují, ho pošli jako argument.

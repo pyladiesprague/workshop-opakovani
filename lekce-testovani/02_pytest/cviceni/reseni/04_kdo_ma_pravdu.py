@@ -37,7 +37,7 @@ def test_presne_dve_hodiny():
 #
 #   E       AssertionError: assert '2 h 5 min' == '2 h 15 min'
 #
-# 125 minut jsou dvě hodiny (120) a pět minut. Funkce počítá dobře,
+# 125 minut je dvě hodiny (120) a pět minut. Funkce počítá dobře,
 # ten, kdo psal test, se přepočítal. Opravuje se test.
 #
 #

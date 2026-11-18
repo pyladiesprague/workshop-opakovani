@@ -99,8 +99,10 @@ větou a jde dál.
 - Data si řešení berou ze složky projektu, soubor CSV se nekopíruje.
 - `bonusy/reseni/` má řešení všech pěti bonusů. Bonus 2 potřebuje
   nainstalovanou knihovnu plotext.
-- Krok 12 má v řešení jako vlastní otázku velikost rodiny: sám 30,4 % (537),
-  rodina do 3 lidí 57,9 % (292), 4 a víc 16,1 % (62). Je to jen příklad, každá
+- Krok 12 má v řešení jako vlastní otázku počet příbuzných na palubě
+  (`SibSp + Parch`): sám 30,4 % (537), s 1 až 3 příbuznými 57,9 % (292),
+  se 4 a více příbuznými 16,1 % (62). Pozor, že jde o příbuzné, ne o velikost
+  rodiny: rodina i s pasažérem je o jednoho větší. Je to jen příklad, každá
   účastnice bude mít jinou.
 - Bonus 4 se vrací k otázce „ženy a děti první“: děti do 16 let 59,0 % (83),
   dospělí 38,2 % (631).

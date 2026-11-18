@@ -7,7 +7,7 @@ print("Začátek programu")
 
 from upovidany import pozdrav
 
-print(pozdrav("Petra"))
+print(pozdrav("Petro"))
 
 
 # Vypsalo se i něco, co v tomhle souboru vůbec není. Otevři upovidany.py.
@@ -17,7 +17,8 @@ print(pozdrav("Petra"))
 #   print(...)      mimo funkci se opravdu provede
 #
 # Kdyby v modulu byl input(), program by se při importu nečekaně zeptal
-# na odpověď. Testy by se na něm zasekly a čekaly by navždy.
+# na odpověď. Testy, které budeš psát v lekci o testování, by se na něm
+# zasekly a čekaly by navždy.
 #
 # Proto pravidlo, které platí i v projektech:
 #

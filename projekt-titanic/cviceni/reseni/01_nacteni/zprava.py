@@ -1,9 +1,9 @@
 # Řešení kroku 1 – Co v souboru vlastně je?
 # Tvoje řešení může vypadat jinak, a to je v pořádku.
 
-from analyza import SOUBOR, nacti_pasazery
+import analyza
 
-pasazeri = nacti_pasazery(SOUBOR)
+pasazeri = analyza.nacti_pasazery(analyza.SOUBOR)
 
 print(f"Pasažérů: {len(pasazeri)}")
 print(f"Sloupce: {list(pasazeri[0])}")

@@ -64,7 +64,7 @@ def test_100_bodu_je_jednicka():
 
 # ----- 3. Špatný vstup -----
 #
-# Co když přijde něco, co tam nepatří? Funkce se tu dohodla, že
+# Co když přijde něco, co tam nepatří? Zadání tu říká, že funkce
 # vrátí None. Test hlídá, že to opravdu dělá.
 
 def test_zaporne_body_nejsou_znamka():
@@ -81,7 +81,7 @@ def test_vic_nez_100_bodu_neni_znamka():
 
 # ----- Jeden test, jedna věc -----
 #
-# Všechny asserty by se daly nacpat do jednoho testu. Když by ale
+# Všechny asserty by se daly nacpat do jednoho testu. Kdyby ale
 # neprošel, nevíš hned, co se rozbilo, a asserty pod tím chybným se
 # vůbec neprovedou.
 #

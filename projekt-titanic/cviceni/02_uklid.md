@@ -66,8 +66,7 @@ Výpisy píšeš do `zprava.py`.
 
 Výpis sloupců a prvního pasažéra z kroku 1 už můžeš smazat, splnil svůj účel.
 Místo něj vypiš počet pasažérů a to, u kolika z nich neznáme věk. Věk budeme
-za chvíli potřebovat, takže
-si to zapiš do `poznamky.md`.
+za chvíli potřebovat, takže si to zapiš do `poznamky.md`.
 
 Zasekla ses? Nápověda je v souboru [`napovedy/02_uklid.md`](../napovedy/02_uklid.md).
 

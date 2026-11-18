@@ -11,12 +11,12 @@ Funkce `nacti_slovo` je nekonečný cyklus, ze kterého vyskočíš příkazem
 ```python
 def nacti_slovo():
     while True:
-        slovo = uprav_vstup(input("Tvůj pokus: "))
+        slovo = logika.uprav_vstup(input("Tvůj pokus: "))
         ...
 ```
 
-Ve funkci `zahraj` počítej pokusy od jedničky: `for pokus in range(1,
-POCET_POKUSU + 1)`.
+Ve funkci `zahraj` počítej pokusy od jedničky:
+`for pokus in range(1, logika.POCET_POKUSU + 1)`.
 
 Když hráč uhodne, ukonči funkci příkazem `return`. Co je napsané za cyklem, se
 pak provede jen při prohře.
