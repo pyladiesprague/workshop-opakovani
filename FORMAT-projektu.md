@@ -1,6 +1,6 @@
 # Formát workshopu pro převod na web
 
-Návrh ze 13. 11. 2026, rozhodnutí C3 v `TODO-format.md`: projekty jdou na web
+Návrh ze 13. 11. 2026, rozhodnutí C3 (dřív v `TODO-format.md`): projekty jdou na web
 stejně jako `materialy`. Převodník v `public-pages` (`code/materials/`) dnes
 čte jen `pyladiesprague/materialy`. Tenhle dokument popisuje, co má umět
 přečíst z tohoto repa a jaká pravidla proto musí dodržet zdroj.
@@ -179,13 +179,13 @@ aby řešení projektu omylem neodešlo na web.
 
 - **První řádek:** `# Název projektu` (rozhodl Vojta 13. 11.).
   - Jen krátký název bez „Projekt:“ a bez podtitulu: `# Správce osobních
-    financí`, `# Wordle s řešičem`, `# Titanic`.
+    financí`, `# Wordle`, `# Titanic`.
   - To, co projekt láká (třeba otázka u Titanicu), patří do prvního odstavce.
   - Převodník bere název stránky projektu z titulku. V `config.json` je jen
     pořadí projektů a krátký popis do přehledu workshopu (jako `description`
     u lekcí v materialy), protože úvody v README jsou na to moc dlouhé.
 - Odkazy na kroky a bonusy (`cviceni/…`, `bonusy/`) se přepíšou na stránky.
-- Sekce podle šablony README v `TODO-format.md`. Převodník je nekontroluje.
+- Sekce podle šablony README (dřív v `TODO-format.md`). Převodník je nekontroluje.
 
 #### Řešení
 
@@ -256,7 +256,7 @@ Wordle a Titanic přepsal Tomáš 14. 11. (PR #2). Titanic má novou otázku
       v souboru, grafy s knihovnou, rodiny, děti a dospělí, mazání obrazovky.
 
 ### README a ostatní
-- ✅ Titulky README: `# Správce osobních financí`, `# Wordle s řešičem`,
+- ✅ Titulky README: `# Správce osobních financí`, `# Wordle`,
       `# Titanic` (sjednoceno 13. 11.).
 - ✅ `napady.md`: finance (13. 11., i bývalé bonusy 5–11), Wordle a Titanic (14. 11.).
 - ✅ Titanic má `TAHAK.md` pro CSV a `None` (14. 11.). Wordle ho nemá a zatím

@@ -81,7 +81,7 @@ testy. Liší se tím, co na konci máš.
 | Složka | Projekt |
 |---|---|
 | [`projekt-finance/`](projekt-finance/README.md) | Správce osobních financí: příjmy, výdaje, rozpočty a grafy v terminálu |
-| [`projekt-wordle/`](projekt-wordle/README.md) | Wordle s řešičem: česká hra Wordle a program, který ji umí hrát sám |
+| [`projekt-wordle/`](projekt-wordle/README.md) | Wordle: česká hra Wordle a program, který ji umí hrát sám |
 | [`projekt-titanic/`](projekt-titanic/README.md) | Titanic: z dat o skutečných pasažérech zjistíš, kdo byl na palubě a jak dopadl |
 
 Každý projekt začíná souborem `README.md`: co postavíš, jak začít a co dělat,

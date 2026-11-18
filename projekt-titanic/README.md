@@ -14,10 +14,10 @@ otázku, kterou si vymyslíš sama. Vystačíš si s tím, co umíš z lekcí 1 
 TITANIC V ČÍSLECH
 ============================================
 
-Pasažérů celkem:            ???
+Pasažérů v souboru:         ???
 Přežilo:                    ??? (??.? %)
-Průměrný věk:              ??.?
-Nejstarší:                ????? (?? let)
+Průměrný věk:              ??.? roku
+Nejstarší:                ????? (??)
 
 Podle pohlaví             Přežilo  (lidí)
   ženy                     ??.? %  (???)

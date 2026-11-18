@@ -321,7 +321,7 @@ def sestav_zpravu(pasazeri):
         "",
         f"{'Pasažérů v souboru:':26}{len(pasazeri):5}",
         f"{'Přežilo:':26}{pocet_prezivsich(pasazeri):5} ({mira_preziti(pasazeri):.1f} %)",
-        f"{'Průměrný věk:':26}{prumerny_vek(pasazeri):5.1f} let",
+        f"{'Průměrný věk:':26}{prumerny_vek(pasazeri):5.1f} roku",
         f"{'Nejstarší:':26}{stary['Name']} ({stary['Age']:g})",
         f"{'Nejmladší:':26}{mlady['Name']} ({mlady['Age']:g})",
         "",
@@ -329,7 +329,7 @@ def sestav_zpravu(pasazeri):
     ]
     for trida in TRIDY:
         cena = prumerna_cena(filtruj(pasazeri, "Pclass", trida))
-        radky.append(f"  {TRIDY[trida]:24}{cena:5.1f} liber")
+        radky.append(f"  {TRIDY[trida]:24}{cena:5.1f} libry")
 
     radky.append("")
     radky.append(f"{'Různých titulů:':26}{len(pocty(pasazeri, 'Titul')):5}")
