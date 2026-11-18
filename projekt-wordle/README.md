@@ -1,4 +1,4 @@
-# Wordle s řešičem
+# Wordle
 
 Postavíš českou verzi hry Wordle. Hráč má šest pokusů na uhodnutí slova o pěti
 písmenech a po každém pokusu vidí, která písmena sedí. Nakonec napíšeš řešič:
