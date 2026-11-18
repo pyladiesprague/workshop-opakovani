@@ -1,6 +1,6 @@
 # Formát workshopu pro převod na web
 
-Návrh ze 13. 11. 2026, rozhodnutí C3 v `TODO-format.md`: projekty jdou na web
+Návrh ze 13. 11. 2026, rozhodnutí C3 (dřív v `TODO-format.md`): projekty jdou na web
 stejně jako `materialy`. Převodník v `public-pages` (`code/materials/`) dnes
 čte jen `pyladiesprague/materialy`. Tenhle dokument popisuje, co má umět
 přečíst z tohoto repa a jaká pravidla proto musí dodržet zdroj.
@@ -185,7 +185,7 @@ aby řešení projektu omylem neodešlo na web.
     pořadí projektů a krátký popis do přehledu workshopu (jako `description`
     u lekcí v materialy), protože úvody v README jsou na to moc dlouhé.
 - Odkazy na kroky a bonusy (`cviceni/…`, `bonusy/`) se přepíšou na stránky.
-- Sekce podle šablony README v `TODO-format.md`. Převodník je nekontroluje.
+- Sekce podle šablony README (dřív v `TODO-format.md`). Převodník je nekontroluje.
 
 #### Řešení
 
