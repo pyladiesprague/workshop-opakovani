@@ -3,8 +3,8 @@
 Příjmy zeleně, výdaje červeně, upozornění žlutě. Program se hned líp čte.
 
 Terminál text obarví, když před něj vypíšeš zvláštní kód. Kód je obyčejný
-řetězec. Začíná `\033[`, což je jeden neviditelný znak zapsaný zpětným
-lomítkem, podobně jako `\n`.
+řetězec. Začíná `\033[`. `\033` je jeden neviditelný znak (Escape) zapsaný
+zpětným lomítkem, podobně jako `\n`, a za ním je obyčejná hranatá závorka.
 
 ```python
 print("\033[32m" + "Tohle je zeleně." + "\033[0m")
