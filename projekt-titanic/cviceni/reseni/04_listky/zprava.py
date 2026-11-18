@@ -22,10 +22,10 @@ print(f"Nejmladší: {mlady['Name']}, věk {mlady['Age']}")
 
 for trida in [1, 2, 3]:
     cena = analyza.prumerna_cena(analyza.filtruj(pasazeri, "Pclass", trida))
-    print(f"{trida}. třída: průměrně {cena:.1f} liber")
+    print(f"{trida}. třída: průměrně {cena:.1f} libry")
 
 nejvyssi = analyza.nejdrazsi_listek(pasazeri)
-print(f"Nejdražší lístek: {nejvyssi} liber")
+print(f"Nejdražší lístek: {nejvyssi:.1f} libry")
 for pasazer in analyza.filtruj(pasazeri, "Fare", nejvyssi):
     print(f"  {pasazer['Name']}, lístek {pasazer['Ticket']}")
 
