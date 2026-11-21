@@ -84,7 +84,7 @@ Vypiš:
 
 1. Kolik jich je.
 2. Názvy sloupců. Klíče slovníku jako seznam získáš takhle:
-   `list(pasazeri[0])`.
+   `list(pasazeri[0].keys())`.
 3. Prvního pasažéra.
 
 Všimni si, že i čísla jsou v uvozovkách. Z CSV přijde všechno jako text.
